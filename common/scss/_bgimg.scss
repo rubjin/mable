@@ -1,330 +1,330 @@
 html {
-	&[data-theme='light'] {.numTit.linkTy:after { background: url("/mable/images/common/arrowList.png") right center no-repeat; background-size: 0.375rem 0.6875rem; }
-		select { background: rgb(var(--color-499)) url("/mable/images/common/select_arrow.png") calc(100% - 0.4rem) center no-repeat; background-size: 1.25rem; }
-		select.selectTy2 { background: transparent url("/mable/images/common/select_arrow_ty2.png") 100% center no-repeat; background-size: .75rem; }
-		.formBox.searchTy select { background: url("/mable/images/common/select_arrow.png") calc(100% - 0.625rem) center no-repeat rgb(var(--color-187)); background-size: 1.25rem; }
-		.fm.searchTy .searchBtn { background: url("/mable/images/common/select_search.png") right center no-repeat; background-size: 100%; }
-		.fm.searchTy2 .searchBtn { background: url("/mable/images/common/btn_search2.png") right center no-repeat; background-size: 1.5rem; }
-		input[type=text].impos + .clearBtn, input.impos[type=number] + .clearBtn { background: url("/mable/images/common/ico_impos.png") no-repeat; background-size: 100%; }
-		input[type=password].impos + .clearBtn { background: url("/mable/images/common/ico_impos.png") no-repeat; background-size: 100%; opacity: 1; }
-		input[type=radio] { background: url("/mable/images/common/ico_radio.png") no-repeat; background-size: cover; }
-		input[type=radio]:checked { background: url("/mable/images/common/ico_radio_active.png") no-repeat; background-size: cover; }
-		input[type=radio].checked { background: url("/mable/images/common/ico_radio_active.png") no-repeat; background-size: cover; }
-		input[type=checkbox] { background: url("/mable/images/common/ico_check.png") no-repeat; background-size: cover; }
-		input[type=checkbox]:checked { background: url("/mable/images/common/ico_check_active.png") no-repeat; background-size: cover; }
-		input[type=checkbox].checked { background: url("/mable/images/common/ico_check_active.png") no-repeat; background-size: cover; }
+	&[data-theme='light'] {.numTit.linkTy:after { background: url("https://dtong.kbsec.com/mable/images/common/arrowList.png") right center no-repeat; background-size: 0.375rem 0.6875rem; }
+		select { background: rgb(var(--color-499)) url("https://dtong.kbsec.com/mable/images/common/select_arrow.png") calc(100% - 0.4rem) center no-repeat; background-size: 1.25rem; }
+		select.selectTy2 { background: transparent url("https://dtong.kbsec.com/mable/images/common/select_arrow_ty2.png") 100% center no-repeat; background-size: .75rem; }
+		.formBox.searchTy select { background: url("https://dtong.kbsec.com/mable/images/common/select_arrow.png") calc(100% - 0.625rem) center no-repeat rgb(var(--color-187)); background-size: 1.25rem; }
+		.fm.searchTy .searchBtn { background: url("https://dtong.kbsec.com/mable/images/common/select_search.png") right center no-repeat; background-size: 100%; }
+		.fm.searchTy2 .searchBtn { background: url("https://dtong.kbsec.com/mable/images/common/btn_search2.png") right center no-repeat; background-size: 1.5rem; }
+		input[type=text].impos + .clearBtn, input.impos[type=number] + .clearBtn { background: url("https://dtong.kbsec.com/mable/images/common/ico_impos.png") no-repeat; background-size: 100%; }
+		input[type=password].impos + .clearBtn { background: url("https://dtong.kbsec.com/mable/images/common/ico_impos.png") no-repeat; background-size: 100%; opacity: 1; }
+		input[type=radio] { background: url("https://dtong.kbsec.com/mable/images/common/ico_radio.png") no-repeat; background-size: cover; }
+		input[type=radio]:checked { background: url("https://dtong.kbsec.com/mable/images/common/ico_radio_active.png") no-repeat; background-size: cover; }
+		input[type=radio].checked { background: url("https://dtong.kbsec.com/mable/images/common/ico_radio_active.png") no-repeat; background-size: cover; }
+		input[type=checkbox] { background: url("https://dtong.kbsec.com/mable/images/common/ico_check.png") no-repeat; background-size: cover; }
+		input[type=checkbox]:checked { background: url("https://dtong.kbsec.com/mable/images/common/ico_check_active.png") no-repeat; background-size: cover; }
+		input[type=checkbox].checked { background: url("https://dtong.kbsec.com/mable/images/common/ico_check_active.png") no-repeat; background-size: cover; }
 		.clearBtn { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM12 10.5859L8.70703 7.29297L7.29297 8.70703L10.5859 12L7.29297 15.293L8.70703 16.707L12 13.4141L15.293 16.707L16.707 15.293L13.4141 12L16.707 8.70703L15.293 7.29297L12 10.5859Z' fill='rgba(153, 153, 153, 1)'/%3E%3C/svg%3E") no-repeat center center / 1rem; }
 		.noData::before { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48' fill='none'%3E%3Crect width='36' height='40' rx='4' fill='%23E8E8E8'/%3E%3Crect x='3' y='3' width='30' height='34' rx='3' fill='white'/%3E%3Crect x='8' y='16' width='11' height='3' rx='1' fill='%23E8E8E8'/%3E%3Crect x='8' y='9' width='19' height='3' rx='1' fill='%23E8E8E8'/%3E%3Cpath d='M47.2265 47.2562C46.1952 48.2479 44.5228 48.2479 43.4921 47.2562L39 42.0445L42.4286 39L47.2265 43.6645C48.2578 44.6563 48.2578 46.2645 47.2265 47.2562Z' fill='%23E8E8E8'/%3E%3Cpath d='M43.5 32C43.5 38.3515 38.3515 43.5 32 43.5C25.6485 43.5 20.5 38.3515 20.5 32C20.5 25.6485 25.6485 20.5 32 20.5C38.3515 20.5 43.5 25.6485 43.5 32Z' fill='white' stroke='%23E8E8E8' stroke-width='3'/%3E%3C/svg%3E") no-repeat center top/2rem; }
-		#popup .popupFoot .btnClose { background: url("/mable/images/common/bg_btn_close_28x28.png") no-repeat 50% 50%; background-size: 0.875rem 0.875rem; }
-		.btnClose { background: url("/mable/images/common/btnClose.png") no-repeat; background-size: cover; }
-		.noSearch { background: url("/mable/images/common/ico_noData.png") 50% 0.25rem no-repeat; background-size: 1.875rem 2rem; }
-		.searchFormTy1 .selectRange select { background: url("/mable/images/common/bg_srch_select_arrow.png") no-repeat 100% 50%; background-size: auto 0.625rem; }
-		.searchFormTy1 .inputText.kwTy:after { background: url("/mable/images/common/ico2.png") no-repeat -1.75rem -2rem; background-size: 18.75rem 18.75rem; }
-		.searchFormTy1 .i-btnSearch:after { background: url("/mable/images/common/ico2.png") no-repeat -6.5625rem -5.4375rem; background-size: 18.75rem 18.75rem; }
-		.searchFormTy2 .selectRange select { background: url("/mable/images/common/bg_srch_select_arrow.png") no-repeat 100% 50%; background-size: auto 0.625rem; }
-		.searchFormTy2 .inputText.kwTy:after { background: url("/mable/images/common/ico2.png") no-repeat -1.75rem -2rem; background-size: 18.75rem 18.75rem; }
-		.searchFormTy2 .i-btnSearch:after { background: url("/mable/images/common/ico_searchTy2.png") no-repeat; background-size: 1rem 1rem; }
-		.swiper-button-prev { background: url("/mable/images/common/slide_left_btn.png") no-repeat; background-size: cover; }
-		.swiper-button-next { background: url("/mable/images/common/slide_right_btn.png") no-repeat; background-size: cover; }
-		.faqList dt { background: url("/mable/images/common/ico_arrow_down.png") 96% 50% no-repeat; background-size: 0.875rem 0.5rem; }
-		.faqList dt.active { background: url("/mable/images/common/ico_arrow_up.png") 96% 50% no-repeat; background-size: 0.875rem 0.5rem; }
-		.toggleList li .visibleBox { background: url("/mable/images/common/btn_arrow.png") 100% 50% no-repeat; background-size: 1.5rem; }
-		.toggleList li.active .visibleBox { background: url("/mable/images/common/btn_arrowTop.png") 100% 50% no-repeat; background-size: 1.5rem; }
-		.tabSelect .tit span { background: url("/mable/images/common/arrowDown.png") 50% 50% no-repeat; background-size: 0.75rem 0.375rem; }
-		.tabSelect.active .tit span { background: url("/mable/images/common/arrowUp.png") 50% 50% no-repeat; background-size: 0.75rem 0.375rem; }
-		.video-popup.reveal .closeBtn { background: url("/mable/images/common/btn_player.png") no-repeat; }
+		#popup .popupFoot .btnClose { background: url("https://dtong.kbsec.com/mable/images/common/bg_btn_close_28x28.png") no-repeat 50% 50%; background-size: 0.875rem 0.875rem; }
+		.btnClose { background: url("https://dtong.kbsec.com/mable/images/common/btnClose.png") no-repeat; background-size: cover; }
+		.noSearch { background: url("https://dtong.kbsec.com/mable/images/common/ico_noData.png") 50% 0.25rem no-repeat; background-size: 1.875rem 2rem; }
+		.searchFormTy1 .selectRange select { background: url("https://dtong.kbsec.com/mable/images/common/bg_srch_select_arrow.png") no-repeat 100% 50%; background-size: auto 0.625rem; }
+		.searchFormTy1 .inputText.kwTy:after { background: url("https://dtong.kbsec.com/mable/images/common/ico2.png") no-repeat -1.75rem -2rem; background-size: 18.75rem 18.75rem; }
+		.searchFormTy1 .i-btnSearch:after { background: url("https://dtong.kbsec.com/mable/images/common/ico2.png") no-repeat -6.5625rem -5.4375rem; background-size: 18.75rem 18.75rem; }
+		.searchFormTy2 .selectRange select { background: url("https://dtong.kbsec.com/mable/images/common/bg_srch_select_arrow.png") no-repeat 100% 50%; background-size: auto 0.625rem; }
+		.searchFormTy2 .inputText.kwTy:after { background: url("https://dtong.kbsec.com/mable/images/common/ico2.png") no-repeat -1.75rem -2rem; background-size: 18.75rem 18.75rem; }
+		.searchFormTy2 .i-btnSearch:after { background: url("https://dtong.kbsec.com/mable/images/common/ico_searchTy2.png") no-repeat; background-size: 1rem 1rem; }
+		.swiper-button-prev { background: url("https://dtong.kbsec.com/mable/images/common/slide_left_btn.png") no-repeat; background-size: cover; }
+		.swiper-button-next { background: url("https://dtong.kbsec.com/mable/images/common/slide_right_btn.png") no-repeat; background-size: cover; }
+		.faqList dt { background: url("https://dtong.kbsec.com/mable/images/common/ico_arrow_down.png") 96% 50% no-repeat; background-size: 0.875rem 0.5rem; }
+		.faqList dt.active { background: url("https://dtong.kbsec.com/mable/images/common/ico_arrow_up.png") 96% 50% no-repeat; background-size: 0.875rem 0.5rem; }
+		.toggleList li .visibleBox { background: url("https://dtong.kbsec.com/mable/images/common/btn_arrow.png") 100% 50% no-repeat; background-size: 1.5rem; }
+		.toggleList li.active .visibleBox { background: url("https://dtong.kbsec.com/mable/images/common/btn_arrowTop.png") 100% 50% no-repeat; background-size: 1.5rem; }
+		.tabSelect .tit span { background: url("https://dtong.kbsec.com/mable/images/common/arrowDown.png") 50% 50% no-repeat; background-size: 0.75rem 0.375rem; }
+		.tabSelect.active .tit span { background: url("https://dtong.kbsec.com/mable/images/common/arrowUp.png") 50% 50% no-repeat; background-size: 0.75rem 0.375rem; }
+		.video-popup.reveal .closeBtn { background: url("https://dtong.kbsec.com/mable/images/common/btn_player.png") no-repeat; }
 		.bdList .weekly > li.new :before { background: url("/mable/imagescommon/ico.png") no-repeat -8rem -5.4375rem; background-size: 18.75rem 18.75rem; }
-		.navGuide span::after { background: url("/mable/images/common/btn_arrowRight.png") no-repeat center center; background-size: 1.25rem 1.25rem; }
-		.bottomSheet .close { background: url("/mable/images/common/ico_btClose.png"); background-size: 100%; }
-		.bottomSheet .caution { background: url("/mable/images/common/ico_caution.png") 50% 0.625rem no-repeat; background-size: 2.75rem; }
-		.bottomSheet .cautionTy2 { background: url("/mable/images/common/ico_cautionTy2.png") 50% 0.625rem no-repeat; background-size: 2.75rem; }
-		.bottomSheet .sotingList li.active { background: url("/mable/images/common/ico_soting_check.png") right 50% no-repeat; background-size: 1.5rem; }
-		.bottomSheet .sotingList.ty2 li.active { background: url("/mable/images/common/ico_soting_check.png") right 50% no-repeat; background-size: 1.5rem; }
-		.bottomSheet .agreeTy { background: url("/mable/images/common/ico_agreeTy1.png") 50% 0.625rem no-repeat; background-size: 2.75rem; }
-		.bottomSheet .fmTy { background: url("/mable/images/common/ico_agreeNext.png") right 50% no-repeat; background-size: 1.5rem; }
-		.bottomSheet .pdfTy .pdfBtn { background: url("/mable/images/common/ico_agreeNext.png") right 50% no-repeat; background-size: 1.5rem; }
-		.todaysCock .contBox .titHead > .moreBtn { background: url("/mable/images/common/ic_arrow.png") 50% 50% no-repeat; background-size: 1rem; }
-		.todaysCock .shareBtn .share { background: rgb(var(--color-028)) url("/mable/images/common/ico_share.png") 1.5rem 50% no-repeat; background-size: 1.5rem; }
-		.todaysCock .toggleBtnBox .btnArea button.like { background: rgb(var(--color-028)) url("/mable/images/common/ic_like.png") 0.875rem 50% no-repeat; background-size: 1.5rem; }
-		.todaysCock .toggleBtnBox .btnArea button.dislike { background: rgb(var(--color-028)) url("/mable/images/common/ic_dislike.png") 0.875rem 50% no-repeat; background-size: 1.5rem; }
-		.todaysCock .stocks button { background: rgb(var(--color-028)) url("/mable/images/common/btn_slideRight.png") 90% 50% no-repeat; background-size: 20px auto; }
-		.linkList li:after { background: url("/mable/images/common/arrowList.png") no-repeat; background-size: 0.3125rem 0.625rem; }
-		.listTy13 > li { background: url("/mable/images/product/ic_check.png") 0 0 no-repeat; background-size: 1.25rem; }
-		.listTy15.ty2.toggleList li.active .visibleBox { background: url("/mable/images/common/btn_arrowTop.png") 100% 50% no-repeat; background-size: 1.5rem; }
-		.listTyAgree1 .ico.ty1 { background: url("/mable/images/common/ico_agree_01.png") left top no-repeat; background-size: 0.875rem auto; }
-		.listTyAgree1 .ico.ty2 { background: url("/mable/images/common/ico_agree_02.png") 0.625rem top no-repeat; background-size: 0.875rem auto; }
-		.listTyAgree1 .ico.ty3 { background: url("/mable/images/common/ico_agree_03.png") 0.625rem top no-repeat; background-size: 0.875rem auto; }
-		.icoList.linkTy > li:after { background: url("/mable/images/common/arrowList.png") center center no-repeat; background-size: 0.375rem 0.688rem; }
-		.icoList.linkBox > li:after { background: url("/mable/images/common/arrowList.png") center center no-repeat; background-size: 0.375rem 0.688rem; }
+		.navGuide span::after { background: url("https://dtong.kbsec.com/mable/images/common/btn_arrowRight.png") no-repeat center center; background-size: 1.25rem 1.25rem; }
+		.bottomSheet .close { background: url("https://dtong.kbsec.com/mable/images/common/ico_btClose.png"); background-size: 100%; }
+		.bottomSheet .caution { background: url("https://dtong.kbsec.com/mable/images/common/ico_caution.png") 50% 0.625rem no-repeat; background-size: 2.75rem; }
+		.bottomSheet .cautionTy2 { background: url("https://dtong.kbsec.com/mable/images/common/ico_cautionTy2.png") 50% 0.625rem no-repeat; background-size: 2.75rem; }
+		.bottomSheet .sotingList li.active { background: url("https://dtong.kbsec.com/mable/images/common/ico_soting_check.png") right 50% no-repeat; background-size: 1.5rem; }
+		.bottomSheet .sotingList.ty2 li.active { background: url("https://dtong.kbsec.com/mable/images/common/ico_soting_check.png") right 50% no-repeat; background-size: 1.5rem; }
+		.bottomSheet .agreeTy { background: url("https://dtong.kbsec.com/mable/images/common/ico_agreeTy1.png") 50% 0.625rem no-repeat; background-size: 2.75rem; }
+		.bottomSheet .fmTy { background: url("https://dtong.kbsec.com/mable/images/common/ico_agreeNext.png") right 50% no-repeat; background-size: 1.5rem; }
+		.bottomSheet .pdfTy .pdfBtn { background: url("https://dtong.kbsec.com/mable/images/common/ico_agreeNext.png") right 50% no-repeat; background-size: 1.5rem; }
+		.todaysCock .contBox .titHead > .moreBtn { background: url("https://dtong.kbsec.com/mable/images/common/ic_arrow.png") 50% 50% no-repeat; background-size: 1rem; }
+		.todaysCock .shareBtn .share { background: rgb(var(--color-028)) url("https://dtong.kbsec.com/mable/images/common/ico_share.png") 1.5rem 50% no-repeat; background-size: 1.5rem; }
+		.todaysCock .toggleBtnBox .btnArea button.like { background: rgb(var(--color-028)) url("https://dtong.kbsec.com/mable/images/common/ic_like.png") 0.875rem 50% no-repeat; background-size: 1.5rem; }
+		.todaysCock .toggleBtnBox .btnArea button.dislike { background: rgb(var(--color-028)) url("https://dtong.kbsec.com/mable/images/common/ic_dislike.png") 0.875rem 50% no-repeat; background-size: 1.5rem; }
+		.todaysCock .stocks button { background: rgb(var(--color-028)) url("https://dtong.kbsec.com/mable/images/common/btn_slideRight.png") 90% 50% no-repeat; background-size: 20px auto; }
+		.linkList li:after { background: url("https://dtong.kbsec.com/mable/images/common/arrowList.png") no-repeat; background-size: 0.3125rem 0.625rem; }
+		.listTy13 > li { background: url("https://dtong.kbsec.com/mable/imagesproduct/ic_check.png") 0 0 no-repeat; background-size: 1.25rem; }
+		.listTy15.ty2.toggleList li.active .visibleBox { background: url("https://dtong.kbsec.com/mable/images/common/btn_arrowTop.png") 100% 50% no-repeat; background-size: 1.5rem; }
+		.listTyAgree1 .ico.ty1 { background: url("https://dtong.kbsec.com/mable/images/common/ico_agree_01.png") left top no-repeat; background-size: 0.875rem auto; }
+		.listTyAgree1 .ico.ty2 { background: url("https://dtong.kbsec.com/mable/images/common/ico_agree_02.png") 0.625rem top no-repeat; background-size: 0.875rem auto; }
+		.listTyAgree1 .ico.ty3 { background: url("https://dtong.kbsec.com/mable/images/common/ico_agree_03.png") 0.625rem top no-repeat; background-size: 0.875rem auto; }
+		.icoList.linkTy > li:after { background: url("https://dtong.kbsec.com/mable/images/common/arrowList.png") center center no-repeat; background-size: 0.375rem 0.688rem; }
+		.icoList.linkBox > li:after { background: url("https://dtong.kbsec.com/mable/images/common/arrowList.png") center center no-repeat; background-size: 0.375rem 0.688rem; }
 		.icoList.linkBoxTy2 > li:after { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M6 14L12 9L6 4' stroke='rgba(153, 153, 153, 1)' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/0.75rem; }
-		.icoList.ty7 > li > .cont:after { background: url("/mable/images/common/arrowList.png") center center no-repeat; background-size: 0.5rem auto; }
-		.boardList.ty2 li { background: url("/mable/images/common/arrowList.png") right center no-repeat; background-size: 0.375rem auto; }
-		.boardView .head .file a.pdf { background: url("/mable/images/common/btn_pdf_view.png") left 50% no-repeat; background-size: 1rem; }
-		.stepTy1.ty2 > .tit:after { background: rgb(var(--color-028)) url("/mable/images/common/ico_step_link.png") center center no-repeat; background-size: 0.313rem; }
-		.stepNumList.linkTy > li:after { background: url("/mable/images/common/ico_step_link.png") center center no-repeat; background-size: 0.313rem; }
-		.stepNumListTy2 > li:after { background: rgb(var(--color-028)) url("/mable/images/common/ico_step_link.png") center center no-repeat; background-size: 0.313rem; }
-		.stepTy2 > li + li:after { background: url("/mable/images/common/ico_step.png") left center no-repeat; background-size: auto 1.875rem; }
-		.stepTy3 > li:after { background: url("/mable/images/common/ico_arrow_down.png") no-repeat; background-size: 0.875rem 0.5rem; }
-		.stepTy4 > li:after { background: url("/mable/images/common/ico_arrow_down.png") no-repeat; background-size: 0.875rem 0.5rem; }
-		.btnTy3.search { background: rgb(var(--color-028)) url("/mable/images/common/btn_search.png") 0.25rem 49% no-repeat; background-size: 1.0625rem; }
-		.btnTy7 { background: url("/mable/images/common/btn_arrowRight.png") right 0.3125rem top 50% no-repeat rgb(var(--color-028)); background-size: 1.5rem; }
-		.i-stockUp { background: url("/mable/images/common/ico_stock_up.png") center center no-repeat; background-size: 0.625rem auto; }
-		.i-stockDw { background: url("/mable/images/common/ico_stock_down.png") center center no-repeat; background-size: 0.625rem auto; }
-		.i-info { background: url("/mable/images/common/ic_connectCall.png") center center no-repeat; background-size: 1.125rem auto; }
-		.i-info.ty2 { background: url("/mable/images/common/ic_connectCallTy2.png") center center no-repeat; background-size: 1.125rem auto; }
-		.goToLinkTy2::after { background: url("/mable/images/common/ic_l_24_detailentry_b.png") no-repeat; background-size: 100%; }
-		.goToLinkTy3::after { background: url("/mable/images/common/ic_l_12_more_blue.png") no-repeat; background-size: 100%; }
-		.btnTyFile { background: rgb(var(--color-028)) url("/mable/images/common/ic_btnFile.png") 95% 50% no-repeat; background-size: 1.125rem; }
-		.showMore { background: url("/mable/images/common/btn_arrow.png") no-repeat center center; background-size: 100%; }
-		.showMore.active { background: url("/mable/images/common/btn_arrowTop.png") no-repeat center center; background-size: 100%; }
-		.tbTy2 table.linkTb tbody td:last-child { background: url("/mable/images/common/arrowList.png") 94% 50% no-repeat; background-size: 0.375rem 0.6875rem; }
-		.boxTy1 li:after { background: url("/mable/images/common/ico_boxList_arrow.png") 0 0 no-repeat; background-size: 1.5625rem 0.9375rem; }
-		.topBanner.recomFund { background: url("/mable/images/asset/top_crirerion.png") right 50% #8b8ea9 no-repeat; background-size: auto 100%; }
-		.insight > .vis .visImg .slideBg .bg { background: url("/mable/images/asset/insight_vis_bg.png") left top repeat-x; background-size: auto 100%; }
+		.icoList.ty7 > li > .cont:after { background: url("https://dtong.kbsec.com/mable/images/common/arrowList.png") center center no-repeat; background-size: 0.5rem auto; }
+		.boardList.ty2 li { background: url("https://dtong.kbsec.com/mable/images/common/arrowList.png") right center no-repeat; background-size: 0.375rem auto; }
+		.boardView .head .file a.pdf { background: url("https://dtong.kbsec.com/mable/images/common/btn_pdf_view.png") left 50% no-repeat; background-size: 1rem; }
+		.stepTy1.ty2 > .tit:after { background: rgb(var(--color-028)) url("https://dtong.kbsec.com/mable/images/common/ico_step_link.png") center center no-repeat; background-size: 0.313rem; }
+		.stepNumList.linkTy > li:after { background: url("https://dtong.kbsec.com/mable/images/common/ico_step_link.png") center center no-repeat; background-size: 0.313rem; }
+		.stepNumListTy2 > li:after { background: rgb(var(--color-028)) url("https://dtong.kbsec.com/mable/images/common/ico_step_link.png") center center no-repeat; background-size: 0.313rem; }
+		.stepTy2 > li + li:after { background: url("https://dtong.kbsec.com/mable/images/common/ico_step.png") left center no-repeat; background-size: auto 1.875rem; }
+		.stepTy3 > li:after { background: url("https://dtong.kbsec.com/mable/images/common/ico_arrow_down.png") no-repeat; background-size: 0.875rem 0.5rem; }
+		.stepTy4 > li:after { background: url("https://dtong.kbsec.com/mable/images/common/ico_arrow_down.png") no-repeat; background-size: 0.875rem 0.5rem; }
+		.btnTy3.search { background: rgb(var(--color-028)) url("https://dtong.kbsec.com/mable/images/common/btn_search.png") 0.25rem 49% no-repeat; background-size: 1.0625rem; }
+		.btnTy7 { background: url("https://dtong.kbsec.com/mable/images/common/btn_arrowRight.png") right 0.3125rem top 50% no-repeat rgb(var(--color-028)); background-size: 1.5rem; }
+		.i-stockUp { background: url("https://dtong.kbsec.com/mable/images/common/ico_stock_up.png") center center no-repeat; background-size: 0.625rem auto; }
+		.i-stockDw { background: url("https://dtong.kbsec.com/mable/images/common/ico_stock_down.png") center center no-repeat; background-size: 0.625rem auto; }
+		.i-info { background: url("https://dtong.kbsec.com/mable/images/common/ic_connectCall.png") center center no-repeat; background-size: 1.125rem auto; }
+		.i-info.ty2 { background: url("https://dtong.kbsec.com/mable/images/common/ic_connectCallTy2.png") center center no-repeat; background-size: 1.125rem auto; }
+		.goToLinkTy2::after { background: url("https://dtong.kbsec.com/mable/images/common/ic_l_24_detailentry_b.png") no-repeat; background-size: 100%; }
+		.goToLinkTy3::after { background: url("https://dtong.kbsec.com/mable/images/common/ic_l_12_more_blue.png") no-repeat; background-size: 100%; }
+		.btnTyFile { background: rgb(var(--color-028)) url("https://dtong.kbsec.com/mable/images/common/ic_btnFile.png") 95% 50% no-repeat; background-size: 1.125rem; }
+		.showMore { background: url("https://dtong.kbsec.com/mable/images/common/btn_arrow.png") no-repeat center center; background-size: 100%; }
+		.showMore.active { background: url("https://dtong.kbsec.com/mable/images/common/btn_arrowTop.png") no-repeat center center; background-size: 100%; }
+		.tbTy2 table.linkTb tbody td:last-child { background: url("https://dtong.kbsec.com/mable/images/common/arrowList.png") 94% 50% no-repeat; background-size: 0.375rem 0.6875rem; }
+		.boxTy1 li:after { background: url("https://dtong.kbsec.com/mable/images/common/ico_boxList_arrow.png") 0 0 no-repeat; background-size: 1.5625rem 0.9375rem; }
+		.topBanner.recomFund { background: url("https://dtong.kbsec.com/mable/images/asset/top_crirerion.png") right 50% #8b8ea9 no-repeat; background-size: auto 100%; }
+		.insight > .vis .visImg .slideBg .bg { background: url("https://dtong.kbsec.com/mable/images/asset/insight_vis_bg.png") left top repeat-x; background-size: auto 100%; }
 		.mptiWrap .vis { background: url('/mable/images/asset/mpti_visual.png') center bottom no-repeat #272727; background-size: auto 210px; }
-		.account_wrap .ico .i-mobile { background: url("/mable/images/asset/icon_sable.png") left top no-repeat; background-size: 2.125rem 3.313rem; }
-		.puzzleList li:nth-child(1):after { background: url("/mable/images/asset/ico_puzzle_left.png") left top no-repeat; background-size: auto 2.5rem; }
-		.puzzleList li:nth-child(4):after { background: url("/mable/images/asset/ico_puzzle_right.png") left top no-repeat; background-size: auto 2.5rem; }
-		.processList > li h1:before { background: url("/mable/images/asset/ico_process_arrow.png") left top no-repeat; background-size: auto 1.25rem; }
-		.diagramTy2 .dmItem.plus::before { background: url("/mable/images/asset/pm_dm_plus.png") no-repeat; background-size: 100%; }
-		.taxBanner { background: rgb(var(--color-419)) url("/mable/images/asset/img_banner_taxschedule.png") 95% 50% no-repeat; background-size: 3rem auto; }
-		.taxDateArea .arrow_l { background: url("/mable/images/asset/ic_arrow_l.png") center center no-repeat; background-size: 1.25rem; }
-		.taxDateArea .arrow_r { background: url("/mable/images/asset/ic_arrow_r.png") center center no-repeat; background-size: 1.25rem; }
-		.dIdxWrap .bannerArea { background: url("/mable/images/asset/dIdx_banner_bg_2024.png") left 50% no-repeat, url("/mable/images/common/arrowList.png") 96% 50% no-repeat, rgba(var(--color-180)); background-size: 6.5rem, 0.313rem auto; }
-		.elsInfoWrap .ListWrap { background: url("/mable/images/asset/elsInfo_bg.png") left bottom no-repeat #e5f3f5; background-size: 60%; }
-		.fundInfo .tit:after { background: url("/mable/images/common/arrowList.png") right center no-repeat; background-size: 100% 100%; }
-		.compareRate .btnListCR li span:first-of-type { background: url("/mable/images/product/ic_checkLightGray.png") 17% 40% no-repeat; background-size: 1.125rem; }
-		.compareRate .btnListCR li.active span:first-of-type { background: url("/mable/images/product/ic_checkDark.png") 17% 40% no-repeat; background-size: 1.125rem; }
-		.cardInfo h1:before { background: url("/mable/images/startable/ico_able.png") no-repeat; background-size: cover; }
-		.taxVis1 { background: url("/mable/images/asset/img_tax_reduce_v1.png") 96% 80% no-repeat; background-size: 10.313rem auto; }
-		.taxVis2 { background: url("/mable/images/asset/img_tax_taxcredit.png") right bottom no-repeat; background-size: 8.125rem auto; }
-		.insight .anchor > a { background: rgb(var(--color-028)) url("/mable/images/asset/insight_anchor_ico.png") 50% 84% no-repeat; background-size: auto 6px; }
-		.assetGateWrap .visual.cma { background: url("/mable/images/asset/img_gatetop_cma.png") right bottom no-repeat; background-size: 6.25rem; }
-		.assetGateWrap .gateList.cma li:nth-child(1) { background: url("/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.cma li:nth-child(2) { background: url("/mable/images/asset/img_gateicon_04.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.cma li:nth-child(3) { background: url("/mable/images/asset/img_gateicon_05.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.cma li:nth-child(4) { background: url("/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .visual.isa { background: url("/mable/images/asset/img_gatetop_isa.png") right bottom no-repeat; background-size: 6.25rem; }
-		.assetGateWrap .gateList.isa li:nth-child(1) { background: url("/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.isa li:nth-child(2) { background: url("/mable/images/asset/img_gateicon_04.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.isa li:nth-child(3) { background: url("/mable/images/asset/img_gateicon_05.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.isa li:nth-child(4) { background: url("/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .visual.pension { background: url("/mable/images/asset/img_gatetop_pension.png") right bottom no-repeat; background-size: 6.25rem; }
-		.assetGateWrap .gateList.pension li:nth-child(1) { background: url("/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) center no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.pension li:nth-child(2) { background: url("/mable/images/asset/img_gateicon_02.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.pension li:nth-child(3) { background: url("/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .visual.irp { background: url("/mable/images/asset/img_gatetop_irp.png") right bottom no-repeat; background-size: 6.25rem; }
-		.assetGateWrap .gateList.irp li:nth-child(1) { background: url("/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.irp li:nth-child(2) { background: url("/mable/images/asset/img_gateicon_07.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.irp li:nth-child(3) { background: url("/mable/images/asset/img_gateicon_02.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.irp li:nth-child(4) { background: url("/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .visual.trust { background: url("/mable/images/asset/img_gatetop_trust.png") right bottom no-repeat; background-size: 6.25rem; }
-		.assetGateWrap .gateList.trust li:nth-child(1) { background: url("/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.trust li:nth-child(2) { background: url("/mable/images/asset/img_gateicon_04.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.trust li:nth-child(3) { background: url("/mable/images/asset/img_gateicon_06.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.trust li:nth-child(4) { background: url("/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .visual.wp { background: url("/mable/images/asset/img_gatetop_wrap.png") right bottom no-repeat; background-size: 6.25rem; }
-		.assetGateWrap .gateList.wp li:nth-child(1) { background: url("/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) center no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.wp li:nth-child(2) { background: url("/mable/images/asset/img_gateicon_06.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.wp li:nth-child(3) { background: url("/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .visual.fund { background: url("/mable/images/asset/img_gatetop_fund.png") right bottom no-repeat; background-size: 9.5rem; }
-		.assetGateWrap .gateList.fund li:nth-child(1) { background: url("/mable/images/asset/img_gateicon_08.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.fund li:nth-child(2) { background: url("/mable/images/asset/img_gateicon_05.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.fund li:nth-child(3) { background: url("/mable/images/asset/img_gateicon_02.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.fund li:nth-child(4) { background: url("/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .visual.bill { background: url("/mable/images/asset/img_gatetop_bill.png") right bottom no-repeat; background-size: 6.25rem; }
-		.assetGateWrap .gateList.bill li:nth-child(1) { background: url("/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) center no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.bill li:nth-child(2) { background: url("/mable/images/asset/img_gateicon_02.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.bill li:nth-child(3) { background: url("/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .visual.rp { background: url("/mable/images/asset/img_gatetop_rp.png") right bottom no-repeat; background-size: 6.25rem; }
-		.assetGateWrap .gateList.rp li:nth-child(1) { background: url("/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) center no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.rp li:nth-child(2) { background: url("/mable/images/asset/img_gateicon_02.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.rp li:nth-child(3) { background: url("/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .visual.bond { background: url("/mable/images/asset/img_gatetop_bond.png") right bottom no-repeat; background-size: 5.5rem; }
-		.assetGateWrap .gateList.bond li:nth-child(1) { background: url("/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.bond li:nth-child(2) { background: url("/mable/images/asset/img_gateicon_02.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.bond li:nth-child(3) { background: url("/mable/images/asset/img_gateicon_16.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.bond li:nth-child(4) { background: url("/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap #bond.hot li:nth-child(1) { background: url("/mable/images/asset/img_gate_hot_bond_01.png") calc(100% - 0.75rem) calc(100% - 0.5rem) no-repeat rgb(var(--color-438)); background-size: auto 3.4rem; }
-		.assetGateWrap #bond.hot li:nth-child(2) { background: url("/mable/images/asset/img_gate_hot_bond_02.png") calc(100% - 0.75rem) calc(100% - 0.5rem) no-repeat rgb(var(--color-044)); background-size: auto 3.4rem; }
-		.assetGateWrap #fund.hot li:nth-child(1) { background: url("/mable/images/asset/img_gate_hot_fund_01.png") calc(100% - 1rem) calc(100% - 0.875rem) no-repeat rgb(var(--color-191)); background-size: auto 2.625rem; }
-		.assetGateWrap #fund.hot li:nth-child(2) { background: url("/mable/images/asset/img_gate_hot_fund_02.png") calc(100% - 1rem) calc(100% - 0.875rem) no-repeat rgb(var(--color-438)); background-size: auto 2.625rem; }
-		.assetGateWrap .visual.elsdls { background: url("/mable/images/asset/img_gatetop_elsdls.png") right bottom no-repeat; background-size: 6.25rem; }
-		.assetGateWrap .gateList.elsdls li:nth-child(1) { background: url("/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) center no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.elsdls li:nth-child(2) { background: url("/mable/images/asset/img_gateicon_02.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.assetGateWrap .gateList.elsdls li:nth-child(3) { background: url("/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.tradingGateWrap .visual.ats { background: url("/mable/images/trading/img_gatetop_ats.png") right bottom no-repeat; background-size: 8.4375rem; }
-		.tradingGateWrap .gateList.ats li:nth-child(1) { background: url("/mable/images/asset/img_gateicon_15.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.tradingGateWrap .gateList.ats li:nth-child(2) { background: url("/mable/images/asset/img_gateicon_14.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.tradingGateWrap .gateList.ats li:nth-child(3) { background: url("/mable/images/asset/img_gateicon_06.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.tradingGateWrap .gateList.ats li:nth-child(4) { background: url("/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.tradingGateWrap .visual.GOption { background: url("/mable/images/trading/img_gatetop_GOption.png") right 1.25rem no-repeat; background-size: 8.4375rem; }
-		.tradingGateWrap .gateList.GOption li:nth-child(1) { background: url("/mable/images/asset/img_gateicon_13.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.tradingGateWrap .gateList.GOption li:nth-child(2) { background: url("/mable/images/asset/img_gateicon_15.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.tradingGateWrap .gateList.GOption li:nth-child(3) { background: url("/mable/images/asset/img_gateicon_06.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.tradingGateWrap .gateList.GOption li:nth-child(4) { background: url("/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.gateList li.pb { background: url("/mable/images/asset/img_gateicon_09.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-485)); background-size: auto 3.25rem; }
-		.gateList li.newaccount { background: url("/mable/images/asset/img_gateicon_10.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-486)); background-size: auto 3.25rem; }
-		.gateList li.consult { background: url("/mable/images/asset/img_gateicon_11.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-438)); background-size: auto 3.25rem; }
-		.gateList.usStockOption li:nth-child(1) { background: url("/mable/images/asset/img_gateicon_12.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.gateList.usStockOption li:nth-child(2) { background: url("/mable/images/asset/img_gateicon_04.png") calc(100% - 0.75rem) calc(100% - 1.2rem) no-repeat rgb(var(--color-187)); background-size: auto 2.3rem; }
-		.gateList.usStockOption li:nth-child(3) { background: url("/mable/images/asset/img_gateicon_06.png") calc(100% - 0.75rem) calc(100% - 1.2rem) no-repeat rgb(var(--color-187)); background-size: auto 2rem; }
-		.gateList.usStockOption li:nth-child(4) { background: url("/mable/images/asset/img_gateicon_13.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
-		.curation .slide .swiper-container .imgArea .ani.ty3 .bar::after { background: url("/mable/images/asset/curation_control.png") no-repeat; background-size: 100%; }
-		.taxplan .btnArea { background: url("/mable/images/asset/taxplan_btn_img.png") 48% top no-repeat; background-size: 16.25rem auto; }
-		.trustType .icoList > li:nth-child(1) { background: url("/mable/images/asset/ico_trust_service_01.png") 0 0 no-repeat; background-size: 3.5rem; }
-		.trustType .icoList > li:nth-child(2) { background: url("/mable/images/asset/ico_trust_service_02.png") 0 0 no-repeat; background-size: 3.5rem; }
-		.trustType .icoList > li:nth-child(3) { background: url("/mable/images/asset/ico_trust_service_03.png") 0 0 no-repeat; background-size: 3.5rem; }
-		.trustType .icoList > li:nth-child(4) { background: url("/mable/images/asset/ico_trust_service_04.png") 0 0 no-repeat; background-size: 3.5rem; }
-		.network li:nth-child(1) div { background: rgb(var(--color-463)) url("/mable/images/asset/ico_trust_network_01.png") 50% 1.563rem no-repeat; background-size: 2rem; }
-		.network li:nth-child(2) div { background: #F0F6F2 url("/mable/images/asset/ico_trust_network_02.png") 50% 1.563rem no-repeat; background-size: 2rem; }
-		.network li:nth-child(3) div { background: #F9F3F4 url("/mable/images/asset/ico_trust_network_03.png") 50% 1.563rem no-repeat; background-size: 2rem; }
-		.network li:nth-child(4) div { background: #FAF6E7 url("/mable/images/asset/ico_trust_network_04.png") 50% 1.563rem no-repeat; background-size: 2rem; }
-		.network li:nth-child(5) div { background: #F0F6F9 url("/mable/images/asset/ico_trust_network_05.png") 50% 1.563rem no-repeat; background-size: 2rem; }
-		.network li:nth-child(6) div { background: #F5F2F9 url("/mable/images/asset/ico_trust_network_06.png") 50% 1.563rem no-repeat; background-size: 2rem; }
-		.guideVisual .btn.agree { background: url("/mable/images/banking/ico_agree.png") 0.9375rem center no-repeat rgb(var(--color-028)); background-size: 1.25rem auto; }
-		.guideVisual .btn.loans { background: url("/mable/images/banking/ico_loans.png") 0.9375rem center no-repeat rgb(var(--color-028)); background-size: 1.25rem auto; }
-		.btnStep { background: url("/mable/images/common/ico_step_link.png") 92% center no-repeat rgb(var(--color-028)); background-size: 0.375rem; }
-		.ico.phone { background: url("/mable/images/banking/ico_phone.png") center center no-repeat; background-size: 0.9375rem; }
-		.tab li p:after { background: url("/mable/images/cs/ico_tab.png") no-repeat; background-size: 4.25rem 8.5rem; }
-		.investVisual { background: rgb(var(--color-028)) url("/mable/images/cs/bg_investVisual.png") right 0 no-repeat; background-size: auto 100%; }
-		.boardDetail .replyWrap .btnDel { background: url("/mable/images/cs/ico_delete.png") center center no-repeat; background-size: 100%; }
-		.visualTitle.usStockOption { background: url("/mable/images/trading/img_visual_usStockOption.png") right bottom no-repeat; background-size: 8.5rem; }
-		.transInfo .visualTitle { background: url("/mable/images/cs/img_visual_loan.png") right bottom no-repeat; background-size: 7.5rem; }
-		.cloudInfo .visualTitle { background: url("/mable/images/cs/img_visual_cloud.png") right bottom no-repeat; background-size:9.15rem auto; }
-		.termList li { background: url("/mable/images/common/arrowList.png") 95% center no-repeat; background-size: 0.375rem auto; }
-		.loanGuideBox { background: url("/mable/images/cs/bg_loanGuideBox1.png"), url("/mable/images/cs/bg_loanGuideBox2.png"), rgb(var(--color-447)); background-position: right 0, 0 bottom; background-repeat: no-repeat; background-size: 34%, 34%; }
-		.investInfo .vis { background: url("/mable/images/cs/invest_vis_bg.png") repeat-x; background-size: contain; }
-		.premier.vis.pblack p { background: url("/mable/images/cs/ic_premier_pblack.png") center 0.3125rem no-repeat; background-size: auto 3.75rem; }
-		.premier.vis.black p { background: url("/mable/images/cs/ic_premier_black.png") center 0.3125rem no-repeat; background-size: auto 3.75rem; }
-		.premier.vis.purple p { background: url("/mable/images/cs/ic_premier_purple.png") center 0.3125rem no-repeat; background-size: auto 3.75rem; }
-		.pm.vis { background: url("/mable/images/cs/premier_vis_bg.png") 50% bottom no-repeat; background-size: 100% auto; }
-		.myClass.a { background: url("/mable/images/cs/prestige_a_on.png") no-repeat; background-size: 6.25rem 6.25rem; }
-		.myClass.s { background: url("/mable/images/cs/prestige_s_on.png") no-repeat; background-size: 6.25rem 6.25rem; }
-		.myClass.m { background: url("/mable/images/cs/prestige_m_on.png") no-repeat; background-size: 6.25rem 6.25rem; }
-		.couponArea li .couponBox { background: url("/mable/images/cs/bg_coupon.png") no-repeat; background-size: 100%; }
-		.premierList > li.ty1 h1:before { background: url("/mable/images/cs/ic_premierList_01.png") no-repeat; background-size: cover; }
-		.premierList > li.ty2 h1:before { background: url("/mable/images/cs/ic_premierList_02.png") no-repeat; background-size: cover; }
-		.premierList > li.ty3 h1:before { background: url("/mable/images/cs/ic_premierList_03.png") no-repeat; background-size: cover; }
-		.premierList > li.ty4 h1:before { background: url("/mable/images/cs/ic_premierList_04.png") no-repeat; background-size: cover; }
-		.premierList > li.ty5 h1:before { background: url("/mable/images/cs/ic_premierList_05.png") no-repeat; background-size: cover; }
-		.premierList > li.ty6 h1:before { background: url("/mable/images/cs/ic_premierList_06.png") no-repeat; background-size: cover; }
-		.premierList > li.ty7 h1:before { background: url("/mable/images/cs/ic_premierList_07.png") no-repeat; background-size: cover; }
-		.csContact > span { background: url("/mable/images/common/ic_connectCall.png") 0 95% no-repeat; background-size: 1.125rem; }
-		.csContact.ty2 > span { background: url("/mable/images/common/ic_connectCallTy2.png") 0 95% no-repeat; background-size: 1.25rem; }
-		.importantGuide .slick-prev { background-image: url("/mable/images/common/btn_slideLeft.png"); }
-		.importantGuide .slick-next { background-image: url("/mable/images/common/btn_slideRight.png"); }
-		.visPremierMembers .cont { background: url("/mable/images/cs/img_premier.png") center 80% no-repeat; background-size: 65% auto; }
-		.PMemberTab li:nth-child(1) { background: url("/mable/images/cs/img_premier_pblack_d.png") center center no-repeat; background-size: 90% auto; }
-		.PMemberTab li:nth-child(2) { background: url("/mable/images/cs/img_premier_black_d.png") center center no-repeat; background-size: 90% auto; }
-		.PMemberTab li:nth-child(3) { background: url("/mable/images/cs/img_premier_purple_d.png") center center no-repeat; background-size: 90% auto; }
-		.PMemberTab li.active:nth-child(1) { background: url("/mable/images/cs/img_premier_pblack.png") center center no-repeat; background-size: 90% auto; }
-		.PMemberTab li.active:nth-child(2) { background: url("/mable/images/cs/img_premier_black.png") center center no-repeat; background-size: 90% auto; }
-		.PMemberTab li.active.active:nth-child(3) { background: url("/mable/images/cs/img_premier_purple.png") center center no-repeat; background-size: 90% auto; }
-		.PrestigeTab li.active:nth-child(1) { background: url("/mable/images/cs/img_prestige_300.png?var=2") center 3vw no-repeat; background-size: 70% auto; }
-		.PrestigeTab li.active:nth-child(2) { background: url("/mable/images/cs/img_prestige_s.png?var=2") center 3vw no-repeat; background-size: 70% auto; }
-		.PrestigeTab li.active:nth-child(3) { background: url("/mable/images/cs/img_prestige_a.png?var=2") center 3vw no-repeat; background-size: 70% auto; }
-		.PrestigeTab li:nth-child(1) { background: url("/mable/images/cs/img_prestige_300_d.png?var=2") center 3vw no-repeat; background-size: 70% auto; }
-		.PrestigeTab li:nth-child(2) { background: url("/mable/images/cs/img_prestige_s_d.png?var=2") center 3vw no-repeat; background-size: 70% auto; }
-		.PrestigeTab li:nth-child(3) { background: url("/mable/images/cs/img_prestige_a_d.png?var=2") center 3vw no-repeat; background-size: 70% auto; }
-		.prestigeList > li.ty1 h2:before { background: url("/mable/images/cs/ic_v_36_prestige_1.png?var=1") no-repeat; background-size: cover; }
-		.prestigeList > li.ty2 h2:before { background: url("/mable/images/cs/ic_v_36_prestige_2.png?var=1") no-repeat; background-size: cover; }
-		.prestigeList > li.ty3 h2:before { background: url("/mable/images/cs/ic_v_36_prestige_3.png?var=1") no-repeat; background-size: cover; }
-		.prestigeList > li.ty4 h2:before { background: url("/mable/images/cs/ic_v_36_prestige_4.png?var=1") no-repeat; background-size: cover; }
-		.prestigeList > li.ty5 h2:before { background: url("/mable/images/cs/ic_v_36_prestige_5.png?var=1") no-repeat; background-size: cover; }
-		.prestigeList > li.ty6 h2:before { background: url("/mable/images/cs/ic_v_36_prestige_6.png?var=1") no-repeat; background-size: cover; }
-		.prestigeList > li.ty7 h2:before { background: url("/mable/images/cs/ic_v_36_prestige_7.png?var=1") no-repeat; background-size: cover; }
-		.prestigeList > li.ty8 h2:before { background: url("/mable/images/cs/ic_v_36_prestige_8.png?var=1") no-repeat; background-size: cover; }
-		.prestigeList > li.ty9 h2:before { background: url("/mable/images/cs/ic_v_36_prestige_9.png?var=1") no-repeat; background-size: cover; }
-		.csWrokVisual { background: url("/mable/images/cs/img_workguide_visual.png") right top no-repeat; background-size: 7rem; }
-		.csWrokList li:nth-child(1) a { background: url("/mable/images/cs/ic_48_workguide_menu01.png") 85% 85% no-repeat rgb(var(--color-406)); background-size: 2rem; }
-		.csWrokList li:nth-child(2) a { background: url("/mable/images/cs/ic_48_workguide_menu02.png") 85% 85% no-repeat rgb(var(--color-406)); background-size: 2rem; }
-		.csWrokList li:nth-child(3) a { background: url("/mable/images/cs/ic_48_workguide_menu03.png") 85% 85% no-repeat rgb(var(--color-406)); background-size: 2rem; }
-		.csWrokList li:nth-child(4) a { background: url("/mable/images/cs/ic_48_workguide_menu04.png") 85% 85% no-repeat rgb(var(--color-406)); background-size: 2rem; }
-		.acc > .tit:after { background: url("/mable/images/common/arrowDown.png") 50% 50% no-repeat; background-size: 0.75rem 0.375rem; }
-		.acc > .tit.active:after { background: url("/mable/images/common/arrowUp.png") 50% 50% no-repeat; background-size: 0.75rem 0.375rem; }
-		.searchBox:after { background: url("/mable/images/common/ico_search.png") center center no-repeat; background-size: 50%; }
-		.ico_hand .ico { background: url("/mable/images/investment/ico_hand.png") left top no-repeat; background-size: 2.25rem; }
-		.primeClub .screen3 .swiper2 .swiper-button-next { background: url("/mable/images/lms/swiper-button-next.png") no-repeat; background-size: 100% 100%; }
-		.primeClub .screen3 .swiper2 .swiper-button-prev { background: url("/mable/images/lms/swiper-button-prev.png") no-repeat; background-size: 100% 100%; }
-		.primePbVis { background: url("/mable/images/investment/prime_pb_my_bg.png") left top no-repeat; background-size: 100% 100%; }
-		.primePbVis .infoBox .ico { background: url("/mable/images/investment/prime_pb_ico_my.png") center center no-repeat; background-size: 100%; }
-		.pbProfile .pbBanner { background: rgb(var(--color-452)) url("/mable/images/investment/ico_primepbgreat.png") no-repeat 12px 50%; background-size: 24px; }
-		.pbProfile .pbBanner.more:after { background: url("/mable/images/common/btn_arrowRight.png") no-repeat center center; background-size: cover; }
-		.primePbList .pbBanner { background: rgb(var(--color-447)) url("/mable/images/investment/ico_primepbgreat.png") no-repeat 7px 50%; background-size: 16px; }
-		.pbReview ul li.reply { background: url("/mable/images/investment/ic_reply.png") 20px 17px no-repeat rgb(var(--color-499)); background-size: 15px; }
-		.pbEval { background: url("/mable/images/investment/prime_pb_survey_01.png") center 22vh no-repeat; background-size: 50px; }
-		.pbAppoint { background: url("/mable/images/investment/prime_pb_survey_02.png") center 5vh no-repeat; background-size: 50px; }
-		.primeBDcounsel .pbSelect .emptyPb { background: #5e78db url("/mable/images/investment/primeBDcounsel_consult_bg_empty.png") right no-repeat; background-size: auto 100%; }
-		.primeBDcounsel .pbSelect .fullPb { background: #5e78db url("/mable/images/investment/primeBDcounsel_consult_bg.png") right no-repeat; background-size: auto 100%; }
-		.primeBDcounsel .fm .fileUpload { background: url("/mable/images/investment/primeBDcounsel_ic_l_pic.png") 50% 50% no-repeat; background-size: 50% 50%; }
-		.primeBDcounsel select.titTy { background: url("/mable/images/common/bg_select_arrow.png") no-repeat 100% 50%; background-size: auto 6px; }
-		.primeBDcounsel .counselView .top span.file:before { background: url("/mable/images/investment/primeBDcounsel_ic_l_pic_s.png") no-repeat; background-size: 100% 100%; }
-		.primeBDcounsel .counselView .reply .vis { background: url("/mable/images/investment/prime_pb_pic_none.png") no-repeat; background-size: cover; }
-		.starWrap span:nth-child(odd) { background: url("/mable/images/investment/ic_star_empty.png") left center no-repeat; background-size: 16px; }
-		.starWrap span:nth-child(odd).on { background: url("/mable/images/investment/ic_star_sel.png") left center no-repeat; background-size: 16px; }
-		.starWrap span:nth-child(even) { background: url("/mable/images/investment/ic_star_empty.png") right center no-repeat; background-size: 16px; }
-		.starWrap span:nth-child(even).on { background: url("/mable/images/investment/ic_star_sel.png") right center no-repeat; background-size: 16px; }
-		.starRadio label[for=star1], .starRadio label[for=star3], .starRadio label[for=star5], .starRadio label[for=star7], .starRadio label[for=star9] { background: url("/mable/images/investment/prime_pb_survey_star_empty.png") left top no-repeat; background-size: 10vw; }
-		.starRadio label[for=star1].on, .starRadio label[for=star3].on, .starRadio label[for=star5].on, .starRadio label[for=star7].on, .starRadio label[for=star9].on { background: url("/mable/images/investment/prime_pb_survey_star.png") left top no-repeat; background-size: 10vw; }
-		.starRadio label[for=star2], .starRadio label[for=star4], .starRadio label[for=star6], .starRadio label[for=star8], .starRadio label[for=star10] { background: url("/mable/images/investment/prime_pb_survey_star_empty.png") right top no-repeat; background-size: 10vw; }
-		.starRadio label[for=star2].on, .starRadio label[for=star4].on, .starRadio label[for=star6].on, .starRadio label[for=star8].on, .starRadio label[for=star10].on { background: url("/mable/images/investment/prime_pb_survey_star.png") right top no-repeat; background-size: 10vw; }
-		.certWrap .mask { -webkit-mask-image: url("/mable/images/lms/mTrading_mask.png"); -webkit-mask-mode: alpha; -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100%; mask-image: url("/mable/images/lms/mTrading_mask.png"); mask-mode: alpha; mask-repeat: no-repeat; mask-size: 100%; }
-		.certWrap .maskTy2 { -webkit-mask-image: url("/mable/images/lms/mTrading_mask2.png"); -webkit-mask-mode: alpha; -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100%; mask-image: url("/mable/images/lms/mTrading_mask2.png"); mask-mode: alpha; mask-repeat: no-repeat; mask-size: 100%; }
-		.certWrap .step_01 .txt .txtInfo { background: url("/mable/images/lms/mTrading_ico_pTxt.png") left top no-repeat; background-size: 1rem 1rem; }
-		.certWrap .step_02 .txt .mTit:before { background: url("/mable/images/lms/mTrading_num_01.png") no-repeat; background-size: cover; }
-		.certWrap .step_03 .txt .mTit:before { background: url("/mable/images/lms/mTrading_num_02.png") no-repeat; background-size: cover; }
-		.certWrap .step_04 .txt .mTit:before { background: url("/mable/images/lms/mTrading_num_03.png") no-repeat; background-size: cover; }
-		.certWrap .step_05 .txt .mTit:before { background: url("/mable/images/lms/mTrading_num_04.png") no-repeat; background-size: cover; }
-		.certWrap .step_06 .txt .mTit:before { background: url("/mable/images/lms/mTrading_num_05.png") no-repeat; background-size: cover; }
-		.certWrap .step_07 .txt .mTit:before { background: url("/mable/images/lms/mTrading_num_06.png") no-repeat; background-size: cover; }
-		.certWrap .step_08 .txt .mTit:before { background: url("/mable/images/lms/mTrading_num_07.png") no-repeat; background-size: cover; }
-		.certWrap .step_09 .txt .mTit:before { background: url("/mable/images/lms/mTrading_num_08.png") no-repeat; background-size: cover; }
-		.startTrade .swiper-button-next { background: url("/mable/images/lms/btn_circlearrow_right.png") left top no-repeat; background-size: 100% auto; }
-		.startTrade .swiper-button-prev { background: url("/mable/images/lms/btn_circlearrow_left.png") left top no-repeat; background-size: 100% auto; }
-		.startTrade .bannerArea { background: url("/mable/images/lms/startTrade_mablefolder.png") 1.25rem 50% no-repeat, url("/mable/images/common/arrowList.png") 90% 50% no-repeat, rgba(var(--color-321)); background-size: 50px, 8px auto; }
-		.child-nftf .icoList.linkTy > li:after { background: url("/mable/images/common/arrowList.png") center center no-repeat; background-size: 0.5rem 1rem; }
-		.child-nftf .btnArea .tip { background: url("/mable/images/startable/img_account_kids_tip.png") no-repeat; background-size: 100%; }
-		.kakaoPay { background: #faf6d7 url("/mable/images/util/bg_kakaopay.png") bottom right no-repeat; background-size: auto 100%; }
-		.kakaoPayTy2 { background: #97a4bc url("/mable/images/util/bg_kakaopay.png") 105% 0 no-repeat; background-size: auto 100%; }
-		.couponWrap.birthday { background: url("/mable/images/util/bg_coupon_birthday.png") center top no-repeat #f4f7e9; }
-		.couponWrap.birthday .ico_coupon .ico_01 { background: url("/mable/images/util/ico_coupon_birthday_01.png") center center no-repeat; }
-		.couponWrap.birthday .ico_coupon .ico_02 { background: url("/mable/images/util/ico_coupon_birthday_02.png") center center no-repeat; }
-		.couponWrap.open { background: url("/mable/images/util/bg_coupon_open.png") center top no-repeat #e9f5f7; }
-		.couponWrap.open .ico_coupon .ico_01 { background: url("/mable/images/util/ico_coupon_open_01.png") center center no-repeat; }
-		.couponWrap.open .ico_coupon .ico_02 { background: url("/mable/images/util/ico_coupon_open_02.png") center center no-repeat; z-index: 2; }
-		.couponWrap.welcome { background: url("/mable/images/util/bg_coupon_welcome.png") center top no-repeat #fbebf2; }
-		.couponWrap.welcome .ico_coupon .ico_01 { background: url("/mable/images/util/ico_coupon_welcome_01.png") center center no-repeat; }
-		.couponWrap.welcome .ico_coupon .ico_02 { background: url("/mable/images/util/ico_coupon_welcome_02.png") center center no-repeat; }
-		.kbcArea .scene01 .mask { -webkit-mask-image: url("/mable/images/util/kbc_scene1_mask.png"); -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100% auto; mask-image: url("/mable/images/util/kbc_scene1_mask.png"); mask-repeat: no-repeat; mask-size: 100% auto; }
-		.kbcArea .scene02 .mask { -webkit-mask-image: url("/mable/images/util/kbc_scene2_mask.png"); -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100% auto; mask-image: url("/mable/images/util/kbc_scene2_mask.png"); mask-repeat: no-repeat; mask-size: 100% auto; }
-		.kbcArea .scene03 .mask { -webkit-mask-image: url("/mable/images/util/kbc_scene3_mk.png"); -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100% auto; mask-image: url("/mable/images/util/kbc_scene3_mk.png"); mask-repeat: no-repeat; mask-size: 100% auto; }
-		.kbcArea .scene04 .mask { -webkit-mask-image: url("/mable/images/util/kbc_scene4_mk.png"); -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100% auto; mask-image: url("/mable/images/util/kbc_scene4_mk.png"); mask-repeat: no-repeat; mask-size: 100% auto; }
-		.kbcArea .scene05 .mask { -webkit-mask-image: url("/mable/images/util/kbc_scene3_mk.png"); -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100% auto; mask-image: url("/mable/images/util/kbc_scene3_mk.png"); mask-repeat: no-repeat; mask-size: 100% auto; }
-		.myKB .topBg { background: url("/mable/images/asset/myConsult_topbg.png") top no-repeat, url("/mable/images/asset/topBg_y.jpg") repeat-y; background-size: 100% auto; }
-		.myKB .i-info { background: url("/mable/images/asset/myConsult_info_cc.png") no-repeat; background-size: 100%; }
-		.myKB .refrestBtn { background: url("/mable/images/asset/myConsult_refresh.png") no-repeat; background-size: 100%; }
-		.myKB .stockBox .pbr .pbrGraph .graphBoard { background: url("/mable/images/asset/myConsult_man.png") 85% 50% no-repeat; background-size: auto 100%; }
-		.myKB .stockBox .pbr .pbrGraph .graphBoard li { background: url("/mable/images/asset/line_dotted.png") 50% 48% repeat-x; background-size: 3px 1px; }
-		.myKB .stockBox .pbr .pbrGraph .graphBoard .graphBar .bar { background: url("/mable/images/asset/graph_bar.png") 50% 50% repeat-x; background-size: 3px 1px; }
-		.myKB .stockBox .pbr .pbrGraph .graphBoard .graphBar .bubble .box:after { background: url("/mable/images/asset/myConsult_bubble.png") 50% bottom no-repeat; background-size: 1.25rem auto; }
-		.myKB .stockBox .pbr .pbrGraph .graphBoard .graphBar .bubble.ty2 .box:after { background: url("/mable/images/asset/myConsult_bubbleTy2.png") 50% top no-repeat; background-size: 1.25rem auto; }
-		.myKB .stockBox .pbr .pbrGraph .graphBoard.dataEmpty { background: url("/mable/images/asset/myConsult_dataempty.png") 50% 30% no-repeat; background-size: 5rem auto; }
-		.myKB .stockComment { background: rgb(var(--color-323)) url("/mable/images/asset/myConsult_pb.png") 1.313rem 1.313rem no-repeat; background-size: 3rem auto; }
-		.myKB .selectArea .interGroup:before { background: url("/mable/images/asset/ic_l_18_titlefilter_99.png") no-repeat; background-size: 100%; }
-		.myKB .selectArea .checkPoint input[type=checkbox] { background: url("/mable/images/asset/checkPoint_bg_n.png") no-repeat !important; background-size: cover !important; }
-		.myKB .selectArea .checkPoint input[type=checkbox]:checked { background: url("/mable/images/asset/checkPoint_bg_o.png") no-repeat !important; background-size: cover !important; }
-		.myKB .popInfo .popCont .list li input[type=radio]:checked { background: url("/mable/images/asset/ic_l_36_listcheck_sel.png") no-repeat !important; background-size: cover !important; }
-		.myKB .noDataArea p:before { background: rgb(var(--color-291)) url("/mable/images/asset/myConsult_dataempty.png") 50% 50% no-repeat; background-size: 60%; }
-		.myKB .itemView .pbr .pbrGraph .graphBoard { background: url("/mable/images/asset/myConsult_man.png") right 50% no-repeat; background-size: auto 90%; }
-		.myKB .itemView .pbr .pbrGraph .graphBoard li { background: url("/mable/images/asset/line_dotted.png") 50% 48% repeat-x; background-size: 3px 1px; }
-		.myKB .itemView .pbr .pbrGraph .graphBoard .graphBar .bar { background: url("/mable/images/asset/graph_bar.png") 50% 50% repeat-x; background-size: 3px 1px; }
-		.myKB .itemView .pbr .pbrGraph .graphBoard.dataEmpty { background: url("/mable/images/asset/myConsult_dataempty.png") 50% 34% no-repeat; background-size: 2.375rem auto; }
-		.myKB .stockSh .totalSearch .i-btnClear { background: url("/mable/images/common/i-btnClear.png") center center no-repeat; background-size: 1.125rem; }
+		.account_wrap .ico .i-mobile { background: url("https://dtong.kbsec.com/mable/images/asset/icon_sable.png") left top no-repeat; background-size: 2.125rem 3.313rem; }
+		.puzzleList li:nth-child(1):after { background: url("https://dtong.kbsec.com/mable/images/asset/ico_puzzle_left.png") left top no-repeat; background-size: auto 2.5rem; }
+		.puzzleList li:nth-child(4):after { background: url("https://dtong.kbsec.com/mable/images/asset/ico_puzzle_right.png") left top no-repeat; background-size: auto 2.5rem; }
+		.processList > li h1:before { background: url("https://dtong.kbsec.com/mable/images/asset/ico_process_arrow.png") left top no-repeat; background-size: auto 1.25rem; }
+		.diagramTy2 .dmItem.plus::before { background: url("https://dtong.kbsec.com/mable/images/asset/pm_dm_plus.png") no-repeat; background-size: 100%; }
+		.taxBanner { background: rgb(var(--color-419)) url("https://dtong.kbsec.com/mable/images/asset/img_banner_taxschedule.png") 95% 50% no-repeat; background-size: 3rem auto; }
+		.taxDateArea .arrow_l { background: url("https://dtong.kbsec.com/mable/images/asset/ic_arrow_l.png") center center no-repeat; background-size: 1.25rem; }
+		.taxDateArea .arrow_r { background: url("https://dtong.kbsec.com/mable/images/asset/ic_arrow_r.png") center center no-repeat; background-size: 1.25rem; }
+		.dIdxWrap .bannerArea { background: url("https://dtong.kbsec.com/mable/images/asset/dIdx_banner_bg_2024.png") left 50% no-repeat, url("https://dtong.kbsec.com/mable/images/common/arrowList.png") 96% 50% no-repeat, rgba(var(--color-180)); background-size: 6.5rem, 0.313rem auto; }
+		.elsInfoWrap .ListWrap { background: url("https://dtong.kbsec.com/mable/images/asset/elsInfo_bg.png") left bottom no-repeat #e5f3f5; background-size: 60%; }
+		.fundInfo .tit:after { background: url("https://dtong.kbsec.com/mable/images/common/arrowList.png") right center no-repeat; background-size: 100% 100%; }
+		.compareRate .btnListCR li span:first-of-type { background: url("https://dtong.kbsec.com/mable/imagesproduct/ic_checkLightGray.png") 17% 40% no-repeat; background-size: 1.125rem; }
+		.compareRate .btnListCR li.active span:first-of-type { background: url("https://dtong.kbsec.com/mable/imagesproduct/ic_checkDark.png") 17% 40% no-repeat; background-size: 1.125rem; }
+		.cardInfo h1:before { background: url("https://dtong.kbsec.com/mable/imagesstartable/ico_able.png") no-repeat; background-size: cover; }
+		.taxVis1 { background: url("https://dtong.kbsec.com/mable/images/asset/img_tax_reduce_v1.png") 96% 80% no-repeat; background-size: 10.313rem auto; }
+		.taxVis2 { background: url("https://dtong.kbsec.com/mable/images/asset/img_tax_taxcredit.png") right bottom no-repeat; background-size: 8.125rem auto; }
+		.insight .anchor > a { background: rgb(var(--color-028)) url("https://dtong.kbsec.com/mable/images/asset/insight_anchor_ico.png") 50% 84% no-repeat; background-size: auto 6px; }
+		.assetGateWrap .visual.cma { background: url("https://dtong.kbsec.com/mable/images/asset/img_gatetop_cma.png") right bottom no-repeat; background-size: 6.25rem; }
+		.assetGateWrap .gateList.cma li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.cma li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_04.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.cma li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_05.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.cma li:nth-child(4) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .visual.isa { background: url("https://dtong.kbsec.com/mable/images/asset/img_gatetop_isa.png") right bottom no-repeat; background-size: 6.25rem; }
+		.assetGateWrap .gateList.isa li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.isa li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_04.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.isa li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_05.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.isa li:nth-child(4) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .visual.pension { background: url("https://dtong.kbsec.com/mable/images/asset/img_gatetop_pension.png") right bottom no-repeat; background-size: 6.25rem; }
+		.assetGateWrap .gateList.pension li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) center no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.pension li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_02.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.pension li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .visual.irp { background: url("https://dtong.kbsec.com/mable/images/asset/img_gatetop_irp.png") right bottom no-repeat; background-size: 6.25rem; }
+		.assetGateWrap .gateList.irp li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.irp li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_07.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.irp li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_02.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.irp li:nth-child(4) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .visual.trust { background: url("https://dtong.kbsec.com/mable/images/asset/img_gatetop_trust.png") right bottom no-repeat; background-size: 6.25rem; }
+		.assetGateWrap .gateList.trust li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.trust li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_04.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.trust li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_06.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.trust li:nth-child(4) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .visual.wp { background: url("https://dtong.kbsec.com/mable/images/asset/img_gatetop_wrap.png") right bottom no-repeat; background-size: 6.25rem; }
+		.assetGateWrap .gateList.wp li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) center no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.wp li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_06.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.wp li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .visual.fund { background: url("https://dtong.kbsec.com/mable/images/asset/img_gatetop_fund.png") right bottom no-repeat; background-size: 9.5rem; }
+		.assetGateWrap .gateList.fund li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_08.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.fund li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_05.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.fund li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_02.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.fund li:nth-child(4) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .visual.bill { background: url("https://dtong.kbsec.com/mable/images/asset/img_gatetop_bill.png") right bottom no-repeat; background-size: 6.25rem; }
+		.assetGateWrap .gateList.bill li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) center no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.bill li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_02.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.bill li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .visual.rp { background: url("https://dtong.kbsec.com/mable/images/asset/img_gatetop_rp.png") right bottom no-repeat; background-size: 6.25rem; }
+		.assetGateWrap .gateList.rp li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) center no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.rp li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_02.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.rp li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .visual.bond { background: url("https://dtong.kbsec.com/mable/images/asset/img_gatetop_bond.png") right bottom no-repeat; background-size: 5.5rem; }
+		.assetGateWrap .gateList.bond li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.bond li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_02.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.bond li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_16.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.bond li:nth-child(4) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap #bond.hot li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gate_hot_bond_01.png") calc(100% - 0.75rem) calc(100% - 0.5rem) no-repeat rgb(var(--color-438)); background-size: auto 3.4rem; }
+		.assetGateWrap #bond.hot li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gate_hot_bond_02.png") calc(100% - 0.75rem) calc(100% - 0.5rem) no-repeat rgb(var(--color-044)); background-size: auto 3.4rem; }
+		.assetGateWrap #fund.hot li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gate_hot_fund_01.png") calc(100% - 1rem) calc(100% - 0.875rem) no-repeat rgb(var(--color-191)); background-size: auto 2.625rem; }
+		.assetGateWrap #fund.hot li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gate_hot_fund_02.png") calc(100% - 1rem) calc(100% - 0.875rem) no-repeat rgb(var(--color-438)); background-size: auto 2.625rem; }
+		.assetGateWrap .visual.elsdls { background: url("https://dtong.kbsec.com/mable/images/asset/img_gatetop_elsdls.png") right bottom no-repeat; background-size: 6.25rem; }
+		.assetGateWrap .gateList.elsdls li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_01.png") calc(100% - 0.75rem) center no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.elsdls li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_02.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.assetGateWrap .gateList.elsdls li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.tradingGateWrap .visual.ats { background: url("https://dtong.kbsec.com/mable/imagestrading/img_gatetop_ats.png") right bottom no-repeat; background-size: 8.4375rem; }
+		.tradingGateWrap .gateList.ats li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_15.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.tradingGateWrap .gateList.ats li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_14.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.tradingGateWrap .gateList.ats li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_06.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.tradingGateWrap .gateList.ats li:nth-child(4) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.tradingGateWrap .visual.GOption { background: url("https://dtong.kbsec.com/mable/imagestrading/img_gatetop_GOption.png") right 1.25rem no-repeat; background-size: 8.4375rem; }
+		.tradingGateWrap .gateList.GOption li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_13.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.tradingGateWrap .gateList.GOption li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_15.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.tradingGateWrap .gateList.GOption li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_06.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.tradingGateWrap .gateList.GOption li:nth-child(4) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_03.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.gateList li.pb { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_09.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-485)); background-size: auto 3.25rem; }
+		.gateList li.newaccount { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_10.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-486)); background-size: auto 3.25rem; }
+		.gateList li.consult { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_11.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-438)); background-size: auto 3.25rem; }
+		.gateList.usStockOption li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_12.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.gateList.usStockOption li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_04.png") calc(100% - 0.75rem) calc(100% - 1.2rem) no-repeat rgb(var(--color-187)); background-size: auto 2.3rem; }
+		.gateList.usStockOption li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_06.png") calc(100% - 0.75rem) calc(100% - 1.2rem) no-repeat rgb(var(--color-187)); background-size: auto 2rem; }
+		.gateList.usStockOption li:nth-child(4) { background: url("https://dtong.kbsec.com/mable/images/asset/img_gateicon_13.png") calc(100% - 0.75rem) calc(100% - 1rem) no-repeat rgb(var(--color-187)); background-size: auto 2.5rem; }
+		.curation .slide .swiper-container .imgArea .ani.ty3 .bar::after { background: url("https://dtong.kbsec.com/mable/images/asset/curation_control.png") no-repeat; background-size: 100%; }
+		.taxplan .btnArea { background: url("https://dtong.kbsec.com/mable/images/asset/taxplan_btn_img.png") 48% top no-repeat; background-size: 16.25rem auto; }
+		.trustType .icoList > li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/asset/ico_trust_service_01.png") 0 0 no-repeat; background-size: 3.5rem; }
+		.trustType .icoList > li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/asset/ico_trust_service_02.png") 0 0 no-repeat; background-size: 3.5rem; }
+		.trustType .icoList > li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/asset/ico_trust_service_03.png") 0 0 no-repeat; background-size: 3.5rem; }
+		.trustType .icoList > li:nth-child(4) { background: url("https://dtong.kbsec.com/mable/images/asset/ico_trust_service_04.png") 0 0 no-repeat; background-size: 3.5rem; }
+		.network li:nth-child(1) div { background: rgb(var(--color-463)) url("https://dtong.kbsec.com/mable/images/asset/ico_trust_network_01.png") 50% 1.563rem no-repeat; background-size: 2rem; }
+		.network li:nth-child(2) div { background: #F0F6F2 url("https://dtong.kbsec.com/mable/images/asset/ico_trust_network_02.png") 50% 1.563rem no-repeat; background-size: 2rem; }
+		.network li:nth-child(3) div { background: #F9F3F4 url("https://dtong.kbsec.com/mable/images/asset/ico_trust_network_03.png") 50% 1.563rem no-repeat; background-size: 2rem; }
+		.network li:nth-child(4) div { background: #FAF6E7 url("https://dtong.kbsec.com/mable/images/asset/ico_trust_network_04.png") 50% 1.563rem no-repeat; background-size: 2rem; }
+		.network li:nth-child(5) div { background: #F0F6F9 url("https://dtong.kbsec.com/mable/images/asset/ico_trust_network_05.png") 50% 1.563rem no-repeat; background-size: 2rem; }
+		.network li:nth-child(6) div { background: #F5F2F9 url("https://dtong.kbsec.com/mable/images/asset/ico_trust_network_06.png") 50% 1.563rem no-repeat; background-size: 2rem; }
+		.guideVisual .btn.agree { background: url("https://dtong.kbsec.com/mable/imagesbanking/ico_agree.png") 0.9375rem center no-repeat rgb(var(--color-028)); background-size: 1.25rem auto; }
+		.guideVisual .btn.loans { background: url("https://dtong.kbsec.com/mable/imagesbanking/ico_loans.png") 0.9375rem center no-repeat rgb(var(--color-028)); background-size: 1.25rem auto; }
+		.btnStep { background: url("https://dtong.kbsec.com/mable/images/common/ico_step_link.png") 92% center no-repeat rgb(var(--color-028)); background-size: 0.375rem; }
+		.ico.phone { background: url("https://dtong.kbsec.com/mable/imagesbanking/ico_phone.png") center center no-repeat; background-size: 0.9375rem; }
+		.tab li p:after { background: url("https://dtong.kbsec.com/mable/images/cs/ico_tab.png") no-repeat; background-size: 4.25rem 8.5rem; }
+		.investVisual { background: rgb(var(--color-028)) url("https://dtong.kbsec.com/mable/images/cs/bg_investVisual.png") right 0 no-repeat; background-size: auto 100%; }
+		.boardDetail .replyWrap .btnDel { background: url("https://dtong.kbsec.com/mable/images/cs/ico_delete.png") center center no-repeat; background-size: 100%; }
+		.visualTitle.usStockOption { background: url("https://dtong.kbsec.com/mable/imagestrading/img_visual_usStockOption.png") right bottom no-repeat; background-size: 8.5rem; }
+		.transInfo .visualTitle { background: url("https://dtong.kbsec.com/mable/images/cs/img_visual_loan.png") right bottom no-repeat; background-size: 7.5rem; }
+		.cloudInfo .visualTitle { background: url("https://dtong.kbsec.com/mable/images/cs/img_visual_cloud.png") right bottom no-repeat; background-size:9.15rem auto; }
+		.termList li { background: url("https://dtong.kbsec.com/mable/images/common/arrowList.png") 95% center no-repeat; background-size: 0.375rem auto; }
+		.loanGuideBox { background: url("https://dtong.kbsec.com/mable/images/cs/bg_loanGuideBox1.png"), url("https://dtong.kbsec.com/mable/images/cs/bg_loanGuideBox2.png"), rgb(var(--color-447)); background-position: right 0, 0 bottom; background-repeat: no-repeat; background-size: 34%, 34%; }
+		.investInfo .vis { background: url("https://dtong.kbsec.com/mable/images/cs/invest_vis_bg.png") repeat-x; background-size: contain; }
+		.premier.vis.pblack p { background: url("https://dtong.kbsec.com/mable/images/cs/ic_premier_pblack.png") center 0.3125rem no-repeat; background-size: auto 3.75rem; }
+		.premier.vis.black p { background: url("https://dtong.kbsec.com/mable/images/cs/ic_premier_black.png") center 0.3125rem no-repeat; background-size: auto 3.75rem; }
+		.premier.vis.purple p { background: url("https://dtong.kbsec.com/mable/images/cs/ic_premier_purple.png") center 0.3125rem no-repeat; background-size: auto 3.75rem; }
+		.pm.vis { background: url("https://dtong.kbsec.com/mable/images/cs/premier_vis_bg.png") 50% bottom no-repeat; background-size: 100% auto; }
+		.myClass.a { background: url("https://dtong.kbsec.com/mable/images/cs/prestige_a_on.png") no-repeat; background-size: 6.25rem 6.25rem; }
+		.myClass.s { background: url("https://dtong.kbsec.com/mable/images/cs/prestige_s_on.png") no-repeat; background-size: 6.25rem 6.25rem; }
+		.myClass.m { background: url("https://dtong.kbsec.com/mable/images/cs/prestige_m_on.png") no-repeat; background-size: 6.25rem 6.25rem; }
+		.couponArea li .couponBox { background: url("https://dtong.kbsec.com/mable/images/cs/bg_coupon.png") no-repeat; background-size: 100%; }
+		.premierList > li.ty1 h1:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_premierList_01.png") no-repeat; background-size: cover; }
+		.premierList > li.ty2 h1:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_premierList_02.png") no-repeat; background-size: cover; }
+		.premierList > li.ty3 h1:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_premierList_03.png") no-repeat; background-size: cover; }
+		.premierList > li.ty4 h1:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_premierList_04.png") no-repeat; background-size: cover; }
+		.premierList > li.ty5 h1:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_premierList_05.png") no-repeat; background-size: cover; }
+		.premierList > li.ty6 h1:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_premierList_06.png") no-repeat; background-size: cover; }
+		.premierList > li.ty7 h1:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_premierList_07.png") no-repeat; background-size: cover; }
+		.csContact > span { background: url("https://dtong.kbsec.com/mable/images/common/ic_connectCall.png") 0 95% no-repeat; background-size: 1.125rem; }
+		.csContact.ty2 > span { background: url("https://dtong.kbsec.com/mable/images/common/ic_connectCallTy2.png") 0 95% no-repeat; background-size: 1.25rem; }
+		.importantGuide .slick-prev { background-image: url("https://dtong.kbsec.com/mable/images/common/btn_slideLeft.png"); }
+		.importantGuide .slick-next { background-image: url("https://dtong.kbsec.com/mable/images/common/btn_slideRight.png"); }
+		.visPremierMembers .cont { background: url("https://dtong.kbsec.com/mable/images/cs/img_premier.png") center 80% no-repeat; background-size: 65% auto; }
+		.PMemberTab li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/cs/img_premier_pblack_d.png") center center no-repeat; background-size: 90% auto; }
+		.PMemberTab li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/cs/img_premier_black_d.png") center center no-repeat; background-size: 90% auto; }
+		.PMemberTab li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/cs/img_premier_purple_d.png") center center no-repeat; background-size: 90% auto; }
+		.PMemberTab li.active:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/cs/img_premier_pblack.png") center center no-repeat; background-size: 90% auto; }
+		.PMemberTab li.active:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/cs/img_premier_black.png") center center no-repeat; background-size: 90% auto; }
+		.PMemberTab li.active.active:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/cs/img_premier_purple.png") center center no-repeat; background-size: 90% auto; }
+		.PrestigeTab li.active:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/cs/img_prestige_300.png?var=2") center 3vw no-repeat; background-size: 70% auto; }
+		.PrestigeTab li.active:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/cs/img_prestige_s.png?var=2") center 3vw no-repeat; background-size: 70% auto; }
+		.PrestigeTab li.active:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/cs/img_prestige_a.png?var=2") center 3vw no-repeat; background-size: 70% auto; }
+		.PrestigeTab li:nth-child(1) { background: url("https://dtong.kbsec.com/mable/images/cs/img_prestige_300_d.png?var=2") center 3vw no-repeat; background-size: 70% auto; }
+		.PrestigeTab li:nth-child(2) { background: url("https://dtong.kbsec.com/mable/images/cs/img_prestige_s_d.png?var=2") center 3vw no-repeat; background-size: 70% auto; }
+		.PrestigeTab li:nth-child(3) { background: url("https://dtong.kbsec.com/mable/images/cs/img_prestige_a_d.png?var=2") center 3vw no-repeat; background-size: 70% auto; }
+		.prestigeList > li.ty1 h2:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_v_36_prestige_1.png?var=1") no-repeat; background-size: cover; }
+		.prestigeList > li.ty2 h2:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_v_36_prestige_2.png?var=1") no-repeat; background-size: cover; }
+		.prestigeList > li.ty3 h2:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_v_36_prestige_3.png?var=1") no-repeat; background-size: cover; }
+		.prestigeList > li.ty4 h2:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_v_36_prestige_4.png?var=1") no-repeat; background-size: cover; }
+		.prestigeList > li.ty5 h2:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_v_36_prestige_5.png?var=1") no-repeat; background-size: cover; }
+		.prestigeList > li.ty6 h2:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_v_36_prestige_6.png?var=1") no-repeat; background-size: cover; }
+		.prestigeList > li.ty7 h2:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_v_36_prestige_7.png?var=1") no-repeat; background-size: cover; }
+		.prestigeList > li.ty8 h2:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_v_36_prestige_8.png?var=1") no-repeat; background-size: cover; }
+		.prestigeList > li.ty9 h2:before { background: url("https://dtong.kbsec.com/mable/images/cs/ic_v_36_prestige_9.png?var=1") no-repeat; background-size: cover; }
+		.csWrokVisual { background: url("https://dtong.kbsec.com/mable/images/cs/img_workguide_visual.png") right top no-repeat; background-size: 7rem; }
+		.csWrokList li:nth-child(1) a { background: url("https://dtong.kbsec.com/mable/images/cs/ic_48_workguide_menu01.png") 85% 85% no-repeat rgb(var(--color-406)); background-size: 2rem; }
+		.csWrokList li:nth-child(2) a { background: url("https://dtong.kbsec.com/mable/images/cs/ic_48_workguide_menu02.png") 85% 85% no-repeat rgb(var(--color-406)); background-size: 2rem; }
+		.csWrokList li:nth-child(3) a { background: url("https://dtong.kbsec.com/mable/images/cs/ic_48_workguide_menu03.png") 85% 85% no-repeat rgb(var(--color-406)); background-size: 2rem; }
+		.csWrokList li:nth-child(4) a { background: url("https://dtong.kbsec.com/mable/images/cs/ic_48_workguide_menu04.png") 85% 85% no-repeat rgb(var(--color-406)); background-size: 2rem; }
+		.acc > .tit:after { background: url("https://dtong.kbsec.com/mable/images/common/arrowDown.png") 50% 50% no-repeat; background-size: 0.75rem 0.375rem; }
+		.acc > .tit.active:after { background: url("https://dtong.kbsec.com/mable/images/common/arrowUp.png") 50% 50% no-repeat; background-size: 0.75rem 0.375rem; }
+		.searchBox:after { background: url("https://dtong.kbsec.com/mable/images/common/ico_search.png") center center no-repeat; background-size: 50%; }
+		.ico_hand .ico { background: url("https://dtong.kbsec.com/mable/images/investment/ico_hand.png") left top no-repeat; background-size: 2.25rem; }
+		.primeClub .screen3 .swiper2 .swiper-button-next { background: url("https://dtong.kbsec.com/mable/images/lms/swiper-button-next.png") no-repeat; background-size: 100% 100%; }
+		.primeClub .screen3 .swiper2 .swiper-button-prev { background: url("https://dtong.kbsec.com/mable/images/lms/swiper-button-prev.png") no-repeat; background-size: 100% 100%; }
+		.primePbVis { background: url("https://dtong.kbsec.com/mable/images/investment/prime_pb_my_bg.png") left top no-repeat; background-size: 100% 100%; }
+		.primePbVis .infoBox .ico { background: url("https://dtong.kbsec.com/mable/images/investment/prime_pb_ico_my.png") center center no-repeat; background-size: 100%; }
+		.pbProfile .pbBanner { background: rgb(var(--color-452)) url("https://dtong.kbsec.com/mable/images/investment/ico_primepbgreat.png") no-repeat 12px 50%; background-size: 24px; }
+		.pbProfile .pbBanner.more:after { background: url("https://dtong.kbsec.com/mable/images/common/btn_arrowRight.png") no-repeat center center; background-size: cover; }
+		.primePbList .pbBanner { background: rgb(var(--color-447)) url("https://dtong.kbsec.com/mable/images/investment/ico_primepbgreat.png") no-repeat 7px 50%; background-size: 16px; }
+		.pbReview ul li.reply { background: url("https://dtong.kbsec.com/mable/images/investment/ic_reply.png") 20px 17px no-repeat rgb(var(--color-499)); background-size: 15px; }
+		.pbEval { background: url("https://dtong.kbsec.com/mable/images/investment/prime_pb_survey_01.png") center 22vh no-repeat; background-size: 50px; }
+		.pbAppoint { background: url("https://dtong.kbsec.com/mable/images/investment/prime_pb_survey_02.png") center 5vh no-repeat; background-size: 50px; }
+		.primeBDcounsel .pbSelect .emptyPb { background: #5e78db url("https://dtong.kbsec.com/mable/images/investment/primeBDcounsel_consult_bg_empty.png") right no-repeat; background-size: auto 100%; }
+		.primeBDcounsel .pbSelect .fullPb { background: #5e78db url("https://dtong.kbsec.com/mable/images/investment/primeBDcounsel_consult_bg.png") right no-repeat; background-size: auto 100%; }
+		.primeBDcounsel .fm .fileUpload { background: url("https://dtong.kbsec.com/mable/images/investment/primeBDcounsel_ic_l_pic.png") 50% 50% no-repeat; background-size: 50% 50%; }
+		.primeBDcounsel select.titTy { background: url("https://dtong.kbsec.com/mable/images/common/bg_select_arrow.png") no-repeat 100% 50%; background-size: auto 6px; }
+		.primeBDcounsel .counselView .top span.file:before { background: url("https://dtong.kbsec.com/mable/images/investment/primeBDcounsel_ic_l_pic_s.png") no-repeat; background-size: 100% 100%; }
+		.primeBDcounsel .counselView .reply .vis { background: url("https://dtong.kbsec.com/mable/images/investment/prime_pb_pic_none.png") no-repeat; background-size: cover; }
+		.starWrap span:nth-child(odd) { background: url("https://dtong.kbsec.com/mable/images/investment/ic_star_empty.png") left center no-repeat; background-size: 16px; }
+		.starWrap span:nth-child(odd).on { background: url("https://dtong.kbsec.com/mable/images/investment/ic_star_sel.png") left center no-repeat; background-size: 16px; }
+		.starWrap span:nth-child(even) { background: url("https://dtong.kbsec.com/mable/images/investment/ic_star_empty.png") right center no-repeat; background-size: 16px; }
+		.starWrap span:nth-child(even).on { background: url("https://dtong.kbsec.com/mable/images/investment/ic_star_sel.png") right center no-repeat; background-size: 16px; }
+		.starRadio label[for=star1], .starRadio label[for=star3], .starRadio label[for=star5], .starRadio label[for=star7], .starRadio label[for=star9] { background: url("https://dtong.kbsec.com/mable/images/investment/prime_pb_survey_star_empty.png") left top no-repeat; background-size: 10vw; }
+		.starRadio label[for=star1].on, .starRadio label[for=star3].on, .starRadio label[for=star5].on, .starRadio label[for=star7].on, .starRadio label[for=star9].on { background: url("https://dtong.kbsec.com/mable/images/investment/prime_pb_survey_star.png") left top no-repeat; background-size: 10vw; }
+		.starRadio label[for=star2], .starRadio label[for=star4], .starRadio label[for=star6], .starRadio label[for=star8], .starRadio label[for=star10] { background: url("https://dtong.kbsec.com/mable/images/investment/prime_pb_survey_star_empty.png") right top no-repeat; background-size: 10vw; }
+		.starRadio label[for=star2].on, .starRadio label[for=star4].on, .starRadio label[for=star6].on, .starRadio label[for=star8].on, .starRadio label[for=star10].on { background: url("https://dtong.kbsec.com/mable/images/investment/prime_pb_survey_star.png") right top no-repeat; background-size: 10vw; }
+		.certWrap .mask { -webkit-mask-image: url("https://dtong.kbsec.com/mable/images/lms/mTrading_mask.png"); -webkit-mask-mode: alpha; -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100%; mask-image: url("https://dtong.kbsec.com/mable/images/lms/mTrading_mask.png"); mask-mode: alpha; mask-repeat: no-repeat; mask-size: 100%; }
+		.certWrap .maskTy2 { -webkit-mask-image: url("https://dtong.kbsec.com/mable/images/lms/mTrading_mask2.png"); -webkit-mask-mode: alpha; -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100%; mask-image: url("https://dtong.kbsec.com/mable/images/lms/mTrading_mask2.png"); mask-mode: alpha; mask-repeat: no-repeat; mask-size: 100%; }
+		.certWrap .step_01 .txt .txtInfo { background: url("https://dtong.kbsec.com/mable/images/lms/mTrading_ico_pTxt.png") left top no-repeat; background-size: 1rem 1rem; }
+		.certWrap .step_02 .txt .mTit:before { background: url("https://dtong.kbsec.com/mable/images/lms/mTrading_num_01.png") no-repeat; background-size: cover; }
+		.certWrap .step_03 .txt .mTit:before { background: url("https://dtong.kbsec.com/mable/images/lms/mTrading_num_02.png") no-repeat; background-size: cover; }
+		.certWrap .step_04 .txt .mTit:before { background: url("https://dtong.kbsec.com/mable/images/lms/mTrading_num_03.png") no-repeat; background-size: cover; }
+		.certWrap .step_05 .txt .mTit:before { background: url("https://dtong.kbsec.com/mable/images/lms/mTrading_num_04.png") no-repeat; background-size: cover; }
+		.certWrap .step_06 .txt .mTit:before { background: url("https://dtong.kbsec.com/mable/images/lms/mTrading_num_05.png") no-repeat; background-size: cover; }
+		.certWrap .step_07 .txt .mTit:before { background: url("https://dtong.kbsec.com/mable/images/lms/mTrading_num_06.png") no-repeat; background-size: cover; }
+		.certWrap .step_08 .txt .mTit:before { background: url("https://dtong.kbsec.com/mable/images/lms/mTrading_num_07.png") no-repeat; background-size: cover; }
+		.certWrap .step_09 .txt .mTit:before { background: url("https://dtong.kbsec.com/mable/images/lms/mTrading_num_08.png") no-repeat; background-size: cover; }
+		.startTrade .swiper-button-next { background: url("https://dtong.kbsec.com/mable/images/lms/btn_circlearrow_right.png") left top no-repeat; background-size: 100% auto; }
+		.startTrade .swiper-button-prev { background: url("https://dtong.kbsec.com/mable/images/lms/btn_circlearrow_left.png") left top no-repeat; background-size: 100% auto; }
+		.startTrade .bannerArea { background: url("https://dtong.kbsec.com/mable/images/lms/startTrade_mablefolder.png") 1.25rem 50% no-repeat, url("https://dtong.kbsec.com/mable/images/common/arrowList.png") 90% 50% no-repeat, rgba(var(--color-321)); background-size: 50px, 8px auto; }
+		.child-nftf .icoList.linkTy > li:after { background: url("https://dtong.kbsec.com/mable/images/common/arrowList.png") center center no-repeat; background-size: 0.5rem 1rem; }
+		.child-nftf .btnArea .tip { background: url("https://dtong.kbsec.com/mable/imagesstartable/img_account_kids_tip.png") no-repeat; background-size: 100%; }
+		.kakaoPay { background: #faf6d7 url("https://dtong.kbsec.com/mable/images/util/bg_kakaopay.png") bottom right no-repeat; background-size: auto 100%; }
+		.kakaoPayTy2 { background: #97a4bc url("https://dtong.kbsec.com/mable/images/util/bg_kakaopay.png") 105% 0 no-repeat; background-size: auto 100%; }
+		.couponWrap.birthday { background: url("https://dtong.kbsec.com/mable/images/util/bg_coupon_birthday.png") center top no-repeat #f4f7e9; }
+		.couponWrap.birthday .ico_coupon .ico_01 { background: url("https://dtong.kbsec.com/mable/images/util/ico_coupon_birthday_01.png") center center no-repeat; }
+		.couponWrap.birthday .ico_coupon .ico_02 { background: url("https://dtong.kbsec.com/mable/images/util/ico_coupon_birthday_02.png") center center no-repeat; }
+		.couponWrap.open { background: url("https://dtong.kbsec.com/mable/images/util/bg_coupon_open.png") center top no-repeat #e9f5f7; }
+		.couponWrap.open .ico_coupon .ico_01 { background: url("https://dtong.kbsec.com/mable/images/util/ico_coupon_open_01.png") center center no-repeat; }
+		.couponWrap.open .ico_coupon .ico_02 { background: url("https://dtong.kbsec.com/mable/images/util/ico_coupon_open_02.png") center center no-repeat; z-index: 2; }
+		.couponWrap.welcome { background: url("https://dtong.kbsec.com/mable/images/util/bg_coupon_welcome.png") center top no-repeat #fbebf2; }
+		.couponWrap.welcome .ico_coupon .ico_01 { background: url("https://dtong.kbsec.com/mable/images/util/ico_coupon_welcome_01.png") center center no-repeat; }
+		.couponWrap.welcome .ico_coupon .ico_02 { background: url("https://dtong.kbsec.com/mable/images/util/ico_coupon_welcome_02.png") center center no-repeat; }
+		.kbcArea .scene01 .mask { -webkit-mask-image: url("https://dtong.kbsec.com/mable/images/util/kbc_scene1_mask.png"); -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100% auto; mask-image: url("https://dtong.kbsec.com/mable/images/util/kbc_scene1_mask.png"); mask-repeat: no-repeat; mask-size: 100% auto; }
+		.kbcArea .scene02 .mask { -webkit-mask-image: url("https://dtong.kbsec.com/mable/images/util/kbc_scene2_mask.png"); -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100% auto; mask-image: url("https://dtong.kbsec.com/mable/images/util/kbc_scene2_mask.png"); mask-repeat: no-repeat; mask-size: 100% auto; }
+		.kbcArea .scene03 .mask { -webkit-mask-image: url("https://dtong.kbsec.com/mable/images/util/kbc_scene3_mk.png"); -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100% auto; mask-image: url("https://dtong.kbsec.com/mable/images/util/kbc_scene3_mk.png"); mask-repeat: no-repeat; mask-size: 100% auto; }
+		.kbcArea .scene04 .mask { -webkit-mask-image: url("https://dtong.kbsec.com/mable/images/util/kbc_scene4_mk.png"); -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100% auto; mask-image: url("https://dtong.kbsec.com/mable/images/util/kbc_scene4_mk.png"); mask-repeat: no-repeat; mask-size: 100% auto; }
+		.kbcArea .scene05 .mask { -webkit-mask-image: url("https://dtong.kbsec.com/mable/images/util/kbc_scene3_mk.png"); -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100% auto; mask-image: url("https://dtong.kbsec.com/mable/images/util/kbc_scene3_mk.png"); mask-repeat: no-repeat; mask-size: 100% auto; }
+		.myKB .topBg { background: url("https://dtong.kbsec.com/mable/images/asset/myConsult_topbg.png") top no-repeat, url("https://dtong.kbsec.com/mable/images/asset/topBg_y.jpg") repeat-y; background-size: 100% auto; }
+		.myKB .i-info { background: url("https://dtong.kbsec.com/mable/images/asset/myConsult_info_cc.png") no-repeat; background-size: 100%; }
+		.myKB .refrestBtn { background: url("https://dtong.kbsec.com/mable/images/asset/myConsult_refresh.png") no-repeat; background-size: 100%; }
+		.myKB .stockBox .pbr .pbrGraph .graphBoard { background: url("https://dtong.kbsec.com/mable/images/asset/myConsult_man.png") 85% 50% no-repeat; background-size: auto 100%; }
+		.myKB .stockBox .pbr .pbrGraph .graphBoard li { background: url("https://dtong.kbsec.com/mable/images/asset/line_dotted.png") 50% 48% repeat-x; background-size: 3px 1px; }
+		.myKB .stockBox .pbr .pbrGraph .graphBoard .graphBar .bar { background: url("https://dtong.kbsec.com/mable/images/asset/graph_bar.png") 50% 50% repeat-x; background-size: 3px 1px; }
+		.myKB .stockBox .pbr .pbrGraph .graphBoard .graphBar .bubble .box:after { background: url("https://dtong.kbsec.com/mable/images/asset/myConsult_bubble.png") 50% bottom no-repeat; background-size: 1.25rem auto; }
+		.myKB .stockBox .pbr .pbrGraph .graphBoard .graphBar .bubble.ty2 .box:after { background: url("https://dtong.kbsec.com/mable/images/asset/myConsult_bubbleTy2.png") 50% top no-repeat; background-size: 1.25rem auto; }
+		.myKB .stockBox .pbr .pbrGraph .graphBoard.dataEmpty { background: url("https://dtong.kbsec.com/mable/images/asset/myConsult_dataempty.png") 50% 30% no-repeat; background-size: 5rem auto; }
+		.myKB .stockComment { background: rgb(var(--color-323)) url("https://dtong.kbsec.com/mable/images/asset/myConsult_pb.png") 1.313rem 1.313rem no-repeat; background-size: 3rem auto; }
+		.myKB .selectArea .interGroup:before { background: url("https://dtong.kbsec.com/mable/images/asset/ic_l_18_titlefilter_99.png") no-repeat; background-size: 100%; }
+		.myKB .selectArea .checkPoint input[type=checkbox] { background: url("https://dtong.kbsec.com/mable/images/asset/checkPoint_bg_n.png") no-repeat !important; background-size: cover !important; }
+		.myKB .selectArea .checkPoint input[type=checkbox]:checked { background: url("https://dtong.kbsec.com/mable/images/asset/checkPoint_bg_o.png") no-repeat !important; background-size: cover !important; }
+		.myKB .popInfo .popCont .list li input[type=radio]:checked { background: url("https://dtong.kbsec.com/mable/images/asset/ic_l_36_listcheck_sel.png") no-repeat !important; background-size: cover !important; }
+		.myKB .noDataArea p:before { background: rgb(var(--color-291)) url("https://dtong.kbsec.com/mable/images/asset/myConsult_dataempty.png") 50% 50% no-repeat; background-size: 60%; }
+		.myKB .itemView .pbr .pbrGraph .graphBoard { background: url("https://dtong.kbsec.com/mable/images/asset/myConsult_man.png") right 50% no-repeat; background-size: auto 90%; }
+		.myKB .itemView .pbr .pbrGraph .graphBoard li { background: url("https://dtong.kbsec.com/mable/images/asset/line_dotted.png") 50% 48% repeat-x; background-size: 3px 1px; }
+		.myKB .itemView .pbr .pbrGraph .graphBoard .graphBar .bar { background: url("https://dtong.kbsec.com/mable/images/asset/graph_bar.png") 50% 50% repeat-x; background-size: 3px 1px; }
+		.myKB .itemView .pbr .pbrGraph .graphBoard.dataEmpty { background: url("https://dtong.kbsec.com/mable/images/asset/myConsult_dataempty.png") 50% 34% no-repeat; background-size: 2.375rem auto; }
+		.myKB .stockSh .totalSearch .i-btnClear { background: url("https://dtong.kbsec.com/mable/images/common/i-btnClear.png") center center no-repeat; background-size: 1.125rem; }
 		.myKB .stockSh .totalSearch .buttons { background: url('/mable/images/common/select_search.png') right center no-repeat; background-size: 100%; }
 		.myKB .moreBtnArea .moreBtn::after { background: url('/mable/images/common/btn_arrow.png') 50% no-repeat !important; background-size: 100% !important; }
-		.myKB .stockItemTy2 li .favorite { background: url("/mable/images/asset/ic_favorite_34_n.png") no-repeat; background-size: 24px auto; }
-		.myKB .stockItemTy2 li .favorite.active { background: url("/mable/images/asset/ic_favorite_34_o.png") no-repeat; background-size: 24px auto; }
+		.myKB .stockItemTy2 li .favorite { background: url("https://dtong.kbsec.com/mable/images/asset/ic_favorite_34_n.png") no-repeat; background-size: 24px auto; }
+		.myKB .stockItemTy2 li .favorite.active { background: url("https://dtong.kbsec.com/mable/images/asset/ic_favorite_34_o.png") no-repeat; background-size: 24px auto; }
 		.recentListArea .recentTerms::before { background:url('/mable/images/common/recentTerms_ico.png') no-repeat; background-size:cover;}
 		.autocompleteArea .autoListArea li::before { background:url('/mable/images/common/autoList_ico.png') no-repeat; background-size:cover; }
 		.darkInfo .visual { background:url('/mable/images/cs/dark_info_visual_light.png'), url('/mable/images/cs/dark_info_visual_bg_light.png'); background-position: center top, left top; background-repeat: no-repeat, repeat-x; background-size:auto 100%, auto 100%; }
@@ -518,22 +518,22 @@ html {
 				@for $i from 1 through length($color_list) {
 					div:nth-child(#{$i}) {
 						.cont {
-							background: url("/mable/images/trading/banner_autodrive_0#{$i}.png") 90% center no-repeat nth($color_list, $i); background-size: 4.5rem auto;
+							background: url("https://dtong.kbsec.com/mable/imagestrading/banner_autodrive_0#{$i}.png") 90% center no-repeat nth($color_list, $i); background-size: 4.5rem auto;
 						}
 					}
 				}
 			}
 			.btnArea {
-				background: url("/mable/images/trading/autodrive_robot.png") no-repeat center top / auto 5rem;
+				background: url("https://dtong.kbsec.com/mable/imagestrading/autodrive_robot.png") no-repeat center top / auto 5rem;
 			}
 		}
 		.kbCi { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='159' height='43' viewBox='0 0 159 43' fill='none'%3E%3Cpath d='M49.4418 22.1325L49.0131 21.8676C47.58 20.4587 45.5712 19.8445 42.9009 20.0011C40.6716 20.1335 38.9078 21.0005 37.5605 21.8074C37.5605 21.7833 37.5605 21.7712 37.5605 21.7471C37.5605 21.0608 37.6462 20.3142 37.7197 19.5916C37.7932 18.8571 37.8789 18.1105 37.8789 17.4C37.8789 16.6895 37.7932 15.9911 37.5482 15.4131C37.487 15.2566 37.34 15.1723 37.1685 15.1723C36.4458 15.1843 35.0372 15.678 34.7065 15.967L34.5228 16.3644C34.5105 17.1471 34.339 19.3388 34.1553 19.6037L34.0573 19.8686C33.7511 22.9995 33.7511 25.7451 34.0328 28.1053C34.0695 28.3461 34.5228 28.6953 34.878 28.8278C35.2699 28.9723 36.4948 28.6472 37.193 28.3822L37.4625 28.3461C37.6829 28.322 37.8177 28.1414 37.8054 27.8885L37.8177 27.2142C38.3321 25.1791 40.3899 22.7466 42.8274 22.3854C44.2116 22.1686 45.2894 22.5178 46.1591 23.4451C46.2693 23.6136 46.5266 25.0707 45.6202 26.7566C44.9465 28.0089 43.5869 29.0566 41.8108 29.7069C40.1204 30.333 38.2709 30.5859 35.9804 30.5137C35.8824 30.4535 33.8368 29.0927 33.8368 29.0927C32.024 27.8404 29.7702 26.2749 27.7247 25.5163C27.3695 25.3838 26.7203 24.854 26.3406 24.5409L26.1323 24.3723C24.9564 23.4451 22.7027 21.9759 20.9021 20.7958C20.9021 20.7958 20.0937 20.266 19.9344 20.1576C19.9344 20.0854 19.9344 19.9529 19.9344 19.9529C19.9834 19.8927 21.1226 19.2304 21.1226 19.2304C22.7149 18.3152 23.4376 17.8696 23.5968 17.6409C23.5601 17.677 23.8051 17.5204 23.8051 17.5204L27.7369 15.3288C31.5095 13.2937 35.7844 10.9817 38.0259 8.6937L38.1361 8.34449L38.1851 8.0314C38.3321 7.54972 38.3444 7.16438 38.2219 6.73087C38.1851 6.61045 38.0749 6.46595 37.9157 6.42982C36.1641 6.26123 33.8981 7.29684 31.8403 9.18742C31.3748 9.62093 30.9828 9.82564 30.5664 10.0424L30.2479 10.211C27.9819 11.4754 22.8619 14.5942 20.1917 16.2801C20.3631 13.4503 20.9021 9.42826 21.5513 6.06856L21.4778 5.67118L21.1961 5.16542L20.9878 4.80416H20.9266C20.3876 4.5272 19.9589 4.63558 19.6405 4.70783L19.1015 4.9005L18.3911 5.15338C18.2564 5.17746 18.1461 5.26176 18.0971 5.40626C16.8232 8.44082 15.7576 13.4382 15.5004 17.4361C12.9404 15.8346 10.5886 14.6906 9.42497 14.1367H9.38822L9.25349 14.0885C8.83703 14.0403 8.33483 13.7393 7.84488 13.4382C7.79588 13.4141 6.87722 12.8241 6.87722 12.8241L5.39512 11.8848L5.00316 11.8005C4.36622 11.9089 3.14134 12.7157 2.77387 13.2696C2.72488 13.3419 2.71263 13.4262 2.71263 13.5105C2.71263 13.6188 2.74938 13.7393 2.77387 13.8597L2.83512 14.1607L2.90861 14.3414C3.61904 15.0639 5.41961 16.256 7.17119 17.1833L9.21674 18.2429L12.3402 19.9168L12.8791 20.3262L13.2466 20.5309C13.2466 20.5309 13.2833 20.555 13.3078 20.567C12.4749 21.1089 7.6244 24.3 7.6244 24.3L4.63569 26.2508C4.35397 26.4435 3.17808 26.9613 2.92086 27.0576C2.27167 27.3226 1.78172 27.7199 1.57349 28.1535L1.5 28.322L1.58574 28.4304L1.81847 28.599L2.12469 28.7917L2.45541 29.0084L2.76163 29.0566C3.28832 29.0807 4.06 28.7796 5.5176 28.1535C6.85272 27.5754 10.4784 25.4199 12.034 24.5047L12.6954 24.1074C12.9649 24.1315 13.2711 23.9027 13.5406 23.6979C13.8468 23.4571 14.5327 23.0477 14.9492 22.867C14.9492 22.867 15.1942 22.7346 15.4146 22.6142C15.4146 22.6864 15.4146 22.7948 15.4146 22.7948C15.4881 27.455 15.7576 30.8508 16.272 33.4639V33.5121L16.3333 33.6205C16.5905 33.9938 16.8845 35.1016 17.1417 36.077L17.7297 38.0278L17.9011 38.2085C18.2441 38.4373 19.2608 38.8226 19.9467 38.7383L20.1182 38.7142L20.2284 38.4734C20.2897 38.1844 20.3019 37.8954 20.3019 37.5823C20.3019 37.221 20.2774 36.8357 20.2407 36.354L20.1917 35.6556C19.9712 32.4043 19.763 27.6959 19.763 24.565C19.763 24.4807 19.763 24.3964 19.763 24.3121C20.3264 24.6613 22.7884 26.1906 22.7884 26.1906C26.9775 28.8639 33.3101 32.898 37.1317 33.9697C37.3277 34.0299 37.536 33.9817 37.6829 33.8493L38.2709 33.476L38.3811 33.4278C38.6016 33.3315 38.7486 32.9582 38.7731 32.5608C41.9945 32.4042 46.4898 31.176 48.9028 28.2016C49.8337 27.0456 50.2502 25.6367 50.2502 24.4325C50.2502 23.4451 49.9685 22.5901 49.4663 22.1204L49.4418 22.1325Z' fill='%23FCAF17'/%3E%3Cpath d='M138.557 32.7076V24.4531H141.404V30.2109H157.499V32.7076H138.557Z' fill='%23776C61'/%3E%3Cpath d='M154.313 9.49707V21.8967H149.725V24.2978H154.313V26.5197H157.149V9.49707H154.313Z' fill='%23776C61'/%3E%3Cpath d='M143.112 25.8282V20.5004H135.947V17.9918H147.713V12.4251H137.371V9.94043H150.572V17.9799H152.842V20.5004H145.96V25.8282H143.112Z' fill='%23776C61'/%3E%3Cpath d='M134.053 19.6626H110.793V22.1599H134.053V19.6626Z' fill='%23776C61'/%3E%3Cpath d='M122.627 31.393C119.051 31.393 116.156 30.521 116.156 28.5619C116.156 26.6028 119.051 25.7308 122.627 25.7308C126.204 25.7308 129.098 26.6148 129.098 28.5619C129.098 30.5091 126.204 31.393 122.627 31.393ZM122.627 23.2341C117.415 23.2341 113.18 24.9901 113.18 28.55C113.18 32.1098 117.415 33.8777 122.627 33.8777C127.839 33.8777 132.075 32.0978 132.075 28.55C132.075 25.0021 127.839 23.2341 122.627 23.2341' fill='%23776C61'/%3E%3Cpath d='M132.395 16.0912C131.842 16.0434 125.935 15.6492 124.465 12.3761H131.806V9.89136H113.264V12.3761H120.594C119.123 15.6492 113.217 16.0434 112.664 16.0912V18.4803C115.605 18.3011 120.041 17.441 122.523 15.1116C125.006 17.441 129.453 18.3011 132.383 18.4803V16.0912H132.395Z' fill='%23776C61'/%3E%3Cpath d='M84.5332 9.68945H95.6751C100.981 9.68945 103.746 11.4694 103.746 15.3875C103.746 18.1709 101.84 20.0822 99.2871 20.5959V20.6914C102.934 21.1334 104.664 23.5584 104.664 26.3059C104.664 29.7462 102.181 32.7207 96.0281 32.7207H84.5332V9.68945ZM88.1452 19.3893H95.4986C98.2282 19.3893 100.252 18.3381 100.252 15.8893C100.252 13.751 99.2518 12.3175 95.0868 12.3175H88.1452V19.3893ZM88.1452 30.1046H95.2751C99.6989 30.1046 100.875 28.3486 100.875 26.1148C100.875 23.4748 99.0753 22.0054 95.0868 22.0054H88.1452V30.1046Z' fill='%23776C61'/%3E%3Cpath d='M60 9.68945H63.6238V19.9866L75.8128 9.68945H80.9425L68.0593 20.0822L82.0132 32.7088H76.8834L63.6238 20.3689V32.7088H60V9.68945Z' fill='%23776C61'/%3E%3C/svg%3E") no-repeat center / 100% auto; }
 		
 		.kbCi-w { background: url("data:image/svg+xml,%3Csvg width='120' height='26' viewBox='0 0 120 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M35.6299 13.3396L35.3149 13.1421C34.2439 12.07 32.7599 11.5974 30.7719 11.7174C29.1199 11.8231 27.8039 12.4791 26.8029 13.0927C26.8029 13.0786 26.8029 13.0645 26.8029 13.0504C26.8029 12.5285 26.8589 11.9642 26.9219 11.4141C26.9779 10.8569 27.0409 10.2856 27.0409 9.74951C27.0409 9.21347 26.9779 8.67743 26.7889 8.23308C26.7399 8.12023 26.6349 8.0497 26.5089 8.0497C25.9699 8.06381 24.9269 8.43057 24.6749 8.65627L24.5349 8.95956C24.5279 9.55203 24.3949 11.2236 24.2619 11.4211L24.1919 11.6257C23.9679 14.0096 23.9609 16.0974 24.1709 17.8959C24.1919 18.0723 24.5349 18.3473 24.8009 18.4461C25.0879 18.5519 25.9979 18.3121 26.5229 18.1075L26.7189 18.0793C26.8869 18.0581 26.9849 17.9241 26.9709 17.7266L26.9849 17.2118C27.3629 15.6601 28.8959 13.8121 30.7089 13.53C31.7309 13.3678 32.5429 13.6288 33.1799 14.3341C33.2639 14.461 33.4529 15.5754 32.7739 16.8591C32.2699 17.8113 31.2619 18.6083 29.9459 19.1091C28.6929 19.5887 27.3139 19.7862 25.6129 19.7227C25.5429 19.6733 24.0169 18.6365 24.0169 18.6365C22.6729 17.6843 20.9929 16.4923 19.4739 15.914C19.2079 15.8152 18.7319 15.4132 18.4449 15.1734L18.2909 15.0464C17.4159 14.3411 15.7499 13.2197 14.4059 12.3169C14.4059 12.3169 13.804 11.9078 13.685 11.8302C13.685 11.7808 13.685 11.675 13.685 11.675C13.72 11.6327 14.5599 11.1249 14.5599 11.1249C15.7359 10.4266 16.2819 10.0881 16.4009 9.91174C16.3799 9.93995 16.5549 9.82005 16.5549 9.82005C16.5619 9.82005 19.4739 8.1555 19.4739 8.1555C22.2739 6.6038 25.4519 4.84051 27.1249 3.09838L27.2089 2.83036L27.2439 2.59055C27.3559 2.21673 27.3629 1.9346 27.2719 1.60311C27.2439 1.51141 27.1599 1.39856 27.0479 1.3774C25.7459 1.25045 24.0659 2.03335 22.5329 3.47925C22.1899 3.80369 21.8959 3.96592 21.5879 4.13519L21.3569 4.26215C19.6699 5.22843 15.8689 7.60535 13.881 8.88198C14.014 6.73076 14.4059 3.66263 14.8959 1.10938L14.8399 0.806097L14.6369 0.418173L14.4829 0.1431L14.441 0.128993C14.042 -0.0755486 13.72 0.00908946 13.482 0.072568L13.083 0.220685L12.558 0.41112C12.453 0.43228 12.376 0.495758 12.334 0.601556C11.382 2.91499 10.591 6.71665 10.409 9.76362C8.51197 8.54342 6.75498 7.67588 5.89398 7.25269L5.86598 7.23859L5.76098 7.21743C5.45298 7.17511 5.07498 6.94941 4.71098 6.72371C4.67598 6.70255 3.98999 6.25114 3.98999 6.25114L2.88399 5.53877L2.59699 5.4753C2.12099 5.55993 1.211 6.17356 0.944997 6.5897C0.909997 6.64612 0.895997 6.7096 0.895997 6.76602C0.895997 6.85066 0.923997 6.94235 0.944997 7.02699L0.993997 7.25269L1.043 7.3867C1.56799 7.93685 2.90499 8.84671 4.21399 9.55203L5.73298 10.3631L8.04997 11.6398L8.44897 11.9572L8.72197 12.1194C8.72197 12.1194 8.74997 12.1405 8.77097 12.1476C8.15497 12.5637 4.54998 14.99 4.54998 14.99L2.33099 16.4712C2.12099 16.6193 1.246 17.0143 1.05 17.0919C0.566998 17.2894 0.202999 17.5926 0.0559998 17.9241L0 18.0511L0.0559998 18.1357L0.223999 18.2627L0.454998 18.4108L0.699998 18.5801L0.930997 18.6153C1.323 18.6295 1.89699 18.4108 2.98199 17.9312C3.97599 17.4868 6.67098 15.8505 7.81897 15.1522L8.30897 14.856C8.51197 14.8701 8.73597 14.7008 8.93197 14.5457C9.16297 14.3623 9.66697 14.0519 9.97497 13.9109C9.98197 13.9109 10.157 13.8051 10.325 13.7204C10.325 13.7769 10.325 13.8545 10.325 13.8545C10.374 17.4093 10.584 19.9907 10.962 21.9797V22.015L11.004 22.0926C11.193 22.3747 11.41 23.214 11.599 23.9617L12.04 25.4428L12.166 25.5839C12.418 25.7532 13.181 26.0494 13.692 25.993L13.818 25.9789L13.902 25.7955C13.944 25.5768 13.958 25.3582 13.958 25.1184C13.958 24.8503 13.937 24.5471 13.916 24.1803L13.881 23.6443C13.72 21.1686 13.559 17.5856 13.559 15.2016C13.559 15.1381 13.559 15.0747 13.559 15.0112C13.979 15.2792 15.8059 16.4359 15.8059 16.4359C18.9209 18.4672 23.6179 21.5424 26.4599 22.3606C26.6069 22.4029 26.7609 22.3676 26.8729 22.2689L27.3139 21.9868L27.3909 21.9515C27.5519 21.8739 27.6639 21.5988 27.6849 21.2956C30.0789 21.1756 33.4179 20.2446 35.2099 17.9806C35.9029 17.106 36.2109 16.0268 36.2109 15.1099C36.2109 14.3552 36.0009 13.7063 35.6229 13.3466L35.6299 13.3396Z' fill='%23F8B500'/%3E%3Cpath d='M105.183 21.3168V14.9756H107.388V19.3982H119.827V21.3168H105.183Z' fill='white'/%3E%3Cpath d='M117.363 3.49435V13.0167H113.821V14.8577H117.363V16.5646H119.561V3.49435H117.363Z' fill='white'/%3E%3Cpath d='M108.698 16.0285V11.9374H103.161V10.0189H112.261V5.74441H104.26V3.83289H114.473V10.0048H116.23V11.9374H110.903V16.0285H108.698Z' fill='white'/%3E%3Cpath d='M101.699 11.3006H83.709V13.2126H101.699V11.3006Z' fill='white'/%3E%3Cpath d='M92.8628 20.3008C90.0907 20.3008 87.8576 19.6307 87.8576 18.1282C87.8576 16.6258 90.0977 15.9557 92.8628 15.9557C95.628 15.9557 97.8681 16.6329 97.8681 18.1282C97.8681 19.6236 95.621 20.3008 92.8628 20.3008ZM92.8628 14.0372C88.8306 14.0372 85.5544 15.3844 85.5544 18.1212C85.5544 20.858 88.8306 22.2052 92.8628 22.2052C96.8951 22.2052 100.171 20.8368 100.171 18.1212C100.171 15.4056 96.8951 14.0372 92.8628 14.0372Z' fill='white'/%3E%3Cpath d='M100.411 8.54946C99.984 8.51419 95.4128 8.21089 94.2787 5.69982H99.956V3.79535H85.6123V5.69982H91.2896C90.1555 8.21089 85.5843 8.51419 85.1572 8.54946V10.3834C87.4324 10.2494 90.8625 9.58634 92.7876 7.80178C94.7127 9.58634 98.1429 10.2494 100.418 10.3834V8.54946H100.411Z' fill='white'/%3E%3Cpath d='M44.4714 3.6445H47.2714V11.5582L56.7004 3.6445H60.6624L50.7014 11.6287L61.4884 21.3197H57.5264L47.2714 11.8473V21.3197H44.4714V3.6445Z' fill='white'/%3E%3Cpath d='M74.8186 12.0871V12.0166C76.7856 11.6216 78.2626 10.1546 78.2626 8.01746C78.2626 5.01987 76.1206 3.6445 72.0186 3.6445H63.4016V21.3197H72.2916C77.0516 21.3197 78.9696 19.0345 78.9696 16.3966C78.9696 14.2948 77.6326 12.4257 74.8116 12.0871H74.8186ZM66.1946 5.65465H71.5566C74.7836 5.65465 75.5536 6.75495 75.5536 8.39128C75.5536 10.2745 73.9926 11.0856 71.8856 11.0856H66.2016V5.65465H66.1946ZM71.7036 19.3096H66.1946V13.0957H71.5566C74.6366 13.0957 76.0366 14.2172 76.0366 16.2556C76.0366 17.9624 75.1266 19.3166 71.7036 19.3166V19.3096Z' fill='white'/%3E%3C/svg%3E%0A") no-repeat center / 100% auto; }
 
-		.bannerArea.bg_aiSelISA { background: url("/mable/images/asset/bg_banner_aiselISA.png") 90% bottom no-repeat rgb(var(--color-226)); background-size: auto 6rem; }
-		.tabTy7.scrollTy .leftBtn {background: url("/mable/images/common/btn_tabTy7_left.png") no-repeat; background-size: 1.625rem;}
-		.tabTy7.scrollTy .rightBtn {background: url("/mable/images/common/btn_tabTy7_right.png") no-repeat; background-size: 1.625rem;}
+		.bannerArea.bg_aiSelISA { background: url("https://dtong.kbsec.com/mable/images/asset/bg_banner_aiselISA.png") 90% bottom no-repeat rgb(var(--color-226)); background-size: auto 6rem; }
+		.tabTy7.scrollTy .leftBtn {background: url("https://dtong.kbsec.com/mable/images/common/btn_tabTy7_left.png") no-repeat; background-size: 1.625rem;}
+		.tabTy7.scrollTy .rightBtn {background: url("https://dtong.kbsec.com/mable/images/common/btn_tabTy7_right.png") no-repeat; background-size: 1.625rem;}
 		.fm.searchTy4 .searchBtn { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36' fill='none'%3E%3Ccircle cx='16.3453' cy='15.4839' r='9' stroke='%23222222' stroke-width='2'/%3E%3Cline x1='23.0689' y1='22.5159' x2='29.6547' y2='29.1017' stroke='%23222222' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center center / 1.7rem no-repeat ; }
 		.icoList.ty11.link li { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36' fill='none'%3E%3Cpath d='M13.375 29.25L23.875 18L13.375 6.75' stroke='rgba(102, 102, 102, 1)' stroke-width='2'/%3E%3C/svg%3E") right 1rem / 1.5rem no-repeat; }
 		.branchHead .close { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30' fill='none'%3E%3Cpath d='M7.59668 21.7367L21.7367 7.59668M7.59668 7.59668L21.7367 21.7367' stroke='%23222222' stroke-width='1.33333' stroke-miterlimit='10'/%3E%3C/svg%3E") center center / 30px no-repeat !important; }
@@ -598,7 +598,7 @@ html {
 		.bottomSheet .fmTy { background: url("/mable/images_dark/common/ico_agreeNext.png") right 50% no-repeat; background-size: 1.5rem; }
 		.bottomSheet .pdfTy .pdfBtn { background: url("/mable/images_dark/common/ico_agreeNext.png") right 50% no-repeat; background-size: 1.5rem; }
 		.boardTop .wmVis { background: rgb(var(--color-191)) url("/mable/images_dark/common/img_top_wm_focus.png") 96% 50% no-repeat; background-size: 84px auto; }
-		.boardTop .csVis { background: #ffed7f url("/mable/images/cs/img_workguide_visual.png") 96% 50% no-repeat; background-size: 84px auto; }/* Moweb(No Dark) */
+		.boardTop .csVis { background: #ffed7f url("https://dtong.kbsec.com/mable/images/cs/img_workguide_visual.png") 96% 50% no-repeat; background-size: 84px auto; }/* Moweb(No Dark) */
 		.todaysCock .contBox .titHead > .moreBtn { background: url("/mable/images_dark/common/ic_arrow.png") 50% 50% no-repeat; background-size: 1rem; }
 		.todaysCock .shareBtn .share { background: rgb(var(--color-028)) url("/mable/images_dark/common/ico_share.png") 1.5rem 50% no-repeat; background-size: 1.5rem; }
 		.todaysCock .toggleBtnBox .btnArea button.like { background: rgb(var(--color-028)) url("/mable/images_dark/common/ic_like.png") 0.875rem 50% no-repeat; background-size: 1.5rem; }

@@ -1,14 +1,17 @@
-@include font-face('SpoqaL', '/mable/common/font/SpoqaHanSansNeo-Light');
-@include font-face('SpoqaR', '/mable/common/font/SpoqaHanSansNeo-Regular');
-@include font-face('SpoqaM', '/mable/common/font/SpoqaHanSansNeo-Medium');
-@include font-face('SpoqaB', '/mable/common/font/SpoqaHanSansNeo-Bold');
-@include font-face('KBFGText', '/mable/common/font/KBFGTextL', 300, normal, false, swap);
-@include font-face('KBFGText', '/mable/common/font/KBFGTextM', 500, normal, false, swap);
-@include font-face('KBFGText', '/mable/common/font/KBFGTextB', 700, normal, false, swap);
-@include font-face('KBFGDisplay', '/mable/common/font/KBFGDisplayM', 500, normal, false, swap);
-@include font-face('KBFGDisplay', '/mable/common/font/KBFGDisplayB', 700, normal, false, swap);
-@include font-face('KBFGDisplay', '/mable/common/font/KBFGDisplayH', 900, normal, false, swap);
-@include font-face('NotoEmoji', '/mable/common/font/NotoEmoji', normal, normal, false, swap);
+@include font-face('SpoqaL', '../font/SpoqaHanSansNeo-Light');
+@include font-face('SpoqaR', '../font/SpoqaHanSansNeo-Regular');
+@include font-face('SpoqaM', '../font/SpoqaHanSansNeo-Medium');
+@include font-face('SpoqaB', '../font/SpoqaHanSansNeo-Bold');
+@include font-face('KBFGText', '../font/KBFGTextL', 300, normal, false, swap);
+@include font-face('KBFGText', '../font/KBFGTextM', 500, normal, false, swap);
+@include font-face('KBFGText', '../font/KBFGTextB', 700, normal, false, swap);
+@include font-face('KBFGText-Light', '../font/KBFGTextL', 300, normal, false, swap);
+@include font-face('KBFGText-Medium', '../font/KBFGTextM', 500, normal, false, swap);
+@include font-face('KBFGText-Bold', '../font/KBFGTextB', 700, normal, false, swap);
+@include font-face('KBFGDisplay', '../font/KBFGDisplayM', 500, normal, false, swap);
+@include font-face('KBFGDisplay', '../font/KBFGDisplayB', 700, normal, false, swap);
+@include font-face('KBFGDisplay', '../font/KBFGDisplayH', 900, normal, false, swap);
+@include font-face('NotoEmoji', '../font/NotoEmoji', normal, normal, false, swap);
 
 .titTy1 {
     margin: 2.25rem 0 0.5rem;

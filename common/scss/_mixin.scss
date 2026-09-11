@@ -38,7 +38,7 @@
         src: url($file-name + '.eot');
         $space-to-hypened-font-name: str-replace($font-name, ' ', '-');
         $removed-space-font-name: str-replace($font-name, ' ', '');
-        $font-source: 'local("\203B"), local("#{$font-name}"), local("#{$space-to-hypened-font-name}"), url("#{$file-name}.eot?iefix") format("embedded-opentype"), url("#{$file-name}.woff2") format("woff2")';
+        $font-source: 'local("\203B"), local("#{$font-name}"), local("#{$space-to-hypened-font-name}"), url("#{$file-name}.woff") format("woff"), url("#{$file-name}.woff2") format("woff2")';
         @if $support-legacy {
             $font-source-legacy: ', url("#{$file-name}.ttf") format("truetype"), url("#{$file-name}.svg##{$file-name}") format("svg")';
             $font-source: str-insert($font-source, $font-source-legacy, -1);

@@ -1,0 +1,231 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+input[type=text],
+input[type=password],
+input[type=number] {
+    width: 100%;
+    height: 3rem;
+    padding: 0 2.5rem 0 1rem;
+    color: rgb(var(--color-004));
+    font-size: 1.063rem;
+    line-height: 3rem;
+    border: 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: rgb(var(--color-187));
+    font-family: inherit;
+
+    &::-webkit-input-placeholder {
+        color: rgb(var(--color-411));
+        font-size: 16px;
+    }
+    &::placeholder {
+        color: rgb(var(--color-411));
+        font-size: 16px;
+    }
+
+    + .clearBtn {
+        opacity: 0;
+    }
+
+    &:focus {
+        box-sizing: border-box;
+        box-shadow: 0rem -0.125rem 0 0rem rgb(var(--color-401)) inset;
+        border-radius: 4px 4px 0 0;
+        + .clearBtn {
+            opacity: 1;
+        }
+    }
+
+    &[disabled] {
+        background-color: rgb(var(--color-405));
+        opacity: 0.6;
+    }
+
+    &.focus {
+        box-sizing: border-box;
+        box-shadow: 0rem -0.125rem 0 0rem rgb(var(--color-401)) inset;
+        border-radius: 4px 4px 0 0;
+        + .clearBtn {
+            opacity: 1;
+        }
+    }
+
+    &.impos {
+        box-sizing: border-box;
+        box-shadow: 0rem -0.125rem 0 0rem rgb(var(--color-255)) inset;
+        border-radius: 4px 4px 0 0;
+        background: rgb(var(--color-044));
+        + .clearBtn {
+            position: absolute;
+            top: 50%;
+            right: 0.9375rem;
+            margin-top: -0.5625rem;
+            width: 1.125rem;
+            height: 1.125rem;
+            background: url("https://dtong.kbsec.com/mable/images/common/ico_impos.png") no-repeat;
+            background-size: 100%;
+            opacity: 1;
+        }
+    }
+}
+
+input[type=password] {
+    padding: 0 2.5rem 0 1rem !important;
+    text-align: center !important;
+}
+
+.fm {
+    position: relative;
+
+    &.tR {
+        input[type=text] {
+            padding: 0 2.5rem;
+            text-align: right;
+            + .clearBtn {
+                left: 1.2rem;
+            }
+        }
+    }
+
+    &.searchTy {
+        position: relative;
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        input[type=text] { 
+            width: 100%;
+            height: 3rem;
+            padding: 0 2.5rem 0 1rem !important;
+            color: rgb(var(--color-004));
+            font-size: 1.063rem;
+            line-height: 3rem;
+            border: 0;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background: rgb(var(--color-187));
+
+            &:focus {
+                box-sizing: border-box;
+                box-shadow: 0rem -0.125rem 0 0rem rgb(var(--color-401)) inset;
+                border-radius: 4px 4px 0 0;
+            }
+        }
+
+        .searchBtn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 3rem;
+            height: 3rem;
+            background: url("https://dtong.kbsec.com/mable/images/common/select_search.png") right center no-repeat;
+            background-size: 100%;
+            border: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        input[type=text][disabled] {
+            background-color: rgb(var(--color-405));
+            opacity: 0.6;
+        }
+    }
+}
+
+.clearBtn {
+    position: absolute;
+    top: 50%;
+    right: .75rem;
+    margin-top: -0.75rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: none;
+    cursor: pointer;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM12 10.5859L8.70703 7.29297L7.29297 8.70703L10.5859 12L7.29297 15.293L8.70703 16.707L12 13.4141L15.293 16.707L16.707 15.293L13.4141 12L16.707 8.70703L15.293 7.29297L12 10.5859Z' fill='rgba(153, 153, 153, 1)'/%3E%3C/svg%3E") no-repeat center center / 1rem;
+    -webkit-tap-highlight-color: transparent;
+    opacity: 0;
+
+    &.active {
+        opacity: 1;
+        display: block;
+    }
+}
+
+.price {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3rem;
+    height: 3rem;
+    color: rgb(var(--color-004));
+    font-size: 1.063rem;
+    line-height: 3rem;
+    text-align: center;
+}
+
+.imposTxt {
+    display: none;
+    margin-top: 0.25rem;
+    color: rgb(var(--color-010));
+    font-size: 0.813rem;
+    font-weight: 500;
+
+    &.active {
+        display: block;
+    }
+}
+
+.formBox {
+    display: block;
+    box-sizing: border-box;
+
+    &.gridTy1 {
+        display: grid !important;
+        grid-template-columns: 80% 20%;
+        align-items: center;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+        > .item {
+            display: block;
+            box-sizing: border-box;
+
+            &:first-child {
+                padding-right: .5rem;
+            }
+
+            &:last-of-type {
+                button {
+                    width: 100% !important;
+                    height: 3rem;
+                    font-size: 1rem;
+                    line-height: 3rem;
+                }
+            }
+        }
+    }
+}
+
+.btnTy2 {
+    display: block;
+    width: 100%;
+    height: 3.125rem;
+    line-height: 140%;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 500;
+    color: rgb(var(--color-004));
+    background-color: rgb(var(--color-028));
+    border-radius: 4px;
+    border: 1px solid rgb(var(--color-112));
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+    &:active, &.active {
+        background-color: rgb(var(--color-499));
+    }
+}
+

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mable React Publishing Components (AS-IS 1:1)</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background-color: #f2f3f5;
+            padding: 20px 0;
+            transition: background-color 0.2s ease;
+        }
+        html[data-theme='dark'] body {
+            background-color: #121212;
+            color: #eee;
+        }
+        .previewHeader {
+            max-width: 900px;
+            margin: 0 auto 20px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .previewNav {
+            max-width: 900px;
+            margin: 0 auto 20px;
+            padding: 0 20px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .previewNav button {
+            padding: 8px 16px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        html[data-theme='dark'] .previewNav button {
+            background: #252528;
+            border-color: #444;
+            color: #eee;
+        }
+        .previewNav button.active {
+            background: #ffd400;
+            border-color: #ffd400;
+            color: #222;
+            font-weight: 700;
+        }
+        .previewSection {
+            max-width: 900px;
+            margin: 0 auto 30px;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        html[data-theme='dark'] .previewSection {
+            background: #1c1c1e;
+            border-color: #333;
+        }
+        .sectionHeader {
+            padding: 16px 20px;
+            background: #fafafa;
+            border-bottom: 1px solid #eee;
+        }
+        html[data-theme='dark'] .sectionHeader {
+            background: #252528;
+            border-bottom-color: #333;
+        }
+        .sectionHeader h2 {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0 0 4px;
+            color: #222;
+        }
+        html[data-theme='dark'] .sectionHeader h2 {
+            color: #eee;
+        }
+        .sectionHeader p {
+            font-size: 12px;
+            color: #888;
+            margin: 0;
+        }
+        .sectionBody {
+            padding: 20px;
+        }
+        .grid2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 20px;
+        }
+        .demoItem {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 16px;
+            background: #fff;
+        }
+        html[data-theme='dark'] .demoItem {
+            border-color: #333;
+            background: #1e1e20;
+        }
+        .demoLabel {
+            font-size: 12px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        html[data-theme='dark'] .demoLabel {
+            color: #aaa;
+        }
+        .themeToggle {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            background: #fff;
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        html[data-theme='dark'] .themeToggle {
+            background: #333;
+            color: #fff;
+            border-color: #555;
+        }
+        .themeBtn {
+            padding: 8px 14px;
+            background: #222;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="previewHeader">
+    <div>
+        <h1 style="font-size: 20px; font-weight: 700;">Mable Publishing Components (AS-IS 1:1)</h1>
+        <p style="font-size: 13px; color: #666;">React 컴포넌트 이식을 위한 AS-IS 원본 규격 및 아이콘 100% 매칭 퍼블리싱 소스</p>
+    </div>
+    <button type="button" class="themeBtn" onclick="toggleTheme()">🌓 Dark / Light 모드</button>
+</div>
+
+<div class="previewNav">
+    <button type="button" class="active" onclick="filterTab('all', this)">전체 보기</button>
+    <button type="button" onclick="filterTab('layout', this)">1. Layout (레이아웃)</button>
+    <button type="button" onclick="filterTab('input', this)">2. Input (인풋)</button>
+    <button type="button" onclick="filterTab('select', this)">3. Drop Down (셀렉트)</button>
+    <button type="button" onclick="filterTab('popup', this)">4. Popup (바텀시트)</button>
+</div>
+
+<!-- 1. Layout Section -->
+<div class="previewSection" id="sec-layout">
+    <div class="sectionHeader">
+        <h2>1. Layout (레이아웃)</h2>
+        <p>wrapTy5, contBox, positionB, titTy1, listTy1 (Layout.module.scss)</p>
+    </div>
+    <div class="sectionBody">
+        <div class="grid2">
+            <div class="demoItem">
+                <div class="demoLabel">기본 단일 섹션 (wrapTy5 + contBox)</div>
+                <div class="wrapTy5">
+                    <div class="contBox">
+                        <h1 class="titTy1">타이틀</h1>
+                        <ul class="listTy1">
+                            <li>내용이 들어가는 영역입니다.</li>
+                            <li>두 번째 항목 내용입니다.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demoItem">
+                <div class="demoLabel">멀티 섹션 (자동 구분선 생성)</div>
+                <div class="wrapTy5">
+                    <div class="contBox">
+                        <h1 class="titTy1">섹션 1 타이틀</h1>
+                        <div class="webArea">웹영역 콘텐츠 1</div>
+                    </div>
+                    <div class="contBox">
+                        <h1 class="titTy1">섹션 2 타이틀</h1>
+                        <div class="webArea">웹영역 콘텐츠 2 (상단 자동 구분선)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 2. Input Section -->
+<div class="previewSection" id="sec-input">
+    <div class="sectionHeader">
+        <h2>2. Input (인풋)</h2>
+        <p>Inactive, Focused, Filled (Impos), Activated, Disabled, PassWord, Search, Input + Button (Input.module.scss)</p>
+    </div>
+    <div class="sectionBody">
+        <div class="grid2">
+            <!-- Inactive -->
+            <div class="demoItem">
+                <div class="demoLabel">Inactive</div>
+                <div class="fm" style="margin-bottom: 10px;">
+                    <label for="f-inp-1" class="blind">Inactive</label>
+                    <input id="f-inp-1" type="text" placeholder="placeholder" value="" style="width:100%;">
+                    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
+                </div>
+                <div class="fm tR">
+                    <label for="f-inp-1-p" class="blind">Inactive</label>
+                    <input id="f-inp-1-p" type="text" placeholder="placeholder" value="" style="width:100%;">
+                    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
+                    <span class="price">원</span>
+                </div>
+            </div>
+
+            <!-- Focused -->
+            <div class="demoItem">
+                <div class="demoLabel">Focused</div>
+                <div class="fm" style="margin-bottom: 10px;">
+                    <label for="f-inp-2" class="blind">Focused</label>
+                    <input id="f-inp-2" type="text" class="focus" placeholder="placeholder" value="" style="width:100%;">
+                    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
+                </div>
+                <div class="fm tR">
+                    <label for="f-inp-2-p" class="blind">Focused</label>
+                    <input id="f-inp-2-p" type="text" class="focus" placeholder="placeholder" value="" style="width:100%;">
+                    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
+                    <span class="price">원</span>
+                </div>
+            </div>
+
+            <!-- Filled (Impos) -->
+            <div class="demoItem">
+                <div class="demoLabel">Filled (Impos / 에러)</div>
+                <div class="fm" style="margin-bottom: 10px;">
+                    <label for="f-inp-3" class="blind">Filled</label>
+                    <input id="f-inp-3" type="text" class="impos" placeholder="placeholder" value="" style="width:100%;">
+                    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
+                </div>
+                <div class="fm tR">
+                    <label for="f-inp-3-p" class="blind">Filled</label>
+                    <input id="f-inp-3-p" type="text" class="impos" placeholder="placeholder" value="" style="width:100%;">
+                    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
+                    <span class="price">원</span>
+                </div>
+            </div>
+
+            <!-- Activated -->
+            <div class="demoItem">
+                <div class="demoLabel">Activated</div>
+                <div class="fm" style="margin-bottom: 10px;">
+                    <label for="f-inp-4" class="blind">Activated</label>
+                    <input id="f-inp-4" type="text" placeholder="placeholder" value="Activated" style="width:100%;">
+                    <button type="button" class="clearBtn active"><span class="blind">삭제</span></button>
+                </div>
+                <div class="fm tR">
+                    <label for="f-inp-4-p" class="blind">Activated</label>
+                    <input id="f-inp-4-p" type="text" placeholder="placeholder" value="20,000" style="width:100%;">
+                    <button type="button" class="clearBtn active"><span class="blind">삭제</span></button>
+                    <span class="price">원</span>
+                </div>
+            </div>
+
+            <!-- Disabled & Password -->
+            <div class="demoItem">
+                <div class="demoLabel">Disabled & PassWord</div>
+                <div class="fm" style="margin-bottom: 10px;">
+                    <label for="f-inp-5" class="blind">Disabled</label>
+                    <input id="f-inp-5" type="text" placeholder="placeholder" value="" style="width:100%;" disabled="">
+                    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
+                </div>
+                <div class="fm">
+                    <label for="f-inp-pwd" class="blind">PassWord</label>
+                    <input id="f-inp-pwd" type="password" placeholder="비밀번호 입력" value="" style="width:100%;">
+                    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
+                </div>
+            </div>
+
+            <!-- Search & Input+Button -->
+            <div class="demoItem">
+                <div class="demoLabel">Search & Input + Button</div>
+                <div class="fm searchTy" style="margin-bottom: 10px;">
+                    <label for="keyword" class="blind">종목</label>
+                    <input id="keyword" name="keyword" type="text" value="" placeholder="제목을 입력해주세요.">
+                    <button type="button" class="searchBtn"><span class="blind">검색</span></button>
+                </div>
+                <div class="formBox gridTy1">
+                    <div class="fm item">
+                        <label for="f-inp-btn" class="blind">Inactive</label>
+                        <input id="f-inp-btn" type="text" placeholder="placeholder" value="" style="width:100%;">
+                        <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
+                    </div>
+                    <div class="item">
+                        <button type="button" class="btnTy2">텍스트</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 3. Select Section -->
+<div class="previewSection" id="sec-select">
+    <div class="sectionHeader">
+        <h2>3. Drop Down (셀렉트)</h2>
+        <p>select (100%), selectTy2, dataBoxSelect, formBox.searchTy (Select.module.scss)</p>
+    </div>
+    <div class="sectionBody">
+        <div class="grid2">
+            <div class="demoItem">
+                <div class="demoLabel">Select Box (100% Width)</div>
+                <select style="width:100%">
+                    <option class="all" selected="">option</option>
+                    <option>option 1</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                </select>
+            </div>
+
+            <div class="demoItem">
+                <div class="demoLabel">Select Ty2 & dataBoxSelect (옵션 가변)</div>
+                <div style="margin-bottom: 10px;">
+                    <select class="selectTy2">
+                        <option selected="">전체</option>
+                        <option>KOSPI</option>
+                        <option>KOSDAQ</option>
+                        <option>업종/섹터</option>
+                        <option>스마일/테마</option>
+                    </select>
+                </div>
+                <div class="dataBoxSelect">
+                    <div class="selectBox">
+                        <select class="selectTy2">
+                            <option selected="">전체</option>
+                            <option>글로벌</option>
+                            <option>아시아</option>
+                            <option>북미</option>
+                            <option>남미</option>
+                            <option>유럽</option>
+                        </select>
+                        <select class="selectTy2">
+                            <option selected="">배율 전체</option>
+                            <option>1X</option>
+                            <option>2X</option>
+                            <option>-1X</option>
+                            <option>-2X</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demoItem" style="grid-column: 1 / -1;">
+                <div class="demoLabel">Select Box + Input (검색 결합)</div>
+                <div class="formBox searchTy">
+                    <select class="searchTy">
+                        <option>Option</option>
+                        <option>종목명</option>
+                        <option>종목코드</option>
+                    </select>
+                    <div class="fm searchTy">
+                        <label for="fm-srchKeyword" class="blind">Input Text</label>
+                        <input id="fm-srchKeyword" type="text" placeholder="종목명 검색" value="" style="width:100%;">
+                        <button type="button" class="searchBtn"><span class="blind">검색</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 4. Popup Section -->
+<div class="previewSection" id="sec-popup">
+    <div class="sectionHeader">
+        <h2>4. Popup / BottomSheet (바텀시트)</h2>
+        <p>bottomSheet, inCont ty1~ty5 (Popup.module.scss)</p>
+    </div>
+    <div class="sectionBody">
+        <button type="button" class="btnTy1" style="display:inline-block; width:auto; padding:0 20px; margin-right:8px; margin-bottom:8px;" onclick="openBottomSheet('1')">기본 Type 1 (버튼 있는 Ver)</button>
+        <button type="button" class="btnTy2" style="display:inline-block; width:auto; padding:0 20px; margin-right:8px; margin-bottom:8px;" onclick="openBottomSheet('2')">기본 Type 2 (버튼 없는 Ver)</button>
+        <button type="button" class="btnTy1" style="display:inline-block; width:auto; padding:0 20px; margin-right:8px; margin-bottom:8px;" onclick="openBottomSheet('3')">스크롤 Type (계좌 선택)</button>
+        <button type="button" class="btnTy2" style="display:inline-block; width:auto; padding:0 20px; margin-right:8px; margin-bottom:8px;" onclick="openBottomSheet('4')">Caution Type</button>
+        <button type="button" class="btnTy1" style="display:inline-block; width:auto; padding:0 20px; margin-right:8px; margin-bottom:8px;" onclick="openBottomSheet('5')">Caution Type 2</button>
+    </div>
+</div>
+
+<!-- BottomSheet DOM (AS-IS 1:1) -->
+<div class="bottomSheet">
+    <div class="cont">
+        <div class="close"></div>
+
+        <!-- 기본1 // -->
+        <div class="inCont ty1">
+            <h1 class="titTy1">타이틀 영역</h1>
+            <div class="conBox">콘텐츠 영역</div>
+            <div class="btnAreaTy2">
+                <button class="btnTy2 sheetClose">취소</button>
+                <button class="btnTy1 sheetClose">확인</button>
+            </div>
+        </div>
+        <!-- 기본1 // -->
+
+        <!-- 기본2 // -->
+        <div class="inCont ty2">
+            <h1 class="titTy1">타이틀 영역</h1>
+            <div class="conBox">
+                <h2 class="titTy2">콘텐츠 타이틀 영역</h2>
+                <ul class="listTy6">
+                    <li>콘텐츠 영역입니다.</li>
+                </ul>
+            </div>
+        </div>
+        <!-- // 기본2 -->
+        
+        <!-- 스크롤 Type // -->
+        <div class="inCont ty3">
+            <h1 class="titTy1">계좌 선택</h1>
+            <div class="conBox">
+                <ul class="sotingList">
+                    <li class="active">종합위탁 김국민<br>012-345-678-01</li>
+                    <li>종합위탁 김국민<br>012-345-678-01</li>
+                    <li>종합위탁 김국민<br>012-345-678-01</li>
+                    <li>종합위탁 김국민<br>012-345-678-01</li>
+                </ul>
+            </div>
+        </div>
+        <!-- // 스크롤 Type -->
+
+        <!-- Caution Type // -->
+        <div class="inCont ty4 caution">
+            <div class="conBox">Caution Type 콘텐츠 영역입니다.</div>
+            <div class="btnArea">
+                <button class="btnTy1 sheetClose">확인</button>
+            </div>
+        </div>
+        <!-- Caution Type // -->
+
+        <!-- 신Caution Type 2 // -->
+        <div class="inCont ty5 cautionTy2">
+            <div class="conBox">
+                신고가 접수되었습니다.
+            </div>
+            <div class="btnArea">
+                <button class="btnTy1 sheetClose">확인</button>
+            </div>
+        </div>
+        <!-- // Caution Type 2 -->                         
+    </div>
+</div>
+
+<script>
+function toggleTheme() {
+    var html = $('html');
+    var current = html.attr('data-theme');
+    html.attr('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+
+function filterTab(type, btn) {
+    $('.previewNav button').removeClass('active');
+    $(btn).addClass('active');
+
+    if (type === 'all') {
+        $('.previewSection').show();
+    } else {
+        $('.previewSection').hide();
+        $('#sec-' + type).show();
+    }
+}
+
+function openBottomSheet(type) {
+    $('.bottomSheet').addClass('active');
+    $('.bottomSheet .inCont').removeClass('active');
+    $('.bottomSheet .inCont.ty' + type).addClass('active');
+}
+
+$(document).on('click', '.bottomSheet .close, .bottomSheet .sheetClose', function() {
+    $('.bottomSheet').removeClass('active');
+});
+
+$(document).on('click', '.bottomSheet', function(e) {
+    if (!$(e.target).closest('.cont').length) {
+        $('.bottomSheet').removeClass('active');
+    }
+});
+
+$(document).on('click', '.sotingList li', function() {
+    $(this).siblings().removeClass('active');
+    $(this).addClass('active');
+});
+
+$(document).on('input', '.fm input', function() {
+    var clearBtn = $(this).siblings('.clearBtn');
+    if ($(this).val().length > 0) {
+        clearBtn.addClass('active');
+    } else {
+        clearBtn.removeClass('active');
+    }
+});
+
+$(document).on('click', '.clearBtn', function() {
+    $(this).siblings('input').val('').focus();
+    $(this).removeClass('active');
+});
+</script>
+
+</body>
+</html>
+

@@ -1,9 +1,12 @@
-﻿{
+{
   "name": "mable-guide",
   "version": "1.0.0",
   "description": "Mable Publishing Guide",
   "scripts": {
     "build:sass": "npx -y sass common/scss/index.scss common/css/index.css --no-source-map",
-    "watch:sass": "npx -y sass --watch common/scss/index.scss:common/css/index.css --no-source-map"
+    "watch:sass": "npx -y sass --watch common/scss/index.scss:common/css/index.css --no-source-map",
+    "build:src": "npx -y sass src/index.scss src/index.css --no-source-map",
+    "watch:src": "npx -y sass --watch src/index.scss:src/index.css --no-source-map",
+    "build:all": "npm run build:sass && npm run build:src"
   }
 }

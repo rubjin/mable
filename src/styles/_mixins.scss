@@ -1,0 +1,59 @@
+@use 'sass:string';
+
+@mixin keyframes($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin media($device_width) {
+    @media #{$device_width} {
+        @content;
+    }
+}
+
+@function str-replace($str, $search, $replace: '') {
+    $index: string.index($str, $search);
+    @if $index {
+        @return string.slice($str, 1, $index - 1) + $replace +
+        str-replace(
+            string.slice($str, $index + string.length($search)),
+            $search,
+            $replace
+        );
+    }
+    @return $str;
+}
+
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal, $support-legacy: false, $font-display: null, $unicode-range: false) {
+    @font-face {
+        font-family: string.quote($font-name);
+        src: url($file-name + '.eot');
+        $space-to-hypened-font-name: str-replace($font-name, ' ', '-');
+        $font-source: 'local("\203B"), local("#{$font-name}"), local("#{$space-to-hypened-font-name}"), url("#{$file-name}.woff2") format("woff2"), url("#{$file-name}.woff") format("woff")';
+        @if $support-legacy {
+            $font-source-legacy: ', url("#{$file-name}.ttf") format("truetype"), url("#{$file-name}.svg##{$file-name}") format("svg")';
+            $font-source: string.insert($font-source, $font-source-legacy, -1);
+        }
+        src: string.unquote($font-source);
+        font-style: $style;
+        font-weight: $weight;
+        font-display: $font-display;
+        @if $unicode-range {
+            unicode-range: $unicode-range;
+        }
+    }
+}
+
+
+@mixin reset-click-effect {
+    -webkit-tap-highlight-color: transparent;
+    &:focus { outline: none; }
+    &:active { background-color: transparent; }
+}
+
+@mixin ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

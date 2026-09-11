@@ -1,0 +1,12 @@
+@use 'mixins' as *;
+
+// Local Fonts (woff2 / woff)
+@include font-face('KBFGText', '../../common/font/KBFGTextL', 300, normal, false, swap);
+@include font-face('KBFGText', '../../common/font/KBFGTextM', 500, normal, false, swap);
+@include font-face('KBFGText', '../../common/font/KBFGTextB', 700, normal, false, swap);
+@include font-face('KBFGText-Light', '../../common/font/KBFGTextL', 300, normal, false, swap);
+@include font-face('KBFGText-Medium', '../../common/font/KBFGTextM', 500, normal, false, swap);
+@include font-face('KBFGText-Bold', '../../common/font/KBFGTextB', 700, normal, false, swap);
+@include font-face('SpoqaR', '../../common/font/SpoqaHanSansNeo-Regular');
+@include font-face('SpoqaM', '../../common/font/SpoqaHanSansNeo-Medium');
+@include font-face('SpoqaB', '../../common/font/SpoqaHanSansNeo-Bold');

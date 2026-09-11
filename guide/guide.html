@@ -111,20 +111,25 @@ $(document).ready(function() {
         $(this).closest('li').addClass('active');
     });
 
+    $(document).on('click', '.bottomSheet', function(e) {
+        if ($(e.target).closest('.cont').length === 0) {
+            $('.bottomSheet').removeClass('active');
+        }
+    });
+
+    $(document).on('click', '.bottomSheet .close, .bottomSheet .sheetClose, .dim', function(e) {
+        e.preventDefault();
+        $('.bottomSheet').removeClass('active');
+    });
+
     openURL('layout.html');
 });
 
 function bottomSheet(value){
-	var val = value;
-	var obj = $('.bottomSheet');
-	obj.close = $('.dim, .bottomSheet .close, .bottomSheet .sheetClose');
-	obj.find('.inCont').removeClass('active');
-	obj.find('.inCont.ty'+val).addClass('active');
-	obj.addClass('active');
-
-	obj.close.on('click', function(){
-		obj.removeClass('active');
-	});
+    var obj = $('.bottomSheet');
+    obj.find('.inCont').removeClass('active');
+    obj.find('.inCont.ty' + value).addClass('active');
+    obj.addClass('active');
 };
 
 function openURL(getURL){
@@ -203,16 +208,7 @@ var ui = {
         });
     },
     bottomSheet : function(value){
-        var val = value;
-        var obj = $('.bottomSheet');
-        obj.close = $('.dim, .bottomSheet .close, .bottomSheet .sheetClose');
-        obj.find('.inCont').removeClass('active');
-        obj.find('.inCont.ty'+val).addClass('active');
-        obj.addClass('active');
-
-        obj.close.on('click', function(){
-            obj.removeClass('active');
-        });
+        bottomSheet(value);
     },
     accordion : function(){
         // graph image change

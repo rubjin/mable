@@ -1,21 +1,486 @@
-﻿<div class="contWrap">
-    <h2 class="titTy1" style="font-size:20px; margin-bottom:20px; font-weight:bold;">테이블 가이드 (Tables)</h2>
-    <div style="background:#fff; padding:20px; border:1px solid #ddd; border-radius:8px;">
-        <table class="tbTy1" style="width:100%;">
-            <thead>
-                <tr>
-                    <th>구분</th>
-                    <th>항목</th>
-                    <th>내용</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>KB증권</td>
-                    <td>Mable UI 가이드</td>
-                </tr>
-            </tbody>
-        </table>
+<div class="contWrap">
+
+    <div class="section">
+
+        <!-- <div class="viewBtn">
+            <button class="iosSE">iosSE</button>
+            <button class="ios12Pro active">ios12Pro</button>
+            <button class="ios12ProMAx">ios12ProMAx</button>
+            <button class="aosS8">aosS8</button>
+            <button class="aosS20">aosS20</button>
+            <button class="aosFold">aosFold</button>
+        </div> -->
+        
+        <h2 class="guideTitTy2">기본 테이블 Type</h2>
+        <div class="layoutArea">
+            <div>
+                <h3 class="titTy1">좌측 헤더 타입</h3>
+                <div class="layout ios12Pro">
+                    <header>
+                        <img src="/mable/guide/images/layout_top.png" width="100%" height="auto">
+                        <div class="tabTy1 col2">
+                            <ul>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                    </header>
+                    <div class="wrapTy5">
+                        <div class="contBox">
+                            <div class="tbTy1">
+                                <table>
+                                    <caption>좌측 헤더 타입 가이드</caption>
+                                    <colgroup>
+                                        <col width="21%">
+                                        <col width="*">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">구분</th>
+                                            <td class="tL">구분에 관한 내용</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">구분</th>
+                                            <td class="tL">구분에 관한 내용</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">구분</th>
+                                            <td class="tL">구분에 관한 내용</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <footer>
+                        <img src="/mable/guide/images/layout_footer.png" width="100%" height="auto">
+                    </footer>
+                </div>
+                <div class="mt20">
+                    <h3 class="titTy1">Code</h3>
+                    <textarea style="width:100%; height:200px;">&lt;div class="tbTy1"&gt;
+    &lt;table&gt;
+        &lt;caption&gt;좌측 헤더 타입 가이드&lt;/caption&gt;
+        &lt;colgroup&gt;&lt;col width="25%"&gt;&lt;col width="*"&gt;&lt;/colgroup&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;th scope="row"&gt;구분&lt;/th&gt;
+                &lt;td class="tL"&gt;구분에 관한 내용&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;th scope="row"&gt;구분&lt;/th&gt;
+                &lt;td class="tL"&gt;구분에 관한 내용&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+                    </textarea>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="titTy1">상단 헤더 타입</h3>
+                <div class="layout ios12Pro">
+                    <header>
+                        <img src="/mable/guide/images/layout_top.png" width="100%" height="auto">
+                        <div class="tabTy1 col2">
+                            <ul>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                    </header>
+                    <div class="wrapTy5">
+                        <div class="contBox">
+                            <div class="tbTy1">
+                                <table>
+                                    <caption>상단 헤더 타입 가이드</caption>
+                                    <colgroup><col width="33%"><col width="33%"><col width="*"></colgroup>
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">구분</th>
+                                        <th scope="col">구분</th>
+                                        <th scope="col">구분</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>내용</td>
+                                            <td>내용</td>
+                                            <td>내용</td>
+                                        </tr>
+                                        <tr>
+                                            <td>내용</td>
+                                            <td>내용</td>
+                                            <td>내용</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <footer>
+                        <img src="/mable/guide/images/layout_footer.png" width="100%" height="auto">
+                    </footer>
+                </div>
+                <div class="mt20">
+                    <h3 class="titTy1">Code</h3>
+                    <textarea style="width:100%; height:200px;">&lt;div class="tbTy1"&gt;
+    &lt;table&gt;
+        &lt;caption&gt;상단 헤더 타입 가이드&lt;/caption&gt;
+        &lt;colgroup&gt;&lt;col width="33%"&gt;&lt;col width="33%"&gt;&lt;col width="*"&gt;&lt;/colgroup&gt;
+        &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;구분&lt;/th&gt;
+            &lt;th scope="col"&gt;구분&lt;/th&gt;
+            &lt;th scope="col"&gt;구분&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+                    </textarea>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="titTy1">좌측+상단 헤더 타입</h3>
+                <div class="layout ios12Pro">
+                    <header>
+                        <img src="/mable/guide/images/layout_top.png" width="100%" height="auto">
+                        <div class="tabTy1 col2">
+                            <ul>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                    </header>
+                    <div class="wrapTy5">
+                        <div class="contBox">
+                            <div class="tbTy1">
+                                <table>
+                                    <caption>좌측+상단 헤더 타입 가이드</caption>
+                                    <colgroup><col width="24%"><col width="33%"><col width="*">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">구분</th>
+                                            <th scope="col">구분</th>
+                                            <th scope="col">구분</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">구분</th>
+                                            <td>내용</td>
+                                            <td>내용</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">구분</th>
+                                            <td>내용</td>
+                                            <td>내용</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <footer>
+                        <img src="/mable/guide/images/layout_footer.png" width="100%" height="auto">
+                    </footer>
+                </div>
+                <div class="mt20">
+                    <h3 class="titTy1">Code</h3>
+                    <textarea style="width:100%; height:200px;">&lt;div class="tbTy1"&gt;
+    &lt;table&gt;
+        &lt;caption&gt;좌측+상단 헤더 타입 가이드&lt;/caption&gt;
+        &lt;colgroup&gt;&lt;col width="24%"&gt;&lt;col width="33%"&gt;&lt;col width="*"&gt;
+        &lt;/colgroup&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th scope="col"&gt;구분&lt;/th&gt;
+                &lt;th scope="col"&gt;구분&lt;/th&gt;
+                &lt;th scope="col"&gt;구분&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;th scope="row"&gt;구분&lt;/th&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;th scope="row"&gt;구분&lt;/th&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+                    </textarea>
+                </div>
+            </div>
+        </div>
+    
     </div>
+
+    <div class="section">
+        <h2 class="guideTitTy2">스크롤 테이블 Type</h2>
+        <div class="layoutArea">
+            <div>
+                <h3 class="titTy1">좌축 헤더 고정 타입</h3>
+                <div class="layout ios12Pro">
+                    <header>
+                        <img src="/mable/guide/images/layout_top.png" width="100%" height="auto">
+                        <div class="tabTy1 col2">
+                            <ul>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                    </header>
+                    <div class="wrapTy5">
+                        <div class="contBox">
+                            <div class="scrollTable tbTy1">
+                                <div class="leftTh">
+                                    <table>
+                                        <caption>좌축 헤더 고정 타입</caption>
+                                        <colgroup><col width="50%"><col width="*"></colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" colspan="3" class="heightTr2">거래매체 구분</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" rowspan="4" class="bbNone">자동화기기<br>(CD/ATM)</th>
+                                                <th scope="row">출금 한도</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="bbNone">이체 한도</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="rightThTd">
+                                    <!--기본적으로 100% 이상을 넣어야 스크롤이 활성화됨-->
+                                    <table style="width:180%">
+                                        <caption>좌축 헤더 고정 타입</caption>
+                                        <colgroup>
+                                            <col width="33%">
+                                            <col width="33%">
+                                            <col width="33%">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">1등급</th>
+                                                <th scope="col">2등급</th>
+                                                <th scope="col">3등급</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">OTP 카드</th>
+                                                <th scope="col">보안카드+SMS</th>
+                                                <th scope="col">보안카드</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="3">1백만원</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">6백만원</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer>
+                        <img src="/mable/guide/images/layout_footer.png" width="100%" height="auto">
+                    </footer>
+                </div>
+                <div class="mt20">
+                    <h3 class="titTy1">Code</h3>
+                    <textarea style="width:100%; height:200px;">&lt;div class="scrollTable tbTy1"&gt;
+    &lt;div class="leftTh"&gt;
+        &lt;table&gt;
+            &lt;caption&gt;좌축 헤더 고정 타입&lt;/caption&gt;
+            &lt;colgroup&gt;&lt;col width="50%"&gt;&lt;col width="*"&gt;&lt;/colgroup&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;th scope="row" colspan="3" class="heightTr2"&gt;거래매체 구분&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;th scope="row" rowspan="4" class="bbNone"&gt;자동화기기&lt;br&gt;(CD/ATM)&lt;/th&gt;
+                    &lt;th scope="row"&gt;출금 한도&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;th scope="row" class="bbNone"&gt;이체 한도&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+    &lt;div class="rightThTd"&gt;
+        &lt;!--기본적으로 100% 이상을 넣어야 스크롤이 활성화됨--&gt;
+        &lt;table style="width:180%"&gt;
+            &lt;caption&gt;좌축 헤더 고정 타입&lt;/caption&gt;
+            &lt;colgroup&gt;
+                &lt;col width="33%"&gt;
+                &lt;col width="33%"&gt;
+                &lt;col width="33%"&gt;
+            &lt;/colgroup&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th scope="col"&gt;1등급&lt;/th&gt;
+                    &lt;th scope="col"&gt;2등급&lt;/th&gt;
+                    &lt;th scope="col"&gt;3등급&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;th scope="col"&gt;OTP 카드&lt;/th&gt;
+                    &lt;th scope="col"&gt;보안카드+SMS&lt;/th&gt;
+                    &lt;th scope="col"&gt;보안카드&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td colspan="3"&gt;1백만원&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td colspan="3"&gt;6백만원&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+                    </textarea>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="titTy1">테이블 전체 스크롤 타입</h3>
+                <div class="layout ios12Pro">
+                    <header>
+                        <img src="/mable/guide/images/layout_top.png" width="100%" height="auto">
+                        <div class="tabTy1 col2">
+                            <ul>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                    </header>
+                    <div class="wrapTy5">
+                        <div class="contBox">
+                            <div class="tbTy1 scrollTable">
+                                <div class="oneTableScroll">
+                                    <table style="width:138%;">
+                                        <caption>테이블 전체 스크롤 타입</caption>
+                                        <colgroup><col width="20%"><col width="20%"><col width="20%"><col width="40%"></colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">이자징수일</th>
+                                                <th scope="col">이자종류</th>
+                                                <th scope="col">이자금액</th>
+                                                <th scope="col">계산식</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="tL">10월1일</td>
+                                                <td class="tL">정기이자</td>
+                                                <td class="tL">249,315원</td>
+                                                <td class="tL">50,000,000원 x 7.0% x 26일 x 365</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tL">10월24일</td>
+                                                <td class="tL">상환이자</td>
+                                                <td class="tL">264,383원</td>
+                                                <td class="tL">(50,000,000원 x 7.5% x 24일/365)+(50,000,000원 x 0.5% x 26일/365)</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" class="tL">총계</td>
+                                                <td colspan="2" class="tL">513,698원</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer>
+                        <img src="/mable/guide/images/layout_footer.png" width="100%" height="auto">
+                    </footer>
+                </div>
+                <div class="mt20">
+                    <h3 class="titTy1">Code</h3>
+                    <textarea style="width:100%; height:200px;">&lt;div class="tbTy1 scrollTable"&gt;
+    &lt;div class="oneTableScroll"&gt;
+        &lt;table style="width:138%;"&gt;
+            &lt;caption&gt;테이블 전체 스크롤 타입&lt;/caption&gt;
+            &lt;colgroup&gt;&lt;col width="20%"&gt;&lt;col width="20%"&gt;&lt;col width="20%"&gt;&lt;col width="40%"&gt;&lt;/colgroup&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th scope="col"&gt;이자징수일&lt;/th&gt;
+                    &lt;th scope="col"&gt;이자종류&lt;/th&gt;
+                    &lt;th scope="col"&gt;이자금액&lt;/th&gt;
+                    &lt;th scope="col"&gt;계산식&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td class="tL"&gt;10월1일&lt;/td&gt;
+                    &lt;td class="tL"&gt;정기이자&lt;/td&gt;
+                    &lt;td class="tL"&gt;249,315원&lt;/td&gt;
+                    &lt;td class="tL"&gt;50,000,000원 x 7.0% x 26일 x 365&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td class="tL"&gt;10월24일&lt;/td&gt;
+                    &lt;td class="tL"&gt;상환이자&lt;/td&gt;
+                    &lt;td class="tL"&gt;264,383원&lt;/td&gt;
+                    &lt;td class="tL"&gt;(50,000,000원 x 7.5% x 24일/365)+(50,000,000원 x 0.5% x 26일/365)&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td colspan="2" class="tL"&gt;총계&lt;/td&gt;
+                    &lt;td colspan="2" class="tL"&gt;513,698원&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+                    </textarea>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
 </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var thisBtn = $(".viewBtn button");
+    var layout = $(".layout");
+	thisBtn.on('click', function(){
+		var btnClass = $(this).attr('class');
+        $(this).addClass('active');
+        $('button').not(this).removeClass('active');
+        layout.removeClass().addClass('layout '+ btnClass);
+	});
+});
+</script>
+
+

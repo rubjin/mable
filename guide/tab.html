@@ -1,22 +1,172 @@
-﻿<div class="contWrap">
-    <h2 class="titTy1" style="font-size:20px; margin-bottom:20px; font-weight:bold;">탭 가이드 (Tabs)</h2>
-    <div style="margin-bottom:30px;">
-        <h3 class="titTy1" style="font-size:16px; margin-bottom:10px;">tabTy1 (2열)</h3>
-        <div class="tabTy1 col2" style="background:#fff;">
-            <ul>
-                <li class="active"><a href="javascript:void(0);"><span>Tab 1</span></a></li>
-                <li><a href="javascript:void(0);"><span>Tab 2</span></a></li>
-            </ul>
+<div class="contWrap">
+
+    <div class="section">
+        <!-- <div class="viewBtn">
+            <button class="iosSE">iosSE</button>
+            <button class="ios12Pro active">ios12Pro</button>
+            <button class="ios12ProMAx">ios12ProMAx</button>
+            <button class="aosS8">aosS8</button>
+            <button class="aosS20">aosS20</button>
+            <button class="aosFold">aosFold</button>
+        </div> -->
+
+
+        <h2 class="guideTitTy2">Tab Type List</h2>
+        <div class="layoutArea">
+            <div>
+                <h3 class="titTy1">Main Tab</h3>
+                <div class="layout ios12Pro">
+                    <header>
+                        <img src="/mable/guide/images/layout_top.png" width="100%" height="auto">
+                        <div class="tabTy1 col2">
+                            <ul>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                    </header>
+                    <main>
+                        <div class="contents">Contents</div>
+                    </main>
+                    <footer>
+                        <img src="/mable/guide/images/layout_footer.png" width="100%" height="auto">
+                    </footer>
+                </div>
+
+                <div class="mt20">
+                    <h3 class="titTy1">Code</h3>
+                    <textarea style="width:100%; height:200px;">&lt;div class="tabTy1 col2"&gt;
+    &lt;ul&gt;
+        &lt;li class="active"&gt;&lt;a href="#"&gt;Select&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Option&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+                    </textarea>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="titTy1">Main Tab + Sub Tab</h3>
+                <div class="layout ios12Pro">
+                    <header>
+                        <img src="/mable/guide/images/layout_top.png" width="100%" height="auto">
+                        <div class="tabTy1 col2">
+                            <ul>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                        <div class="tabTy2 headTy">
+                            <ul>
+                                <li class="active"><a href="#">Sub Tab1</a></li>
+                                <li><a href="#">Sub Tab2</a></li>
+                                <li><a href="#">Sub Tab3</a></li>
+                            </ul>
+                        </div>
+                    </header>
+                    <main>
+                        <div class="contents">Contents</div>
+                    </main>
+                    <footer>
+                        <img src="/mable/guide/images/layout_footer.png" width="100%" height="auto">
+                    </footer>
+                </div>
+
+                <div class="mt20">
+                    <h3 class="titTy1">Code</h3>
+                    <textarea style="width:100%; height:200px;">&lt;div class="tabTy1 col2"&gt;
+    &lt;ul&gt;
+        &lt;li class="active"&gt;&lt;a href="#"&gt;Select&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Option&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="contBox"&gt;
+    &lt;div class="tabTy2"&gt;
+        &lt;ul&gt;
+            &lt;li class="active"&gt;&lt;a href="#"&gt;Sub Tab1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Sub Tab2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Sub Tab3&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;                   
+                    </textarea>
+                </div>
+
+            </div>
+
+            <div>
+                <h3 class="titTy1">Segmented Controls</h3>
+                <div class="layout ios12Pro">
+                    <header>
+                        <img src="/mable/guide/images/layout_top.png" width="100%" height="auto">
+                    </header>
+                    <main>
+                        <div class="stabTy1 col2">
+                            <ul>
+                                <li><a href="#">Option</a></li>
+                                <li class="active"><a href="#">Select</a></li>
+                            </ul>
+                        </div>
+                        <div class="stabTy1 col3">
+                            <ul>
+                                <li><a href="#">Option</a></li>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                        <div class="stabTy1 col4">
+                            <ul>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                                <li><a href="#">Option</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                        <div class="stabTy1 col5">
+                            <ul>
+                                <li><a href="#">Option</a></li>
+                                <li><a href="#">Option</a></li>
+                                <li><a href="#">Option</a></li>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                    </main>
+                    <footer>
+                        <img src="/mable/guide/images/layout_footer.png" width="100%" height="auto">
+                    </footer>
+                </div>
+
+                <div class="mt20">
+                    <h3 class="titTy1">Code</h3>
+                    <textarea style="width:100%; height:200px;">&lt;div class="stabTy1 col2"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Option&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="active"&gt;&lt;a href="#"&gt;Select&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;                  
+                    </textarea>
+                </div>
+
+            </div>
         </div>
     </div>
-    <div style="margin-bottom:30px;">
-        <h3 class="titTy1" style="font-size:16px; margin-bottom:10px;">tabTy1 (3열)</h3>
-        <div class="tabTy1 col3" style="background:#fff;">
-            <ul>
-                <li class="active"><a href="javascript:void(0);"><span>Tab 1</span></a></li>
-                <li><a href="javascript:void(0);"><span>Tab 2</span></a></li>
-                <li><a href="javascript:void(0);"><span>Tab 3</span></a></li>
-            </ul>
-        </div>
-    </div>
+    
 </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var thisBtn = $(".viewBtn button");
+    var layout = $(".layout");
+	thisBtn.on('click', function(){
+		var btnClass = $(this).attr('class');
+        $(this).addClass('active');
+        $('button').not(this).removeClass('active');
+        layout.removeClass().addClass('layout '+ btnClass);
+	});
+});
+
+</script>
+
+

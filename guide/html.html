@@ -1,6 +1,233 @@
-﻿<div class="contWrap">
-    <h2 class="titTy1" style="font-size:20px; margin-bottom:20px; font-weight:bold;">HTML 규칙 가이드</h2>
-    <div style="background:#fff; padding:20px; border:1px solid #ddd; border-radius:8px;">
-        <p>시맨틱 마크업 및 HTML 작성 표준</p>
+<div class="contWrap">
+    <div class="section">
+        <h2 class="guideTitTy2">Date &amp; Time</h2>
+        <div class="gridTy col3">
+            <div>
+                <h3 class="titTy1">년, 월, 일 표기</h3>
+                <ul class="listTy1">
+                    <li>YYYY/MM/DD</li>
+                    <li>YY/MM/DD</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="titTy1">년, 월, 표기</h3>
+                <ul class="listTy1">
+                    <li>YYYY/MM</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="titTy1">월, 일 표기</h3>
+                <ul class="listTy1">
+                    <li>MM/DD</li>
+                </ul>
+            </div>
+        </div>
+        <div class="gridTy col3">
+            <div>
+                <h3 class="titTy1">시, 분, 초 표기</h3>
+                <ul class="listTy1">
+                    <li>HH:MM:SS</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="titTy1">시, 분 표기</h3>
+                <ul class="listTy1">
+                    <li>HH:MM</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="guideTitTy2">금액 표기</h2>
+        <div class="gridTy col3">
+            <div>
+                <h3 class="titTy1">기본 표기</h3>
+                <ul class="listTy1">
+                    <li>1,000,000</li>
+                </ul>
+                <ul class="listTy4 mg-list-list">
+                    <li>세자리 단위로 ‘,’ 표시하며 마지막에 ’원’과 같은 단위는 표시하지 않음</li>
+                    <li>조회성 화면의 경우 해당 표기정책으로 적용</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="titTy1">단위 표기</h3>
+                <ul class="listTy1">
+                    <li>1,000,000<span>원</span></li>
+                </ul>
+                <ul class="listTy4 mg-list-list">
+                    <li>매수/매도/이체 등 업무  프로세스 수행 중 금액을 표시해야 하는 경우 또는 같은 영역에 여러 단위를 함께 표기해야 하는 경우에 한하여 마지막에 단위를 표기함. (예 : 1,000좌/1,000,000원)</li>
+                    <li>조회성 화면의 경우 해당 표기정책으로 적용</li>
+                </ul>
+            </div>
+        </div>
+        <div class="gridTy col3">
+            <div>
+                <h3 class="titTy1">손익률 표기</h3>
+                <ul class="listTy1">
+                    <li class="upTxt">9.12% <span class="fcTy6">(상승 : class="upTxt")</span></li>
+                    <li class="dwTxt">-8.24% <span class="fcTy6">(하락 : class="dwTxt")</span></li>
+                    <li class="tnTxt">8.24% <span class="fcTy6">(보합 : class="tnTxt")</span></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="titTy1">손익금액 표기</h3>
+                <ul class="listTy1">
+                    <li class="upTxt">10,000,000 <span class="fcTy6">(상승 : class="upTxt")</span></li>
+                    <li class="dwTxt">-10,000,000 <span class="fcTy6">(하락 : class="dwTxt")</span></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="titTy1">해외통화 표기</h3>
+                <ul class="listTy1">
+                    <li>1,000.00 USD <span class="fcTy6">(통화 코드와 함께 표기하는 경우)</span></li>
+                    <li>$1,000.00 <span class="fcTy6">(통화 약호와 함께 표기하는 경우)</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="guideTitTy2">테이블 내 단위 표기</h2>
+        <div class="">
+            <ul class="listTy1">
+                <li>%, 배, 회 등의 단위는 테이블 바디에서만 표기하고 테이블 헤더에는 표기하지 않는 것을 원칙으로 한다.</li>
+            </ul>
+            <div class="tbTy1 mg-list-tb guideTableWidth">
+                <table>
+                    <caption>테이블 타이틀</caption>
+                    <colgroup><col width="25%" span="4"></colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">전체</th>
+                            <th scope="col">현재가</th>
+                            <th scope="col" class="bgPoint">ROA</th>
+                            <th scope="col">ROE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>피엔텔</td>
+                            <td>8,888</td>
+                            <td class="bgPoint">88,888</td>
+                            <td>88,888</td>
+                        </tr>
+                        <tr>
+                            <td>에이피티씨</td>
+                            <td>8,888</td>
+                            <td class="bgPoint">88,888</td>
+                            <td>88,888</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="mt20">
+            <ul class="listTy1">
+                <li>한 테이블 안에 여러 단위가 혼재되어 있는 경우 우측에 단위를 표기한다.</li>
+            </ul>
+            <div class="tbTy1 mg-list-tb guideTableWidth">
+                <table>
+                    <caption>테이블 타이틀</caption>
+                    <colgroup><col width="25%" span="4"></colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col" class="bgPoint">구분</th>
+                            <th scope="col">2019/03</th>
+                            <th scope="col">2019/04</th>
+                            <th scope="col">2019/05</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="bgPoint">단기순이익(억원)</td>
+                            <td>8,888</td>
+                            <td>88,888</td>
+                            <td>88,888</td>
+                        </tr>
+                        <tr>
+                            <td class="bgPoint">EPS(원)</td>
+                            <td>8,888</td>
+                            <td>88,888</td>
+                            <td>88,888</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="mt20">
+            <ul class="listTy1">
+                <li>상승일 경우 <span class="upTxt">‘▲ 1,000’</span>, 하락일 경우 <span class="dwTxt">‘▼ 1,000’</span>으로 표기한다.</li>
+            </ul>
+            <div class="tbTy1 mg-list-tb guideTableWidth">
+                <table>
+                    <caption>테이블 타이틀</caption>
+                    <colgroup><col width="25%" span="4"></colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">일자</th>
+                            <th scope="col">주가</th>
+                            <th scope="col" class="bgPoint">대비</th>
+                            <th scope="col">거래량</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2023/03/20</td>
+                            <td>8,888</td>
+                            <td class="tR bgPoint"><span class="upTxt">▲ 600</span></td>
+                            <td>88,888</td>
+                        </tr>
+                        <tr>
+                            <td>2023/03/21</td>
+                            <td>8,888</td>
+                            <td class="tR bgPoint"><span class="dwTxt">▼ 50</span></td>
+                            <td>88,888</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="guideTitTy2">계좌 표기</h2>
+        <div class="gridTy col2">
+            <div>
+                <h3 class="titTy1">내 계좌 표기</h3>
+                <ul class="listTy1">
+                    <li>계좌종류 + 계좌번호</li>
+                </ul>
+                <ul class="listTy4 mg-list-list">
+                    <li>일반적인 계좌표기 방식</li>
+                </ul>
+
+                <ul class="listTy1 mt20">
+                    <li>계좌종류 + 계좌번호 + 계좌별명</li>
+                </ul>
+                <ul class="listTy4 mg-list-list">
+                    <li>계좌 선택을 위한 바텀시트/팝업인 경우 계좌 별명을 함께 표기</li>
+                    <li>계좌별명을 지정하지 않은 경우에는 소유주명으로 대체</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="titTy1">이체 시 계좌 표기</h3>
+                <ul class="listTy1">
+                    <li>계좌종류 + 계좌번호 + 소유주명</li>
+                </ul>
+                <ul class="listTy4 mg-list-list">
+                    <li>이체 진행 과정 중 계좌표기 방식</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
+
+
+
+
+
+

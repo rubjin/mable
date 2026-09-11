@@ -306,8 +306,10 @@ var ui = {
         }
     },
     menuList : function(e){
-        var $front = $("#FrontList"), 
-        front = $front.get(0);
+        var $front = $("#FrontList");
+        if (!$front.length) return;
+        var front = $front.get(0);
+        if (!front) return;
         $(".tbTy1 a").html(function(){ if(((/\/[^\/]+\.html/).test(this.href)||(/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/)){ return this.href.substring(this.href.lastIndexOf("/")+1); } }).each(function(){
             if(this.onclick) return false;
             else this.target = "_blank";

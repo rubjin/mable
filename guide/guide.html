@@ -94,36 +94,24 @@
 	console.log(dateNow);
 
 $(document).ready(function() {
-
-    var tabBtn = $(".tab li");
-    tabBtn.on('click', function(){
-        var thisClass = $(this).attr('class');
-        $(this).addClass('active');
-        $('.tab li').not(this).removeClass('active');
-
-        if(thisClass === "guideList"){
-            $(".list.guideList").show();
-            $(".list.menuList").hide();
-            $(".list.guideList li:eq(0)").addClass('active');
-            $('.list.menuList li').not(this).removeClass('active');
-        } else if(thisClass === "menuList"){
-            $(".list.menuList").show();
-            $(".list.guideList").hide();
-            $(".list.menuList li:eq(0)").addClass('active');
-            $('.list.guideList li').not(this).removeClass('active');
-        };
-
-        console.log(thisClass);
+    $(document).on('click', '.goLink li a', function(e) {
+        e.preventDefault();
+        var $li = $(this).closest('li');
+        $('.goLink li').removeClass('active');
+        $li.addClass('active');
+        var getURL = $(this).attr('data-href');
+        if (getURL) {
+            openURL(getURL);
+        }
     });
 
-    var thisBtn = $(".list li");    
-    thisBtn.on('click', function(){
-        var btnClass = $(this).attr('class');
-        $(this).addClass('active');
-        $('.list li').not(this).removeClass('active');
+    $(document).on('click', '.tabTy1 li a, .tabTy2 li a, .stabTy1 li a, .tabTy3 li a, .tabTy4 li a, .tabTy5 li a', function(e) {
+        e.preventDefault();
+        $(this).closest('ul').find('li').removeClass('active');
+        $(this).closest('li').addClass('active');
     });
+
     openURL('layout.html');
-    
 });
 
 function bottomSheet(value){
@@ -139,20 +127,6 @@ function bottomSheet(value){
 	});
 };
 
-let list = document.querySelectorAll('.goLink li');
-
-const getElmIndex = (element, range)=>{
-    if(!!range) return [].indexOf.call(element, range);
-	return [].indexOf.call(element.parentNode.children, element);
-};
-
-[].forEach.call(list, function(el){
-    el.addEventListener('click', function(){
-        let getURL = this.firstChild.getAttribute('data-href');
-        openURL(getURL);
-    });
-});
-
 function openURL(getURL){
     if (!getURL) return;
     fetch(getURL, {
@@ -165,20 +139,23 @@ function openURL(getURL){
     }).then(function(buffer){
         let text = '';
         try {
-            // Try utf-8 first
             const utf8Decoder = new TextDecoder('utf-8', { fatal: true });
             text = utf8Decoder.decode(buffer);
         } catch(e) {
-            // Fallback to euc-kr
             const euckrDecoder = new TextDecoder('euc-kr');
             text = euckrDecoder.decode(buffer);
         }
         let parser = new DOMParser();
         let htmlDom = parser.parseFromString(text,'text/html');
-        var cont = htmlDom.querySelector('body') || htmlDom;
+        var contWrap = htmlDom.querySelector('.contWrap');
         var guideCont = document.querySelector('.guideCont');
         if (guideCont) {
-            guideCont.innerHTML = cont.innerHTML;
+            if (contWrap) {
+                guideCont.innerHTML = contWrap.outerHTML;
+            } else {
+                var body = htmlDom.querySelector('body') || htmlDom;
+                guideCont.innerHTML = body.innerHTML;
+            }
             guideCont.scrollTo(0,0);
         }
         var txtElem = document.getElementById('txt');
@@ -191,22 +168,6 @@ function openURL(getURL){
         if (typeof fontCal === 'function') fontCal();
     }).catch(function(err){
         console.error('가이드 로드 실패:', err);
-        var guideCont = document.querySelector('.guideCont');
-        if (guideCont) {
-            var isFileProtocol = window.location.protocol === 'file:';
-            var errorHtml = '<div style="padding:40px; line-height:1.6;">' +
-                '<h2 style="color:#d9534f; margin-bottom:15px;">페이지를 불러올 수 없습니다 (' + getURL + ')</h2>' +
-                '<p style="font-size:15px; color:#555;"><strong>에러 내용:</strong> ' + err.message + '</p>';
-            if (isFileProtocol) {
-                errorHtml += '<div style="margin-top:20px; padding:15px; background:#fff3cd; border:1px solid #ffeeba; border-radius:4px; color:#856404;">' +
-                    '<strong>[알림 - 로컬 파일(file://) 실행 시 주의사항]</strong><br>' +
-                    '브라우저 보안(CORS) 정책상 <code>file://</code> 프로토콜에서는 fetch 비동기 호출이 차단됩니다.<br>' +
-                    '<strong>VS Code의 Live Server</strong> 또는 로컬 웹 서버(<code>http://localhost:...</code>) 환경에서 실행해주세요.' +
-                    '</div>';
-            }
-            errorHtml += '</div>';
-            guideCont.innerHTML = errorHtml;
-        }
     });
 }
 

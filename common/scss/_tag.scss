@@ -1,0 +1,171 @@
+.itxt {
+	display: inline-block;
+	height: 1.125rem;
+	padding: 0 0.3125rem;
+	border-radius: 4px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 0.625rem;
+	line-height: 1.188rem;
+	color: rgb(var(--color-500));
+	vertical-align: text-top;
+	&.itxtTy1 {
+		background-color: rgba(var(--color-184),0.1);
+		color: rgb(var(--color-296));
+	}
+	&.itxtTy2 {
+		background-color: rgba(var(--color-184),0.1);
+		color: rgb(var(--color-335));
+	}
+	&.itxtTy3 {
+		background-color: rgba(var(--color-093),0.1);
+		color: rgb(var(--color-334));
+	}
+	&.itxtTy4 {
+		background-color: rgba(var(--color-429),0.1);
+		color: rgb(var(--color-333));
+	}
+	&.itxtTy5 {
+		background-color: rgba(var(--color-092),0.1);
+		color: rgb(var(--color-332));
+	}
+	&.itxtTy6 {
+		background-color: rgba(var(--color-030),0.1);
+		color: rgb(var(--color-427));
+	}
+	&.itxtTy7 {
+		background-color: rgba(var(--color-298),0.1);
+	}
+	&.itxtTy8 {
+		background-color: rgba(var(--color-220),0.2);
+		color: rgb(var(--color-415));
+	}
+	&.ty1 {
+		background-color: rgba(var(--color-184),0.1);
+		color: rgb(var(--color-428));
+	}
+	&.ty2 {
+		background-color: rgba(var(--color-093),0.1);
+		color: rgb(var(--color-334));
+	}
+	&.ty3 {
+		background-color: rgba(var(--color-429),0.1);
+		color: rgb(var(--color-333));
+	}
+	&.ty4 {
+		background-color: rgba(var(--color-092),0.1);
+		color: rgb(var(--color-332));
+	}
+	&.ty5 {
+		background-color: rgba(var(--color-030),0.1);
+		color: rgb(var(--color-331));
+	}
+	&.ty6 {
+		background-color: rgba(var(--color-298),0.1);
+		color: rgb(var(--color-403));
+	}
+	&.ty7 {
+		background-color: rgba(var(--color-298),0.1);
+	}
+	&.ty8 {
+		background-color: rgba(var(--color-220),0.2);
+		color: rgb(var(--color-415));
+	}
+	&.ty9 {
+		background-color: rgba(var(--color-321));
+		color: rgb(var(--color-403));
+	}
+
+}
+.icRecommend {
+	display: inline-block;
+	padding: 0.1875rem 0.375rem 0.1875rem;
+	margin-left: 0.3125rem;
+	font-size: 0.5625rem;
+	background-color: rgba(var(--color-298),0.1);
+	color: rgb(var(--color-403));
+	border-radius: 3px;
+}
+
+/* new style */
+.tag {
+	&.b {
+		display: inline-block;
+		height: 1.625rem;
+		padding: 0 .5rem;
+		border-radius: 3px;
+		box-sizing: border-box;
+		font-size: .813rem;
+		line-height: 1.625rem;
+		white-space: nowrap;
+	}
+	&.s {
+		display: inline-block;
+		height: 1.313rem;
+		padding: 0 .375rem;
+		border-radius: 4px;
+		box-sizing: border-box;
+		font-size: .688rem;
+		line-height: 1.313rem;
+		white-space: nowrap;
+	}
+	&.riskTy1 {
+		background-color: rgba(var(--color-184),0.1);
+		color: rgb(var(--color-296));
+	}
+	&.riskTy2 {
+		background-color: rgba(var(--color-184),0.1);
+		color: rgb(var(--color-335));
+	}
+	&.riskTy3 {
+		background-color: rgba(var(--color-093),0.1);
+		color: rgb(var(--color-334));
+	}
+	&.riskTy4 {
+		background-color: rgba(var(--color-429),0.1);
+		color: rgb(var(--color-333));
+	}
+	&.riskTy5 {
+		background-color: rgba(var(--color-092),0.1);
+		color: rgb(var(--color-332));
+	}
+	&.riskTy6 {
+		background-color: rgba(var(--color-030),0.1);
+		color: rgb(var(--color-427));
+	}
+	&.prodTy {
+		background-color: rgb(var(--color-298),0.1);
+		color: rgb(var(--color-403));
+	}
+	&.affTy {
+		background-color: rgba(var(--color-220),0.2);
+		color: rgb(var(--color-004)); 
+	}
+	&.levTy1 {
+		background-color: rgb(var(--color-254),0.1);
+		color: rgb(var(--color-252));
+	}
+	&.example {
+		background-color: rgba(var(--color-321));
+		color: rgb(var(--color-403));
+	}
+}
+.taxTag { 
+	display: inline-block;
+	padding:.25rem .625rem;
+	font-size: .813rem;
+	font-weight: 500;
+	border-radius: 14px;
+	&.ty1 { 
+		color: rgb(var(--color-403));
+		background: rgba(var(--color-298),0.1);
+	}
+	&.ty2 { 
+		color: rgb(var(--color-428));
+		background: rgba(var(--color-184),0.1);
+	}
+	&.ty3 { 
+		color: rgb(var(--color-332));
+		background: rgba(var(--color-092),0.1);
+	}
+}

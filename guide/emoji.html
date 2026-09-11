@@ -1,0 +1,1815 @@
+<html lang="ko" data-theme="light"><head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="주식, 선물옵션, 재테크, 금융상품, 체크카드, 자산관리서비스, 디지털금융전문">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KB증권">
+<meta property="og:description" content="국민의 평생 투자파트너">
+<meta property="og:image" content="https://tong.kbsec.com/og/og_thum.jpg">
+<meta property="og:url" content="http://www.kbsec.com/">
+<title> Mable 디자인 가이드 </title>
+<link rel="preload" href="/mable/common/font/KBFGTextL.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="/mable/common/font/KBFGTextM.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="icon" href="/images/common/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/images/common/apple-touch-icon-254x254-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="254×254" href="/images/common/apple-touch-icon-254x254-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144×144" href="/images/common/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114×114" href="/images/common/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72×72" href="/images/common/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="/images/common/apple-touch-icon-57x57-precomposed.png">
+<link rel="stylesheet" type="text/css" href="/mable/guide/common/css/guide_test.css">
+<link rel="stylesheet" type="text/css" href="/mable/common/css/index.css">
+<link rel="stylesheet" type="text/css" href="/mable/common/css/emoji.css">
+<script type="text/javascript" src="/mable/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="/mable/common/js/new_ui.js"></script> 
+<script src="/mable/common/js/theme.js"></script>
+<script type="text/javascript">
+//document.querySelector("meta[name=viewport]").setAttribute("content", "width=device-width");
+</script>
+<style>
+.preview_wrap{display:none; position:fixed; top:50%; left:50%; width:379px; height:700px; margin-left:-189px; margin-top:-350px; border:1px solid #000; background:#fff; z-index:100000;}
+.preview_wrap .dim{display:block;}
+.preview_inner{position:relative; z-index:9999;}
+.preview_inner .tit{display:table; table-layout:fixed; height:47px; background:#fff; border-bottom:1px solid #000;}
+.preview_inner .tit a{display:table-cell; width:100%; padding:0; padding-left:10px; vertical-align:middle; font-size:14px;}
+.preview_inner .tit button{display:table-cell; width:47px; border-left:1px solid #000; text-align:center; line-height:47px; vertical-align:middle; font-size:28px; font-weight:bold;}
+.preview_inner iframe{width:100%; height:650px; background:#fff;}
+.lottieLoad { width: 50px; }
+.lottieWrap { display: flex; flex-wrap: wrap; gap: 1rem;  margin-top: 1rem; }
+.emojiList { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; width: 90%; }
+.emojiList li span.noto { font-family: "Noto Color Emoji"; }
+.emojiList span { font-size: 2rem; }
+.munuLink { position: fixed; right: 10px; bottom: 10px; border:1px solid #ccc; background: #fff; z-index: 10000000; }
+.munuLink li { font-size:12px; padding:4px 10px; }
+.munuLink li a { display: block; }
+</style>
+</head>
+<body style="">
+<div class="guideWrap">
+    <div class="projectName">
+        <img src="/mable/guide/images/img_logo_mable.png" width="auto" height="90px">
+    </div>
+    <div class="contents">
+        <div class="navArea">
+            <div class="gnb">
+                <!--<h1 class="tit">공통 웹 가이드</h1>-->
+                <ul class="list guideList goLink">
+                    <li class=""><a data-href="layout.html" title="layout.html">레이아웃</a></li>
+                    <li class=""><a data-href="tab.html" title="tab.html">탭</a></li>
+                    <li class=""><a data-href="font.html" title="font.html">텍스트</a></li>
+                    <li class=""><a data-href="list.html" title="list.html">리스트</a></li>
+                    <li class=""><a data-href="table.html" title="table.html">테이블</a></li>
+                    <li class=""><a data-href="button.html" title="button.html">버튼</a></li>
+                    <li class=""><a data-href="form.html" title="form.html">Form(입력양식)</a></li>
+                    <li class=""><a data-href="accordion.html" title="accordion.html">아코디언</a></li>
+                    <li class=""><a data-href="bottom.html" title="bottom.html">바텀시트</a></li>
+                    <li class=""><a data-href="tag.html" title="tag.html">Tag</a></li>
+                    <li class=""><a data-href="box.html" title="box.html">Box</a></li>
+                    <li class=""><a data-href="step.html" title="step.html">Step</a></li>
+                    <li class="active"><a data-href="emoji.html" title="emoji.html">emoji</a></li>
+                    <li><a data-href="mark.html" title="mark.html">기본 표기 정의</a></li>
+                    <li><a data-href="html.html" title="html.html">HTML 가이드</a></li>
+                    <li><a data-href="css.html" title="css.html">CSS 가이드</a></li>
+                    <li><a href="script.html" target="_blank">script 가이드</a></li>
+                    <li><a data-href="font_calc.html" title="font_calc.html">계산기</a></li>
+                    <li><a href="/etc/encoder.html" target="_blank">URL-encoder</a></li>
+                </ul>
+                <!-- <div id="txt"></div> -->
+            </div>
+        </div>
+        <div class="guideCont">
+<div class="contWrap">
+	<div class="section" id="top">
+		<h2 class="guideTitTy2">html emoji</h2>
+		<ul class="listTy1">
+			<li class="fsTy4">html 코드로 사용 가능한 emoji 입니다.</li>
+			<li class="fsTy4">혹시 해당 리스트에서 emoji를 찾을 수 없을 경우 리스트에 추가 해주세요.</li>
+			<li class="fsTy4">사용법 : &amp;#이모지코드(보통 숫자);</li>
+			<li class="fsTy4">Noto Color Emoji를 사용을 원할경우 "/mable/common/css/emoji.css" 추가 후 font-family: "Noto Color Emoji"; 선언 또는 클래스명 "notoEmoji" 추가</li>
+			<li class="fsTy4"><span class="fcTy2">피그마에서 아래 이모지를 사용하신다면 코드번호를 코멘트로 달아주시면 감사하겠습니다!</span></li>
+			<li class="fsTy4">아래 리스트는 <span class="fcTy2">[ Noto Color Emoji style / 기본 style / 코드 순서 ]</span>로 정렬되어있습니다.</li>
+			<li>이슈사항 : 아이폰 웹뷰 문제로 @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&amp;display=swap'); 형태로 변경함</li>
+		</ul>
+		<br>
+		<strong>참고한 이모지 리스트</strong><br>
+		<a href="https://www.w3schools.com/charsets/ref_emoji_smileys.asp" target="_blank">https://www.w3schools.com/charsets/ref_emoji_smileys.asp</a><br>
+		
+
+		<h2 class="guideTitTy2">animated emoji</h2>
+		<ul class="listTy1">
+			<li class="fsTy4">애니매이션 효과가 있는 emoji도 사용 가능합니다.</li>
+			<li class="fsTy4">애니매이션 emoji 사용 시 <span class="fcTy1">아래 링크를 통해 사용할 이모지명 확인 후 피그마에 코멘트 달아주세요.</span><br>
+				애니메이션 이모지 : <a href="https://googlefonts.github.io/noto-emoji-animation/" target="_blank">https://googlefonts.github.io/noto-emoji-animation/</a></li>
+		</ul>
+		<div class="lottieWrap">
+			<div class="lottieLoad item" data-lottie="/mable/mableLottie/emoji/emoji-party-popper.json"></div>
+			<div class="lottieLoad item" data-lottie="/mable/mableLottie/emoji/emoji-heart-eyes.json"></div>
+			<div class="lottieLoad item" data-lottie="/mable/mableLottie/emoji/emoji-kissing-heart.json"></div>
+			<div class="lottieLoad item" data-lottie="/mable/mableLottie/emoji/emoji-partying-face.json"></div>
+			<div class="lottieLoad item" data-lottie="/mable/mableLottie/emoji/emoji-raising-hands.json"></div>
+		</div>
+	</div>
+
+	<div class="section">
+		<h2 class="guideTitTy2" id="emoji_00">Smileys</h2>
+		<ul class="emojiList">
+			<li><span class="noto">😀</span> <span>😀</span> 128512</li>
+			<li><span class="noto">😁</span> <span>😁</span> 128513</li>
+			<li><span class="noto">😂</span> <span>😂</span> 128514</li>
+			<li><span class="noto">😃</span> <span>😃</span> 128515</li>
+			<li><span class="noto">😄</span> <span>😄</span> 128516</li>
+			<li><span class="noto">😅</span> <span>😅</span> 128517</li>
+			<li><span class="noto">😆</span> <span>😆</span> 128518</li>
+			<li><span class="noto">😇</span> <span>😇</span> 128519</li>
+			<li><span class="noto">😈</span> <span>😈</span> 128520</li>
+			<li><span class="noto">😉</span> <span>😉</span> 128521</li>
+			<li><span class="noto">😊</span> <span>😊</span> 128522</li>
+			<li><span class="noto">😋</span> <span>😋</span> 128523</li>
+			<li><span class="noto">😌</span> <span>😌</span> 128524</li>
+			<li><span class="noto">😍</span> <span>😍</span> 128525</li>
+			<li><span class="noto">😎</span> <span>😎</span> 128526</li>
+			<li><span class="noto">😏</span> <span>😏</span> 128527</li>
+			<li><span class="noto">😐</span> <span>😐</span> 128528</li>
+			<li><span class="noto">😑</span> <span>😑</span> 128529</li>
+			<li><span class="noto">😒</span> <span>😒</span> 128530</li>
+			<li><span class="noto">😓</span> <span>😓</span> 128531</li>
+			<li><span class="noto">😔</span> <span>😔</span> 128532</li>
+			<li><span class="noto">😕</span> <span>😕</span> 128533</li>
+			<li><span class="noto">😖</span> <span>😖</span> 128534</li>
+			<li><span class="noto">😗</span> <span>😗</span> 128535</li>
+			<li><span class="noto">😘</span> <span>😘</span> 128536</li>
+			<li><span class="noto">😙</span> <span>😙</span> 128537</li>
+			<li><span class="noto">😚</span> <span>😚</span> 128538</li>
+			<li><span class="noto">😛</span> <span>😛</span> 128539</li>
+			<li><span class="noto">😜</span> <span>😜</span> 128540</li>
+			<li><span class="noto">😝</span> <span>😝</span> 128541</li>
+			<li><span class="noto">😞</span> <span>😞</span> 128542</li>
+			<li><span class="noto">😟</span> <span>😟</span> 128543</li>
+			<li><span class="noto">😠</span> <span>😠</span> 128544</li>
+			<li><span class="noto">😡</span> <span>😡</span> 128545</li>
+			<li><span class="noto">😢</span> <span>😢</span> 128546</li>
+			<li><span class="noto">😣</span> <span>😣</span> 128547</li>
+			<li><span class="noto">😤</span> <span>😤</span> 128548</li>
+			<li><span class="noto">😥</span> <span>😥</span> 128549</li>
+			<li><span class="noto">😦</span> <span>😦</span> 128550</li>
+			<li><span class="noto">😧</span> <span>😧</span> 128551</li>
+			<li><span class="noto">😨</span> <span>😨</span> 128552</li>
+			<li><span class="noto">😩</span> <span>😩</span> 128553</li>
+			<li><span class="noto">😪</span> <span>😪</span> 128554</li>
+			<li><span class="noto">😫</span> <span>😫</span> 128555</li>
+			<li><span class="noto">😬</span> <span>😬</span> 128556</li>
+			<li><span class="noto">😭</span> <span>😭</span> 128557</li>
+			<li><span class="noto">😮</span> <span>😮</span> 128558</li>
+			<li><span class="noto">😯</span> <span>😯</span> 128559</li>
+			<li><span class="noto">😰</span> <span>😰</span> 128560</li>
+			<li><span class="noto">😱</span> <span>😱</span> 128561</li>
+			<li><span class="noto">😲</span> <span>😲</span> 128562</li>
+			<li><span class="noto">😳</span> <span>😳</span> 128563</li>
+			<li><span class="noto">😴</span> <span>😴</span> 128564</li>
+			<li><span class="noto">😵</span> <span>😵</span> 128565</li>
+			<li><span class="noto">😶</span> <span>😶</span> 128566</li>
+			<li><span class="noto">😷</span> <span>😷</span> 128567</li>
+			<li><span class="noto">🙁</span> <span>🙁</span> 128577</li>
+			<li><span class="noto">🙂</span> <span>🙂</span> 128578</li>
+			<li><span class="noto">🙃</span> <span>🙃</span> 128579</li>
+			<li><span class="noto">🙄</span> <span>🙄</span> 128580</li>
+			<li><span class="noto">🤐</span> <span>🤐</span> 129296</li>
+			<li><span class="noto">🤑</span> <span>🤑</span> 129297</li>
+			<li><span class="noto">🤒</span> <span>🤒</span> 129298</li>
+			<li><span class="noto">🤓</span> <span>🤓</span> 129299</li>
+			<li><span class="noto">🤔</span> <span>🤔</span> 129300</li>
+			<li><span class="noto">🤕</span> <span>🤕</span> 129301</li>
+			<li><span class="noto">🤗</span> <span>🤗</span> 129303</li>
+			<li><span class="noto">🤠</span> <span>🤠</span> 129312</li>
+			<li><span class="noto">🤢</span> <span>🤢</span> 129314</li>
+			<li><span class="noto">🤣</span> <span>🤣</span> 129315</li>
+			<li><span class="noto">🤤</span> <span>🤤</span> 129316</li>
+			<li><span class="noto">🤥</span> <span>🤥</span> 129317</li>
+			<li><span class="noto">🤧</span> <span>🤧</span> 129319</li>
+			<li><span class="noto">🤨</span> <span>🤨</span> 129320</li>
+			<li><span class="noto">🤩</span> <span>🤩</span> 129321</li>
+			<li><span class="noto">🤪</span> <span>🤪</span> 129322</li>
+			<li><span class="noto">🤫</span> <span>🤫</span> 129323</li>
+			<li><span class="noto">🤭</span> <span>🤭</span> 129325</li>
+			<li><span class="noto">🤮</span> <span>🤮</span> 129326</li>
+			<li><span class="noto">🤯</span> <span>🤯</span> 129327</li>
+			<li><span class="noto">🥰</span> <span>🥰</span> 129392</li>
+			<li><span class="noto">🥱</span> <span>🥱</span> 129393</li>
+			<li><span class="noto">🥳</span> <span>🥳</span> 129395</li>
+			<li><span class="noto">🥴</span> <span>🥴</span> 129396</li>
+			<li><span class="noto">🥵</span> <span>🥵</span> 129397</li>
+			<li><span class="noto">🥶</span> <span>🥶</span> 129398</li>
+			<li><span class="noto">🥺</span> <span>🥺</span> 129402</li>
+			<li><span class="noto">🧐</span> <span>🧐</span> 129488</li>
+			<li><span class="noto">😸</span> <span>😸</span> 128568</li>
+			<li><span class="noto">😹</span> <span>😹</span> 128569</li>
+			<li><span class="noto">😺</span> <span>😺</span> 128570</li>
+			<li><span class="noto">😻</span> <span>😻</span> 128571</li>
+			<li><span class="noto">😼</span> <span>😼</span> 128572</li>
+			<li><span class="noto">😽</span> <span>😽</span> 128573</li>
+			<li><span class="noto">😾</span> <span>😾</span> 128574</li>
+			<li><span class="noto">😿</span> <span>😿</span> 128575</li>
+			<li><span class="noto">🙀</span> <span>🙀</span> 128576</li>
+			<li><span class="noto">🙈</span> <span>🙈</span> 128584</li>
+			<li><span class="noto">🙉</span> <span>🙉</span> 128585</li>
+			<li><span class="noto">🙊</span> <span>🙊</span> 128586</li>
+			<li><span class="noto">👿</span> <span>👿</span> 128127</li>
+			<li><span class="noto">💀</span> <span>💀</span> 128128</li>
+			<li><span class="noto">🤬</span> <span>🤬</span> 129324</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_01">Hands</h2>
+		<ul class="emojiList">
+			<li><span class="noto">✋</span> <span>✋</span> 9995</li>
+			<li><span class="noto">👋</span> <span>👋</span> 128075</li>
+			<li><span class="noto">🖐</span> <span>🖐</span> 128400</li>
+			<li><span class="noto">🖖</span> <span>🖖</span> 128406</li>
+			<li><span class="noto">🤚</span> <span>🤚</span> 129306</li>
+			<li><span>☝</span> 9757</li>
+			<li><span class="noto">👆</span> <span>👆</span> 128070</li>
+			<li><span class="noto">👇</span> <span>👇</span> 128071</li>
+			<li><span class="noto">👈</span> <span>👈</span> 128072</li>
+			<li><span class="noto">👉</span> <span>👉</span> 128073</li>
+			<li><span class="noto">🖕</span> <span>🖕</span> 128405</li>
+			<li><span class="noto">✊</span> <span>✊</span> 9994</li>
+			<li><span class="noto">👊</span> <span>👊</span> 128074</li>
+			<li><span class="noto">👍</span> <span>👍</span> 128077</li>
+			<li><span class="noto">👎</span> <span>👎</span> 128078</li>
+			<li><span class="noto">🤛</span> <span>🤛</span> 129307</li>
+			<li><span class="noto">🤜</span> <span>🤜</span> 129308</li>
+			<li><span class="noto">✌</span> <span>✌</span> 9996</li>
+			<li><span class="noto">👌</span> <span>👌</span> 128076</li>
+			<li><span class="noto">🤏</span> <span>🤏</span> 129295</li>
+			<li><span class="noto">🤘</span> <span>🤘</span> 129304</li>
+			<li><span class="noto">🤙</span> <span>🤙</span> 129305</li>
+			<li><span class="noto">🤞</span> <span>🤞</span> 129310</li>
+			<li><span class="noto">🤟</span> <span>🤟</span> 129311</li>
+			<li><span class="noto">✍</span> <span>✍</span> 9997</li>
+			<li><span class="noto">👏</span> <span>👏</span> 128079</li>
+			<li><span class="noto">👐</span> <span>👐</span> 128080</li>
+			<li><span class="noto">💅</span> <span>💅</span> 128133</li>
+			<li><span class="noto">🤝</span> <span>🤝</span> 129309</li>
+			<li><span class="noto">🤝</span> <span>🤝</span> 129309</li>
+			<li><span class="noto">🤲</span> <span>🤲</span> 129330</li>
+			<li><span class="noto">🤳</span> <span>🤳</span> 129331</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_02">People</h2>
+		<ul class="emojiList">
+			<li><span class="noto">👮</span> <span>👮</span> 128110</li>
+			<li><span class="noto">👯</span> <span>👯</span> 128111</li>
+			<li><span class="noto">👰</span> <span>👰</span> 128112</li>
+			<li><span class="noto">👲</span> <span>👲</span> 128114</li>
+			<li><span class="noto">👳</span> <span>👳</span> 128115</li>
+			<li><span class="noto">👷</span> <span>👷</span> 128119</li>
+			<li><span class="noto">👸</span> <span>👸</span> 128120</li>
+			<li><span class="noto">🕴</span> <span>🕴</span> 128372</li>
+			<li><span class="noto">🕵</span> <span>🕵</span> 128373</li>
+			<li><span class="noto">💁</span> <span>💁</span> 128129</li>
+			<li><span class="noto">💂</span> <span>💂</span> 128130</li>
+			<li><span class="noto">💃</span> <span>💃</span> 128131</li>
+			<li><span class="noto">🤴</span> <span>🤴</span> 129332</li>
+			<li><span class="noto">🤵</span> <span>🤵</span> 129333</li>
+			<li><span class="noto">👪</span> <span>👪</span> 128106</li>
+			<li><span class="noto">👫</span> <span>👫</span> 128107</li>
+			<li><span class="noto">👬</span> <span>👬</span> 128108</li>
+			<li><span class="noto">👭</span> <span>👭</span> 128109</li>
+			<li><span class="noto">💏</span> <span>💏</span> 128143</li>
+			<li><span class="noto">💑</span> <span>💑</span> 128145</li>
+			<li><span class="noto">🤰</span> <span>🤰</span> 129328</li>
+			<li><span class="noto">🤱</span> <span>🤱</span> 129329</li>
+			<li><span class="noto">👤</span> <span>👤</span> 128100</li>
+			<li><span class="noto">👥</span> <span>👥</span> 128101</li>
+			<li><span class="noto">👦</span> <span>👦</span> 128102</li>
+			<li><span class="noto">👧</span> <span>👧</span> 128103</li>
+			<li><span class="noto">👨</span> <span>👨</span> 128104</li>
+			<li><span class="noto">👩</span> <span>👩</span> 128105</li>
+			<li><span class="noto">👱</span> <span>👱</span> 128113</li>
+			<li><span class="noto">👴</span> <span>👴</span> 128116</li>
+			<li><span class="noto">👵</span> <span>👵</span> 128117</li>
+			<li><span class="noto">👶</span> <span>👶</span> 128118</li>
+			<li><span class="noto">🕺</span> <span>🕺</span> 128378</li>
+			<li><span class="noto">🧍</span> <span>🧍</span> 129485</li>
+			<li><span class="noto">🧎</span> <span>🧎</span> 129486</li>
+			<li><span class="noto">🧑</span> <span>🧑</span> 129489</li>
+			<li><span class="noto">🧒</span> <span>🧒</span> 129490</li>
+			<li><span class="noto">🧓</span> <span>🧓</span> 129491</li>
+			<li><span class="noto">🧔</span> <span>🧔</span> 129492</li>
+			<li><span class="noto">🧕</span> <span>🧕</span> 129493</li>
+			<li><span class="noto">🧖</span> <span>🧖</span> 129494</li>
+			<li><span class="noto">🧗</span> <span>🧗</span> 129495</li>
+			<li><span class="noto">🧘</span> <span>🧘</span> 129496</li>
+			<li><span class="noto">🦰</span> <span>🦰</span> 129456</li>
+			<li><span class="noto">🦱</span> <span>🦱</span> 129457</li>
+			<li><span class="noto">🦲</span> <span>🦲</span> 129458</li>
+			<li><span class="noto">🦳</span> <span>🦳</span> 129459</li>
+			<li><span class="noto">💆</span> <span>💆</span> 128134</li>
+			<li><span class="noto">💇</span> <span>💇</span> 128135</li>
+			<li><span class="noto">🙅</span> <span>🙅</span> 128581</li>
+			<li><span class="noto">🙆</span> <span>🙆</span> 128582</li>
+			<li><span class="noto">🙇</span> <span>🙇</span> 128583</li>
+			<li><span class="noto">🙋</span> <span>🙋</span> 128587</li>
+			<li><span class="noto">🙌</span> <span>🙌</span> 128588</li>
+			<li><span class="noto">🙍</span> <span>🙍</span> 128589</li>
+			<li><span class="noto">🙎</span> <span>🙎</span> 128590</li>
+			<li><span class="noto">🙏</span> <span>🙏</span> 128591</li>
+			<li><span class="noto">🤦</span> <span>🤦</span> 129318</li>
+			<li><span class="noto">🤱</span> <span>🤱</span> 129329</li>
+			<li><span class="noto">🤷</span> <span>🤷</span> 129335</li>
+			<li><span class="noto">🧏</span> <span>🧏</span> 129487</li>
+			<li><span class="noto">🙈</span> <span>🙈</span> 128584</li>
+			<li><span class="noto">🙉</span> <span>🙉</span> 128585</li>
+			<li><span class="noto">🙊</span> <span>🙊</span> 128586</li>
+			<li><span class="noto">💬</span> <span>💬</span> 128172</li>
+			<li><span class="noto">💭</span> <span>💭</span> 128173</li>
+			<li><span class="noto">🗨</span> <span>🗨</span> 128488</li>
+			<li><span class="noto">🗩</span> <span>🗩</span> 128489</li>
+			<li><span class="noto">🗪</span> <span>🗪</span> 128490</li>
+			<li><span class="noto">🗫</span> <span>🗫</span> 128491</li>
+			<li><span class="noto">🗬</span> <span>🗬</span> 128492</li>
+			<li><span class="noto">🗭</span> <span>🗭</span> 128493</li>
+			<li><span class="noto">🗮</span> <span>🗮</span> 128494</li>
+			<li><span class="noto">🗯</span> <span>🗯</span> 128495</li>
+			<li><span class="noto">🗰</span> <span>🗰</span> 128496</li>
+			<li><span class="noto">🗱</span> <span>🗱</span> 128497</li>
+			<li><span class="noto">🗲</span> <span>🗲</span> 128498</li>
+			<li><span class="noto">🎅</span> <span>🎅</span> 127877</li>
+			<li><span class="noto">👹</span> <span>👹</span> 128121</li>
+			<li><span class="noto">👺</span> <span>👺</span> 128122</li>
+			<li><span class="noto">👻</span> <span>👻</span> 128123</li>
+			<li><span class="noto">👼</span> <span>👼</span> 128124</li>
+			<li><span class="noto">👽</span> <span>👽</span> 128125</li>
+			<li><span class="noto">👾</span> <span>👾</span> 128126</li>
+			<li><span class="noto">👿</span> <span>👿</span> 128127</li>
+			<li><span class="noto">💀</span> <span>💀</span> 128128</li>
+			<li><span class="noto">🤖</span> <span>🤖</span> 129302</li>
+			<li><span class="noto">🤡</span> <span>🤡</span> 129313</li>
+			<li><span class="noto">🤶</span> <span>🤶</span> 129334</li>
+			<li><span class="noto">🦸</span> <span>🦸</span> 129464</li>
+			<li><span class="noto">🦹</span> <span>🦹</span> 129465</li>
+			<li><span class="noto">🧙</span> <span>🧙</span> 129497</li>
+			<li><span class="noto">🧚</span> <span>🧚</span> 129498</li>
+			<li><span class="noto">🧛</span> <span>🧛</span> 129499</li>
+			<li><span class="noto">🧜</span> <span>🧜</span> 129500</li>
+			<li><span class="noto">🧝</span> <span>🧝</span> 129501</li>
+			<li><span class="noto">🧞</span> <span>🧞</span> 129502</li>
+			<li><span class="noto">🧟</span> <span>🧟</span> 129503</li>
+			<li><span class="noto">👀</span> <span>👀</span> 128064</li>
+			<li><span class="noto">👁</span> <span>👁</span> 128065</li>
+			<li><span class="noto">👂</span> <span>👂</span> 128066</li>
+			<li><span class="noto">👃</span> <span>👃</span> 128067</li>
+			<li><span class="noto">👄</span> <span>👄</span> 128068</li>
+			<li><span class="noto">👅</span> <span>👅</span> 128069</li>
+			<li><span class="noto">👣</span> <span>👣</span> 128099</li>
+			<li><span class="noto">💪</span> <span>💪</span> 128170</li>
+			<li><span class="noto">🦴</span> <span>🦴</span> 129460</li>
+			<li><span class="noto">🦵</span> <span>🦵</span> 129461</li>
+			<li><span class="noto">🦶</span> <span>🦶</span> 129462</li>
+			<li><span class="noto">🦷</span> <span>🦷</span> 129463</li>
+			<li><span class="noto">🦻</span> <span>🦻</span> 129467</li>
+			<li><span class="noto">🦼</span> <span>🦼</span> 129468</li>
+			<li><span class="noto">🦽</span> <span>🦽</span> 129469</li>
+			<li><span class="noto">🦾</span> <span>🦾</span> 129470</li>
+			<li><span class="noto">🦿</span> <span>🦿</span> 129471</li>
+			<li><span class="noto">🧠</span> <span>🧠</span> 129504</li>
+			<li><span class="noto">🧡</span> <span>🧡</span> 129505</li>
+			<li><span class="noto">💌</span> <span>💌</span> 128140</li>
+			<li><span class="noto">💒</span> <span>💒</span> 128146</li>
+			<li><span class="noto">💓</span> <span>💓</span> 128147</li>
+			<li><span class="noto">💔</span> <span>💔</span> 128148</li>
+			<li><span class="noto">💕</span> <span>💕</span> 128149</li>
+			<li><span class="noto">💖</span> <span>💖</span> 128150</li>
+			<li><span class="noto">💗</span> <span>💗</span> 128151</li>
+			<li><span class="noto">💘</span> <span>💘</span> 128152</li>
+			<li><span class="noto">💙</span> <span>💙</span> 128153</li>
+			<li><span class="noto">💚</span> <span>💚</span> 128154</li>
+			<li><span class="noto">💛</span> <span>💛</span> 128155</li>
+			<li><span class="noto">💜</span> <span>💜</span> 128156</li>
+			<li><span class="noto">💝</span> <span>💝</span> 128157</li>
+			<li><span class="noto">💞</span> <span>💞</span> 128158</li>
+			<li><span class="noto">💟</span> <span>💟</span> 128159</li>
+			<li><span class="noto">🖤</span> <span>🖤</span> 128420</li>
+			<li><span class="noto">🤍</span> <span>🤍</span> 129293</li>
+			<li><span class="noto">🤎</span> <span>🤎</span> 129294</li>
+			<li><span class="noto">💄</span> <span>💄</span> 128132</li>
+			<li><span class="noto">💅</span> <span>💅</span> 128133</li>
+			<li><span class="noto">💈</span> <span>💈</span> 128136</li>
+			<li><span class="noto">💉</span> <span>💉</span> 128137</li>
+			<li><span class="noto">💊</span> <span>💊</span> 128138</li>
+			<li><span class="noto">💋</span> <span>💋</span> 128139</li>
+			<li><span class="noto">💍</span> <span>💍</span> 128141</li>
+			<li><span class="noto">💎</span> <span>💎</span> 128142</li>
+			<li><span class="noto">💤</span> <span>💤</span> 128164</li>
+			<li><span class="noto">💩</span> <span>💩</span> 128169</li>
+			<li><span class="noto">💫</span> <span>💫</span> 128171</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_03">Office</h2>
+		<ul class="emojiList">
+			<li><span class="noto">💺</span> <span>💺</span> 128186</li>
+			<li><span class="noto">💻</span> <span>💻</span> 128187</li>
+			<li><span class="noto">💼</span> <span>💼</span> 128188</li>
+			<li><span class="noto">💽</span> <span>💽</span> 128189</li>
+			<li><span class="noto">💾</span> <span>💾</span> 128190</li>
+			<li><span class="noto">💿</span> <span>💿</span> 128191</li>
+			<li><span class="noto">📀</span> <span>📀</span> 128192</li>
+			<li><span class="noto">📁</span> <span>📁</span> 128193</li>
+			<li><span class="noto">📂</span> <span>📂</span> 128194</li>
+			<li><span class="noto">📃</span> <span>📃</span> 128195</li>
+			<li><span class="noto">📄</span> <span>📄</span> 128196</li>
+			<li><span class="noto">📅</span> <span>📅</span> 128197</li>
+			<li><span class="noto">📆</span> <span>📆</span> 128198</li>
+			<li><span class="noto">📇</span> <span>📇</span> 128199</li>
+			<li><span class="noto">📈</span> <span>📈</span> 128200</li>
+			<li><span class="noto">📉</span> <span>📉</span> 128201</li>
+			<li><span class="noto">📊</span> <span>📊</span> 128202</li>
+			<li><span class="noto">📋</span> <span>📋</span> 128203</li>
+			<li><span class="noto">📌</span> <span>📌</span> 128204</li>
+			<li><span class="noto">📍</span> <span>📍</span> 128205</li>
+			<li><span class="noto">📎</span> <span>📎</span> 128206</li>
+			<li><span class="noto">📏</span> <span>📏</span> 128207</li>
+			<li><span class="noto">📐</span> <span>📐</span> 128208</li>
+			<li><span class="noto">📑</span> <span>📑</span> 128209</li>
+			<li><span class="noto">📒</span> <span>📒</span> 128210</li>
+			<li><span class="noto">📓</span> <span>📓</span> 128211</li>
+			<li><span class="noto">📔</span> <span>📔</span> 128212</li>
+			<li><span class="noto">📕</span> <span>📕</span> 128213</li>
+			<li><span class="noto">📖</span> <span>📖</span> 128214</li>
+			<li><span class="noto">📗</span> <span>📗</span> 128215</li>
+			<li><span class="noto">📘</span> <span>📘</span> 128216</li>
+			<li><span class="noto">📙</span> <span>📙</span> 128217</li>
+			<li><span class="noto">📚</span> <span>📚</span> 128218</li>
+			<li><span class="noto">📛</span> <span>📛</span> 128219</li>
+			<li><span class="noto">📜</span> <span>📜</span> 128220</li>
+			<li><span class="noto">📝</span> <span>📝</span> 128221</li>
+			<li><span class="noto">📞</span> <span>📞</span> 128222</li>
+			<li><span class="noto">📟</span> <span>📟</span> 128223</li>
+			<li><span class="noto">📠</span> <span>📠</span> 128224</li>
+			<li><span class="noto">📡</span> <span>📡</span> 128225</li>
+			<li><span class="noto">📢</span> <span>📢</span> 128226</li>
+			<li><span class="noto">📣</span> <span>📣</span> 128227</li>
+			<li><span class="noto">📤</span> <span>📤</span> 128228</li>
+			<li><span class="noto">📥</span> <span>📥</span> 128229</li>
+			<li><span class="noto">📰</span> <span>📰</span> 128240</li>
+			<li><span class="noto">🔋</span> <span>🔋</span> 128267</li>
+			<li><span class="noto">🔌</span> <span>🔌</span> 128268</li>
+			<li><span class="noto">🖇</span> <span>🖇</span> 128391</li>
+			<li><span class="noto">🖈</span> <span>🖈</span> 128392</li>
+			<li><span class="noto">🖉</span> <span>🖉</span> 128393</li>
+			<li><span class="noto">🖊</span> <span>🖊</span> 128394</li>
+			<li><span class="noto">🖋</span> <span>🖋</span> 128395</li>
+			<li><span class="noto">🖌</span> <span>🖌</span> 128396</li>
+			<li><span class="noto">🖍</span> <span>🖍</span> 128397</li>
+			<li><span class="noto">📱</span> <span>📱</span> 128241</li>
+			<li><span class="noto">📲</span> <span>📲</span> 128242</li>
+			<li><span class="noto">📳</span> <span>📳</span> 128243</li>
+			<li><span class="noto">📴</span> <span>📴</span> 128244</li>
+			<li><span class="noto">📵</span> <span>📵</span> 128245</li>
+			<li><span class="noto">📶</span> <span>📶</span> 128246</li>
+			<li><span class="noto">🕻</span> <span>🕻</span> 128379</li>
+			<li><span class="noto">🕼</span> <span>🕼</span> 128380</li>
+			<li><span class="noto">🕽</span> <span>🕽</span> 128381</li>
+			<li><span class="noto">🕾</span> <span>🕾</span> 128382</li>
+			<li><span class="noto">🕿</span> <span>🕿</span> 128383</li>
+			<li><span class="noto">🖀</span> <span>🖀</span> 128384</li>
+			<li><span class="noto">🖁</span> <span>🖁</span> 128385</li>
+			<li><span class="noto">📤</span> <span>📤</span> 128228</li>
+			<li><span class="noto">📥</span> <span>📥</span> 128229</li>
+			<li><span class="noto">📦</span> <span>📦</span> 128230</li>
+			<li><span class="noto">📧</span> <span>📧</span> 128231</li>
+			<li><span class="noto">📨</span> <span>📨</span> 128232</li>
+			<li><span class="noto">📩</span> <span>📩</span> 128233</li>
+			<li><span class="noto">📪</span> <span>📪</span> 128234</li>
+			<li><span class="noto">📫</span> <span>📫</span> 128235</li>
+			<li><span class="noto">📬</span> <span>📬</span> 128236</li>
+			<li><span class="noto">📭</span> <span>📭</span> 128237</li>
+			<li><span class="noto">📮</span> <span>📮</span> 128238</li>
+			<li><span class="noto">📯</span> <span>📯</span> 128239</li>
+			<li><span class="noto">📰</span> <span>📰</span> 128240</li>
+			<li><span class="noto">🖂</span> <span>🖂</span> 128386</li>
+			<li><span class="noto">🖃</span> <span>🖃</span> 128387</li>
+			<li><span class="noto">🖄</span> <span>🖄</span> 128388</li>
+			<li><span class="noto">🖅</span> <span>🖅</span> 128389</li>
+			<li><span class="noto">🖆</span> <span>🖆</span> 128390</li>
+			<li><span class="noto">🕐</span> <span>🕐</span> 128336</li>
+			<li><span class="noto">🕑</span> <span>🕑</span> 128337</li>
+			<li><span class="noto">🕒</span> <span>🕒</span> 128338</li>
+			<li><span class="noto">🕓</span> <span>🕓</span> 128339</li>
+			<li><span class="noto">🕔</span> <span>🕔</span> 128340</li>
+			<li><span class="noto">🕕</span> <span>🕕</span> 128341</li>
+			<li><span class="noto">🕖</span> <span>🕖</span> 128342</li>
+			<li><span class="noto">🕗</span> <span>🕗</span> 128343</li>
+			<li><span class="noto">🕘</span> <span>🕘</span> 128344</li>
+			<li><span class="noto">🕙</span> <span>🕙</span> 128345</li>
+			<li><span class="noto">🕚</span> <span>🕚</span> 128346</li>
+			<li><span class="noto">🕛</span> <span>🕛</span> 128347</li>
+			<li><span class="noto">🕜</span> <span>🕜</span> 128348</li>
+			<li><span class="noto">🕝</span> <span>🕝</span> 128349</li>
+			<li><span class="noto">🕞</span> <span>🕞</span> 128350</li>
+			<li><span class="noto">🕟</span> <span>🕟</span> 128351</li>
+			<li><span class="noto">🕠</span> <span>🕠</span> 128352</li>
+			<li><span class="noto">🕡</span> <span>🕡</span> 128353</li>
+			<li><span class="noto">🕢</span> <span>🕢</span> 128354</li>
+			<li><span class="noto">🕣</span> <span>🕣</span> 128355</li>
+			<li><span class="noto">🕤</span> <span>🕤</span> 128356</li>
+			<li><span class="noto">🕥</span> <span>🕥</span> 128357</li>
+			<li><span class="noto">🕦</span> <span>🕦</span> 128358</li>
+			<li><span class="noto">🕧</span> <span>🕧</span> 128359</li>
+			<li><span class="noto">🖥</span> <span>🖥</span> 128421</li>
+			<li><span class="noto">🖨</span> <span>🖨</span> 128424</li>
+			<li><span class="noto">🖱</span> <span>🖱</span> 128433</li>
+			<li><span class="noto">🖲</span> <span>🖲</span> 128434</li>
+			<li><span class="noto">🖼</span> <span>🖼</span> 128444</li>
+			<li><span class="noto">🗂</span> <span>🗂</span> 128450</li>
+			<li><span class="noto">🗃</span> <span>🗃</span> 128451</li>
+			<li><span class="noto">🗄</span> <span>🗄</span> 128452</li>
+			<li><span class="noto">🗑</span> <span>🗑</span> 128465</li>
+			<li><span class="noto">🗒</span> <span>🗒</span> 128466</li>
+			<li><span class="noto">🗓</span> <span>🗓</span> 128467</li>
+			<li><span class="noto">🗜</span> <span>🗜</span> 128476</li>
+			<li><span class="noto">🗝</span> <span>🗝</span> 128477</li>
+			<li><span class="noto">🗞</span> <span>🗞</span> 128478</li>
+			<li><span class="noto">🗡</span> <span>🗡</span> 128481</li>
+			<li><span class="noto">🗣</span> <span>🗣</span> 128483</li>
+			<li><span class="noto">🗳</span> <span>🗳</span> 128499</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_04">Places</h2>
+		<ul class="emojiList">
+			<li><span class="noto">⛲</span> <span>⛲</span>9970</li>
+			<li><span class="noto">⛳</span> <span>⛳</span>9971</li>
+			<li><span class="noto">⛺</span> <span>⛺</span>9978</li>
+			<li><span class="noto">⛽</span> <span>⛽</span>9981</li>
+			<li><span class="noto">🌋</span> <span>🌋</span>127755</li>
+			<li><span class="noto">🗺</span> <span>🗺</span>128506</li>
+			<li><span class="noto">🗻</span> <span>🗻</span>128507</li>
+			<li><span class="noto">🗼</span> <span>🗼</span>128508</li>
+			<li><span class="noto">🗽</span> <span>🗽</span>128509</li>
+			<li><span class="noto">🗾</span> <span>🗾</span>128510</li>
+			<li><span class="noto">🗿</span> <span>🗿</span>128511</li>
+			<li><span class="noto">⛪</span> <span>⛪</span>9962</li>
+			<li><span class="noto">🏠</span> <span>🏠</span>127968</li>
+			<li><span class="noto">🏡</span> <span>🏡</span>127969</li>
+			<li><span class="noto">🏢</span> <span>🏢</span>127970</li>
+			<li><span class="noto">🏣</span> <span>🏣</span>127971</li>
+			<li><span class="noto">🏤</span> <span>🏤</span>127972</li>
+			<li><span class="noto">🏥</span> <span>🏥</span>127973</li>
+			<li><span class="noto">🏦</span> <span>🏦</span>127974</li>
+			<li><span class="noto">🏧</span> <span>🏧</span>127975</li>
+			<li><span class="noto">🏨</span> <span>🏨</span>127976</li>
+			<li><span class="noto">🏩</span> <span>🏩</span>127977</li>
+			<li><span class="noto">🏪</span> <span>🏪</span>127978</li>
+			<li><span class="noto">🏫</span> <span>🏫</span>127979</li>
+			<li><span class="noto">🏬</span> <span>🏬</span>127980</li>
+			<li><span class="noto">🏭</span> <span>🏭</span>127981</li>
+			<li><span class="noto">🏮</span> <span>🏮</span>127982</li>
+			<li><span class="noto">🏯</span> <span>🏯</span>127983</li>
+			<li><span class="noto">🏰</span> <span>🏰</span>127984</li>
+			<li><span class="noto">🕋</span> <span>🕋</span>128331</li>
+			<li><span class="noto">🕌</span> <span>🕌</span>128332</li>
+			<li><span class="noto">🕍</span> <span>🕍</span>128333</li>
+			<li><span class="noto">🛕</span> <span>🛕</span>128725</li>
+			<li><span class="noto">🏔</span> <span>🏔</span>127956</li>
+			<li><span class="noto">🏕</span> <span>🏕</span>127957</li>
+			<li><span class="noto">🏖</span> <span>🏖</span>127958</li>
+			<li><span class="noto">🏗</span> <span>🏗</span>127959</li>
+			<li><span class="noto">🏘</span> <span>🏘</span>127960</li>
+			<li><span class="noto">🏙</span> <span>🏙</span>127961</li>
+			<li><span class="noto">🏚</span> <span>🏚</span>127962</li>
+			<li><span class="noto">🏛</span> <span>🏛</span>127963</li>
+			<li><span class="noto">🏜</span> <span>🏜</span>127964</li>
+			<li><span class="noto">🏝</span> <span>🏝</span>127965</li>
+			<li><span class="noto">🏞</span> <span>🏞</span>127966</li>
+			<li><span class="noto">🏟</span> <span>🏟</span>127967</li>
+			<li><span class="noto">🗺</span> <span>🗺</span>128506</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_05">Transport</h2>
+		<ul class="emojiList">
+			<li><span class="noto">🚀</span> <span>🚀</span> 128640</li>
+			<li><span class="noto">🚁</span> <span>🚁</span> 128641</li>
+			<li><span class="noto">🚂</span> <span>🚂</span> 128642</li>
+			<li><span class="noto">🚃</span> <span>🚃</span> 128643</li>
+			<li><span class="noto">🚄</span> <span>🚄</span> 128644</li>
+			<li><span class="noto">🚅</span> <span>🚅</span> 128645</li>
+			<li><span class="noto">🚆</span> <span>🚆</span> 128646</li>
+			<li><span class="noto">🚇</span> <span>🚇</span> 128647</li>
+			<li><span class="noto">🚈</span> <span>🚈</span> 128648</li>
+			<li><span class="noto">🚉</span> <span>🚉</span> 128649</li>
+			<li><span class="noto">🚊</span> <span>🚊</span> 128650</li>
+			<li><span class="noto">🚋</span> <span>🚋</span> 128651</li>
+			<li><span class="noto">🚌</span> <span>🚌</span> 128652</li>
+			<li><span class="noto">🚍</span> <span>🚍</span> 128653</li>
+			<li><span class="noto">🚎</span> <span>🚎</span> 128654</li>
+			<li><span class="noto">🚏</span> <span>🚏</span> 128655</li>
+			<li><span class="noto">🚐</span> <span>🚐</span> 128656</li>
+			<li><span class="noto">🚑</span> <span>🚑</span> 128657</li>
+			<li><span class="noto">🚒</span> <span>🚒</span> 128658</li>
+			<li><span class="noto">🚓</span> <span>🚓</span> 128659</li>
+			<li><span class="noto">🚔</span> <span>🚔</span> 128660</li>
+			<li><span class="noto">🚕</span> <span>🚕</span> 128661</li>
+			<li><span class="noto">🚖</span> <span>🚖</span> 128662</li>
+			<li><span class="noto">🚗</span> <span>🚗</span> 128663</li>
+			<li><span class="noto">🚘</span> <span>🚘</span> 128664</li>
+			<li><span class="noto">🚙</span> <span>🚙</span> 128665</li>
+			<li><span class="noto">🚚</span> <span>🚚</span> 128666</li>
+			<li><span class="noto">🚛</span> <span>🚛</span> 128667</li>
+			<li><span class="noto">🚜</span> <span>🚜</span> 128668</li>
+			<li><span class="noto">🚝</span> <span>🚝</span> 128669</li>
+			<li><span class="noto">🚞</span> <span>🚞</span> 128670</li>
+			<li><span class="noto">🚟</span> <span>🚟</span> 128671</li>
+			<li><span class="noto">🚠</span> <span>🚠</span> 128672</li>
+			<li><span class="noto">🚡</span> <span>🚡</span> 128673</li>
+			<li><span class="noto">🚢</span> <span>🚢</span> 128674</li>
+			<li><span class="noto">🚣</span> <span>🚣</span> 128675</li>
+			<li><span class="noto">🚤</span> <span>🚤</span> 128676</li>
+			<li><span class="noto">⛔</span> <span>⛔</span> 9940</li>
+			<li><span class="noto">🚥</span> <span>🚥</span> 128677</li>
+			<li><span class="noto">🚦</span> <span>🚦</span> 128678</li>
+			<li><span class="noto">🚧</span> <span>🚧</span> 128679</li>
+			<li><span class="noto">🚨</span> <span>🚨</span> 128680</li>
+			<li><span class="noto">🚩</span> <span>🚩</span> 128681</li>
+			<li><span class="noto">🚪</span> <span>🚪</span> 128682</li>
+			<li><span class="noto">🚫</span> <span>🚫</span> 128683</li>
+			<li><span class="noto">🚬</span> <span>🚬</span> 128684</li>
+			<li><span class="noto">🚭</span> <span>🚭</span> 128685</li>
+			<li><span class="noto">🚮</span> <span>🚮</span> 128686</li>
+			<li><span class="noto">🚯</span> <span>🚯</span> 128687</li>
+			<li><span class="noto">🚰</span> <span>🚰</span> 128688</li>
+			<li><span class="noto">🚱</span> <span>🚱</span> 128689</li>
+			<li><span class="noto">🚲</span> <span>🚲</span> 128690</li>
+			<li><span class="noto">🚳</span> <span>🚳</span> 128691</li>
+			<li><span class="noto">🚴</span> <span>🚴</span> 128692</li>
+			<li><span class="noto">🚵</span> <span>🚵</span> 128693</li>
+			<li><span class="noto">🚶</span> <span>🚶</span> 128694</li>
+			<li><span class="noto">🚷</span> <span>🚷</span> 128695</li>
+			<li><span class="noto">🚸</span> <span>🚸</span> 128696</li>
+			<li><span class="noto">🚹</span> <span>🚹</span> 128697</li>
+			<li><span class="noto">🚺</span> <span>🚺</span> 128698</li>
+			<li><span class="noto">🚻</span> <span>🚻</span> 128699</li>
+			<li><span class="noto">🚼</span> <span>🚼</span> 128700</li>
+			<li><span class="noto">🚽</span> <span>🚽</span> 128701</li>
+			<li><span class="noto">🚾</span> <span>🚾</span> 128702</li>
+			<li><span class="noto">🚿</span> <span>🚿</span> 128703</li>
+			<li><span class="noto">🛀</span> <span>🛀</span> 128704</li>
+			<li><span class="noto">🛁</span> <span>🛁</span> 128705</li>
+			<li><span class="noto">🛂</span> <span>🛂</span> 128706</li>
+			<li><span class="noto">🛃</span> <span>🛃</span> 128707</li>
+			<li><span class="noto">🛄</span> <span>🛄</span> 128708</li>
+			<li><span class="noto">🛅</span> <span>🛅</span> 128709</li>
+			<li><span class="noto">🛆</span> <span>🛆</span> 128710</li>
+			<li><span class="noto">🛇</span> <span>🛇</span> 128711</li>
+			<li><span class="noto">🛈</span> <span>🛈</span> 128712</li>
+			<li><span class="noto">🛉</span> <span>🛉</span> 128713</li>
+			<li><span class="noto">🛊</span> <span>🛊</span> 128714</li>
+			<li><span class="noto">🛋</span> <span>🛋</span> 128715</li>
+			<li><span class="noto">🛌</span> <span>🛌</span> 128716</li>
+			<li><span class="noto">🛍</span> <span>🛍</span> 128717</li>
+			<li><span class="noto">🛎</span> <span>🛎</span> 128718</li>
+			<li><span class="noto">🛏</span> <span>🛏</span> 128719</li>
+			<li><span class="noto">🛐</span> <span>🛐</span> 128720</li>
+			<li><span class="noto">🛑</span> <span>🛑</span> 128721</li>
+			<li><span class="noto">🛒</span> <span>🛒</span> 128722</li>
+			<li><span class="noto">🛓</span> <span>🛓</span> 128723</li>
+			<li><span class="noto">🛔</span> <span>🛔</span> 128724</li>
+			<li><span class="noto">🛖</span> <span>🛖</span> 128726</li>
+			<li><span class="noto">🛗</span> <span>🛗</span> 128727</li>
+			<li><span class="noto">🛘</span> <span>🛘</span> 128728</li>
+			<li><span class="noto">🛙</span> <span>🛙</span> 128729</li>
+			<li><span class="noto">🛚</span> <span>🛚</span> 128730</li>
+			<li><span class="noto">🛛</span> <span>🛛</span> 128731</li>
+			<li><span class="noto">🛜</span> <span>🛜</span> 128732</li>
+			<li><span class="noto">🛝</span> <span>🛝</span> 128733</li>
+			<li><span class="noto">🛞</span> <span>🛞</span> 128734</li>
+			<li><span class="noto">🛟</span> <span>🛟</span> 128735</li>
+			<li><span class="noto">🛠</span> <span>🛠</span> 128736</li>
+			<li><span class="noto">🛡</span> <span>🛡</span> 128737</li>
+			<li><span class="noto">🛢</span> <span>🛢</span> 128738</li>
+			<li><span class="noto">🛣</span> <span>🛣</span> 128739</li>
+			<li><span class="noto">🛤</span> <span>🛤</span> 128740</li>
+			<li><span class="noto">🛥</span> <span>🛥</span> 128741</li>
+			<li><span class="noto">🛦</span> <span>🛦</span> 128742</li>
+			<li><span class="noto">🛧</span> <span>🛧</span> 128743</li>
+			<li><span class="noto">🛨</span> <span>🛨</span> 128744</li>
+			<li><span class="noto">🛩</span> <span>🛩</span> 128745</li>
+			<li><span class="noto">🛪</span> <span>🛪</span> 128746</li>
+			<li><span class="noto">🛫</span> <span>🛫</span> 128747</li>
+			<li><span class="noto">🛬</span> <span>🛬</span> 128748</li>
+			<li><span class="noto">🛭</span> <span>🛭</span> 128749</li>
+			<li><span class="noto">🛮</span> <span>🛮</span> 128750</li>
+			<li><span class="noto">🛯</span> <span>🛯</span> 128751</li>
+			<li><span class="noto">🛰</span> <span>🛰</span> 128752</li>
+			<li><span class="noto">🛱</span> <span>🛱</span> 128753</li>
+			<li><span class="noto">🛲</span> <span>🛲</span> 128754</li>
+			<li><span class="noto">🛳</span> <span>🛳</span> 128755</li>
+			<li><span class="noto">🛴</span> <span>🛴</span> 128756</li>
+			<li><span class="noto">🛵</span> <span>🛵</span> 128757</li>
+			<li><span class="noto">🛶</span> <span>🛶</span> 128758</li>
+			<li><span class="noto">🛷</span> <span>🛷</span> 128759</li>
+			<li><span class="noto">🛸</span> <span>🛸</span> 128760</li>
+			<li><span class="noto">🛹</span> <span>🛹</span> 128761</li>
+			<li><span class="noto">🛺</span> <span>🛺</span> 128762</li>
+			<li><span class="noto">🛻</span> <span>🛻</span> 128763</li>
+			<li><span class="noto">🛼</span> <span>🛼</span> 128764</li>
+			<li><span class="noto">🛽</span> <span>🛽</span> 128765</li>
+			<li><span class="noto">🛾</span> <span>🛾</span> 128766</li>
+			<li><span class="noto">🛿</span> <span>🛿</span> 128767</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_06">Animals</h2>
+		<ul class="emojiList">
+			<li><span class="noto">🐀</span> <span>🐀</span> 128000</li>
+			<li><span class="noto">🐁</span> <span>🐁</span> 128001</li>
+			<li><span class="noto">🐂</span> <span>🐂</span> 128002</li>
+			<li><span class="noto">🐃</span> <span>🐃</span> 128003</li>
+			<li><span class="noto">🐄</span> <span>🐄</span> 128004</li>
+			<li><span class="noto">🐅</span> <span>🐅</span> 128005</li>
+			<li><span class="noto">🐆</span> <span>🐆</span> 128006</li>
+			<li><span class="noto">🐇</span> <span>🐇</span> 128007</li>
+			<li><span class="noto">🐈</span> <span>🐈</span> 128008</li>
+			<li><span class="noto">🐉</span> <span>🐉</span> 128009</li>
+			<li><span class="noto">🐊</span> <span>🐊</span> 128010</li>
+			<li><span class="noto">🐋</span> <span>🐋</span> 128011</li>
+			<li><span class="noto">🐌</span> <span>🐌</span> 128012</li>
+			<li><span class="noto">🐍</span> <span>🐍</span> 128013</li>
+			<li><span class="noto">🐎</span> <span>🐎</span> 128014</li>
+			<li><span class="noto">🐏</span> <span>🐏</span> 128015</li>
+			<li><span class="noto">🐐</span> <span>🐐</span> 128016</li>
+			<li><span class="noto">🐑</span> <span>🐑</span> 128017</li>
+			<li><span class="noto">🐒</span> <span>🐒</span> 128018</li>
+			<li><span class="noto">🐓</span> <span>🐓</span> 128019</li>
+			<li><span class="noto">🐔</span> <span>🐔</span> 128020</li>
+			<li><span class="noto">🐕</span> <span>🐕</span> 128021</li>
+			<li><span class="noto">🐖</span> <span>🐖</span> 128022</li>
+			<li><span class="noto">🐗</span> <span>🐗</span> 128023</li>
+			<li><span class="noto">🐘</span> <span>🐘</span> 128024</li>
+			<li><span class="noto">🐙</span> <span>🐙</span> 128025</li>
+			<li><span class="noto">🐚</span> <span>🐚</span> 128026</li>
+			<li><span class="noto">🐛</span> <span>🐛</span> 128027</li>
+			<li><span class="noto">🐜</span> <span>🐜</span> 128028</li>
+			<li><span class="noto">🐝</span> <span>🐝</span> 128029</li>
+			<li><span class="noto">🐞</span> <span>🐞</span> 128030</li>
+			<li><span class="noto">🐟</span> <span>🐟</span> 128031</li>
+			<li><span class="noto">🐠</span> <span>🐠</span> 128032</li>
+			<li><span class="noto">🐡</span> <span>🐡</span> 128033</li>
+			<li><span class="noto">🐢</span> <span>🐢</span> 128034</li>
+			<li><span class="noto">🐣</span> <span>🐣</span> 128035</li>
+			<li><span class="noto">🐤</span> <span>🐤</span> 128036</li>
+			<li><span class="noto">🐥</span> <span>🐥</span> 128037</li>
+			<li><span class="noto">🐦</span> <span>🐦</span> 128038</li>
+			<li><span class="noto">🐧</span> <span>🐧</span> 128039</li>
+			<li><span class="noto">🐨</span> <span>🐨</span> 128040</li>
+			<li><span class="noto">🐩</span> <span>🐩</span> 128041</li>
+			<li><span class="noto">🐪</span> <span>🐪</span> 128042</li>
+			<li><span class="noto">🐫</span> <span>🐫</span> 128043</li>
+			<li><span class="noto">🐬</span> <span>🐬</span> 128044</li>
+			<li><span class="noto">🐭</span> <span>🐭</span> 128045</li>
+			<li><span class="noto">🐮</span> <span>🐮</span> 128046</li>
+			<li><span class="noto">🐯</span> <span>🐯</span> 128047</li>
+			<li><span class="noto">🐰</span> <span>🐰</span> 128048</li>
+			<li><span class="noto">🐱</span> <span>🐱</span> 128049</li>
+			<li><span class="noto">🐲</span> <span>🐲</span> 128050</li>
+			<li><span class="noto">🐳</span> <span>🐳</span> 128051</li>
+			<li><span class="noto">🐴</span> <span>🐴</span> 128052</li>
+			<li><span class="noto">🐵</span> <span>🐵</span> 128053</li>
+			<li><span class="noto">🐶</span> <span>🐶</span> 128054</li>
+			<li><span class="noto">🐷</span> <span>🐷</span> 128055</li>
+			<li><span class="noto">🐸</span> <span>🐸</span> 128056</li>
+			<li><span class="noto">🐹</span> <span>🐹</span> 128057</li>
+			<li><span class="noto">🐺</span> <span>🐺</span> 128058</li>
+			<li><span class="noto">🐻</span> <span>🐻</span> 128059</li>
+			<li><span class="noto">🐼</span> <span>🐼</span> 128060</li>
+			<li><span class="noto">🐽</span> <span>🐽</span> 128061</li>
+			<li><span class="noto">🐾</span> <span>🐾</span> 128062</li>
+			<li><span class="noto">🐿</span> <span>🐿</span> 128063</li>
+			<li><span class="noto">🕷</span> <span>🕷</span> 128375</li>
+			<li><span class="noto">🕸</span> <span>🕸</span> 128376</li>
+			<li><span class="noto">🦀</span> <span>🦀</span> 129408</li>
+			<li><span class="noto">🦁</span> <span>🦁</span> 129409</li>
+			<li><span class="noto">🦂</span> <span>🦂</span> 129410</li>
+			<li><span class="noto">🦃</span> <span>🦃</span> 129411</li>
+			<li><span class="noto">🦄</span> <span>🦄</span> 129412</li>
+			<li><span class="noto">🦅</span> <span>🦅</span> 129413</li>
+			<li><span class="noto">🦆</span> <span>🦆</span> 129414</li>
+			<li><span class="noto">🦇</span> <span>🦇</span> 129415</li>
+			<li><span class="noto">🦈</span> <span>🦈</span> 129416</li>
+			<li><span class="noto">🦉</span> <span>🦉</span> 129417</li>
+			<li><span class="noto">🦊</span> <span>🦊</span> 129418</li>
+			<li><span class="noto">🦋</span> <span>🦋</span> 129419</li>
+			<li><span class="noto">🦌</span> <span>🦌</span> 129420</li>
+			<li><span class="noto">🦍</span> <span>🦍</span> 129421</li>
+			<li><span class="noto">🦎</span> <span>🦎</span> 129422</li>
+			<li><span class="noto">🦏</span> <span>🦏</span> 129423</li>
+			<li><span class="noto">🦐</span> <span>🦐</span> 129424</li>
+			<li><span class="noto">🦑</span> <span>🦑</span> 129425</li>
+			<li><span class="noto">🦒</span> <span>🦒</span> 129426</li>
+			<li><span class="noto">🦓</span> <span>🦓</span> 129427</li>
+			<li><span class="noto">🦔</span> <span>🦔</span> 129428</li>
+			<li><span class="noto">🦕</span> <span>🦕</span> 129429</li>
+			<li><span class="noto">🦖</span> <span>🦖</span> 129430</li>
+			<li><span class="noto">🦗</span> <span>🦗</span> 129431</li>
+			<li><span class="noto">🦘</span> <span>🦘</span> 129432</li>
+			<li><span class="noto">🦙</span> <span>🦙</span> 129433</li>
+			<li><span class="noto">🦚</span> <span>🦚</span> 129434</li>
+			<li><span class="noto">🦛</span> <span>🦛</span> 129435</li>
+			<li><span class="noto">🦜</span> <span>🦜</span> 129436</li>
+			<li><span class="noto">🦝</span> <span>🦝</span> 129437</li>
+			<li><span class="noto">🦞</span> <span>🦞</span> 129438</li>
+			<li><span class="noto">🦟</span> <span>🦟</span> 129439</li>
+			<li><span class="noto">🦠</span> <span>🦠</span> 129440</li>
+			<li><span class="noto">🦡</span> <span>🦡</span> 129441</li>
+			<li><span class="noto">🦢</span> <span>🦢</span> 129442</li>
+			<li><span class="noto">🦣</span> <span>🦣</span> 129443</li>
+			<li><span class="noto">🦤</span> <span>🦤</span> 129444</li>
+			<li><span class="noto">🦥</span> <span>🦥</span> 129445</li>
+			<li><span class="noto">🦦</span> <span>🦦</span> 129446</li>
+			<li><span class="noto">🦧</span> <span>🦧</span> 129447</li>
+			<li><span class="noto">🦨</span> <span>🦨</span> 129448</li>
+			<li><span class="noto">🦩</span> <span>🦩</span> 129449</li>
+			<li><span class="noto">🦪</span> <span>🦪</span> 129450</li>
+			<li><span class="noto">🦫</span> <span>🦫</span> 129451</li>
+			<li><span class="noto">🦬</span> <span>🦬</span> 129452</li>
+			<li><span class="noto">🦭</span> <span>🦭</span> 129453</li>
+			<li><span class="noto">🦮</span> <span>🦮</span> 129454</li>
+			<li><span class="noto">🦯</span> <span>🦯</span> 129455</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_07">Food</h2>
+		<ul class="emojiList">
+			<li><span class="noto">☕</span> <span>☕</span> 9749</li>
+			<li><span class="noto">🍵</span> <span>🍵</span> 127861</li>
+			<li><span class="noto">🍶</span> <span>🍶</span> 127862</li>
+			<li><span class="noto">🍷</span> <span>🍷</span> 127863</li>
+			<li><span class="noto">🍸</span> <span>🍸</span> 127864</li>
+			<li><span class="noto">🍹</span> <span>🍹</span> 127865</li>
+			<li><span class="noto">🍺</span> <span>🍺</span> 127866</li>
+			<li><span class="noto">🍻</span> <span>🍻</span> 127867</li>
+			<li><span class="noto">🍼</span> <span>🍼</span> 127868</li>
+			<li><span class="noto">🍾</span> <span>🍾</span> 127870</li>
+			<li><span class="noto">🏺</span> <span>🏺</span> 127994</li>
+			<li><span class="noto">🥂</span> <span>🥂</span> 129346</li>
+			<li><span class="noto">🥃</span> <span>🥃</span> 129347</li>
+			<li><span class="noto">🥛</span> <span>🥛</span> 129371</li>
+			<li><span class="noto">🥤</span> <span>🥤</span> 129380</li>
+			<li><span class="noto">🧃</span> <span>🧃</span> 129475</li>
+			<li><span class="noto">🧉</span> <span>🧉</span> 129481</li>
+			<li><span class="noto">🧊</span> <span>🧊</span> 129482</li>
+			<li><span class="noto">🌭</span> <span>🌭</span> 127789</li>
+			<li><span class="noto">🌮</span> <span>🌮</span> 127790</li>
+			<li><span class="noto">🌯</span> <span>🌯</span> 127791</li>
+			<li><span class="noto">🍔</span> <span>🍔</span> 127828</li>
+			<li><span class="noto">🍕</span> <span>🍕</span> 127829</li>
+			<li><span class="noto">🍖</span> <span>🍖</span> 127830</li>
+			<li><span class="noto">🍗</span> <span>🍗</span> 127831</li>
+			<li><span class="noto">🍘</span> <span>🍘</span> 127832</li>
+			<li><span class="noto">🍙</span> <span>🍙</span> 127833</li>
+			<li><span class="noto">🍚</span> <span>🍚</span> 127834</li>
+			<li><span class="noto">🍛</span> <span>🍛</span> 127835</li>
+			<li><span class="noto">🍜</span> <span>🍜</span> 127836</li>
+			<li><span class="noto">🍝</span> <span>🍝</span> 127837</li>
+			<li><span class="noto">🍞</span> <span>🍞</span> 127838</li>
+			<li><span class="noto">🍟</span> <span>🍟</span> 127839</li>
+			<li><span class="noto">🍠</span> <span>🍠</span> 127840</li>
+			<li><span class="noto">🍡</span> <span>🍡</span> 127841</li>
+			<li><span class="noto">🍢</span> <span>🍢</span> 127842</li>
+			<li><span class="noto">🍣</span> <span>🍣</span> 127843</li>
+			<li><span class="noto">🍤</span> <span>🍤</span> 127844</li>
+			<li><span class="noto">🍥</span> <span>🍥</span> 127845</li>
+			<li><span class="noto">🍦</span> <span>🍦</span> 127846</li>
+			<li><span class="noto">🍧</span> <span>🍧</span> 127847</li>
+			<li><span class="noto">🍨</span> <span>🍨</span> 127848</li>
+			<li><span class="noto">🍩</span> <span>🍩</span> 127849</li>
+			<li><span class="noto">🍪</span> <span>🍪</span> 127850</li>
+			<li><span class="noto">🍫</span> <span>🍫</span> 127851</li>
+			<li><span class="noto">🍬</span> <span>🍬</span> 127852</li>
+			<li><span class="noto">🍭</span> <span>🍭</span> 127853</li>
+			<li><span class="noto">🍮</span> <span>🍮</span> 127854</li>
+			<li><span class="noto">🍯</span> <span>🍯</span> 127855</li>
+			<li><span class="noto">🍰</span> <span>🍰</span> 127856</li>
+			<li><span class="noto">🍱</span> <span>🍱</span> 127857</li>
+			<li><span class="noto">🍲</span> <span>🍲</span> 127858</li>
+			<li><span class="noto">🍳</span> <span>🍳</span> 127859</li>
+			<li><span class="noto">🍿</span> <span>🍿</span> 127871</li>
+			<li><span class="noto">🥐</span> <span>🥐</span> 129360</li>
+			<li><span class="noto">🥓</span> <span>🥓</span> 129363</li>
+			<li><span class="noto">🥖</span> <span>🥖</span> 129366</li>
+			<li><span class="noto">🥗</span> <span>🥗</span> 129367</li>
+			<li><span class="noto">🥘</span> <span>🥘</span> 129368</li>
+			<li><span class="noto">🥙</span> <span>🥙</span> 129369</li>
+			<li><span class="noto">🥚</span> <span>🥚</span> 129370</li>
+			<li><span class="noto">🥜</span> <span>🥜</span> 129372</li>
+			<li><span class="noto">🥞</span> <span>🥞</span> 129374</li>
+			<li><span class="noto">🥟</span> <span>🥟</span> 129375</li>
+			<li><span class="noto">🥠</span> <span>🥠</span> 129376</li>
+			<li><span class="noto">🥡</span> <span>🥡</span> 129377</li>
+			<li><span class="noto">🥣</span> <span>🥣</span> 129379</li>
+			<li><span class="noto">🥥</span> <span>🥥</span> 129381</li>
+			<li><span class="noto">🥧</span> <span>🥧</span> 129383</li>
+			<li><span class="noto">🥨</span> <span>🥨</span> 129384</li>
+			<li><span class="noto">🥩</span> <span>🥩</span> 129385</li>
+			<li><span class="noto">🥪</span> <span>🥪</span> 129386</li>
+			<li><span class="noto">🥫</span> <span>🥫</span> 129387</li>
+			<li><span class="noto">🥮</span> <span>🥮</span> 129390</li>
+			<li><span class="noto">🥯</span> <span>🥯</span> 129391</li>
+			<li><span class="noto">🧀</span> <span>🧀</span> 129472</li>
+			<li><span class="noto">🧁</span> <span>🧁</span> 129473</li>
+			<li><span class="noto">🧆</span> <span>🧆</span> 129478</li>
+			<li><span class="noto">🧇</span> <span>🧇</span> 129479</li>
+			<li><span class="noto">🧈</span> <span>🧈</span> 129480</li>
+			<li><span class="noto">🌶</span> <span>🌶</span> 127798</li>
+			<li><span class="noto">🌽</span> <span>🌽</span> 127805</li>
+			<li><span class="noto">🌾</span> <span>🌾</span> 127806</li>
+			<li><span class="noto">🍅</span> <span>🍅</span> 127813</li>
+			<li><span class="noto">🍆</span> <span>🍆</span> 127814</li>
+			<li><span class="noto">🥑</span> <span>🥑</span> 129361</li>
+			<li><span class="noto">🥒</span> <span>🥒</span> 129362</li>
+			<li><span class="noto">🥔</span> <span>🥔</span> 129364</li>
+			<li><span class="noto">🥕</span> <span>🥕</span> 129365</li>
+			<li><span class="noto">🥦</span> <span>🥦</span> 129382</li>
+			<li><span class="noto">🥬</span> <span>🥬</span> 129388</li>
+			<li><span class="noto">🧄</span> <span>🧄</span> 129476</li>
+			<li><span class="noto">🧅</span> <span>🧅</span> 129477</li>
+			<li><span class="noto">🍴</span> <span>🍴</span> 127860</li>
+			<li><span class="noto">🍽</span> <span>🍽</span> 127869</li>
+			<li><span class="noto">🔪</span> <span>🔪</span> 128298</li>
+			<li><span class="noto">🥄</span> <span>🥄</span> 129348</li>
+			<li><span class="noto">🥢</span> <span>🥢</span> 129378</li>
+			<li><span class="noto">🧂</span> <span>🧂</span> 129474</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_08">Plants</h2>
+		<ul class="emojiList">
+			<li><span class="noto">🌰</span> <span>🌰</span> 127792</li>
+			<li><span class="noto">🌱</span> <span>🌱</span> 127793</li>
+			<li><span class="noto">🌲</span> <span>🌲</span> 127794</li>
+			<li><span class="noto">🌳</span> <span>🌳</span> 127795</li>
+			<li><span class="noto">🌴</span> <span>🌴</span> 127796</li>
+			<li><span class="noto">🌵</span> <span>🌵</span> 127797</li>
+			<li><span class="noto">🌷</span> <span>🌷</span> 127799</li>
+			<li><span class="noto">🌸</span> <span>🌸</span> 127800</li>
+			<li><span class="noto">🌹</span> <span>🌹</span> 127801</li>
+			<li><span class="noto">🌺</span> <span>🌺</span> 127802</li>
+			<li><span class="noto">🌻</span> <span>🌻</span> 127803</li>
+			<li><span class="noto">🌼</span> <span>🌼</span> 127804</li>
+			<li><span class="noto">🌿</span> <span>🌿</span> 127807</li>
+			<li><span class="noto">🍀</span> <span>🍀</span> 127808</li>
+			<li><span class="noto">🍁</span> <span>🍁</span> 127809</li>
+			<li><span class="noto">🍂</span> <span>🍂</span> 127810</li>
+			<li><span class="noto">🍃</span> <span>🍃</span> 127811</li>
+			<li><span class="noto">🍄</span> <span>🍄</span> 127812</li>
+			<li><span class="noto">💐</span> <span>💐</span> 128144</li>
+			<li><span class="noto">🥀</span> <span>🥀</span> 129344</li>
+			<li><span class="noto">💮</span> <span>💮</span> 128174</li>
+			<li><span class="noto">🌶</span> <span>🌶</span> 127798</li>
+			<li><span class="noto">🌽</span> <span>🌽</span> 127805</li>
+			<li><span class="noto">🌾</span> <span>🌾</span> 127806</li>
+			<li><span class="noto">🍅</span> <span>🍅</span> 127813</li>
+			<li><span class="noto">🍆</span> <span>🍆</span> 127814</li>
+			<li><span class="noto">🥑</span> <span>🥑</span> 129361</li>
+			<li><span class="noto">🥒</span> <span>🥒</span> 129362</li>
+			<li><span class="noto">🥔</span> <span>🥔</span> 129364</li>
+			<li><span class="noto">🥕</span> <span>🥕</span> 129365</li>
+			<li><span class="noto">🥦</span> <span>🥦</span> 129382</li>
+			<li><span class="noto">🥬</span> <span>🥬</span> 129388</li>
+			<li><span class="noto">🧄</span> <span>🧄</span> 129476</li>
+			<li><span class="noto">🧅</span> <span>🧅</span> 129477</li>
+			<li><span class="noto">🍇</span> <span>🍇</span> 127815</li>
+			<li><span class="noto">🍈</span> <span>🍈</span> 127816</li>
+			<li><span class="noto">🍉</span> <span>🍉</span> 127817</li>
+			<li><span class="noto">🍊</span> <span>🍊</span> 127818</li>
+			<li><span class="noto">🍋</span> <span>🍋</span> 127819</li>
+			<li><span class="noto">🍌</span> <span>🍌</span> 127820</li>
+			<li><span class="noto">🍍</span> <span>🍍</span> 127821</li>
+			<li><span class="noto">🍎</span> <span>🍎</span> 127822</li>
+			<li><span class="noto">🍏</span> <span>🍏</span> 127823</li>
+			<li><span class="noto">🍐</span> <span>🍐</span> 127824</li>
+			<li><span class="noto">🍑</span> <span>🍑</span> 127825</li>
+			<li><span class="noto">🍒</span> <span>🍒</span> 127826</li>
+			<li><span class="noto">🍓</span> <span>🍓</span> 127827</li>
+			<li><span class="noto">🥝</span> <span>🥝</span> 129373</li>
+			<li><span class="noto">🥭</span> <span>🥭</span> 129389</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_09">Sports</h2>
+		<ul class="emojiList">
+			<li><span class="noto">⚽</span> <span>⚽</span> 9917</li>
+			<li><span class="noto">⚾</span> <span>⚾</span> 9918</li>
+			<li><span class="noto">⛳</span> <span>⛳</span> 9971</li>
+			<li><span class="noto">🎣</span> <span>🎣</span> 127907</li>
+			<li><span class="noto">🎽</span> <span>🎽</span> 127933</li>
+			<li><span class="noto">🎾</span> <span>🎾</span> 127934</li>
+			<li><span class="noto">🎿</span> <span>🎿</span> 127935</li>
+			<li><span class="noto">🏀</span> <span>🏀</span> 127936</li>
+			<li><span class="noto">🏁</span> <span>🏁</span> 127937</li>
+			<li><span class="noto">🏂</span> <span>🏂</span> 127938</li>
+			<li><span class="noto">🏃</span> <span>🏃</span> 127939</li>
+			<li><span class="noto">🏄</span> <span>🏄</span> 127940</li>
+			<li><span class="noto">🏅</span> <span>🏅</span> 127941</li>
+			<li><span class="noto">🏆</span> <span>🏆</span> 127942</li>
+			<li><span class="noto">🏇</span> <span>🏇</span> 127943</li>
+			<li><span class="noto">🏈</span> <span>🏈</span> 127944</li>
+			<li><span class="noto">🏉</span> <span>🏉</span> 127945</li>
+			<li><span class="noto">🏊</span> <span>🏊</span> 127946</li>
+			<li><span class="noto">🏋</span> <span>🏋</span> 127947</li>
+			<li><span class="noto">🏌</span> <span>🏌</span> 127948</li>
+			<li><span class="noto">🏍</span> <span>🏍</span> 127949</li>
+			<li><span class="noto">🏎</span> <span>🏎</span> 127950</li>
+			<li><span class="noto">🏏</span> <span>🏏</span> 127951</li>
+			<li><span class="noto">🏐</span> <span>🏐</span> 127952</li>
+			<li><span class="noto">🏑</span> <span>🏑</span> 127953</li>
+			<li><span class="noto">🏒</span> <span>🏒</span> 127954</li>
+			<li><span class="noto">🏓</span> <span>🏓</span> 127955</li>
+			<li><span class="noto">🏸</span> <span>🏸</span> 127992</li>
+			<li><span class="noto">🏹</span> <span>🏹</span> 127993</li>
+			<li><span class="noto">🤸</span> <span>🤸</span> 129336</li>
+			<li><span class="noto">🤹</span> <span>🤹</span> 129337</li>
+			<li><span class="noto">🤺</span> <span>🤺</span> 129338</li>
+			<li><span class="noto">🤻</span> <span>🤻</span> 129339</li>
+			<li><span class="noto">🤼</span> <span>🤼</span> 129340</li>
+			<li><span class="noto">🤽</span> <span>🤽</span> 129341</li>
+			<li><span class="noto">🤾</span> <span>🤾</span> 129342</li>
+			<li><span class="noto">🤿</span> <span>🤿</span> 129343</li>
+			<li><span class="noto">🥅</span> <span>🥅</span> 129349</li>
+			<li><span class="noto">🥆</span> <span>🥆</span> 129350</li>
+			<li><span class="noto">🥇</span> <span>🥇</span> 129351</li>
+			<li><span class="noto">🥈</span> <span>🥈</span> 129352</li>
+			<li><span class="noto">🥉</span> <span>🥉</span> 129353</li>
+			<li><span class="noto">🥊</span> <span>🥊</span> 129354</li>
+			<li><span class="noto">🥋</span> <span>🥋</span> 129355</li>
+			<li><span class="noto">🥌</span> <span>🥌</span> 129356</li>
+			<li><span class="noto">🥍</span> <span>🥍</span> 129357</li>
+			<li><span class="noto">🥎</span> <span>🥎</span> 129358</li>
+			<li><span class="noto">🥏</span> <span>🥏</span> 129359</li>
+			<li><span class="noto">🧗</span> <span>🧗</span> 129495</li>
+			<li><span class="noto">🎮</span> <span>🎮</span> 127918</li>
+			<li><span class="noto">🎯</span> <span>🎯</span> 127919</li>
+			<li><span class="noto">🎰</span> <span>🎰</span> 127920</li>
+			<li><span class="noto">🎱</span> <span>🎱</span> 127921</li>
+			<li><span class="noto">🎲</span> <span>🎲</span> 127922</li>
+			<li><span class="noto">🎳</span> <span>🎳</span> 127923</li>
+			<li><span class="noto">🎴</span> <span>🎴</span> 127924</li>
+			<li><span class="noto">🧩</span> <span>🧩</span> 129513</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_10">Earth and Sky</h2>
+		<ul class="emojiList">
+			<li><span class="noto">🌌</span> <span>🌌</span> 127756</li>
+			<li><span class="noto">🌍</span> <span>🌍</span> 127757</li>
+			<li><span class="noto">🌎</span> <span>🌎</span> 127758</li>
+			<li><span class="noto">🌏</span> <span>🌏</span> 127759</li>
+			<li><span class="noto">🌐</span> <span>🌐</span> 127760</li>
+			<li><span class="noto">🌑</span> <span>🌑</span> 127761</li>
+			<li><span class="noto">🌒</span> <span>🌒</span> 127762</li>
+			<li><span class="noto">🌓</span> <span>🌓</span> 127763</li>
+			<li><span class="noto">🌔</span> <span>🌔</span> 127764</li>
+			<li><span class="noto">🌕</span> <span>🌕</span> 127765</li>
+			<li><span class="noto">🌖</span> <span>🌖</span> 127766</li>
+			<li><span class="noto">🌗</span> <span>🌗</span> 127767</li>
+			<li><span class="noto">🌘</span> <span>🌘</span> 127768</li>
+			<li><span class="noto">🌙</span> <span>🌙</span> 127769</li>
+			<li><span class="noto">🌚</span> <span>🌚</span> 127770</li>
+			<li><span class="noto">🌛</span> <span>🌛</span> 127771</li>
+			<li><span class="noto">🌜</span> <span>🌜</span> 127772</li>
+			<li><span class="noto">🌝</span> <span>🌝</span> 127773</li>
+			<li><span class="noto">🌞</span> <span>🌞</span> 127774</li>
+			<li><span class="noto">🌟</span> <span>🌟</span> 127775</li>
+			<li><span class="noto">🌠</span> <span>🌠</span> 127776</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_11">Weather</h2>
+		<ul class="emojiList">
+			<li><span class="noto">⛄</span> <span>⛄</span> 9924</li>
+			<li><span class="noto">⛅</span> <span>⛅</span> 9925</li>
+			<li><span class="noto">☀</span> <span>☀</span> 9728</li>
+			<li><span class="noto">☂</span> <span>☂</span> 9730</li>
+			<li><span class="noto">☔</span> <span>☔</span> 9748</li>
+			<li><span class="noto">❄</span> <span>❄</span> 10052</li>
+			<li><span class="noto">❅</span> <span>❅</span> 10053</li>
+			<li><span class="noto">❆</span> <span>❆</span> 10054</li>
+			<li><span class="noto">🌀</span> <span>🌀</span> 127744</li>
+			<li><span class="noto">🌁</span> <span>🌁</span> 127745</li>
+			<li><span class="noto">🌂</span> <span>🌂</span> 127746</li>
+			<li><span class="noto">🌃</span> <span>🌃</span> 127747</li>
+			<li><span class="noto">🌄</span> <span>🌄</span> 127748</li>
+			<li><span class="noto">🌅</span> <span>🌅</span> 127749</li>
+			<li><span class="noto">🌆</span> <span>🌆</span> 127750</li>
+			<li><span class="noto">🌇</span> <span>🌇</span> 127751</li>
+			<li><span class="noto">🌈</span> <span>🌈</span> 127752</li>
+			<li><span class="noto">🌉</span> <span>🌉</span> 127753</li>
+			<li><span class="noto">🌊</span> <span>🌊</span> 127754</li>
+			<li><span class="noto">🌡</span> <span>🌡</span> 127777</li>
+			<li><span class="noto">🌤</span> <span>🌤</span> 127780</li>
+			<li><span class="noto">🌥</span> <span>🌥</span> 127781</li>
+			<li><span class="noto">🌦</span> <span>🌦</span> 127782</li>
+			<li><span class="noto">🌧</span> <span>🌧</span> 127783</li>
+			<li><span class="noto">🌨</span> <span>🌨</span> 127784</li>
+			<li><span class="noto">🌩</span> <span>🌩</span> 127785</li>
+			<li><span class="noto">🌪</span> <span>🌪</span> 127786</li>
+			<li><span class="noto">🌫</span> <span>🌫</span> 127787</li>
+			<li><span class="noto">🌬</span> <span>🌬</span> 127788</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_12">Clothings</h2>
+		<ul class="emojiList">
+			<li><span class="noto">👔</span> <span>👔</span> 128084</li>
+			<li><span class="noto">👕</span> <span>👕</span> 128085</li>
+			<li><span class="noto">👖</span> <span>👖</span> 128086</li>
+			<li><span class="noto">👗</span> <span>👗</span> 128087</li>
+			<li><span class="noto">👘</span> <span>👘</span> 128088</li>
+			<li><span class="noto">👙</span> <span>👙</span> 128089</li>
+			<li><span class="noto">👚</span> <span>👚</span> 128090</li>
+			<li><span class="noto">🥻</span> <span>🥻</span> 129403</li>
+			<li><span class="noto">🥼</span> <span>🥼</span> 129404</li>
+			<li><span class="noto">🦺</span> <span>🦺</span> 129466</li>
+			<li><span class="noto">🧥</span> <span>🧥</span> 129509</li>
+			<li><span class="noto">👞</span> <span>👞</span> 128094</li>
+			<li><span class="noto">👟</span> <span>👟</span> 128095</li>
+			<li><span class="noto">👠</span> <span>👠</span> 128096</li>
+			<li><span class="noto">👡</span> <span>👡</span> 128097</li>
+			<li><span class="noto">👢</span> <span>👢</span> 128098</li>
+			<li><span class="noto">🥾</span> <span>🥾</span> 129406</li>
+			<li><span class="noto">🥿</span> <span>🥿</span> 129407</li>
+			<li><span class="noto">🧦</span> <span>🧦</span> 129510</li>
+			<li><span class="noto">🎓</span> <span>🎓</span> 127891</li>
+			<li><span class="noto">🎩</span> <span>🎩</span> 127913</li>
+			<li><span class="noto">👑</span> <span>👑</span> 128081</li>
+			<li><span class="noto">👒</span> <span>👒</span> 128082</li>
+			<li><span class="noto">🧢</span> <span>🧢</span> 129506</li>
+			<li><span class="noto">👓</span> <span>👓</span> 128083</li>
+			<li><span class="noto">👛</span> <span>👛</span> 128091</li>
+			<li><span class="noto">👜</span> <span>👜</span> 128092</li>
+			<li><span class="noto">👝</span> <span>👝</span> 128093</li>
+			<li><span class="noto">🥽</span> <span>🥽</span> 129405</li>
+			<li><span class="noto">🧣</span> <span>🧣</span> 129507</li>
+			<li><span class="noto">🧤</span> <span>🧤</span> 129508</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_13">Audio/Video</h2>
+		<ul class="emojiList">
+			<li><span class="noto">🎙</span> <span>🎙</span> 127897</li>
+			<li><span class="noto">🎚</span> <span>🎚</span> 127898</li>
+			<li><span class="noto">🎛</span> <span>🎛</span> 127899</li>
+			<li><span class="noto">🎜</span> <span>🎜</span> 127900</li>
+			<li><span class="noto">🎝</span> <span>🎝</span> 127901</li>
+			<li><span class="noto">🎞</span> <span>🎞</span> 127902</li>
+			<li><span class="noto">🎤</span> <span>🎤</span> 127908</li>
+			<li><span class="noto">🎥</span> <span>🎥</span> 127909</li>
+			<li><span class="noto">🎦</span> <span>🎦</span> 127910</li>
+			<li><span class="noto">🎧</span> <span>🎧</span> 127911</li>
+			<li><span class="noto">🎬</span> <span>🎬</span> 127916</li>
+			<li><span class="noto">🎵</span> <span>🎵</span> 127925</li>
+			<li><span class="noto">🎶</span> <span>🎶</span> 127926</li>
+			<li><span class="noto">🎷</span> <span>🎷</span> 127927</li>
+			<li><span class="noto">🎸</span> <span>🎸</span> 127928</li>
+			<li><span class="noto">🎹</span> <span>🎹</span> 127929</li>
+			<li><span class="noto">🎺</span> <span>🎺</span> 127930</li>
+			<li><span class="noto">🎻</span> <span>🎻</span> 127931</li>
+			<li><span class="noto">🎼</span> <span>🎼</span> 127932</li>
+			<li><span class="noto">🥁</span> <span>🥁</span> 129345</li>
+			<li><span class="noto">📷</span> <span>📷</span> 128247</li>
+			<li><span class="noto">📸</span> <span>📸</span> 128248</li>
+			<li><span class="noto">📹</span> <span>📹</span> 128249</li>
+			<li><span class="noto">📺</span> <span>📺</span> 128250</li>
+			<li><span class="noto">📻</span> <span>📻</span> 128251</li>
+			<li><span class="noto">📼</span> <span>📼</span> 128252</li>
+			<li><span class="noto">📽</span> <span>📽</span> 128253</li>
+			<li><span class="noto">📾</span> <span>📾</span> 128254</li>
+			<li><span class="noto">🔇</span> <span>🔇</span> 128263</li>
+			<li><span class="noto">🔈</span> <span>🔈</span> 128264</li>
+			<li><span class="noto">🔉</span> <span>🔉</span> 128265</li>
+			<li><span class="noto">🔊</span> <span>🔊</span> 128266</li>
+			<li><span class="noto">📡</span> <span>📡</span> 128225</li>
+			<li><span class="noto">📢</span> <span>📢</span> 128226</li>
+			<li><span class="noto">📣</span> <span>📣</span> 128227</li>
+			<li><span class="noto">🕨</span> <span>🕨</span> 128360</li>
+			<li><span class="noto">🕩</span> <span>🕩</span> 128361</li>
+			<li><span class="noto">🕪</span> <span>🕪</span> 128362</li>
+			<li><span class="noto">🕫</span> <span>🕫</span> 128363</li>
+			<li><span class="noto">🕬</span> <span>🕬</span> 128364</li>
+			<li><span class="noto">🕭</span> <span>🕭</span> 128365</li>
+			<li><span class="noto">⏩</span> <span>⏩</span> 9193</li>
+			<li><span class="noto">⏪</span> <span>⏪</span> 9194</li>
+			<li><span class="noto">⏫</span> <span>⏫</span> 9195</li>
+			<li><span class="noto">⏬</span> <span>⏬</span> 9196</li>
+			<li><span class="noto">⏭</span> <span>⏭</span> 9197</li>
+			<li><span class="noto">⏮</span> <span>⏮</span> 9198</li>
+			<li><span class="noto">⏯</span> <span>⏯</span> 9199</li>
+			<li><span class="noto">⏴</span> <span>⏴</span> 9204</li>
+			<li><span class="noto">⏵</span> <span>⏵</span> 9205</li>
+			<li><span class="noto">⏶</span> <span>⏶</span> 9206</li>
+			<li><span class="noto">⏷</span> <span>⏷</span> 9207</li>
+			<li><span class="noto">⏸</span> <span>⏸</span> 9208</li>
+			<li><span class="noto">⏹</span> <span>⏹</span> 9209</li>
+			<li><span class="noto">⏺</span> <span>⏺</span> 9210</li>
+			<li><span class="noto">🔀</span> <span>🔀</span> 128256</li>
+			<li><span class="noto">🔁</span> <span>🔁</span> 128257</li>
+			<li><span class="noto">🔂</span> <span>🔂</span> 128258</li>
+			<li><span class="noto">🔃</span> <span>🔃</span> 128259</li>
+			<li><span class="noto">🔄</span> <span>🔄</span> 128260</li>
+			<li><span class="noto">🔅</span> <span>🔅</span> 128261</li>
+			<li><span class="noto">🔆</span> <span>🔆</span> 128262</li>
+			<li><span class="noto">🔼</span> <span>🔼</span> 128316</li>
+			<li><span class="noto">🔽</span> <span>🔽</span> 128317</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_14">Celebration</h2>
+		<ul class="emojiList">
+			<li><span class="noto">🎀</span> <span>🎀</span> 127872</li>
+			<li><span class="noto">🎁</span> <span>🎁</span> 127873</li>
+			<li><span class="noto">🎂</span> <span>🎂</span> 127874</li>
+			<li><span class="noto">🎃</span> <span>🎃</span> 127875</li>
+			<li><span class="noto">🎄</span> <span>🎄</span> 127876</li>
+			<li><span class="noto">🎅</span> <span>🎅</span> 127877</li>
+			<li><span class="noto">🎆</span> <span>🎆</span> 127878</li>
+			<li><span class="noto">🎇</span> <span>🎇</span> 127879</li>
+			<li><span class="noto">🎈</span> <span>🎈</span> 127880</li>
+			<li><span class="noto">🎉</span> <span>🎉</span> 127881</li>
+			<li><span class="noto">🎊</span> <span>🎊</span> 127882</li>
+			<li><span class="noto">🎋</span> <span>🎋</span> 127883</li>
+			<li><span class="noto">🎌</span> <span>🎌</span> 127884</li>
+			<li><span class="noto">🎍</span> <span>🎍</span> 127885</li>
+			<li><span class="noto">🎎</span> <span>🎎</span> 127886</li>
+			<li><span class="noto">🎏</span> <span>🎏</span> 127887</li>
+			<li><span class="noto">🎐</span> <span>🎐</span> 127888</li>
+			<li><span class="noto">🎑</span> <span>🎑</span> 127889</li>
+			<li><span class="noto">🎒</span> <span>🎒</span> 127890</li>
+			<li><span class="noto">🎓</span> <span>🎓</span> 127891</li>
+			<li><span class="noto">🎔</span> <span>🎔</span> 127892</li>
+			<li><span class="noto">🎕</span> <span>🎕</span> 127893</li>
+			<li><span class="noto">🎖</span> <span>🎖</span> 127894</li>
+			<li><span class="noto">🎗</span> <span>🎗</span> 127895</li>
+			<li><span class="noto">🧧</span> <span>🧧</span> 129511</li>
+			<li><span class="noto">🧨</span> <span>🧨</span> 129512</li>
+			<li><span class="noto">🎟</span> <span>🎟</span> 127903</li>
+			<li><span class="noto">🎠</span> <span>🎠</span> 127904</li>
+			<li><span class="noto">🎡</span> <span>🎡</span> 127905</li>
+			<li><span class="noto">🎢</span> <span>🎢</span> 127906</li>
+			<li><span class="noto">🎨</span> <span>🎨</span> 127912</li>
+			<li><span class="noto">🎪</span> <span>🎪</span> 127914</li>
+			<li><span class="noto">🎫</span> <span>🎫</span> 127915</li>
+			<li><span class="noto">🎭</span> <span>🎭</span> 127917</li>
+			<li><span class="noto">💯</span> <span>💯</span> 128175</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_15">Symbols</h2>
+		<ul class="emojiList">
+			<li><span class="noto">💰</span> <span>💰</span> 128176</li>
+			<li><span class="noto">💱</span> <span>💱</span> 128177</li>
+			<li><span class="noto">💲</span> <span>💲</span> 128178</li>
+			<li><span class="noto">💳</span> <span>💳</span> 128179</li>
+			<li><span class="noto">💴</span> <span>💴</span> 128180</li>
+			<li><span class="noto">💵</span> <span>💵</span> 128181</li>
+			<li><span class="noto">💶</span> <span>💶</span> 128182</li>
+			<li><span class="noto">💷</span> <span>💷</span> 128183</li>
+			<li><span class="noto">💸</span> <span>💸</span> 128184</li>
+			<li><span class="noto">💹</span> <span>💹</span> 128185</li>
+			<li><span class="noto">⛪</span> <span>⛪</span> 9962</li>
+			<li><span class="noto">📿</span> <span>📿</span> 128255</li>
+			<li><span class="noto">🕋</span> <span>🕋</span> 128331</li>
+			<li><span class="noto">🕌</span> <span>🕌</span> 128332</li>
+			<li><span class="noto">🕍</span> <span>🕍</span> 128333</li>
+			<li><span class="noto">🕎</span> <span>🕎</span> 128334</li>
+			<li><span class="noto">🛕</span> <span>🛕</span> 128725</li>
+			<li><span class="noto">🔯</span> <span>🔯</span> 128303</li>
+			<li><span class="noto">🕀</span> <span>🕀</span> 128320</li>
+			<li><span class="noto">🕁</span> <span>🕁</span> 128321</li>
+			<li><span class="noto">🕂</span> <span>🕂</span> 128322</li>
+			<li><span class="noto">🕃</span> <span>🕃</span> 128323</li>
+			<li><span class="noto">🕄</span> <span>🕄</span> 128324</li>
+			<li><span class="noto">🕅</span> <span>🕅</span> 128325</li>
+			<li><span class="noto">🕆</span> <span>🕆</span> 128326</li>
+			<li><span class="noto">🕇</span> <span>🕇</span> 128327</li>
+			<li><span class="noto">🕈</span> <span>🕈</span> 128328</li>
+			<li><span class="noto">🕉</span> <span>🕉</span> 128329</li>
+			<li><span class="noto">🕊</span> <span>🕊</span> 128330</li>
+			<li><span class="noto">🔍</span> <span>🔍</span> 128269</li>
+			<li><span class="noto">🔎</span> <span>🔎</span> 128270</li>
+			<li><span class="noto">🔏</span> <span>🔏</span> 128271</li>
+			<li><span class="noto">🔐</span> <span>🔐</span> 128272</li>
+			<li><span class="noto">🔑</span> <span>🔑</span> 128273</li>
+			<li><span class="noto">🔒</span> <span>🔒</span> 128274</li>
+			<li><span class="noto">🔓</span> <span>🔓</span> 128275</li>
+			<li><span class="noto">🔦</span> <span>🔦</span> 128294</li>
+			<li><span class="noto">🔧</span> <span>🔧</span> 128295</li>
+			<li><span class="noto">🔨</span> <span>🔨</span> 128296</li>
+			<li><span class="noto">🔩</span> <span>🔩</span> 128297</li>
+			<li><span class="noto">🔬</span> <span>🔬</span> 128300</li>
+			<li><span class="noto">🔭</span> <span>🔭</span> 128301</li>
+			<li><span class="noto">🧭</span> <span>🧭</span> 129517</li>
+			<li><span class="noto">🧰</span> <span>🧰</span> 129520</li>
+			<li><span class="noto">🧲</span> <span>🧲</span> 129522</li>
+			<li><span class="noto">🔲</span> <span>🔲</span> 128306</li>
+			<li><span class="noto">🔳</span> <span>🔳</span> 128307</li>
+			<li><span class="noto">🔴</span> <span>🔴</span> 128308</li>
+			<li><span class="noto">🔵</span> <span>🔵</span> 128309</li>
+			<li><span class="noto">🔶</span> <span>🔶</span> 128310</li>
+			<li><span class="noto">🔷</span> <span>🔷</span> 128311</li>
+			<li><span class="noto">🔸</span> <span>🔸</span> 128312</li>
+			<li><span class="noto">🔹</span> <span>🔹</span> 128313</li>
+			<li><span class="noto">🔺</span> <span>🔺</span> 128314</li>
+			<li><span class="noto">🔻</span> <span>🔻</span> 128315</li>
+			<li><span class="noto">🔘</span> <span>🔘</span> 128280</li>
+			<li><span class="noto">🔙</span> <span>🔙</span> 128281</li>
+			<li><span class="noto">🔚</span> <span>🔚</span> 128282</li>
+			<li><span class="noto">🔛</span> <span>🔛</span> 128283</li>
+			<li><span class="noto">🔜</span> <span>🔜</span> 128284</li>
+			<li><span class="noto">🔝</span> <span>🔝</span> 128285</li>
+			<li><span class="noto">🔞</span> <span>🔞</span> 128286</li>
+			<li><span class="noto">🔟</span> <span>🔟</span> 128287</li>
+			<li><span class="noto">🔠</span> <span>🔠</span> 128288</li>
+			<li><span class="noto">🔡</span> <span>🔡</span> 128289</li>
+			<li><span class="noto">🔢</span> <span>🔢</span> 128290</li>
+			<li><span class="noto">🔣</span> <span>🔣</span> 128291</li>
+			<li><span class="noto">🔤</span> <span>🔤</span> 128292</li>
+			<li><span class="noto">🏻</span> <span>🏻</span> 127995</li>
+			<li><span class="noto">🏼</span> <span>🏼</span> 127996</li>
+			<li><span class="noto">🏽</span> <span>🏽</span> 127997</li>
+			<li><span class="noto">🏾</span> <span>🏾</span> 127998</li>
+			<li><span class="noto">🏿</span> <span>🏿</span> 127999</li>
+			<li><span class="noto">💠</span> <span>💠</span> 128160</li>
+			<li><span class="noto">💡</span> <span>💡</span> 128161</li>
+			<li><span class="noto">💢</span> <span>💢</span> 128162</li>
+			<li><span class="noto">💣</span> <span>💣</span> 128163</li>
+			<li><span class="noto">💥</span> <span>💥</span> 128165</li>
+			<li><span class="noto">💦</span> <span>💦</span> 128166</li>
+			<li><span class="noto">💧</span> <span>💧</span> 128167</li>
+			<li><span class="noto">💨</span> <span>💨</span> 128168</li>
+			<li><span class="noto">🔔</span> <span>🔔</span> 128276</li>
+			<li><span class="noto">🔕</span> <span>🔕</span> 128277</li>
+			<li><span class="noto">🔖</span> <span>🔖</span> 128278</li>
+			<li><span class="noto">🔗</span> <span>🔗</span> 128279</li>
+			<li><span class="noto">🔥</span> <span>🔥</span> 128293</li>
+			<li><span class="noto">🔫</span> <span>🔫</span> 128299</li>
+			<li><span class="noto">🔮</span> <span>🔮</span> 128302</li>
+			<li><span class="noto">🔰</span> <span>🔰</span> 128304</li>
+			<li><span class="noto">🔱</span> <span>🔱</span> 128305</li>
+			<li><span class="noto">🧪</span> <span>🧪</span> 129514</li>
+			<li><span class="noto">🧫</span> <span>🧫</span> 129515</li>
+			<li><span class="noto">🧬</span> <span>🧬</span> 129516</li>
+			<li><span class="noto">🧮</span> <span>🧮</span> 129518</li>
+			<li><span class="noto">🧯</span> <span>🧯</span> 129519</li>
+			<li><span class="noto">🧱</span> <span>🧱</span> 129521</li>
+			<li><span class="noto">🧳</span> <span>🧳</span> 129523</li>
+			<li><span class="noto">🧴</span> <span>🧴</span> 129524</li>
+			<li><span class="noto">🧵</span> <span>🧵</span> 129525</li>
+			<li><span class="noto">🧶</span> <span>🧶</span> 129526</li>
+			<li><span class="noto">🧷</span> <span>🧷</span> 129527</li>
+			<li><span class="noto">🧸</span> <span>🧸</span> 129528</li>
+			<li><span class="noto">🧹</span> <span>🧹</span> 129529</li>
+			<li><span class="noto">🧺</span> <span>🧺</span> 129530</li>
+			<li><span class="noto">🧻</span> <span>🧻</span> 129531</li>
+			<li><span class="noto">🧼</span> <span>🧼</span> 129532</li>
+			<li><span class="noto">🧽</span> <span>🧽</span> 129533</li>
+			<li><span class="noto">🧾</span> <span>🧾</span> 129534</li>
+			<li><span class="noto">🧿</span> <span>🧿</span> 129535</li>
+			<li><span class="noto">🏱</span> <span>🏱</span> 127985</li>
+			<li><span class="noto">🏲</span> <span>🏲</span> 127986</li>
+			<li><span class="noto">🏳</span> <span>🏳</span> 127987</li>
+			<li><span class="noto">🏴</span> <span>🏴</span> 127988</li>
+			<li><span class="noto">🏵</span> <span>🏵</span> 127989</li>
+			<li><span class="noto">🏶</span> <span>🏶</span> 127990</li>
+			<li><span class="noto">🏷</span> <span>🏷</span> 127991</li>
+			<li><span class="noto">🕭</span> <span>🕭</span> 128365</li>
+			<li><span class="noto">🕮</span> <span>🕮</span> 128366</li>
+			<li><span class="noto">🕯</span> <span>🕯</span> 128367</li>
+			<li><span class="noto">🕰</span> <span>🕰</span> 128368</li>
+			<li><span class="noto">🕱</span> <span>🕱</span> 128369</li>
+			<li><span class="noto">🕲</span> <span>🕲</span> 128370</li>
+			<li><span class="noto">🕳</span> <span>🕳</span> 128371</li>
+			<li><span class="noto">🕶</span> <span>🕶</span> 128374</li>
+			<li><span class="noto">🕹</span> <span>🕹</span> 128377</li>
+		</ul>
+		<h2 class="guideTitTy2" id="emoji_16">Skin Tones</h2>
+		피부색 조합 하는 법<br>
+		이모지코드 + 색상코드<br>
+		🏿 127999 Dark skin tone<br>
+		🏾 127998 Medium Dark skin tone<br>
+		🏽 127997 Medium skin tone<br>
+		🏼 127996 Medium Light skin tone<br>
+		🏻 127995 Light skin tone<br>
+		<ul class="emojiList">
+			<li><span class="noto">☝</span> <span>☝</span> 9757 ☝🏿 ☝🏾 ☝🏽 ☝🏼 ☝🏻</li>
+			<li><span class="noto">⛹</span> <span>⛹</span> 9977 ⛹🏿 ⛹🏾 ⛹🏽 ⛹🏼 ⛹🏻</li>
+			<li><span class="noto">✊</span> <span>✊</span> 9994 ✊🏿 ✊🏾 ✊🏽 ✊🏼 ✊🏻</li>
+			<li><span class="noto">✋</span> <span>✋</span> 9995 ✋🏿 ✋🏾 ✋🏽 ✋🏼 ✋🏻</li>
+			<li><span class="noto">✌</span> <span>✌</span> 9996 ✌🏿 ✌🏾 ✌🏽 ✌🏼 ✌🏻</li>
+			<li><span class="noto">✍</span> <span>✍</span> 9997 ✍🏿 ✍🏾 ✍🏽 ✍🏼 ✍🏻</li>
+			<li><span class="noto">🎅</span> <span>🎅</span> 127877 🎅🏿 🎅🏾 🎅🏽 🎅🏼 🎅🏻</li>
+			<li><span class="noto">🏂</span> <span>🏂</span> 127938 🏂🏿 🏂🏾 🏂🏽 🏂🏼 🏂🏻</li>
+			<li><span class="noto">🏃</span> <span>🏃</span> 127939 🏃🏿 🏃🏾 🏃🏽 🏃🏼 🏃🏻</li>
+			<li><span class="noto">🏄</span> <span>🏄</span> 127940 🏄🏿 🏄🏾 🏄🏽 🏄🏼 🏄🏻</li>
+			<li><span class="noto">🏇</span> <span>🏇</span> 127943 🏇🏿 🏇🏾 🏇🏽 🏇🏼 🏇🏻</li>
+			<li><span class="noto">🏊</span> <span>🏊</span> 127946 🏊🏿 🏊🏾 🏊🏽 🏊🏼 🏊🏻</li>
+			<li><span class="noto">🏋</span> <span>🏋</span> 127947 🏋🏿 🏋🏾 🏋🏽 🏋🏼 🏋🏻</li>
+			<li><span class="noto">🏌</span> <span>🏌</span> 127948 🏌🏿 🏌🏾 🏌🏽 🏌🏼 🏌🏻</li>
+			<li><span class="noto">👂</span> <span>👂</span> 128066 👂🏿 👂🏾 👂🏽 👂🏼 👂🏻</li>
+			<li><span class="noto">👃</span> <span>👃</span> 128067 👃🏿 👃🏾 👃🏽 👃🏼 👃🏻</li>
+			<li><span class="noto">👆</span> <span>👆</span> 128070 👆🏿 👆🏾 👆🏽 👆🏼 👆🏻</li>
+			<li><span class="noto">👇</span> <span>👇</span> 128071 👇🏿 👇🏾 👇🏽 👇🏼 👇🏻</li>
+			<li><span class="noto">👈</span> <span>👈</span> 128072 👈🏿 👈🏾 👈🏽 👈🏼 👈🏻</li>
+			<li><span class="noto">👉</span> <span>👉</span> 128073 👉🏿 👉🏾 👉🏽 👉🏼 👉🏻</li>
+			<li><span class="noto">👊</span> <span>👊</span> 128074 👊🏿 👊🏾 👊🏽 👊🏼 👊🏻</li>
+			<li><span class="noto">👋</span> <span>👋</span> 128075 👋🏿 👋🏾 👋🏽 👋🏼 👋🏻</li>
+			<li><span class="noto">👌</span> <span>👌</span> 128076 👌🏿 👌🏾 👌🏽 👌🏼 👌🏻</li>
+			<li><span class="noto">👍</span> <span>👍</span> 128077 👍🏿 👍🏾 👍🏽 👍🏼 👍🏻</li>
+			<li><span class="noto">👎</span> <span>👎</span> 128078 👎🏿 👎🏾 👎🏽 👎🏼 👎🏻</li>
+			<li><span class="noto">👏</span> <span>👏</span> 128079 👏🏿 👏🏾 👏🏽 👏🏼 👏🏻</li>
+			<li><span class="noto">👐</span> <span>👐</span> 128080 👐🏿 👐🏾 👐🏽 👐🏼 👐🏻</li>
+			<li><span class="noto">👦</span> <span>👦</span> 128102 👦🏿 👦🏾 👦🏽 👦🏼 👦🏻</li>
+			<li><span class="noto">👧</span> <span>👧</span> 128103 👧🏿 👧🏾 👧🏽 👧🏼 👧🏻</li>
+			<li><span class="noto">👨</span> <span>👨</span> 128104 👨🏿 👨🏾 👨🏽 👨🏼 👨🏻</li>
+			<li><span class="noto">👩</span> <span>👩</span> 128105 👩🏿 👩🏾 👩🏽 👩🏼 👩🏻</li>
+			<li><span class="noto">👮</span> <span>👮</span> 128110 👮🏿 👮🏾 👮🏽 👮🏼 👮🏻</li>
+			<li><span class="noto">👰</span> <span>👰</span> 128112 👰🏿 👰🏾 👰🏽 👰🏼 👰🏻</li>
+			<li><span class="noto">👱</span> <span>👱</span> 128113 👱🏿 👱🏾 👱🏽 👱🏼 👱🏻</li>
+			<li><span class="noto">👲</span> <span>👲</span> 128114 👲🏿 👲🏾 👲🏽 👲🏼 👲🏻</li>
+			<li><span class="noto">👳</span> <span>👳</span> 128115 👳🏿 👳🏾 👳🏽 👳🏼 👳🏻</li>
+			<li><span class="noto">👴</span> <span>👴</span> 128116 👴🏿 👴🏾 👴🏽 👴🏼 👴🏻</li>
+			<li><span class="noto">👵</span> <span>👵</span> 128117 👵🏿 👵🏾 👵🏽 👵🏼 👵🏻</li>
+			<li><span class="noto">👶</span> <span>👶</span> 128118 👶🏿 👶🏾 👶🏽 👶🏼 👶🏻</li>
+			<li><span class="noto">👷</span> <span>👷</span> 128119 👷🏿 👷🏾 👷🏽 👷🏼 👷🏻</li>
+			<li><span class="noto">👸</span> <span>👸</span> 128120 👸🏿 👸🏾 👸🏽 👸🏼 👸🏻</li>
+			<li><span class="noto">👼</span> <span>👼</span> 128124 👼🏿 👼🏾 👼🏽 👼🏼 👼🏻</li>
+			<li><span class="noto">💁</span> <span>💁</span> 128129 💁🏿 💁🏾 💁🏽 💁🏼 💁🏻</li>
+			<li><span class="noto">💂</span> <span>💂</span> 128130 💂🏿 💂🏾 💂🏽 💂🏼 💂🏻</li>
+			<li><span class="noto">💃</span> <span>💃</span> 128131 💃🏿 💃🏾 💃🏽 💃🏼 💃🏻</li>
+			<li><span class="noto">💅</span> <span>💅</span> 128133 💅🏿 💅🏾 💅🏽 💅🏼 💅🏻</li>
+			<li><span class="noto">💆</span> <span>💆</span> 128134 💆🏿 💆🏾 💆🏽 💆🏼 💆🏻</li>
+			<li><span class="noto">💇</span> <span>💇</span> 128135 💇🏿 💇🏾 💇🏽 💇🏼 💇🏻</li>
+			<li><span class="noto">💪</span> <span>💪</span> 128170 💪🏿 💪🏾 💪🏽 💪🏼 💪🏻</li>
+			<li><span class="noto">🕴</span> <span>🕴</span> 128372 🕴🏿 🕴🏾 🕴🏽 🕴🏼 🕴🏻</li>
+			<li><span class="noto">🕵</span> <span>🕵</span> 128373 🕵🏿 🕵🏾 🕵🏽 🕵🏼 🕵🏻</li>
+			<li><span class="noto">🕺</span> <span>🕺</span> 128378 🕺🏿 🕺🏾 🕺🏽 🕺🏼 🕺🏻</li>
+			<li><span class="noto">🖐</span> <span>🖐</span> 128400 🖐🏿 🖐🏾 🖐🏽 🖐🏼 🖐🏻</li>
+			<li><span class="noto">🖕</span> <span>🖕</span> 128405 🖕🏿 🖕🏾 🖕🏽 🖕🏼 🖕🏻</li>
+			<li><span class="noto">🖖</span> <span>🖖</span> 128406 🖖🏿 🖖🏾 🖖🏽 🖖🏼 🖖🏻</li>
+			<li><span class="noto">🙅</span> <span>🙅</span> 128581 🙅🏿 🙅🏾 🙅🏽 🙅🏼 🙅🏻</li>
+			<li><span class="noto">🙆</span> <span>🙆</span> 128582 🙆🏿 🙆🏾 🙆🏽 🙆🏼 🙆🏻</li>
+			<li><span class="noto">🙇</span> <span>🙇</span> 128583 🙇🏿 🙇🏾 🙇🏽 🙇🏼 🙇🏻</li>
+			<li><span class="noto">🙋</span> <span>🙋</span> 128587 🙋🏿 🙋🏾 🙋🏽 🙋🏼 🙋🏻</li>
+			<li><span class="noto">🙌</span> <span>🙌</span> 128588 🙌🏿 🙌🏾 🙌🏽 🙌🏼 🙌🏻</li>
+			<li><span class="noto">🙍</span> <span>🙍</span> 128589 🙍🏿 🙍🏾 🙍🏽 🙍🏼 🙍🏻</li>
+			<li><span class="noto">🙎</span> <span>🙎</span> 128590 🙎🏿 🙎🏾 🙎🏽 🙎🏼 🙎🏻</li>
+			<li><span class="noto">🙏</span> <span>🙏</span> 128591 🙏🏿 🙏🏾 🙏🏽 🙏🏼 🙏🏻</li>
+			<li><span class="noto">🚣</span> <span>🚣</span> 128675 🚣🏿 🚣🏾 🚣🏽 🚣🏼 🚣🏻</li>
+			<li><span class="noto">🚴</span> <span>🚴</span> 128692 🚴🏿 🚴🏾 🚴🏽 🚴🏼 🚴🏻</li>
+			<li><span class="noto">🚵</span> <span>🚵</span> 128693 🚵🏿 🚵🏾 🚵🏽 🚵🏼 🚵🏻</li>
+			<li><span class="noto">🚶</span> <span>🚶</span> 128694 🚶🏿 🚶🏾 🚶🏽 🚶🏼 🚶🏻</li>
+			<li><span class="noto">🛀</span> <span>🛀</span> 128704 🛀🏿 🛀🏾 🛀🏽 🛀🏼 🛀🏻</li>
+			<li><span class="noto">🛌</span> <span>🛌</span> 128716 🛌🏿 🛌🏾 🛌🏽 🛌🏼 🛌🏻</li>
+			<li><span class="noto">🤘</span> <span>🤘</span> 129304 🤘🏿 🤘🏾 🤘🏽 🤘🏼 🤘🏻</li>
+			<li><span class="noto">🤙</span> <span>🤙</span> 129305 🤙🏿 🤙🏾 🤙🏽 🤙🏼 🤙🏻</li>
+			<li><span class="noto">🤚</span> <span>🤚</span> 129306 🤚🏿 🤚🏾 🤚🏽 🤚🏼 🤚🏻</li>
+			<li><span class="noto">🤛</span> <span>🤛</span> 129307 🤛🏿 🤛🏾 🤛🏽 🤛🏼 🤛🏻</li>
+			<li><span class="noto">🤜</span> <span>🤜</span> 129308 🤜🏿 🤜🏾 🤜🏽 🤜🏼 🤜🏻</li>
+			<li><span class="noto">🤝</span> <span>🤝</span> 129309 🤝🏿 🤝🏾 🤝🏽 🤝🏼 🤝🏻</li>
+			<li><span class="noto">🤞</span> <span>🤞</span> 129310 🤞🏿 🤞🏾 🤞🏽 🤞🏼 🤞🏻</li>
+			<li><span class="noto">🤟</span> <span>🤟</span> 129311 🤟🏿 🤟🏾 🤟🏽 🤟🏼 🤟🏻</li>
+			<li><span class="noto">🤦</span> <span>🤦</span> 129318 🤦🏿 🤦🏾 🤦🏽 🤦🏼 🤦🏻</li>
+			<li><span class="noto">🤰</span> <span>🤰</span> 129328 🤰🏿 🤰🏾 🤰🏽 🤰🏼 🤰🏻</li>
+			<li><span class="noto">🤱</span> <span>🤱</span> 129329 🤱🏿 🤱🏾 🤱🏽 🤱🏼 🤱🏻</li>
+			<li><span class="noto">🤲</span> <span>🤲</span> 129330 🤲🏿 🤲🏾 🤲🏽 🤲🏼 🤲🏻</li>
+			<li><span class="noto">🤳</span> <span>🤳</span> 129331 🤳🏿 🤳🏾 🤳🏽 🤳🏼 🤳🏻</li>
+			<li><span class="noto">🤴</span> <span>🤴</span> 129332 🤴🏿 🤴🏾 🤴🏽 🤴🏼 🤴🏻</li>
+			<li><span class="noto">🤵</span> <span>🤵</span> 129333 🤵🏿 🤵🏾 🤵🏽 🤵🏼 🤵🏻</li>
+			<li><span class="noto">🤶</span> <span>🤶</span> 129334 🤶🏿 🤶🏾 🤶🏽 🤶🏼 🤶🏻</li>
+			<li><span class="noto">🤷</span> <span>🤷</span> 129335 🤷🏿 🤷🏾 🤷🏽 🤷🏼 🤷🏻</li>
+			<li><span class="noto">🤸</span> <span>🤸</span> 129336 🤸🏿 🤸🏾 🤸🏽 🤸🏼 🤸🏻</li>
+			<li><span class="noto">🤹</span> <span>🤹</span> 129337 🤹🏿 🤹🏾 🤹🏽 🤹🏼 🤹🏻</li>
+			<li><span class="noto">🤽</span> <span>🤽</span> 129341 🤽🏿 🤽🏾 🤽🏽 🤽🏼 🤽🏻</li>
+			<li><span class="noto">🤾</span> <span>🤾</span> 129342 🤾🏿 🤾🏾 🤾🏽 🤾🏼 🤾🏻</li>
+			<li><span class="noto">🧑</span> <span>🧑</span> 129489 🧑🏿 🧑🏾 🧑🏽 🧑🏼 🧑🏻</li>
+			<li><span class="noto">🧒</span> <span>🧒</span> 129490 🧒🏿 🧒🏾 🧒🏽 🧒🏼 🧒🏻</li>
+			<li><span class="noto">🧓</span> <span>🧓</span> 129491 🧓🏿 🧓🏾 🧓🏽 🧓🏼 🧓🏻</li>
+			<li><span class="noto">🧔</span> <span>🧔</span> 129492 🧔🏿 🧔🏾 🧔🏽 🧔🏼 🧔🏻</li>
+			<li><span class="noto">🧕</span> <span>🧕</span> 129493 🧕🏿 🧕🏾 🧕🏽 🧕🏼 🧕🏻</li>
+			<li><span class="noto">🧖</span> <span>🧖</span> 129494 🧖🏿 🧖🏾 🧖🏽 🧖🏼 🧖🏻</li>
+			<li><span class="noto">🧗</span> <span>🧗</span> 129495 🧗🏿 🧗🏾 🧗🏽 🧗🏼 🧗🏻</li>
+			<li><span class="noto">🧘</span> <span>🧘</span> 129496 🧘🏿 🧘🏾 🧘🏽 🧘🏼 🧘🏻</li>
+			<li><span class="noto">🧙</span> <span>🧙</span> 129497 🧙🏿 🧙🏾 🧙🏽 🧙🏼 🧙🏻</li>
+			<li><span class="noto">🧚</span> <span>🧚</span> 129498 🧚🏿 🧚🏾 🧚🏽 🧚🏼 🧚🏻</li>
+			<li><span class="noto">🧜</span> <span>🧜</span> 129500 🧜🏿 🧜🏾 🧜🏽 🧜🏼 🧜🏻</li>
+			<li><span class="noto">🧝</span> <span>🧝</span> 129501 🧝🏿 🧝🏾 🧝🏽 🧝🏼 🧝🏻</li>
+		</ul>
+	</div>
+</div>
+<div class="munuLink">
+	<ul>
+		<li><a href="#top">top</a></li>
+		<li><a href="#emoji_00">Smileys</a></li>
+		<li><a href="#emoji_01">Hands</a></li>
+		<li><a href="#emoji_02">People</a></li>
+		<li><a href="#emoji_03">Office</a></li>
+		<li><a href="#emoji_04">Places</a></li>
+		<li><a href="#emoji_05">Transport</a></li>
+		<li><a href="#emoji_06">Animals</a></li>
+		<li><a href="#emoji_07">Food</a></li>
+		<li><a href="#emoji_08">Plants</a></li>
+		<li><a href="#emoji_09">Sports</a></li>
+		<li><a href="#emoji_10">Earth and Sky</a></li>
+		<li><a href="#emoji_11">Weather</a></li>
+		<li><a href="#emoji_12">Clothings</a></li>
+		<li><a href="#emoji_13">Audio/Video</a></li>
+		<li><a href="#emoji_14">Celebration</a></li>
+		<li><a href="#emoji_15">Symbols</a></li>
+		<li><a href="#emoji_16">Skin Tones</a></li>
+	</ul>
+</div>
+<!-- Lottie 라이브러리 로드 -->
+<script type="text/javascript" src="/mable/common/js/ui.new.js"></script>
+<script type="text/javascript" src="/mable/common/js/lottie.min.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+
+});
+</script>
+
+</div>
+        
+        <div class="preview_wrap">
+            <div class="dim"></div>
+            <div class="preview_inner">
+                <p class="tit">
+                    <a href="" title="새창열림" target="_blank"></a>
+                    <button type="button" class="close">X</button>
+                </p>
+                <iframe src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+    const dateNow = Date.now();  // 캐시방지
+	console.log(dateNow);
+
+$(document).ready(function() {
+
+    var tabBtn = $(".tab li");
+    tabBtn.on('click', function(){
+        var thisClass = $(this).attr('class');
+        $(this).addClass('active');
+        $('.tab li').not(this).removeClass('active');
+
+        if(thisClass === "guideList"){
+            $(".list.guideList").show();
+            $(".list.menuList").hide();
+            $(".list.guideList li:eq(0)").addClass('active');
+            $('.list.menuList li').not(this).removeClass('active');
+        } else if(thisClass === "menuList"){
+            $(".list.menuList").show();
+            $(".list.guideList").hide();
+            $(".list.menuList li:eq(0)").addClass('active');
+            $('.list.guideList li').not(this).removeClass('active');
+        };
+
+        console.log(thisClass);
+    });
+
+    var thisBtn = $(".list li");    
+    thisBtn.on('click', function(){
+        var btnClass = $(this).attr('class');
+        $(this).addClass('active');
+        $('.list li').not(this).removeClass('active');
+    });
+    openURL('layout.html');
+    
+});
+
+function bottomSheet(value){
+	var val = value;
+	var obj = $('.bottomSheet');
+	obj.close = $('.dim, .bottomSheet .close, .bottomSheet .sheetClose');
+	obj.find('.inCont').removeClass('active');
+	obj.find('.inCont.ty'+val).addClass('active');
+	obj.addClass('active');
+
+	obj.close.on('click', function(){
+		obj.removeClass('active');
+	});
+};
+
+let list = document.querySelectorAll('.goLink li');
+
+const getElmIndex = (element, range)=>{
+    if(!!range) return [].indexOf.call(element, range);
+	return [].indexOf.call(element.parentNode.children, element);
+};
+
+[].forEach.call(list, function(el){
+    el.addEventListener('click', function(){
+        let getURL = this.firstChild.getAttribute('data-href');
+        openURL(getURL);
+    });
+});
+
+function openURL(getURL){
+    // var myHeader = new Headers();
+    // myHeader.append('Content-Type','text/html; charset=EUC-KR');
+    fetch(getURL, {
+        headers : {'Content-Type':'text/html; charset=EUC-KR'},
+        cache : 'no-cache'
+    }).then(function(res){
+        return res.arrayBuffer();
+    }).then(function(buffer){
+        const decoder = new TextDecoder('euc-kr');
+        const text = decoder.decode(buffer);
+        let parser = new DOMParser();
+        let htmlDom = parser.parseFromString(text,'text/html');
+        function encodingText(){
+            htmlDom.querySelector('body').innerHTML.charset = "euc-kr";
+        }
+        var cont = htmlDom.querySelector('body');
+        document.querySelector('.guideCont').innerHTML = cont.innerHTML;
+        document.getElementById('txt').innerHTML = getURL;
+        $('.guideCont .end').each(function(index, item){
+            // let link = this.attr('href');
+            $(this).parent().append('<br><span class="layBtn btnTy8 light" style="margin-top:10px;display:inline-block;cursor:pointer">라이트</span> <span class="layBtn btnTy8 dark" style="margin-top:10px;display:inline-block;cursor:pointer">다크</span>');
+        });
+        document.querySelector('.guideCont').scrollTo(0,0);
+        ui.init();
+        fontCal();
+    });
+}
+
+var ui = {
+    layer : function(e){
+        $(".layBtn").click(function(){
+            $(".layBtn").removeClass('active');
+            $(this).addClass('active');
+            var link = $(this).parent().find('.end').attr("href").replace(' ','')+'?ver='+dateNow;
+            var linkDark = $(this).parent().find('.end').attr("href").replace(' ','')+'?d&var='+dateNow;
+
+            let _this = $(this);
+            if(_this.is('.light')) {
+                $(".preview_wrap").show().find(".tit a").attr("href", link).text(link);
+                $(".preview_wrap").find("iframe").attr("src", link);
+            } else {
+                $(".preview_wrap").show().find(".tit a").attr("href", linkDark).text(linkDark);
+                $(".preview_wrap").find("iframe").attr("src", linkDark);
+            }
+        });
+        $(".close").click(function(){
+            $(".preview_wrap").hide();
+        });
+    },
+    viewBtm :function(opts){
+        var _thisBtn = $(".viewBtn button");
+        var _layout = $(".layout");
+        _thisBtn.on('click', function(){
+            var _btnClass = $(this).attr('class');
+            $(this).addClass('active');
+            $('button').not(this).removeClass('active');
+            _layout.removeClass().addClass('layout '+ _btnClass);
+        });
+    },
+    bottomSheet : function(value){
+        var val = value;
+        var obj = $('.bottomSheet');
+        obj.close = $('.dim, .bottomSheet .close, .bottomSheet .sheetClose');
+        obj.find('.inCont').removeClass('active');
+        obj.find('.inCont.ty'+val).addClass('active');
+        obj.addClass('active');
+
+        obj.close.on('click', function(){
+            obj.removeClass('active');
+        });
+    },
+    accordion : function(){
+        // graph image change
+        if ( $('.compareRate').get(0) !== undefined)  {
+            $('.btnListCR li a').on('click', function() {
+                var $thisImg = $('.areaGraph img');
+                var liAll = $('.btnListCR li');
+                var $thisIndex = $(this).closest('li').index();
+                var activeClass = 'active';
+                liAll.removeClass(activeClass);
+                liAll.eq($thisIndex).addClass(activeClass);
+                $thisImg.removeClass(activeClass);
+                $thisImg.eq($thisIndex - 1).addClass(activeClass);
+            })
+        }
+
+        // scroll tab box shadow
+        if ( $('.includeTab').get(0) !== undefined)  {
+            $(window).on('scroll',function () {
+                if ($(document).scrollTop() > 0) {
+                    $('.includeTab > div').addClass('scrollActive');
+                } else {
+                    $('.includeTab > div').removeClass('scrollActive');
+                }
+            });
+        }
+
+        // scroll tab last menu position: tabTy5
+        if ( $('.tabTy5').get(0) !== undefined)  {
+            if ($('.tabTy5').hasClass('lastMenu')) {
+                var bWidth = $('body').outerWidth();
+                $('.wrapTabTy5').scrollLeft(bWidth);
+            }
+        }
+
+        // toggleList: content visible/hidden
+        if ( $('.toggleList').get(0) !== undefined)  {
+            
+            var offsets = [],
+                faqTit = $('.toggleAccordion li > a'),
+                beforeThis = '',
+                offsetsList = function () {
+                    faqTit.each(function(){
+                        var $thisOffset = $(this).offset().top;
+                        offsets.push($thisOffset);
+                    });
+                };
+            setTimeout(offsetsList,100);
+            $('.toggleList li > a').on('click',function() {
+                var $this = $(this),
+                    $thisLi = $this.closest('li'),
+                    $thisUl = $this.closest('Ul'),
+                    $thisIndex = $thisLi.index(),
+                    activeClass = 'active';
+                if (!$thisLi.hasClass(activeClass) ) {
+                    if ($thisUl.hasClass('toggleAccordion')) {
+                        if ( beforeThis !== '') {
+                            $(beforeThis).removeClass(activeClass).find('.toggleBox').slideUp(100);
+                        }
+                        if ( $('.wrapTy5').hasClass('includeTab') && $('.toggleList').length === 1) {
+                            $("html, body").animate({scrollTop:offsets[$thisIndex]-37}, 300);
+                        } else if ( $('.toggleList').length === 1) {
+                            $("html, body").animate({scrollTop:offsets[$thisIndex]}, 300);
+                        }
+                    }
+                    $thisLi.toggleClass(activeClass).find('.toggleBox').slideToggle(100);
+                    beforeThis = $thisLi;
+                    return beforeThis;
+                } else {
+                    $thisLi.removeClass(activeClass).find('.toggleBox').slideUp(100);
+                }
+            });
+        }
+
+        // slide: guide
+        if ($('.importantGuide').get(0) !== undefined) {
+            var isArrows = true;
+            var isDots = true;
+            if (!$('.importantGuide').hasClass('ty2')) {
+                isArrows = false;
+            } else {
+                isDots = false;
+            }
+            $('.importantGuide').slick(
+                {
+                    arrows:isArrows,
+                    dots: isDots,
+                    infinite: false
+                }
+            );
+        }
+    },
+    menuList : function(e){
+        var $front = $("#FrontList"), 
+        front = $front.get(0);
+        $(".tbTy1 a").html(function(){ if(((/\/[^\/]+\.html/).test(this.href)||(/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/)){ return this.href.substring(this.href.lastIndexOf("/")+1); } }).each(function(){
+            if(this.onclick) return false;
+            else this.target = "_blank";
+        });
+
+        front.a = $front.find("a") || undefined;
+        var end = front.a.filter(".end").filter(function(){ return ((/\/[^\/]+\.html/).test(this.href) || (/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/); }).length;
+        var ing = front.a.filter(".test").filter(function(){ return ((/\/[^\/]+\.html/).test(this.href) || (/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/); }).length;
+        $("#pages").find("em").eq(0).html(front.a.length).end()
+            .eq(1).html(ing).end()
+            .eq(2).html(end).end().end()
+            .find("strong").html( (parseInt(( (end)/front.a.length )*1000)/10 || 0)+'%' );
+        $(".listHead").html($("#pages").html());
+
+
+        var lastdate = "0000-00-00";
+        $("#FrontList .push-date, #FrontList .mod-date").each(function(){
+            var compare = [this.innerHTML.replace(/-/gi,"") , lastdate.replace(/-/gi,"")];
+            if(parseFloat(compare[0]) > parseFloat(compare[1])) lastdate = this.innerHTML;
+        });
+        $("#FrontList .push-date:contains('"+lastdate+"'), #FrontList .mod-date:contains('"+lastdate+"')").addClass("last"); //최근 전달일 체크
+    },
+    init : function(opts){
+        opts = opts || {};
+        ui.viewBtm();
+        ui.accordion();
+        ui.menuList();
+        ui.layer();
+    }
+}
+
+
+function fontCal(){
+
+    const inputSize = document.querySelector('#fontSize');
+const inputResult = document.querySelector('#sizeResult');
+const inputRem = document.querySelector('#remResult');
+const inputBtn = document.querySelector('#calcBtn');
+
+	const inValue = inputSize.value;
+	const result = parseInt(inValue)*2/3;
+	inputResult.value = result;
+	inputRem.value = result / 16;
+
+    inputSize.addEventListener('keyup', function(event){
+	if (event.keyCode === 13) {
+		event.preventDefault();
+		document.getElementById('calcBtn').click();
+	}
+});
+}
+
+
+</script>
+
+
+</body></html>

@@ -1,0 +1,407 @@
+.productMall {
+	.itemList {
+		margin: auto;
+		display: grid;
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: repeat(2,1fr);
+		margin-top: 1.250rem;
+		row-gap: 3%;
+		column-gap: 3.7%;
+	}
+	.item {
+		padding: 1.25rem 1.125rem;
+		border-radius: 20px;
+		text-align: center;
+		background-color: rgb(var(--color-310));
+		&:nth-of-type(2) {
+			margin-right: 0;
+		}
+		img {
+			width: 4.375rem;
+			height: 4.375rem;
+		}
+		.titTy1 {
+			margin: 0.75rem 0 0.3125rem;
+			font-size: 1rem;
+		}
+		p {
+			font-size: 0.750rem;
+			color: rgb(var(--color-412));
+		}
+	}
+	.pmHead {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		img {
+			position: absolute;
+			right: 0;
+			top: 24%;
+			width: 5.8125rem;
+			height: auto;
+			z-index: 10;
+			pointer-events: none;
+		}
+	}
+	.bgTy1 {
+		position: relative;
+		padding: 2.5rem 1.25rem;
+		background-color: rgb(var(--color-028));
+	}
+	.bgTy2 {
+		position: relative;
+		padding: 1.875rem 1.25rem;
+		background-color: rgb(var(--color-310));
+	}
+	.titTy1 {
+		font-size: 1.375rem;
+		line-height: 1.75rem;
+		&.pm {
+			position: relative;
+			font-size: 1.625rem;
+			line-height: 2.125rem !important;
+			z-index: 20;
+		}
+	}
+	.titTy2.pm {
+		position: relative;
+		padding-bottom: 1.25rem;
+		font-size: 1.250rem;
+		line-height: 2.1875rem !important;
+	}
+	.box1 {
+		margin: 0;
+		padding: 2.0625rem 1.5rem 1.4375rem;
+		background-color: rgb(var(--color-004));
+		color: rgb(var(--color-500));
+		text-align: left;
+		border-radius: 15px;
+	}
+	.box2 {
+		margin: 0;
+		padding: 5.5vw 5vw 5vw;
+		background-color: rgb(var(--color-310));
+		color: rgb(var(--color-413));
+		text-align: left;
+		border-radius: 15px;
+		&.icontxt {
+			display: flex;
+			align-items: center;
+			img {
+				width: 20vw;
+				vertical-align: middle;
+			}
+			p {
+				padding-left: 5.5vw;
+				width: 51vw;
+				vertical-align: middle;
+			}
+		}
+	}
+	.stepNumList {
+		.stepNum {
+			top: 0;
+			color: rgb(var(--color-500));
+			background: rgb(var(--color-493));
+		}
+		>li {
+			padding: 0 0 2.1875rem 3.75rem;
+			color: rgb(var(--color-004));
+			font-size: 1rem;
+			font-weight: 500;
+			&.last {
+				padding: 0 0 0 3.75rem;
+			}
+		}
+		&.cTy2 {
+			.stepNum {
+				background: rgb(var(--color-283));
+			}
+		}
+		&.cTy3 {
+			.stepNum {
+				background: rgb(var(--color-470));
+			}
+		}
+	}
+	.fc1 {
+		color: rgb(var(--color-469)) !important;
+	}
+	.fc2 {
+		color: rgb(var(--color-267)) !important;
+	}
+	.fc3 {
+		color: rgb(var(--color-469)) !important;
+	}
+	.fc4 {
+		color: rgb(var(--color-466)) !important;
+	}
+	.fc5 {
+		color: rgb(var(--color-479)) !important;
+	}
+	.fc6 {
+		color: rgb(var(--color-422)) !important;
+	}
+	.fc7 {
+		color: rgb(var(--color-493)) !important;
+	}
+	.fc8 {
+		color: rgb(var(--color-476)) !important;
+	}
+	.fc9 {
+		color: rgb(var(--color-470)) !important;
+	}
+	.fc10 {
+		color: rgb(var(--color-471)) !important;
+	}
+	.fc11 {
+		color: rgb(var(--color-492)) !important;
+	}
+	.fc12 {
+		color: rgb(var(--color-500)) !important;
+	}
+	.oc1 {
+		background-color: rgb(var(--color-327)) !important;
+	}
+	.oc2 {
+		background-color: rgb(var(--color-321)) !important;
+	}
+	.oc3 {
+		background-color: rgb(var(--color-226)) !important;
+	}
+	.oc4 {
+		background-color: rgb(var(--color-043)) !important;
+	}
+	.oc5 {
+		background-color: rgb(var(--color-480)) !important;
+	}
+	.oc9 {
+		background-color: rgb(var(--color-439)) !important;
+	}
+	.oc10 {
+		background-color: rgb(var(--color-480)) !important;
+	}
+	.oc11 {
+		background-color: rgb(var(--color-191)) !important;
+	}
+	.tbTy1 {
+		border-bottom: 1px solid rgb(var(--color-025));
+		border-top: 1px solid rgb(var(--color-208));
+		table {
+			border-collapse: collapse;
+			border-top: none;
+			border-bottom: none;
+			thead {
+				th {
+					background-color: rgba(var(--color-235), 0.2) !important;
+					border-bottom: 1px solid rgb(var(--color-025));
+					border-right: 1px solid rgb(var(--color-025));
+					&:last-of-type {
+						border-right: none;
+					}
+				}
+				th.bcTy2 {
+					background-color: rgba(var(--color-183), 0.08) !important;
+				}
+			}
+			tbody {
+				th {
+					background-color: rgba(var(--color-183), 0.08) !important;
+					border-bottom: 1px solid rgb(var(--color-025));
+					border-right: 1px solid rgb(var(--color-025));
+				}
+				tr {
+					td {
+						border-bottom: 1px solid rgb(var(--color-025));
+						border-left: 1px solid rgb(var(--color-025));
+						border-right: 1px solid rgb(var(--color-025));
+						&:first-of-type {
+							border-left: none;
+						}
+					}
+					&:last-child {
+						td {
+							border-bottom: none !important;
+						}
+						th {
+							border-bottom: none !important;
+						}
+					}
+				}
+				td {
+					&:last-of-type {
+						border-right: none;
+					}
+				}
+			}
+			.bbNone {
+				border-bottom: none !important;
+			}
+		}
+	}
+	.toggleBox {
+		background: rgb(var(--color-028));
+		.gray {
+			padding: 5.5vw 3.7vw;
+			background: rgb(var(--color-310));
+		}
+	}
+	.stempNumList.cTy2 {
+		>li {
+			padding: 0 0 1.25rem 3.75rem;
+		}
+	}
+	.listTy4 {
+		>li {
+			color: rgb(var(--color-409));
+		}
+	}
+	.titHead {
+		.listTy15 {
+			>li {
+				.num {
+					width: 1.5625rem;
+					height: 1.5625rem;
+					line-height: 1.5625rem;
+					font-size: 0.813rem;
+				}
+			}
+		}
+		&.ty2 {
+			>li {
+				line-height: 1.5625rem;
+				font-size: 1rem;
+				font-weight: bold;
+			}
+		}
+	}
+	.boldTy {
+		margin-top: 1.250rem;
+		>li {
+			margin-bottom: 1.25rem;
+			>ul {
+				margin-top: 0.313rem;
+			}
+		}
+	}
+	.lineTy {
+		margin-top: 0.938rem;
+		padding-top: 0.9375rem;
+		border-top: 1px solid rgb(var(--color-310));
+	}
+	.listTy13 {
+		>li {
+			padding-bottom: 0.625rem;
+		}
+	}
+	.btnAreaTy1 {
+		button {
+			+ button {
+				margin-top: 0.938rem;
+			}
+		}
+	}
+	.buNum {
+		display: inline-block;
+		width: 0.875rem;
+		height: 0.875rem;
+		line-height: 0.875rem;
+		border-radius: 50%;
+		vertical-align: top;
+		text-align: center;
+		font-size: 0.625rem;
+		color: rgb(var(--color-500));
+		background-color: rgb(var(--color-112));
+	}
+
+	.swiper-container { 
+		&.camTip {
+			margin:20px -20px; width:auto; 
+			.swiper-slide { 
+				padding:0 20px; 
+				box-sizing:border-box; 
+				.box2 { 
+					padding:8vw 7vw; 
+				}
+			}
+			.swiper-pagination { 
+				position:absolute; 
+				left:0; 
+				top:8vw; 
+				width:88%; 
+				text-align:right; 
+			}
+			.swiper-pagination-bullet { 
+				border:1px solid rgb(var(--color-112)); 
+				background:rgb(var(--color-112)); 
+				width:8px; 
+				height:8px; 
+				margin:3px; 
+			}
+			.swiper-pagination-bullet-active { 
+				border:1px solid #3767F5; 
+				background:#3767F5; 
+			}
+		}
+	}
+}
+
+.titTy2.pm {
+	margin-top: 4.375rem;
+	&:first-of-type {
+		margin-top: 0;
+	}
+}
+.half_bg {
+	background: linear-gradient(to top, rgb(var(--color-502)) 50%, transparent 50%);
+}
+.bc1 {
+	background-color: rgb(var(--color-469)) !important;
+}
+.bc2 {
+	background-color: rgb(var(--color-267)) !important;
+}
+.bc3 {
+	background-color: rgb(var(--color-469)) !important;
+}
+.bc4 {
+	background-color: rgb(var(--color-466)) !important;
+}
+.bc5 {
+	background-color: rgb(var(--color-475)) !important;
+}
+.bc6 {
+	background-color: rgb(var(--color-468)) !important;
+}
+.bc7 {
+	background-color: rgb(var(--color-493)) !important;
+}
+.bc8 {
+	background-color: rgb(var(--color-476)) !important;
+}
+.bc9 {
+	background-color: rgb(var(--color-470)) !important;
+}
+.bc10 {
+	background-color: rgb(var(--color-471)) !important;
+}
+.bc11 {
+	background-color: rgb(var(--color-492)) !important;
+}
+.bc12 {
+	background-color: rgb(var(--color-028)) !important;
+}
+.bc13 {
+	background-color: rgb(var(--color-112)) !important;
+}
+.bc14 {
+	background-color: rgb(var(--color-476)) !important;
+}
+.bc15 {
+	background-color: rgb(var(--color-199)) !important;
+}
+.bc16 {
+	background-color: rgb(var(--color-402)) !important;
+}
+
+

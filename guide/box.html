@@ -1,0 +1,1188 @@
+<html lang="ko" data-theme="light"><head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="주식, 선물옵션, 재테크, 금융상품, 체크카드, 자산관리서비스, 디지털금융전문">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KB증권">
+<meta property="og:description" content="국민의 평생 투자파트너">
+<meta property="og:image" content="https://tong.kbsec.com/og/og_thum.jpg">
+<meta property="og:url" content="http://www.kbsec.com/">
+<title> Mable 디자인 가이드 </title>
+<link rel="preload" href="/mable/common/font/KBFGTextL.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="/mable/common/font/KBFGTextM.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="icon" href="/images/common/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/images/common/apple-touch-icon-254x254-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="254×254" href="/images/common/apple-touch-icon-254x254-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144×144" href="/images/common/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114×114" href="/images/common/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72×72" href="/images/common/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="/images/common/apple-touch-icon-57x57-precomposed.png">
+<link rel="stylesheet" type="text/css" href="/mable/guide/common/css/guide_test.css">
+<link rel="stylesheet" type="text/css" href="/mable/common/css/index.css">
+<link rel="stylesheet" type="text/css" href="/mable/common/css/emoji.css">
+<script type="text/javascript" src="/mable/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="/mable/common/js/new_ui.js"></script> 
+<script src="/mable/common/js/theme.js"></script>
+<script type="text/javascript">
+//document.querySelector("meta[name=viewport]").setAttribute("content", "width=device-width");
+</script>
+<style>
+.preview_wrap{display:none; position:fixed; top:50%; left:50%; width:379px; height:700px; margin-left:-189px; margin-top:-350px; border:1px solid #000; background:#fff; z-index:100000;}
+.preview_wrap .dim{display:block;}
+.preview_inner{position:relative; z-index:9999;}
+.preview_inner .tit{display:table; table-layout:fixed; height:47px; background:#fff; border-bottom:1px solid #000;}
+.preview_inner .tit a{display:table-cell; width:100%; padding:0; padding-left:10px; vertical-align:middle; font-size:14px;}
+.preview_inner .tit button{display:table-cell; width:47px; border-left:1px solid #000; text-align:center; line-height:47px; vertical-align:middle; font-size:28px; font-weight:bold;}
+.preview_inner iframe{width:100%; height:650px; background:#fff;}
+.lottieLoad { width: 50px; }
+.lottieWrap { display: flex; flex-wrap: wrap; gap: 1rem;  margin-top: 1rem; }
+.emojiList { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; width: 90%; }
+.emojiList li span.noto { font-family: "Noto Color Emoji"; }
+.emojiList span { font-size: 2rem; }
+.munuLink { position: fixed; right: 10px; bottom: 10px; border:1px solid #ccc; background: #fff; z-index: 10000000; }
+.munuLink li { font-size:12px; padding:4px 10px; }
+.munuLink li a { display: block; }
+</style>
+</head>
+<body style="">
+<div class="guideWrap">
+    <div class="projectName">
+        <img src="/mable/guide/images/img_logo_mable.png" width="auto" height="90px">
+    </div>
+    <div class="contents">
+        <div class="navArea">
+            <div class="gnb">
+                <!--<h1 class="tit">공통 웹 가이드</h1>-->
+                <ul class="list guideList goLink">
+                    <li class=""><a data-href="layout.html" title="layout.html">레이아웃</a></li>
+                    <li class=""><a data-href="tab.html" title="tab.html">탭</a></li>
+                    <li class=""><a data-href="font.html" title="font.html">텍스트</a></li>
+                    <li class=""><a data-href="list.html" title="list.html">리스트</a></li>
+                    <li class=""><a data-href="table.html" title="table.html">테이블</a></li>
+                    <li class=""><a data-href="button.html" title="button.html">버튼</a></li>
+                    <li class=""><a data-href="form.html" title="form.html">Form(입력양식)</a></li>
+                    <li class=""><a data-href="accordion.html" title="accordion.html">아코디언</a></li>
+                    <li class=""><a data-href="bottom.html" title="bottom.html">바텀시트</a></li>
+                    <li class=""><a data-href="tag.html" title="tag.html">Tag</a></li>
+                    <li class="active"><a data-href="box.html" title="box.html">Box</a></li>
+                    <li><a data-href="step.html" title="step.html">Step</a></li>
+                    <li><a data-href="emoji.html" title="emoji.html">emoji</a></li>
+                    <li><a data-href="mark.html" title="mark.html">기본 표기 정의</a></li>
+                    <li><a data-href="html.html" title="html.html">HTML 가이드</a></li>
+                    <li><a data-href="css.html" title="css.html">CSS 가이드</a></li>
+                    <li><a href="script.html" target="_blank">script 가이드</a></li>
+                    <li><a data-href="font_calc.html" title="font_calc.html">계산기</a></li>
+                    <li><a href="/etc/encoder.html" target="_blank">URL-encoder</a></li>
+                </ul>
+                <!-- <div id="txt"></div> -->
+            </div>
+        </div>
+        <div class="guideCont">
+
+<div class="contWrap">
+	<div class="section">
+		<h2 class="guideTitTy2">Default Box Type</h2>
+		<div class="guideTy">
+			<h3 class="guideTitTy3">상단박스</h3>
+			<ul class="mainList">
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.top</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy top">
+								<ul class="listTy6">
+									<li>콘텐츠 내용 입력</li>
+								</ul>
+							</div>
+							<div class="boxTy top mg-box-box">
+								<ul class="listTy1">
+									<li>콘텐츠 내용 입력</li>
+									<li>콘텐츠 내용 입력</li>
+								</ul>
+							</div>
+							<div class="boxTy top mg-box-box">
+								<h1 class="tit">타이틀입력</h1>
+								<ul class="listTy1">
+									<li>콘텐츠 내용 입력</li>
+									<li>콘텐츠 내용 입력</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="20">&lt;div class="boxTy top"&gt;
+	&lt;ul class="listTy6"&gt;
+		&lt;li&gt;콘텐츠 내용 입력&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="boxTy top"&gt;
+	&lt;ul class="listTy1"&gt;
+		&lt;li&gt;콘텐츠 내용 입력&lt;/li&gt;
+		&lt;li&gt;콘텐츠 내용 입력&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="boxTy top"&gt;
+	&lt;h1 class="tit"&gt;타이틀입력&lt;/h1&gt;
+	&lt;ul class="listTy1"&gt;
+		&lt;li&gt;콘텐츠 내용 입력&lt;/li&gt;
+		&lt;li&gt;콘텐츠 내용 입력&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<h3 class="guideTitTy3">하단박스</h3>
+			<ul class="mainList">
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.foot</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy foot">
+								<ul class="listTy6">
+									<li>콘텐츠 내용 입력</li>
+								</ul>
+							</div>
+							<div class="boxTy foot mg-box-box">
+								<ul class="listTy1">
+									<li>콘텐츠 내용 입력</li>
+									<li>콘텐츠 내용 입력</li>
+								</ul>
+							</div>
+							<div class="boxTy foot mg-box-box">
+								<h1 class="tit">타이틀입력</h1>
+								<ul class="listTy1">
+									<li>콘텐츠 내용 입력</li>
+									<li>콘텐츠 내용 입력</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="20">&lt;div class="boxTy foot"&gt;
+	&lt;ul class="listTy6"&gt;
+		&lt;li&gt;콘텐츠 내용 입력&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="boxTy foot"&gt;
+	&lt;ul class="listTy1"&gt;
+		&lt;li&gt;콘텐츠 내용 입력&lt;/li&gt;
+		&lt;li&gt;콘텐츠 내용 입력&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="boxTy foot"&gt;
+	&lt;h1 class="tit"&gt;타이틀입력&lt;/h1&gt;
+	&lt;ul class="listTy1"&gt;
+		&lt;li&gt;콘텐츠 내용 입력&lt;/li&gt;
+		&lt;li&gt;콘텐츠 내용 입력&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<h3 class="guideTitTy3">기타</h3>
+			<ul class="mainList">
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.fullTy</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy fullTy bottomTy">
+								<p class="tit">&lt;예금자보호 안내&gt;</p>
+								<div class="cont">
+									<p>이 금융상품은 예금자보호법에 따라 예금보험공사가 보호하지 않습니다.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="5">&lt;div class="boxTy fullTy bottomTy"&gt;
+	&lt;p class="tit"&gt;&lt;예금자보호 안내&gt;&lt;/p&gt;
+	&lt;div class="cont"&gt;
+		&lt;p&gt;이 금융상품은 예금자보호법에 따라 예금보험공사가 보호하지 않습니다.&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt; 
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.fullTy2</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy fullTy2">
+								margin: 0 -20px; background: transparent;
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="5">&lt;div class="boxTy fullTy2"&gt;
+	margin: 0 -20px; background: transparent;
+&lt;/div&gt; 
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.blue</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy blue">
+								<button class="tit goToLinkTy4">사전준비 안내</button>
+								<p>인기 있는 공모주의 청약 당일은 혼잡할 수 있으니, 미리 준비해주세요!</p>
+							</div>
+							<div class="boxTy blue mg-box-box">
+								<h2 class="title">고수란?</h2>
+								<ul class="listTy6">
+									<li>KB증권 고객 중 과거 1년간 추정수익률 상위 고객 그룹을 의미합니다. 고수에 해당하는 고객 그룹은 매 월말 재선정하며, 선정기준은 당사에서 정하는 기준에 따라 변경 될 수 있습니다.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="11">&lt;div class="boxTy blue"&gt;
+	&lt;button class="tit goToLinkTy4"&gt;버튼링크&lt;/button&gt;
+	&lt;p&gt;컨텐츠&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="boxTy blue"&gt;
+	&lt;h2 class="title"&gt;타이틀&lt;/h2&gt;
+	&lt;ul class="listTy6"&gt;
+		&lt;li&gt;컨텐츠&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.blueGray</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy blueGray">
+								<h4 class="tit">최종선정</h4>
+								<ul class="listTy1">
+									<li>정량 및 정성적 평가를 통해 최종 엄선된 펀드들 가운데 추천펀드 회의를 통해 최종 추천펀드 선정</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="6">&lt;div class="boxTy blueGray"&gt;
+	&lt;h2 class="tit"&gt;타이틀&lt;/h2&gt;
+	&lt;ul class="listTy6"&gt;
+		&lt;li&gt;컨텐츠&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.blueWhite</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy blueWhite">
+								<h3 class="tit">타이틀</h3>
+								<ul class="listTy6">
+									<li>내 우대조건을 확인해 보세요.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="6">&lt;div class="boxTy blueWhite"&gt;
+	&lt;h2 class="tit"&gt;타이틀&lt;/h2&gt;
+	&lt;ul class="listTy6"&gt;
+		&lt;li&gt;컨텐츠&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.gray</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy gray">
+								<h3 class="tit">타이틀</h3>
+								<ul class="listTy6">
+									<li>컨텐츠 가나다라마바사아자차카타파하</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="6">&lt;div class="boxTy gray"&gt;
+	&lt;h2 class="tit"&gt;타이틀&lt;/h2&gt;
+	&lt;ul class="listTy6"&gt;
+		&lt;li&gt;컨텐츠&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.white</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy white">
+								<h3 class="tit">타이틀</h3>
+								<ul class="listTy6">
+									<li>컨텐츠 background: rgb(var(--color-028));</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="6">&lt;div class="boxTy white"&gt;
+	&lt;h2 class="tit"&gt;타이틀&lt;/h2&gt;
+	&lt;ul class="listTy6"&gt;
+		&lt;li&gt;컨텐츠&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.yellow</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy yellow">
+								<h3 class="tit">타이틀</h3>
+								<ul class="listTy6">
+									<li>컨텐츠 background: rgb(var(--color-235),0.2);</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="6">&lt;div class="boxTy yellow"&gt;
+	&lt;h2 class="tit"&gt;타이틀&lt;/h2&gt;
+	&lt;ul class="listTy6"&gt;
+		&lt;li&gt;컨텐츠&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.line</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy line">
+								<h3 class="tit">타이틀</h3>
+								<ul class="listTy6">
+									<li>컨텐츠 가나다라마바사아자차카타파하</li>
+								</ul>
+							</div>
+
+							<div class="boxTy line ty2 mg-box-box">
+								<h3 class="tit">타이틀</h3>
+								<ul class="listTy6">
+									<li>컨텐츠 가나다라마바사아자차카타파하</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="13">&lt;div class="boxTy line"&gt;
+	&lt;h2 class="tit"&gt;타이틀&lt;/h2&gt;
+	&lt;ul class="listTy6"&gt;
+		&lt;li&gt;컨텐츠&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="boxTy line ty2"&gt;
+	&lt;h2 class="tit"&gt;타이틀&lt;/h2&gt;
+	&lt;ul class="listTy6"&gt;
+		&lt;li&gt;컨텐츠&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.lineTy2</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy lineTy2">
+								<h3 class="tit">타이틀</h3>
+								<ul class="listTy6">
+									<li>컨텐츠 가나다라마바사아자차카타파하</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="6">&lt;div class="boxTy lineTy2"&gt;
+	&lt;h2 class="tit"&gt;타이틀&lt;/h2&gt;
+	&lt;ul class="listTy6"&gt;
+		&lt;li&gt;컨텐츠&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.columnTop + .boxTy.columnBottom</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy gray columnTop mg-list-box">
+								<ul class="listTy6">
+									<li>주문, 뱅킹, 청약, 온라인 매체 등 전반적인 증권 업무를 상담해드립니다.</li>
+								</ul>
+								<ul class="listTy1 listCol2 mg-list-list-ty2">
+									<li>시세 및 지수 조회</li>
+									<li>금융상품 안내</li>
+								</ul>
+							</div>
+							<div class="boxTy gray columnBottom">
+								<ul class="listTy4">
+									<li>평일 08:00-18:00 (토, 일요일 공휴일 제외)</li>
+									<li>해외에서 이용 시 +82-2-787-7200</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="13">&lt;div class="boxTy gray columnTop mg-list-box"&gt;
+	&lt;ul class="listTy6"&gt;
+		&lt;li&gt;컨텐츠&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;ul class="listTy1 listCol2 mg-list-list-ty2"&gt;
+		&lt;li&gt;컨텐츠&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="boxTy gray columnBottom"&gt;
+	&lt;ul class="listTy4"&gt;
+		&lt;li&gt;컨텐츠&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.columnTy.col(num)</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<ul class="boxTy columnTy col2 tC">
+								<li>
+									<img src="/mable/images/finance/cmaitem_1.png" alt="icon" class="ic ty1">
+									<h1 class="tit">발행어음형</h1>
+									<ul class="listTy6">
+										<li>KB증권이 발행한 어음에<br>투자하여 매일 수익률을!</li>
+									</ul>
+								</li>
+								<li>
+									<img src="/mable/images/finance/cmaitem_2.png" alt="icon" class="ic ty1">
+									<h1 class="tit">RP형</h1>
+									<ul class="listTy6">
+										<li>채권을 일정기간 후 다시<br>매수하는 조건으로 수익률 지급</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="10">	&lt;ul class="boxTy columnTy col2 tC"&gt;
+		&lt;li&gt;
+			&lt;img src="이미지 경로" alt="icon" class="ic ty1"&gt;
+			&lt;h1 class="tit"&gt;타이틀&lt;/h1&gt;
+			&lt;ul class="listTy6"&gt;
+				&lt;li&gt;컨텐츠&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;img src="이미지 경로" alt="icon" class="ic ty1"&gt;
+			&lt;h1 class="tit"&gt;타이틀&lt;/h1&gt;
+			&lt;ul class="listTy6"&gt;
+				&lt;li&gt;컨텐츠&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy.columnTy.col(num) &gt; .wide</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<ul class="boxTy columnTy col2">
+								<li>
+									<img src="/mable/images/asset/ic_fund_method_01.png" class="ic">
+									<h2 class="tit">주식형펀드</h2>
+									<ul class="listTy6">
+										<li>주식에 60%이상 투자</li>
+									</ul>
+								</li>
+								<li>
+									<img src="/mable/images/asset/ic_fund_method_02.png" class="ic">
+									<h2 class="tit">채권형펀드</h2>
+									<ul class="listTy6">
+										<li>채권에 60%이상 투자</li>
+									</ul>
+								</li>
+								<li class="wide">
+									<img src="/mable/images/asset/ic_fund_method_07.png" class="ic">
+									<h2 class="tit">혼합형펀드</h2>
+									<ul class="listTy6">
+										<li>투자비율에 따라 주식혼합형, 채권혼합형으로 분류
+											<ul class="listTy2">
+												<li>주식혼합형 : 주식에 최대 50%이상 투자</li>
+												<li>채권혼합형 : 주식에 최대 투자 가능 비율이 50%미만 투자</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="17">	&lt;ul class="boxTy columnTy col2"&gt;
+		&lt;li&gt;
+			&lt;img src="이미지 경로" alt="icon" class="ic ty1"&gt;
+			&lt;h1 class="tit"&gt;타이틀&lt;/h1&gt;
+			&lt;ul class="listTy6"&gt;
+				&lt;li&gt;컨텐츠&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;img src="이미지 경로" alt="icon" class="ic ty1"&gt;
+			&lt;h1 class="tit"&gt;타이틀&lt;/h1&gt;
+			&lt;ul class="listTy6"&gt;
+				&lt;li&gt;컨텐츠&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+		&lt;li class="wide"&gt;
+			&lt;img src="이미지 경로" alt="icon" class="ic ty1"&gt;
+			&lt;h1 class="tit"&gt;타이틀&lt;/h1&gt;
+			&lt;ul class="listTy6"&gt;
+				&lt;li&gt;컨텐츠&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="section">
+		<h2 class="guideTitTy2">Etc Box Type</h2>
+		<div class="guideTy">
+			<ul class="mainList">
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy2</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy2">
+								margin: 0 -20px; background: rgb(var(--color-025));
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="7">&lt;div class="boxTy2"&gt;
+	margin: 0 -20px; background: rgb(var(--color-025));
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy2.icoTy2</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy2 icoTy2 bgcTy4">
+								<h1 class="tit">
+									종목의 가격을 부르는 말,<br>
+									그때 그때 달라요~
+								</h1>
+								<div class="tagList">
+									<span>#현재가</span><span>#시가</span><span>#종가</span><span>#호가</span><br><span>#상한가</span><span>#하한가</span><span>#내속엔내가너무나많아</span>
+								</div>
+								<span class="ico"><img src="/mable/images/cs/ico_termguide.png"></span>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="7">&lt;div class="boxTy2 icoTy2 bgcTy4"&gt;
+	&lt;h1 class="tit"&gt;
+		종목의 가격을 부르는 말,&lt;br&gt;
+		그때 그때 달라요~
+	&lt;/h1&gt;
+	&lt;div class="tagList"&gt;
+		&lt;span&gt;#현재가&lt;/span&gt;&lt;span&gt;#시가&lt;/span&gt;&lt;span&gt;#종가&lt;/span&gt;&lt;span&gt;#호가&lt;/span&gt;&lt;br&gt;&lt;span&gt;#상한가&lt;/span&gt;&lt;span&gt;#하한가&lt;/span&gt;&lt;span&gt;#내속엔내가너무나많아&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;span class="ico"&gt;&lt;img src="/mable/images/cs/ico_termguide.png"&gt;&lt;/span&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy2.ty3</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy2 ty3">
+								<h1 class="tit tC">투자 필수 시대, 자산관리는 증권사 ISA와 함께<br>ISA는 투자전문가인 증권사와 함께 하세요!</h1>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="7">&lt;div class="boxTy2 ty3"&gt;
+	&lt;h1 class="tit tC"&gt;투자 필수 시대, 자산관리는 증권사 ISA와 함께&lt;br&gt;ISA는 투자전문가인 증권사와 함께 하세요!&lt;/h1&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy2.ty3.icoTy</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy2 ty3 icoTy lsTy2">
+								<h1 class="tit point">
+									<span class="con">내가 선택한 투자전문가와 상담할 수 있는</span><br>투자자문 PLAZA
+								</h1>
+								<span class="ico"><img src="/mable/images/asset/ico_plaza.png"></span>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="7">&lt;div class="boxTy2 ty3 icoTy lsTy2"&gt;
+	&lt;h1 class="tit point"&gt;
+		&lt;span class="con"&gt;내가 선택한 투자전문가와 상담할 수 있는&lt;/span&gt;&lt;br&gt;투자자문 PLAZA
+	&lt;/h1&gt;
+	&lt;span class="ico"&gt;&lt;img src="/mable/images/asset/ico_plaza.png"&gt;&lt;/span&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.boxTy6</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="boxTy6 bc15">
+								<ul class="listTy13 pt0">
+									<li>AI를 활용한 비대면 초개인화 투자관리 일임 운용(Wrap) 서비스로 고객님을 대신하여 투자 종목을 선정하고, 매매하고, 리밸런싱합니다.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="7">&lt;div class="boxTy6 bc15"&gt;
+	&lt;ul class="listTy13 pt0"&gt;
+		&lt;li&gt;컨텐츠&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.footBanner</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<p class="footBanner"><img src="/mable/images/asset/banner_fund.png" alt=""></p>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="2">&lt;p class="footBanner"&gt;&lt;img src="이미지경로" alt=""&gt;&lt;/p&gt;
+참고사항 : border-radius: 5px;
+</textarea>
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.footBanner.ty2</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="footBanner ty2"><img src="/mable/images/asset/banner_isainfo.png"></div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="2">&lt;div class="footBanner ty2"&gt;&lt;img src="이미지 경로"&gt;&lt;/div&gt;
+참고사항 : border-radius: 0px;
+</textarea>
+
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.bannerArea</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="bannerArea">
+								<!-- <a href="kbsec://gmts?openpopup=FF000000" class="bannerTy1"> -->
+								<div class="txt">
+									<strong style="letter-spacing:-1px;">반등국면에 주목할 핵심 펀드 5선!</strong>
+									<p class="sTxt">본격적인 반등국면을 맞이하여 KB증권이 선택한 <strong>주목할 핵심 펀드</strong>를 소개합니다.</p>
+								</div>
+								<span class="ico"><img src="/mable/images/util/icon_fund.png"></span>
+								<!-- </a> -->
+							</div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="7">&lt;div class="bannerArea"&gt;
+	&lt;div class="txt"&gt;
+		&lt;strong style="letter-spacing:-1px;"&gt;반등국면에 주목할 핵심 펀드 5선!&lt;/strong&gt;
+		&lt;p class="sTxt"&gt;본격적인 반등국면을 맞이하여 KB증권이 선택한 &lt;strong&gt;주목할 핵심 펀드&lt;/strong&gt;를 소개합니다.&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;span class="ico"&gt;&lt;img src="/mable/images/util/icon_fund.png"&gt;&lt;/span&gt;
+&lt;/div&gt;
+</textarea>
+
+						</div>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.imgBox</div>
+					</div>
+					<div class="item">
+						<div class="tL">
+							<div class="imgBox mgNone"><img src="/mable/images/asset/img_step_7_1.png"></div>
+							<div class="imgBox ty2 gray"><img src="/mable/images/trading/img_graph_usStockOption_tip_01.png"></div>
+						</div>
+					</div>
+					<div class="item subList">
+						<div class="item">
+<textarea style="width: 100%;" rows="7">&lt;div class="imgBox mgNone"&gt;&lt;img src="이미지 경로"&gt;&lt;/div&gt;
+참고사항 : margin: 0 auto;
+
+&lt;div class="imgBox ty2 gray"&gt;&lt;img src="이미지 경로"&gt;&lt;/div&gt;
+참고사항 : .ty2(margin: 1.25rem 0;)
+</textarea>
+
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var thisBtn = $(".viewBtn button");
+	var layout = $(".layout");
+	thisBtn.on('click', function(){
+		var btnClass = $(this).attr('class');
+		$(this).addClass('active');
+		$('button').not(this).removeClass('active');
+		layout.removeClass().addClass('layout '+ btnClass);
+	});
+});
+
+function bottomSheet(value){
+	var val = value;
+	var obj = $('.bottomSheet');
+	obj.close = $('.dim, .bottomSheet .close, .bottomSheet .sheetClose');
+	obj.find('.inCont').removeClass('active');
+	obj.find('.inCont.ty'+val).addClass('active');
+	obj.addClass('active');
+
+	obj.close.on('click', function(){
+		obj.removeClass('active');
+	});
+};
+</script>
+
+
+
+
+
+</div>
+        
+        <div class="preview_wrap">
+            <div class="dim"></div>
+            <div class="preview_inner">
+                <p class="tit">
+                    <a href="" title="새창열림" target="_blank"></a>
+                    <button type="button" class="close">X</button>
+                </p>
+                <iframe src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+    const dateNow = Date.now();  // 캐시방지
+	console.log(dateNow);
+
+$(document).ready(function() {
+
+    var tabBtn = $(".tab li");
+    tabBtn.on('click', function(){
+        var thisClass = $(this).attr('class');
+        $(this).addClass('active');
+        $('.tab li').not(this).removeClass('active');
+
+        if(thisClass === "guideList"){
+            $(".list.guideList").show();
+            $(".list.menuList").hide();
+            $(".list.guideList li:eq(0)").addClass('active');
+            $('.list.menuList li').not(this).removeClass('active');
+        } else if(thisClass === "menuList"){
+            $(".list.menuList").show();
+            $(".list.guideList").hide();
+            $(".list.menuList li:eq(0)").addClass('active');
+            $('.list.guideList li').not(this).removeClass('active');
+        };
+
+        console.log(thisClass);
+    });
+
+    var thisBtn = $(".list li");    
+    thisBtn.on('click', function(){
+        var btnClass = $(this).attr('class');
+        $(this).addClass('active');
+        $('.list li').not(this).removeClass('active');
+    });
+    openURL('layout.html');
+    
+});
+
+function bottomSheet(value){
+	var val = value;
+	var obj = $('.bottomSheet');
+	obj.close = $('.dim, .bottomSheet .close, .bottomSheet .sheetClose');
+	obj.find('.inCont').removeClass('active');
+	obj.find('.inCont.ty'+val).addClass('active');
+	obj.addClass('active');
+
+	obj.close.on('click', function(){
+		obj.removeClass('active');
+	});
+};
+
+let list = document.querySelectorAll('.goLink li');
+
+const getElmIndex = (element, range)=>{
+    if(!!range) return [].indexOf.call(element, range);
+	return [].indexOf.call(element.parentNode.children, element);
+};
+
+[].forEach.call(list, function(el){
+    el.addEventListener('click', function(){
+        let getURL = this.firstChild.getAttribute('data-href');
+        openURL(getURL);
+    });
+});
+
+function openURL(getURL){
+    // var myHeader = new Headers();
+    // myHeader.append('Content-Type','text/html; charset=EUC-KR');
+    fetch(getURL, {
+        headers : {'Content-Type':'text/html; charset=EUC-KR'},
+        cache : 'no-cache'
+    }).then(function(res){
+        return res.arrayBuffer();
+    }).then(function(buffer){
+        const decoder = new TextDecoder('euc-kr');
+        const text = decoder.decode(buffer);
+        let parser = new DOMParser();
+        let htmlDom = parser.parseFromString(text,'text/html');
+        function encodingText(){
+            htmlDom.querySelector('body').innerHTML.charset = "euc-kr";
+        }
+        var cont = htmlDom.querySelector('body');
+        document.querySelector('.guideCont').innerHTML = cont.innerHTML;
+        document.getElementById('txt').innerHTML = getURL;
+        $('.guideCont .end').each(function(index, item){
+            // let link = this.attr('href');
+            $(this).parent().append('<br><span class="layBtn btnTy8 light" style="margin-top:10px;display:inline-block;cursor:pointer">라이트</span> <span class="layBtn btnTy8 dark" style="margin-top:10px;display:inline-block;cursor:pointer">다크</span>');
+        });
+        document.querySelector('.guideCont').scrollTo(0,0);
+        ui.init();
+        fontCal();
+    });
+}
+
+var ui = {
+    layer : function(e){
+        $(".layBtn").click(function(){
+            $(".layBtn").removeClass('active');
+            $(this).addClass('active');
+            var link = $(this).parent().find('.end').attr("href").replace(' ','')+'?ver='+dateNow;
+            var linkDark = $(this).parent().find('.end').attr("href").replace(' ','')+'?d&var='+dateNow;
+
+            let _this = $(this);
+            if(_this.is('.light')) {
+                $(".preview_wrap").show().find(".tit a").attr("href", link).text(link);
+                $(".preview_wrap").find("iframe").attr("src", link);
+            } else {
+                $(".preview_wrap").show().find(".tit a").attr("href", linkDark).text(linkDark);
+                $(".preview_wrap").find("iframe").attr("src", linkDark);
+            }
+        });
+        $(".close").click(function(){
+            $(".preview_wrap").hide();
+        });
+    },
+    viewBtm :function(opts){
+        var _thisBtn = $(".viewBtn button");
+        var _layout = $(".layout");
+        _thisBtn.on('click', function(){
+            var _btnClass = $(this).attr('class');
+            $(this).addClass('active');
+            $('button').not(this).removeClass('active');
+            _layout.removeClass().addClass('layout '+ _btnClass);
+        });
+    },
+    bottomSheet : function(value){
+        var val = value;
+        var obj = $('.bottomSheet');
+        obj.close = $('.dim, .bottomSheet .close, .bottomSheet .sheetClose');
+        obj.find('.inCont').removeClass('active');
+        obj.find('.inCont.ty'+val).addClass('active');
+        obj.addClass('active');
+
+        obj.close.on('click', function(){
+            obj.removeClass('active');
+        });
+    },
+    accordion : function(){
+        // graph image change
+        if ( $('.compareRate').get(0) !== undefined)  {
+            $('.btnListCR li a').on('click', function() {
+                var $thisImg = $('.areaGraph img');
+                var liAll = $('.btnListCR li');
+                var $thisIndex = $(this).closest('li').index();
+                var activeClass = 'active';
+                liAll.removeClass(activeClass);
+                liAll.eq($thisIndex).addClass(activeClass);
+                $thisImg.removeClass(activeClass);
+                $thisImg.eq($thisIndex - 1).addClass(activeClass);
+            })
+        }
+
+        // scroll tab box shadow
+        if ( $('.includeTab').get(0) !== undefined)  {
+            $(window).on('scroll',function () {
+                if ($(document).scrollTop() > 0) {
+                    $('.includeTab > div').addClass('scrollActive');
+                } else {
+                    $('.includeTab > div').removeClass('scrollActive');
+                }
+            });
+        }
+
+        // scroll tab last menu position: tabTy5
+        if ( $('.tabTy5').get(0) !== undefined)  {
+            if ($('.tabTy5').hasClass('lastMenu')) {
+                var bWidth = $('body').outerWidth();
+                $('.wrapTabTy5').scrollLeft(bWidth);
+            }
+        }
+
+        // toggleList: content visible/hidden
+        if ( $('.toggleList').get(0) !== undefined)  {
+            
+            var offsets = [],
+                faqTit = $('.toggleAccordion li > a'),
+                beforeThis = '',
+                offsetsList = function () {
+                    faqTit.each(function(){
+                        var $thisOffset = $(this).offset().top;
+                        offsets.push($thisOffset);
+                    });
+                };
+            setTimeout(offsetsList,100);
+            $('.toggleList li > a').on('click',function() {
+                var $this = $(this),
+                    $thisLi = $this.closest('li'),
+                    $thisUl = $this.closest('Ul'),
+                    $thisIndex = $thisLi.index(),
+                    activeClass = 'active';
+                if (!$thisLi.hasClass(activeClass) ) {
+                    if ($thisUl.hasClass('toggleAccordion')) {
+                        if ( beforeThis !== '') {
+                            $(beforeThis).removeClass(activeClass).find('.toggleBox').slideUp(100);
+                        }
+                        if ( $('.wrapTy5').hasClass('includeTab') && $('.toggleList').length === 1) {
+                            $("html, body").animate({scrollTop:offsets[$thisIndex]-37}, 300);
+                        } else if ( $('.toggleList').length === 1) {
+                            $("html, body").animate({scrollTop:offsets[$thisIndex]}, 300);
+                        }
+                    }
+                    $thisLi.toggleClass(activeClass).find('.toggleBox').slideToggle(100);
+                    beforeThis = $thisLi;
+                    return beforeThis;
+                } else {
+                    $thisLi.removeClass(activeClass).find('.toggleBox').slideUp(100);
+                }
+            });
+        }
+
+        // slide: guide
+        if ($('.importantGuide').get(0) !== undefined) {
+            var isArrows = true;
+            var isDots = true;
+            if (!$('.importantGuide').hasClass('ty2')) {
+                isArrows = false;
+            } else {
+                isDots = false;
+            }
+            $('.importantGuide').slick(
+                {
+                    arrows:isArrows,
+                    dots: isDots,
+                    infinite: false
+                }
+            );
+        }
+    },
+    menuList : function(e){
+        var $front = $("#FrontList"), 
+        front = $front.get(0);
+        $(".tbTy1 a").html(function(){ if(((/\/[^\/]+\.html/).test(this.href)||(/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/)){ return this.href.substring(this.href.lastIndexOf("/")+1); } }).each(function(){
+            if(this.onclick) return false;
+            else this.target = "_blank";
+        });
+
+        front.a = $front.find("a") || undefined;
+        var end = front.a.filter(".end").filter(function(){ return ((/\/[^\/]+\.html/).test(this.href) || (/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/); }).length;
+        var ing = front.a.filter(".test").filter(function(){ return ((/\/[^\/]+\.html/).test(this.href) || (/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/); }).length;
+        $("#pages").find("em").eq(0).html(front.a.length).end()
+            .eq(1).html(ing).end()
+            .eq(2).html(end).end().end()
+            .find("strong").html( (parseInt(( (end)/front.a.length )*1000)/10 || 0)+'%' );
+        $(".listHead").html($("#pages").html());
+
+
+        var lastdate = "0000-00-00";
+        $("#FrontList .push-date, #FrontList .mod-date").each(function(){
+            var compare = [this.innerHTML.replace(/-/gi,"") , lastdate.replace(/-/gi,"")];
+            if(parseFloat(compare[0]) > parseFloat(compare[1])) lastdate = this.innerHTML;
+        });
+        $("#FrontList .push-date:contains('"+lastdate+"'), #FrontList .mod-date:contains('"+lastdate+"')").addClass("last"); //최근 전달일 체크
+    },
+    init : function(opts){
+        opts = opts || {};
+        ui.viewBtm();
+        ui.accordion();
+        ui.menuList();
+        ui.layer();
+    }
+}
+
+
+function fontCal(){
+
+    const inputSize = document.querySelector('#fontSize');
+const inputResult = document.querySelector('#sizeResult');
+const inputRem = document.querySelector('#remResult');
+const inputBtn = document.querySelector('#calcBtn');
+
+	const inValue = inputSize.value;
+	const result = parseInt(inValue)*2/3;
+	inputResult.value = result;
+	inputRem.value = result / 16;
+
+    inputSize.addEventListener('keyup', function(event){
+	if (event.keyCode === 13) {
+		event.preventDefault();
+		document.getElementById('calcBtn').click();
+	}
+});
+}
+
+
+</script>
+
+
+</body></html>

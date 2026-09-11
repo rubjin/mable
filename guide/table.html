@@ -1,0 +1,871 @@
+<html lang="ko" data-theme="light"><head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="주식, 선물옵션, 재테크, 금융상품, 체크카드, 자산관리서비스, 디지털금융전문">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KB증권">
+<meta property="og:description" content="국민의 평생 투자파트너">
+<meta property="og:image" content="https://tong.kbsec.com/og/og_thum.jpg">
+<meta property="og:url" content="http://www.kbsec.com/">
+<title> Mable 디자인 가이드 </title>
+<link rel="preload" href="/mable/common/font/KBFGTextL.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="/mable/common/font/KBFGTextM.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="icon" href="/images/common/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/images/common/apple-touch-icon-254x254-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="254×254" href="/images/common/apple-touch-icon-254x254-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144×144" href="/images/common/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114×114" href="/images/common/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72×72" href="/images/common/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="/images/common/apple-touch-icon-57x57-precomposed.png">
+<link rel="stylesheet" type="text/css" href="/mable/guide/common/css/guide_test.css">
+<link rel="stylesheet" type="text/css" href="/mable/common/css/index.css">
+<link rel="stylesheet" type="text/css" href="/mable/common/css/emoji.css">
+<script type="text/javascript" src="/mable/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="/mable/common/js/new_ui.js"></script> 
+<script src="/mable/common/js/theme.js"></script>
+<script type="text/javascript">
+//document.querySelector("meta[name=viewport]").setAttribute("content", "width=device-width");
+</script>
+<style>
+.preview_wrap{display:none; position:fixed; top:50%; left:50%; width:379px; height:700px; margin-left:-189px; margin-top:-350px; border:1px solid #000; background:#fff; z-index:100000;}
+.preview_wrap .dim{display:block;}
+.preview_inner{position:relative; z-index:9999;}
+.preview_inner .tit{display:table; table-layout:fixed; height:47px; background:#fff; border-bottom:1px solid #000;}
+.preview_inner .tit a{display:table-cell; width:100%; padding:0; padding-left:10px; vertical-align:middle; font-size:14px;}
+.preview_inner .tit button{display:table-cell; width:47px; border-left:1px solid #000; text-align:center; line-height:47px; vertical-align:middle; font-size:28px; font-weight:bold;}
+.preview_inner iframe{width:100%; height:650px; background:#fff;}
+.lottieLoad { width: 50px; }
+.lottieWrap { display: flex; flex-wrap: wrap; gap: 1rem;  margin-top: 1rem; }
+.emojiList { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; width: 90%; }
+.emojiList li span.noto { font-family: "Noto Color Emoji"; }
+.emojiList span { font-size: 2rem; }
+.munuLink { position: fixed; right: 10px; bottom: 10px; border:1px solid #ccc; background: #fff; z-index: 10000000; }
+.munuLink li { font-size:12px; padding:4px 10px; }
+.munuLink li a { display: block; }
+</style>
+</head>
+<body style="">
+<div class="guideWrap">
+    <div class="projectName">
+        <img src="/mable/guide/images/img_logo_mable.png" width="auto" height="90px">
+    </div>
+    <div class="contents">
+        <div class="navArea">
+            <div class="gnb">
+                <!--<h1 class="tit">공통 웹 가이드</h1>-->
+                <ul class="list guideList goLink">
+                    <li class=""><a data-href="layout.html" title="layout.html">레이아웃</a></li>
+                    <li class=""><a data-href="tab.html" title="tab.html">탭</a></li>
+                    <li class=""><a data-href="font.html" title="font.html">텍스트</a></li>
+                    <li class=""><a data-href="list.html" title="list.html">리스트</a></li>
+                    <li class="active"><a data-href="table.html" title="table.html">테이블</a></li>
+                    <li><a data-href="button.html" title="button.html">버튼</a></li>
+                    <li><a data-href="form.html" title="form.html">Form(입력양식)</a></li>
+                    <li><a data-href="accordion.html" title="accordion.html">아코디언</a></li>
+                    <li><a data-href="bottom.html" title="bottom.html">바텀시트</a></li>
+                    <li><a data-href="tag.html" title="tag.html">Tag</a></li>
+                    <li><a data-href="box.html" title="box.html">Box</a></li>
+                    <li><a data-href="step.html" title="step.html">Step</a></li>
+                    <li><a data-href="emoji.html" title="emoji.html">emoji</a></li>
+                    <li><a data-href="mark.html" title="mark.html">기본 표기 정의</a></li>
+                    <li><a data-href="html.html" title="html.html">HTML 가이드</a></li>
+                    <li><a data-href="css.html" title="css.html">CSS 가이드</a></li>
+                    <li><a href="script.html" target="_blank">script 가이드</a></li>
+                    <li><a data-href="font_calc.html" title="font_calc.html">계산기</a></li>
+                    <li><a href="/etc/encoder.html" target="_blank">URL-encoder</a></li>
+                </ul>
+                <!-- <div id="txt"></div> -->
+            </div>
+        </div>
+        <div class="guideCont">
+
+<div class="contWrap">
+
+    <div class="section">
+
+        <!-- <div class="viewBtn">
+            <button class="iosSE">iosSE</button>
+            <button class="ios12Pro active">ios12Pro</button>
+            <button class="ios12ProMAx">ios12ProMAx</button>
+            <button class="aosS8">aosS8</button>
+            <button class="aosS20">aosS20</button>
+            <button class="aosFold">aosFold</button>
+        </div> -->
+        
+        <h2 class="guideTitTy2">기본 테이블 Type</h2>
+        <div class="layoutArea">
+            <div>
+                <h3 class="titTy1">좌측 헤더 타입</h3>
+                <div class="layout ios12Pro">
+                    <header>
+                        <img src="/mable/guide/images/layout_top.png" width="100%" height="auto">
+                        <div class="tabTy1 col2">
+                            <ul>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                    </header>
+                    <div class="wrapTy5">
+                        <div class="contBox">
+                            <div class="tbTy1">
+                                <table>
+                                    <caption>좌측 헤더 타입 가이드</caption>
+                                    <colgroup>
+                                        <col width="21%">
+                                        <col width="*">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">구분</th>
+                                            <td class="tL">구분에 관한 내용</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">구분</th>
+                                            <td class="tL">구분에 관한 내용</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">구분</th>
+                                            <td class="tL">구분에 관한 내용</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <footer>
+                        <img src="/mable/guide/images/layout_footer.png" width="100%" height="auto">
+                    </footer>
+                </div>
+                <div class="mt20">
+                    <h3 class="titTy1">Code</h3>
+                    <textarea style="width:100%; height:200px;">&lt;div class="tbTy1"&gt;
+    &lt;table&gt;
+        &lt;caption&gt;좌측 헤더 타입 가이드&lt;/caption&gt;
+        &lt;colgroup&gt;&lt;col width="25%"&gt;&lt;col width="*"&gt;&lt;/colgroup&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;th scope="row"&gt;구분&lt;/th&gt;
+                &lt;td class="tL"&gt;구분에 관한 내용&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;th scope="row"&gt;구분&lt;/th&gt;
+                &lt;td class="tL"&gt;구분에 관한 내용&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+                    </textarea>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="titTy1">상단 헤더 타입</h3>
+                <div class="layout ios12Pro">
+                    <header>
+                        <img src="/mable/guide/images/layout_top.png" width="100%" height="auto">
+                        <div class="tabTy1 col2">
+                            <ul>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                    </header>
+                    <div class="wrapTy5">
+                        <div class="contBox">
+                            <div class="tbTy1">
+                                <table>
+                                    <caption>상단 헤더 타입 가이드</caption>
+                                    <colgroup><col width="33%"><col width="33%"><col width="*"></colgroup>
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">구분</th>
+                                        <th scope="col">구분</th>
+                                        <th scope="col">구분</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>내용</td>
+                                            <td>내용</td>
+                                            <td>내용</td>
+                                        </tr>
+                                        <tr>
+                                            <td>내용</td>
+                                            <td>내용</td>
+                                            <td>내용</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <footer>
+                        <img src="/mable/guide/images/layout_footer.png" width="100%" height="auto">
+                    </footer>
+                </div>
+                <div class="mt20">
+                    <h3 class="titTy1">Code</h3>
+                    <textarea style="width:100%; height:200px;">&lt;div class="tbTy1"&gt;
+    &lt;table&gt;
+        &lt;caption&gt;상단 헤더 타입 가이드&lt;/caption&gt;
+        &lt;colgroup&gt;&lt;col width="33%"&gt;&lt;col width="33%"&gt;&lt;col width="*"&gt;&lt;/colgroup&gt;
+        &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;구분&lt;/th&gt;
+            &lt;th scope="col"&gt;구분&lt;/th&gt;
+            &lt;th scope="col"&gt;구분&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+                    </textarea>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="titTy1">좌측+상단 헤더 타입</h3>
+                <div class="layout ios12Pro">
+                    <header>
+                        <img src="/mable/guide/images/layout_top.png" width="100%" height="auto">
+                        <div class="tabTy1 col2">
+                            <ul>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                    </header>
+                    <div class="wrapTy5">
+                        <div class="contBox">
+                            <div class="tbTy1">
+                                <table>
+                                    <caption>좌측+상단 헤더 타입 가이드</caption>
+                                    <colgroup><col width="24%"><col width="33%"><col width="*">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">구분</th>
+                                            <th scope="col">구분</th>
+                                            <th scope="col">구분</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">구분</th>
+                                            <td>내용</td>
+                                            <td>내용</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">구분</th>
+                                            <td>내용</td>
+                                            <td>내용</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <footer>
+                        <img src="/mable/guide/images/layout_footer.png" width="100%" height="auto">
+                    </footer>
+                </div>
+                <div class="mt20">
+                    <h3 class="titTy1">Code</h3>
+                    <textarea style="width:100%; height:200px;">&lt;div class="tbTy1"&gt;
+    &lt;table&gt;
+        &lt;caption&gt;좌측+상단 헤더 타입 가이드&lt;/caption&gt;
+        &lt;colgroup&gt;&lt;col width="24%"&gt;&lt;col width="33%"&gt;&lt;col width="*"&gt;
+        &lt;/colgroup&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th scope="col"&gt;구분&lt;/th&gt;
+                &lt;th scope="col"&gt;구분&lt;/th&gt;
+                &lt;th scope="col"&gt;구분&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;th scope="row"&gt;구분&lt;/th&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;th scope="row"&gt;구분&lt;/th&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+                &lt;td&gt;내용&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+                    </textarea>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="section">
+        <h2 class="guideTitTy2">스크롤 테이블 Type</h2>
+        <div class="layoutArea">
+            <div>
+                <h3 class="titTy1">좌축 헤더 고정 타입</h3>
+                <div class="layout ios12Pro">
+                    <header>
+                        <img src="/mable/guide/images/layout_top.png" width="100%" height="auto">
+                        <div class="tabTy1 col2">
+                            <ul>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                    </header>
+                    <div class="wrapTy5">
+                        <div class="contBox">
+                            <div class="scrollTable tbTy1">
+                                <div class="leftTh">
+                                    <table>
+                                        <caption>좌축 헤더 고정 타입</caption>
+                                        <colgroup><col width="50%"><col width="*"></colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" colspan="3" class="heightTr2">거래매체 구분</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" rowspan="4" class="bbNone">자동화기기<br>(CD/ATM)</th>
+                                                <th scope="row">출금 한도</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="bbNone">이체 한도</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="rightThTd">
+                                    <!--기본적으로 100% 이상을 넣어야 스크롤이 활성화됨-->
+                                    <table style="width:180%">
+                                        <caption>좌축 헤더 고정 타입</caption>
+                                        <colgroup>
+                                            <col width="33%">
+                                            <col width="33%">
+                                            <col width="33%">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">1등급</th>
+                                                <th scope="col">2등급</th>
+                                                <th scope="col">3등급</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">OTP 카드</th>
+                                                <th scope="col">보안카드+SMS</th>
+                                                <th scope="col">보안카드</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="3">1백만원</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">6백만원</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer>
+                        <img src="/mable/guide/images/layout_footer.png" width="100%" height="auto">
+                    </footer>
+                </div>
+                <div class="mt20">
+                    <h3 class="titTy1">Code</h3>
+                    <textarea style="width:100%; height:200px;">&lt;div class="scrollTable tbTy1"&gt;
+    &lt;div class="leftTh"&gt;
+        &lt;table&gt;
+            &lt;caption&gt;좌축 헤더 고정 타입&lt;/caption&gt;
+            &lt;colgroup&gt;&lt;col width="50%"&gt;&lt;col width="*"&gt;&lt;/colgroup&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;th scope="row" colspan="3" class="heightTr2"&gt;거래매체 구분&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;th scope="row" rowspan="4" class="bbNone"&gt;자동화기기&lt;br&gt;(CD/ATM)&lt;/th&gt;
+                    &lt;th scope="row"&gt;출금 한도&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;th scope="row" class="bbNone"&gt;이체 한도&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+    &lt;div class="rightThTd"&gt;
+        &lt;!--기본적으로 100% 이상을 넣어야 스크롤이 활성화됨--&gt;
+        &lt;table style="width:180%"&gt;
+            &lt;caption&gt;좌축 헤더 고정 타입&lt;/caption&gt;
+            &lt;colgroup&gt;
+                &lt;col width="33%"&gt;
+                &lt;col width="33%"&gt;
+                &lt;col width="33%"&gt;
+            &lt;/colgroup&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th scope="col"&gt;1등급&lt;/th&gt;
+                    &lt;th scope="col"&gt;2등급&lt;/th&gt;
+                    &lt;th scope="col"&gt;3등급&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;th scope="col"&gt;OTP 카드&lt;/th&gt;
+                    &lt;th scope="col"&gt;보안카드+SMS&lt;/th&gt;
+                    &lt;th scope="col"&gt;보안카드&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td colspan="3"&gt;1백만원&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td colspan="3"&gt;6백만원&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+                    </textarea>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="titTy1">테이블 전체 스크롤 타입</h3>
+                <div class="layout ios12Pro">
+                    <header>
+                        <img src="/mable/guide/images/layout_top.png" width="100%" height="auto">
+                        <div class="tabTy1 col2">
+                            <ul>
+                                <li class="active"><a href="#">Select</a></li>
+                                <li><a href="#">Option</a></li>
+                            </ul>
+                        </div>
+                    </header>
+                    <div class="wrapTy5">
+                        <div class="contBox">
+                            <div class="tbTy1 scrollTable">
+                                <div class="oneTableScroll">
+                                    <table style="width:138%;">
+                                        <caption>테이블 전체 스크롤 타입</caption>
+                                        <colgroup><col width="20%"><col width="20%"><col width="20%"><col width="40%"></colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">이자징수일</th>
+                                                <th scope="col">이자종류</th>
+                                                <th scope="col">이자금액</th>
+                                                <th scope="col">계산식</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="tL">10월1일</td>
+                                                <td class="tL">정기이자</td>
+                                                <td class="tL">249,315원</td>
+                                                <td class="tL">50,000,000원 x 7.0% x 26일 x 365</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tL">10월24일</td>
+                                                <td class="tL">상환이자</td>
+                                                <td class="tL">264,383원</td>
+                                                <td class="tL">(50,000,000원 x 7.5% x 24일/365)+(50,000,000원 x 0.5% x 26일/365)</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" class="tL">총계</td>
+                                                <td colspan="2" class="tL">513,698원</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer>
+                        <img src="/mable/guide/images/layout_footer.png" width="100%" height="auto">
+                    </footer>
+                </div>
+                <div class="mt20">
+                    <h3 class="titTy1">Code</h3>
+                    <textarea style="width:100%; height:200px;">&lt;div class="tbTy1 scrollTable"&gt;
+    &lt;div class="oneTableScroll"&gt;
+        &lt;table style="width:138%;"&gt;
+            &lt;caption&gt;테이블 전체 스크롤 타입&lt;/caption&gt;
+            &lt;colgroup&gt;&lt;col width="20%"&gt;&lt;col width="20%"&gt;&lt;col width="20%"&gt;&lt;col width="40%"&gt;&lt;/colgroup&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th scope="col"&gt;이자징수일&lt;/th&gt;
+                    &lt;th scope="col"&gt;이자종류&lt;/th&gt;
+                    &lt;th scope="col"&gt;이자금액&lt;/th&gt;
+                    &lt;th scope="col"&gt;계산식&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td class="tL"&gt;10월1일&lt;/td&gt;
+                    &lt;td class="tL"&gt;정기이자&lt;/td&gt;
+                    &lt;td class="tL"&gt;249,315원&lt;/td&gt;
+                    &lt;td class="tL"&gt;50,000,000원 x 7.0% x 26일 x 365&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td class="tL"&gt;10월24일&lt;/td&gt;
+                    &lt;td class="tL"&gt;상환이자&lt;/td&gt;
+                    &lt;td class="tL"&gt;264,383원&lt;/td&gt;
+                    &lt;td class="tL"&gt;(50,000,000원 x 7.5% x 24일/365)+(50,000,000원 x 0.5% x 26일/365)&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td colspan="2" class="tL"&gt;총계&lt;/td&gt;
+                    &lt;td colspan="2" class="tL"&gt;513,698원&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+                    </textarea>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var thisBtn = $(".viewBtn button");
+    var layout = $(".layout");
+	thisBtn.on('click', function(){
+		var btnClass = $(this).attr('class');
+        $(this).addClass('active');
+        $('button').not(this).removeClass('active');
+        layout.removeClass().addClass('layout '+ btnClass);
+	});
+});
+</script>
+
+
+</div>
+        
+        <div class="preview_wrap">
+            <div class="dim"></div>
+            <div class="preview_inner">
+                <p class="tit">
+                    <a href="" title="새창열림" target="_blank"></a>
+                    <button type="button" class="close">X</button>
+                </p>
+                <iframe src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+    const dateNow = Date.now();  // 캐시방지
+	console.log(dateNow);
+
+$(document).ready(function() {
+
+    var tabBtn = $(".tab li");
+    tabBtn.on('click', function(){
+        var thisClass = $(this).attr('class');
+        $(this).addClass('active');
+        $('.tab li').not(this).removeClass('active');
+
+        if(thisClass === "guideList"){
+            $(".list.guideList").show();
+            $(".list.menuList").hide();
+            $(".list.guideList li:eq(0)").addClass('active');
+            $('.list.menuList li').not(this).removeClass('active');
+        } else if(thisClass === "menuList"){
+            $(".list.menuList").show();
+            $(".list.guideList").hide();
+            $(".list.menuList li:eq(0)").addClass('active');
+            $('.list.guideList li').not(this).removeClass('active');
+        };
+
+        console.log(thisClass);
+    });
+
+    var thisBtn = $(".list li");    
+    thisBtn.on('click', function(){
+        var btnClass = $(this).attr('class');
+        $(this).addClass('active');
+        $('.list li').not(this).removeClass('active');
+    });
+    openURL('layout.html');
+    
+});
+
+function bottomSheet(value){
+	var val = value;
+	var obj = $('.bottomSheet');
+	obj.close = $('.dim, .bottomSheet .close, .bottomSheet .sheetClose');
+	obj.find('.inCont').removeClass('active');
+	obj.find('.inCont.ty'+val).addClass('active');
+	obj.addClass('active');
+
+	obj.close.on('click', function(){
+		obj.removeClass('active');
+	});
+};
+
+let list = document.querySelectorAll('.goLink li');
+
+const getElmIndex = (element, range)=>{
+    if(!!range) return [].indexOf.call(element, range);
+	return [].indexOf.call(element.parentNode.children, element);
+};
+
+[].forEach.call(list, function(el){
+    el.addEventListener('click', function(){
+        let getURL = this.firstChild.getAttribute('data-href');
+        openURL(getURL);
+    });
+});
+
+function openURL(getURL){
+    // var myHeader = new Headers();
+    // myHeader.append('Content-Type','text/html; charset=EUC-KR');
+    fetch(getURL, {
+        headers : {'Content-Type':'text/html; charset=EUC-KR'},
+        cache : 'no-cache'
+    }).then(function(res){
+        return res.arrayBuffer();
+    }).then(function(buffer){
+        const decoder = new TextDecoder('euc-kr');
+        const text = decoder.decode(buffer);
+        let parser = new DOMParser();
+        let htmlDom = parser.parseFromString(text,'text/html');
+        function encodingText(){
+            htmlDom.querySelector('body').innerHTML.charset = "euc-kr";
+        }
+        var cont = htmlDom.querySelector('body');
+        document.querySelector('.guideCont').innerHTML = cont.innerHTML;
+        document.getElementById('txt').innerHTML = getURL;
+        $('.guideCont .end').each(function(index, item){
+            // let link = this.attr('href');
+            $(this).parent().append('<br><span class="layBtn btnTy8 light" style="margin-top:10px;display:inline-block;cursor:pointer">라이트</span> <span class="layBtn btnTy8 dark" style="margin-top:10px;display:inline-block;cursor:pointer">다크</span>');
+        });
+        document.querySelector('.guideCont').scrollTo(0,0);
+        ui.init();
+        fontCal();
+    });
+}
+
+var ui = {
+    layer : function(e){
+        $(".layBtn").click(function(){
+            $(".layBtn").removeClass('active');
+            $(this).addClass('active');
+            var link = $(this).parent().find('.end').attr("href").replace(' ','')+'?ver='+dateNow;
+            var linkDark = $(this).parent().find('.end').attr("href").replace(' ','')+'?d&var='+dateNow;
+
+            let _this = $(this);
+            if(_this.is('.light')) {
+                $(".preview_wrap").show().find(".tit a").attr("href", link).text(link);
+                $(".preview_wrap").find("iframe").attr("src", link);
+            } else {
+                $(".preview_wrap").show().find(".tit a").attr("href", linkDark).text(linkDark);
+                $(".preview_wrap").find("iframe").attr("src", linkDark);
+            }
+        });
+        $(".close").click(function(){
+            $(".preview_wrap").hide();
+        });
+    },
+    viewBtm :function(opts){
+        var _thisBtn = $(".viewBtn button");
+        var _layout = $(".layout");
+        _thisBtn.on('click', function(){
+            var _btnClass = $(this).attr('class');
+            $(this).addClass('active');
+            $('button').not(this).removeClass('active');
+            _layout.removeClass().addClass('layout '+ _btnClass);
+        });
+    },
+    bottomSheet : function(value){
+        var val = value;
+        var obj = $('.bottomSheet');
+        obj.close = $('.dim, .bottomSheet .close, .bottomSheet .sheetClose');
+        obj.find('.inCont').removeClass('active');
+        obj.find('.inCont.ty'+val).addClass('active');
+        obj.addClass('active');
+
+        obj.close.on('click', function(){
+            obj.removeClass('active');
+        });
+    },
+    accordion : function(){
+        // graph image change
+        if ( $('.compareRate').get(0) !== undefined)  {
+            $('.btnListCR li a').on('click', function() {
+                var $thisImg = $('.areaGraph img');
+                var liAll = $('.btnListCR li');
+                var $thisIndex = $(this).closest('li').index();
+                var activeClass = 'active';
+                liAll.removeClass(activeClass);
+                liAll.eq($thisIndex).addClass(activeClass);
+                $thisImg.removeClass(activeClass);
+                $thisImg.eq($thisIndex - 1).addClass(activeClass);
+            })
+        }
+
+        // scroll tab box shadow
+        if ( $('.includeTab').get(0) !== undefined)  {
+            $(window).on('scroll',function () {
+                if ($(document).scrollTop() > 0) {
+                    $('.includeTab > div').addClass('scrollActive');
+                } else {
+                    $('.includeTab > div').removeClass('scrollActive');
+                }
+            });
+        }
+
+        // scroll tab last menu position: tabTy5
+        if ( $('.tabTy5').get(0) !== undefined)  {
+            if ($('.tabTy5').hasClass('lastMenu')) {
+                var bWidth = $('body').outerWidth();
+                $('.wrapTabTy5').scrollLeft(bWidth);
+            }
+        }
+
+        // toggleList: content visible/hidden
+        if ( $('.toggleList').get(0) !== undefined)  {
+            
+            var offsets = [],
+                faqTit = $('.toggleAccordion li > a'),
+                beforeThis = '',
+                offsetsList = function () {
+                    faqTit.each(function(){
+                        var $thisOffset = $(this).offset().top;
+                        offsets.push($thisOffset);
+                    });
+                };
+            setTimeout(offsetsList,100);
+            $('.toggleList li > a').on('click',function() {
+                var $this = $(this),
+                    $thisLi = $this.closest('li'),
+                    $thisUl = $this.closest('Ul'),
+                    $thisIndex = $thisLi.index(),
+                    activeClass = 'active';
+                if (!$thisLi.hasClass(activeClass) ) {
+                    if ($thisUl.hasClass('toggleAccordion')) {
+                        if ( beforeThis !== '') {
+                            $(beforeThis).removeClass(activeClass).find('.toggleBox').slideUp(100);
+                        }
+                        if ( $('.wrapTy5').hasClass('includeTab') && $('.toggleList').length === 1) {
+                            $("html, body").animate({scrollTop:offsets[$thisIndex]-37}, 300);
+                        } else if ( $('.toggleList').length === 1) {
+                            $("html, body").animate({scrollTop:offsets[$thisIndex]}, 300);
+                        }
+                    }
+                    $thisLi.toggleClass(activeClass).find('.toggleBox').slideToggle(100);
+                    beforeThis = $thisLi;
+                    return beforeThis;
+                } else {
+                    $thisLi.removeClass(activeClass).find('.toggleBox').slideUp(100);
+                }
+            });
+        }
+
+        // slide: guide
+        if ($('.importantGuide').get(0) !== undefined) {
+            var isArrows = true;
+            var isDots = true;
+            if (!$('.importantGuide').hasClass('ty2')) {
+                isArrows = false;
+            } else {
+                isDots = false;
+            }
+            $('.importantGuide').slick(
+                {
+                    arrows:isArrows,
+                    dots: isDots,
+                    infinite: false
+                }
+            );
+        }
+    },
+    menuList : function(e){
+        var $front = $("#FrontList"), 
+        front = $front.get(0);
+        $(".tbTy1 a").html(function(){ if(((/\/[^\/]+\.html/).test(this.href)||(/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/)){ return this.href.substring(this.href.lastIndexOf("/")+1); } }).each(function(){
+            if(this.onclick) return false;
+            else this.target = "_blank";
+        });
+
+        front.a = $front.find("a") || undefined;
+        var end = front.a.filter(".end").filter(function(){ return ((/\/[^\/]+\.html/).test(this.href) || (/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/); }).length;
+        var ing = front.a.filter(".test").filter(function(){ return ((/\/[^\/]+\.html/).test(this.href) || (/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/); }).length;
+        $("#pages").find("em").eq(0).html(front.a.length).end()
+            .eq(1).html(ing).end()
+            .eq(2).html(end).end().end()
+            .find("strong").html( (parseInt(( (end)/front.a.length )*1000)/10 || 0)+'%' );
+        $(".listHead").html($("#pages").html());
+
+
+        var lastdate = "0000-00-00";
+        $("#FrontList .push-date, #FrontList .mod-date").each(function(){
+            var compare = [this.innerHTML.replace(/-/gi,"") , lastdate.replace(/-/gi,"")];
+            if(parseFloat(compare[0]) > parseFloat(compare[1])) lastdate = this.innerHTML;
+        });
+        $("#FrontList .push-date:contains('"+lastdate+"'), #FrontList .mod-date:contains('"+lastdate+"')").addClass("last"); //최근 전달일 체크
+    },
+    init : function(opts){
+        opts = opts || {};
+        ui.viewBtm();
+        ui.accordion();
+        ui.menuList();
+        ui.layer();
+    }
+}
+
+
+function fontCal(){
+
+    const inputSize = document.querySelector('#fontSize');
+const inputResult = document.querySelector('#sizeResult');
+const inputRem = document.querySelector('#remResult');
+const inputBtn = document.querySelector('#calcBtn');
+
+	const inValue = inputSize.value;
+	const result = parseInt(inValue)*2/3;
+	inputResult.value = result;
+	inputRem.value = result / 16;
+
+    inputSize.addEventListener('keyup', function(event){
+	if (event.keyCode === 13) {
+		event.preventDefault();
+		document.getElementById('calcBtn').click();
+	}
+});
+}
+
+
+</script>
+
+
+</body></html>

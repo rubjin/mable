@@ -1,0 +1,364 @@
+<html><head>
+  <title>URL-encoder for SVG</title>
+  <style>
+    * { margin: 0; padding: 0; outline: none; background: none; border: none; box-sizing: border-box; } 
+    BODY { font-size: 16px; line-height: 1.5; font-family: sans-serif; color: #000; } 
+    A { color: steelblue; } 
+    H1 { text-align: center; } 
+    H4 { margin: 0; margin-bottom: 0.15em; } 
+    TEXTAREA { width: 100%; flex: 1; margin: 0; border: 1px solid #ccc; font-size: 14px; color: #000; resize: none; padding: 8px; } 
+    TEXTAREA::-webkit-scrollbar { width: 20px; } 
+    TEXTAREA::-webkit-scrollbar-thumb { border-radius: 10rem; border: 7.5px solid transparent; background: #fff; background-clip: padding-box; } 
+    TEXTAREA::-webkit-scrollbar-button { display: none; } 
+    CODE { padding: 0 3px; background: #fff; border-radius: 5px; text-shadow: 1px 1px 0 white; color: #fff; } 
+    CODE I { font-style: italic; color: 000; } 
+    DL,
+    DD,
+    DT { margin: 0; } 
+    DL { text-align: right; } 
+    DT { border-bottom: 1px dashed; display: inline-block; line-height: 1; color: steelblue; cursor: pointer; } 
+    DT::after { content: ""; display: inline-block; border: 0 solid transparent; border-width: 8px 4px 0; border-top-color: currentColor; border-bottom-color: currentColor; margin-left: 5px; } 
+    .opened::after { border-width: 0 4px 8px; } 
+    DD { text-align: left; } 
+    .hidden { display: none; } 
+    .visuallyhidden { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden; } 
+    .wrapper { padding: 20px; background-color: #fff; height: 100vh; overflow: hidden; display: grid; grid-template-rows: auto auto 1fr; gap: 16px; } 
+    .header { position: relative; } 
+    .header::before { content: ""; display: table; width: 100%; clear: both; } 
+    .footer { position: relative; display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #ccc; } 
+    .panel { position: relative; z-index: 1; margin-bottom: 2.5rem; display: flex; justify-content: space-between; } 
+    .options { position: relative; } 
+    .options__middle-word { vertical-align: middle; color: #aaa; } 
+    .options__text { display: inline-block; border-bottom: 1px dashed; color: steelblue; cursor: pointer; } 
+    .options__input:checked+.options__text { border: 0; color: inherit; cursor: default; } 
+    .expander { position: relative; z-index: 2; } 
+    .expanded { position: absolute; top: -15px; right: -15px; left: -15px; padding: 2rem 1.5rem 1rem; background: #fff; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1); } 
+    .button-example,
+    .copy-button { align-self: center; line-height: 1; font-size: 14px; color: #ffc700; cursor: pointer; } 
+    .containers { display: flex; flex-direction: column; height: 100%; gap: 12px; } 
+    .container { position: relative; display: flex; flex-direction: column; height: 100%; } 
+    .container .tit { display: flex; justify-content: space-between; } 
+    .demo-wrapper { height: 100%; border: 1px solid #ccc; } 
+    .demo { background-repeat: no-repeat; height: 100%; } 
+    .contrast-buttons { display: flex; align-items: center; margin-bottom: 0.4em; font-size: 14px; } 
+    .contrast-button { display: block; width: 16px; height: 16px; margin-left: 5px; padding: 0; outline: none; cursor: pointer; border: 2px solid #aaa; } 
+    .contrast-button--current { border: 2px solid #fff; } 
+    .contrast-button--white { background: #1f1d24; } 
+    .contrast-button--silver { background: #fff; } 
+    .contrast-button--black { background: #ffc700; } 
+    .tip { margin-top: 0.5rem; font-size: 0.9em; color: #777; } 
+    .dropzone { background-color: rgba(77, 77, 82, 0.6); backdrop-filter: blur(0.75rem); background-image: url("data:image/svg+xml,%3Csvg height='80' width='80' xmlns='http://www.w3.org/2000/svg' fill='%23fff' class='bi bi-filetype-svg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM0 14.84a1.13 1.13 0 0 0 .4.82c.13.11.29.2.48.26s.41.09.66.09c.34 0 .63-.06.86-.16.24-.1.42-.25.54-.44a1.17 1.17 0 0 0 .19-.66c0-.22-.05-.4-.14-.56a1 1 0 0 0-.37-.35 2.03 2.03 0 0 0-.57-.21l-.62-.15a.97.97 0 0 1-.4-.17.37.37 0 0 1-.15-.3.5.5 0 0 1 .19-.39.8.8 0 0 1 .51-.15c.14 0 .27.02.37.07a.63.63 0 0 1 .25.18.56.56 0 0 1 .12.26h.75a1.1 1.1 0 0 0-.2-.57 1.21 1.21 0 0 0-.5-.4 1.81 1.81 0 0 0-.78-.16c-.3 0-.55.05-.78.15-.22.1-.4.24-.53.42-.12.18-.19.4-.19.64a1 1 0 0 0 .47.9c.16.09.34.16.55.2l.62.15c.2.05.36.11.46.2a.39.39 0 0 1 .15.32.51.51 0 0 1-.08.29.56.56 0 0 1-.26.19 1 1 0 0 1-.41.07c-.12 0-.23-.01-.32-.04a.84.84 0 0 1-.25-.12.58.58 0 0 1-.26-.38H0Zm4.58 1.1h.95l1.32-4h-.87l-.9 3.13h-.03l-.9-3.14h-.91l1.33 4Zm5.48-3.3c.07.15.12.31.14.49h-.78a.8.8 0 0 0-.1-.25.69.69 0 0 0-.16-.19.7.7 0 0 0-.24-.13.96.96 0 0 0-.3-.04.8.8 0 0 0-.66.3c-.16.2-.24.49-.24.85v.5c0 .23.03.44.1.62a.88.88 0 0 0 .3.4.87.87 0 0 0 .52.15.96.96 0 0 0 .46-.1.67.67 0 0 0 .27-.26.74.74 0 0 0 .09-.36v-.25h-.82v-.6h1.57v.8c0 .2-.03.38-.1.55a1.29 1.29 0 0 1-.29.46 1.37 1.37 0 0 1-.5.32c-.19.07-.42.1-.69.1a1.98 1.98 0 0 1-.75-.12 1.45 1.45 0 0 1-.53-.38 1.58 1.58 0 0 1-.32-.58 2.48 2.48 0 0 1-.1-.75v-.5c0-.36.06-.68.19-.95.13-.27.33-.48.58-.64.26-.15.57-.22.93-.22.24 0 .45.03.63.1a1.3 1.3 0 0 1 .8.68Z'/%3E%3C/svg%3E"); background-position: center; background-repeat: no-repeat; position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 100000; display: block; transform: scale(1.4); transition: transform 0.1s, opacity 0.1s; pointer-events: none; opacity: 0; } 
+    .dropzone--active { transform: scale(1); pointer-events: all; opacity: 1; } 
+    h1 { font-size: 20px; } 
+    h2 { font-size: 16px; } 
+    ol { padding-left: 20px; margin-top: 4px; } 
+    ol li { font-size: 14px; } 
+    ol li span { color: #ffc700; } 
+    ol li i { color: #e85951; font-style: normal; } 
+    ol li p { color: #666666; } 
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <h1>SVG 인코더</h1>
+    </header>
+
+    <article>
+      <details>
+        <summary>와이드 SVG 작업방식</summary>
+        <ol>
+          <li>피그마에서 아이콘 우클릭, Copy as SVG, 업무망으로 가져오기</li>
+          <li>
+            <b>SVG textarea영역</b>에 붙여넣기, 해당 svg 최상위 width, height 속성 삭제
+            <p>예) &lt;svg <i>width="48px" height="48px"</i> viewBox="0 0 48 48"&gt; =&gt; &lt;svg viewBox="0 0 48 48"&gt;</p>
+          </li>
+          <li>_mixin.scss 내 아이콘 추가 <b>아이콘명 : Ecoded textarea영역 복붙</b></li>
+          <li> 색상들어가는 부분 변수명으로 변경<br>%23 뒤 헥사코드 =&gt; 변수명 (themes.scss에서 색상코드 참고)
+            <p>예) %2363636d =&gt; %23#{$icon_type01}</p>
+          </li>
+        </ol>
+      </details>
+    </article>
+
+    <main class="containers">
+      <div class="container container--left container container--init">
+        <div class="tit">
+          <h4>SVG</h4>
+          <button class="button-example">예</button>
+        </div>
+        <textarea name="init" id="init" spellcheck="false"></textarea>
+      </div>
+
+      <div class="container container--right container container--result">
+        <div class="tit">
+          <h4>Encoded</h4>
+          <button id="copy-result-button" title="Copy encoded results to clipboard" class="copy-button">복사</button>
+        </div>
+        <textarea name="result" id="result" spellcheck="false"></textarea>
+      </div>
+      <div class="container container--left container container--result-css">
+        <div class="tit">
+          <h4>CSS</h4>
+          <button id="copy-css-result-button" title="Copy CSS results to clipboard" class="copy-button">복사</button>
+        </div>
+        <textarea name="result-css" id="result-css" spellcheck="false"></textarea>
+      </div>
+      <div class="container container--right container container--demo">
+        <div class="tit">
+          <h4>Preview</h4>
+          <div class="contrast-buttons">배경색
+            <button type="button" class="contrast-button contrast-button--white contrast-button--current" data-color="#1f1d24" title="white">
+              <span class="visuallyhidden">000</span>
+            </button>
+            <button type="button" class="contrast-button contrast-button--silver" data-color="#fff" title="silver">
+              <span class="visuallyhidden">fff</span>
+            </button>
+            <button type="button" class="contrast-button contrast-button--black" data-color="#ffc700" title="black">
+              <span class="visuallyhidden">brand</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="demo-wrapper">
+          <div id="demo" class="demo"></div>
+        </div>
+      </div>
+    </main>
+
+
+  </div>
+  <div id="dropzone" class="dropzone"></div>
+  <script>
+    const doc = document;
+
+    const initTextarea = doc.querySelector(`#init`);
+    const resultTextarea = doc.querySelector(`#result`);
+    const resultCssTextarea = doc.querySelector(`#result-css`);
+    const resultDemo = doc.querySelector(`#demo`);
+    const demoWrapper = doc.querySelector(`.demo-wrapper`);
+    const contrastButtons = doc.querySelectorAll(`.contrast-button`);
+    const dropzoneEl = doc.querySelector(`#dropzone`);
+    let contrastButtonCurrent = null;
+    let backgroundColor = ``;
+
+    const expanders = doc.querySelectorAll(`.expander`);
+    const expandedClass = `expanded`;
+    const symbols = /[\r\n%#()<>?[\\\]^`{|}]/g;
+
+    const quotesInputs = doc.querySelectorAll(`.options__input`);
+    // let externalQuotesValue = doc.querySelector(`.options__input:checked`).value;
+    let externalQuotesValue = "double";
+    let quotes = getQuotes();
+
+    const buttonExample = doc.querySelector(`.button-example`);
+
+    // Textarea Actions
+    // ----------------------------------------
+
+    initTextarea.oninput = function () {
+      getResults();
+    };
+
+    resultTextarea.oninput = function () {
+      const value = resultTextarea.value.trim()
+        .replace(/background-image:\s{0,}url\(/, ``)
+        .replace(/["']{0,}data:image\/svg\+xml,/, ``)
+        .replace(/["']\);{0,}$/, ``);
+      initTextarea.value = decodeURIComponent(value);
+      getResults();
+    };
+
+    function getResults() {
+      if (!initTextarea.value) {
+        resultCssTextarea.value = ``;
+        resultDemo.setAttribute(`style`, ``);
+        return;
+      }
+
+      const namespaced = addNameSpace(initTextarea.value);
+      const escaped = encodeSVG(namespaced);
+      resultTextarea.value = escaped;
+      const resultCss = `background-image: url(${quotes.level1}data:image/svg+xml,${escaped}${quotes.level1});`;
+      resultCssTextarea.value = resultCss;
+      resultDemo.setAttribute(`style`, resultCss);
+    }
+
+    // Tabs Actions
+    // ----------------------------------------
+
+    for (let i = 0; i < expanders.length; i++) {
+      const expander = expanders[i];
+
+      expander.onclick = function () {
+        const parent = this.parentNode;
+        const expanded = parent.querySelector(`.` + expandedClass);
+        expanded.classList.toggle(`hidden`);
+        this.classList.toggle(`opened`);
+      };
+    }
+
+    // Switch quotes
+    // ----------------------------------------
+
+    quotesInputs.forEach(input => {
+      input.addEventListener(`input`, function () {
+        externalQuotesValue = this.value;
+        quotes = getQuotes();
+        getResults();
+      });
+    });
+
+    // Set example
+    // ----------------------------------------
+
+    buttonExample.addEventListener(`click`, () => {
+      initTextarea.value = `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.5">
+<path d="M18.3164 38.36H17.6619L16.5166 34.4365H17.1497L17.9892 37.5086L18.7503 34.5784H19.476L20.2371 37.5086L21.0766 34.4365H21.7097L20.5644 38.36H19.9099L19.1132 35.3943L18.3164 38.36Z" fill="white"/>
+<path d="M23.0241 34.4365V38.36H22.3483V34.4365H23.0241ZM22.2131 33.2517C22.2131 32.9466 22.4265 32.7764 22.6897 32.7764C22.953 32.7764 23.1664 32.9466 23.1664 33.2517C23.1664 33.5568 22.953 33.7271 22.6897 33.7271C22.4265 33.7271 22.2131 33.5568 22.2131 33.2517Z" fill="white"/>
+<path d="M27.2434 38.2819C26.7668 38.3671 26.1408 38.4664 25.5646 38.4664C24.4548 38.4664 23.8786 37.6931 23.8786 36.3947C23.8786 35.0964 24.4548 34.3301 25.5646 34.3301C25.9629 34.3301 26.3258 34.472 26.5676 34.5997V32.8118H27.2434V38.2819ZM26.5676 35.1815C26.3044 35.0041 25.9345 34.8835 25.6357 34.8835C24.8959 34.8835 24.5544 35.4369 24.5544 36.3947C24.5544 37.3525 24.8888 37.913 25.6357 37.913C25.9985 37.913 26.3186 37.8775 26.5676 37.842V35.1815Z" fill="white"/>
+<path d="M29.8898 37.9059C30.4518 37.9059 30.7577 37.8137 31.0921 37.6505L31.2557 38.0833C30.9711 38.3032 30.402 38.4664 29.8898 38.4664C28.8014 38.4664 28.026 37.7924 28.026 36.416C28.026 35.0964 28.6947 34.3301 29.776 34.3301C30.9 34.3301 31.4833 35.2454 31.4833 36.0754C31.4833 36.2599 31.4762 36.4373 31.4691 36.6075H28.7089C28.7659 37.4944 29.2211 37.9059 29.8898 37.9059ZM30.8075 36.0754C30.8075 35.4227 30.4661 34.8906 29.776 34.8906C29.1998 34.8906 28.8014 35.2524 28.7161 36.0754H30.8075Z" fill="white"/>
+<path d="M18.3164 38.36H17.6619L16.5166 34.4365H17.1497L17.9892 37.5086L18.7503 34.5784H19.476L20.2371 37.5086L21.0766 34.4365H21.7097L20.5644 38.36H19.9099L19.1132 35.3943L18.3164 38.36Z" stroke="white" stroke-width="0.4"/>
+<path d="M23.0241 34.4365V38.36H22.3483V34.4365H23.0241ZM22.2131 33.2517C22.2131 32.9466 22.4265 32.7764 22.6897 32.7764C22.953 32.7764 23.1664 32.9466 23.1664 33.2517C23.1664 33.5568 22.953 33.7271 22.6897 33.7271C22.4265 33.7271 22.2131 33.5568 22.2131 33.2517Z" stroke="white" stroke-width="0.4"/>
+<path d="M27.2434 38.2819C26.7668 38.3671 26.1408 38.4664 25.5646 38.4664C24.4548 38.4664 23.8786 37.6931 23.8786 36.3947C23.8786 35.0964 24.4548 34.3301 25.5646 34.3301C25.9629 34.3301 26.3258 34.472 26.5676 34.5997V32.8118H27.2434V38.2819ZM26.5676 35.1815C26.3044 35.0041 25.9345 34.8835 25.6357 34.8835C24.8959 34.8835 24.5544 35.4369 24.5544 36.3947C24.5544 37.3525 24.8888 37.913 25.6357 37.913C25.9985 37.913 26.3186 37.8775 26.5676 37.842V35.1815Z" stroke="white" stroke-width="0.4"/>
+<path d="M29.8898 37.9059C30.4518 37.9059 30.7577 37.8137 31.0921 37.6505L31.2557 38.0833C30.9711 38.3032 30.402 38.4664 29.8898 38.4664C28.8014 38.4664 28.026 37.7924 28.026 36.416C28.026 35.0964 28.6947 34.3301 29.776 34.3301C30.9 34.3301 31.4833 35.2454 31.4833 36.0754C31.4833 36.2599 31.4762 36.4373 31.4691 36.6075H28.7089C28.7659 37.4944 29.2211 37.9059 29.8898 37.9059ZM30.8075 36.0754C30.8075 35.4227 30.4661 34.8906 29.776 34.8906C29.1998 34.8906 28.8014 35.2524 28.7161 36.0754H30.8075Z" stroke="white" stroke-width="0.4"/>
+</g>
+<rect width="6.18671" height="19.5117" transform="matrix(1 0 0 -1 10 29.0449)" fill="#FDCE1A"/>
+<path d="M26.2803 29.0449H21.0704L16.8374 16.3623V9.53325H19.768L26.2803 29.0449Z" fill="#FDCE1A"/>
+<path d="M26.9355 29.0449L31.1685 16.3623V9.53325H28.238L24.3306 21.2403L26.9355 29.0449Z" fill="#FDCE1A"/>
+<rect width="6.18671" height="19.5117" transform="matrix(1 0 0 -1 31.8135 29.0449)" fill="#FDCE1A"/>
+</svg>
+`;
+      getResults();
+    });
+
+    // Demo Background Switch
+    // ----------------------------------------
+
+    function contrastButtonsSetCurrent(button) {
+      const classCurrent = `contrast-button--current`;
+
+      if (contrastButtonCurrent) {
+        contrastButtonCurrent.classList.remove(classCurrent);
+      }
+
+      backgroundColor = button.dataset.color;
+      contrastButtonCurrent = button;
+      button.classList.add(classCurrent);
+    }
+
+    contrastButtons.forEach(button => {
+      if (!backgroundColor) {
+        contrastButtonsSetCurrent(button);
+      }
+
+      button.addEventListener(`click`, function () {
+        contrastButtonsSetCurrent(this);
+        demoWrapper.style.background = backgroundColor;
+      });
+    });
+
+    // Namespace
+    // ----------------------------------------
+
+    function addNameSpace(data) {
+      if (data.indexOf(`http://www.w3.org/2000/svg`) < 0) {
+        data = data.replace(/<svg/g, `<svg xmlns=${quotes.level2}http://www.w3.org/2000/svg${quotes.level2}`);
+      }
+
+      return data;
+    }
+
+    // Encoding
+    // ----------------------------------------
+
+    function encodeSVG(data) {
+      // Use single quotes instead of double to avoid encoding.
+      if (externalQuotesValue === `double`) {
+        data = data.replace(/"/g, `'`);
+      } else {
+        data = data.replace(/'/g, `"`);
+      }
+
+      data = data.replace(/>\s{1,}</g, `><`);
+      data = data.replace(/\s{2,}/g, ` `);
+
+      // Using encodeURIComponent() as replacement function
+      // allows to keep result code readable
+      return data.replace(symbols, encodeURIComponent);
+    }
+
+    // Get quotes for levels
+    // ----------------------------------------
+
+    function getQuotes() {
+      const double = `"`;
+      const single = `'`;
+
+      return {
+        level1: externalQuotesValue === `double` ? double : single,
+        level2: externalQuotesValue === `double` ? single : double
+      };
+    }
+
+    // Copy to clipboard
+    // ----------------------------------------
+
+    const copyResultButton = doc.getElementById(`copy-result-button`);
+    const copyCSSResultButton = doc.getElementById(`copy-css-result-button`);
+
+    copyResultButton.addEventListener(`click`, function (event) {
+      const textToCopy = doc.getElementById(`result`);
+      textToCopy.select();
+      doc.execCommand(`copy`);
+    });
+
+    copyCSSResultButton.addEventListener(`click`, function (event) {
+      const textToCopy = doc.getElementById(`result-css`);
+      textToCopy.select();
+      doc.execCommand(`copy`);
+    });
+
+    // Common
+    // ----------------------------------------
+
+    // eslint-disable-next-line no-unused-vars
+    function out(data) {
+      console.log(data);
+    }
+
+    // Dropzone logic
+    // ----------------------------------------
+
+    if (dropzoneEl) {
+      const dropzoneActiveCls = `dropzone--active`;
+      doc.addEventListener(`dragover`, (e) => {
+        e.preventDefault();
+        dropzoneEl.classList.add(dropzoneActiveCls);
+      });
+      dropzoneEl.addEventListener(`dragleave`, () => {
+        dropzoneEl.classList.remove(dropzoneActiveCls);
+      });
+      dropzoneEl.addEventListener(`drop`, (e) => {
+        e.preventDefault();
+        const data = e.dataTransfer;
+        const reader = new FileReader();
+        const file = data.files[0];
+
+        if (file.type == `image/svg+xml`) {
+          reader.readAsText(file);
+          reader.onload = () => {
+            initTextarea.value = reader.result;
+            getResults();
+          };
+        }
+        dropzoneEl.classList.remove(dropzoneActiveCls);
+      });
+    }
+  </script>
+
+
+
+</body></html>

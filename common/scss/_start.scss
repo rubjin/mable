@@ -1,0 +1,224 @@
+.child-nftf {
+	.infoBox {
+		padding: 1.75rem 1.25rem 1.25rem;
+		border-radius: 20px;
+		background: rgb(var(--color-441));
+	}
+	.icoList {
+		>li {
+			display: flex;
+			align-items: center;
+			min-height: 5.000rem;
+			.ico {
+				display: inline-block;
+				flex-shrink: 0;
+				flex-basis: 3.25rem;
+				height: 3.25rem;
+				line-height: 3.25rem;
+				border-radius: 50%;
+				text-align: center;
+				vertical-align: middle;
+				background: none;
+				img {
+					width: 100%;
+					vertical-align: middle;
+				}
+				&.ty2 {
+					border: 1px solid rgb(var(--color-279));
+					background: rgb(var(--color-028));
+				}
+			}
+			.txt {
+				display: flex;
+				flex-direction: column;
+				align-items: self-start;
+				padding-left: 0.500rem;
+				color: rgb(var(--color-004));
+				font-size: .875rem;
+				vertical-align: middle;
+				strong {
+					font-size: 1rem;
+				}
+			}
+		}
+		&.linkTy {
+			>li {
+				position: relative;
+				padding: 0 2.0rem 0 0 !important;
+				&:after {
+					content: '';
+					display: block;
+					width: 1.5rem;
+					height: 1.5rem;
+					position: absolute;
+					right: 0;
+					top: 50%;
+					margin-top: -0.625rem;
+					background: url('#{$imgURL}/common/arrowList.png') center center no-repeat;
+					background-size: .5rem 1rem;
+				}
+				+ li {
+						margin-top: 0;
+						border-top: 1px solid rgb(var(--color-025));
+				}
+			}
+		}
+	}
+	.docList {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: .5rem;
+		margin: 1rem 0;
+		border-radius: 12px;
+		box-sizing: border-box;
+		background: rgb(var(--color-028));
+		.item {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			position: relative;
+			align-items: center;
+			padding: 1rem 0;
+			text-align: center;
+			.tit {
+				display: block;
+				color: rgb(var(--color-004));
+				font-size: 1rem;
+				font-weight: 500;
+			}
+			.con {
+				display: block;
+				margin-top: .25rem;
+				color: rgb(var(--color-403));
+				font-size: 0.875rem;
+				font-weight: 500;
+			}
+			&:last-of-type {
+				&::before {
+					content: '';
+					position: absolute;
+					top: 17%;
+					left: 0;
+					width: 0.0625rem;
+					height: 66%;
+					box-sizing: border-box;
+					background: rgb(var(--color-441));
+				}
+			}
+		}
+	}
+	.btnArea {
+		&.mt30 {
+			position: relative;
+			overflow: inherit;
+			margin: 1.875rem 0 0;
+		}
+		.tip {
+			position: absolute;
+			top: -1.25rem;
+			right: -0.625rem;
+			width: 12.5rem;
+			height: 1.75rem;
+			font-size: 0;
+			background: url('#{$imgURL}/startable/img_account_kids_tip.png') no-repeat;
+			background-size: 100%;
+		}
+	}
+	.txtBtnArea {
+		display: flex;
+		justify-content: center;
+		margin-top: .75rem;
+		.txtBtn {
+			position: relative;
+			padding-left: 1.25rem;
+			color: rgb(var(--color-412));
+			font-size: .75rem;
+			&:first-of-type {
+				padding-left: 0;
+				padding-right: 1.25rem;
+				&::after {
+					content: '';
+					top: 50%;
+					position: absolute;
+					right: 0;
+					width: 0.0625rem;
+					height: .813rem;
+					margin-top: -0.438rem;
+					background: rgb(var(--color-039));
+				}
+			}
+		}
+	}
+}
+
+.stBanner { 
+	margin-bottom:.5rem;
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	padding:.375rem .5rem;
+	background:rgba(var(--color-184), 0.1);
+	border-radius:4px;
+	.left {
+		display:flex;
+		align-items:center;
+		.ico {
+			margin-right:.5rem;
+			width:1.5rem;
+			height:1.5rem;
+			border-radius:100%;
+			img {
+				width:100%;
+			}
+		}
+		.txt {
+			font-size:.75rem;
+			font-weight:500;
+			color:rgb(var(--color-428));
+		}
+	}
+	.right {
+		position:relative;
+		button.more {
+			padding-right:.25rem;
+			position:relative;
+			font-size:.75rem;
+			font-weight:700;
+			color:rgb(var(--color-401));
+			background:linear-gradient(180deg, transparent 80%, rgba(var(--color-431), 0.5) 20%,);
+			.arrow {
+				display:inline-block;
+				padding:2.5px;
+				margin-bottom:1px;
+				border:solid rgb(var(--color-401));
+				border-width:0 1.5px 1.5px 0;
+				&.right {
+					transform:rotate(-45deg);
+					-webkit-transform:rotate(-45deg);
+				}
+			}
+		}
+	}
+}
+
+.faceId {
+	.visual {
+		padding:2.5rem 1.25rem 1.75rem;
+		background:rgb(var(--color-480));
+		.titTy1 {
+			line-height:2.125rem;
+		}
+	}
+	.icoList.ty9 {
+		> li {
+			margin-top:1rem;
+			min-height:0;
+			.ico {
+				line-height:3.75rem;
+			}
+			+ li {
+				margin-top:1rem;
+			}
+		}
+	}
+}

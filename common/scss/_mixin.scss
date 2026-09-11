@@ -1,0 +1,60 @@
+@mixin keyframes ($name){
+    @keyframes #{$name} {
+        @content;
+    }
+}
+@mixin animation ($name, $duration, $delay, $timing-function: ease, $iteration-count: infinite, $direction: normal, $fill-mode: none, $play-state: running) {
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-delay: $delay;
+    animation-timing-function: $timing-function;
+    animation-iteration-count: $iteration-count;
+    animation-direction: $direction;
+    animation-fill-mode: $fill-mode;
+    animation-play-state: $play-state;
+}
+@mixin media ($device_width) {
+    @media #{$device_width} {
+        @content;
+    }
+}
+
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace +
+        str-replace(
+            str-slice($string, $index + str-length($search)),
+            $search,
+            $replace
+        );
+    }
+    @return $string;
+}
+
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal, $support-legacy: false, $font-display: null, $unicode-range:false){
+    @font-face {
+        font-family: quote($font-name);
+        src: url($file-name + '.eot');
+        $space-to-hypened-font-name: str-replace($font-name, ' ', '-');
+        $removed-space-font-name: str-replace($font-name, ' ', '');
+        $font-source: 'local("\203B"), local("#{$font-name}"), local("#{$space-to-hypened-font-name}"), url("#{$file-name}.eot?iefix") format("embedded-opentype"), url("#{$file-name}.woff2") format("woff2")';
+        @if $support-legacy {
+            $font-source-legacy: ', url("#{$file-name}.ttf") format("truetype"), url("#{$file-name}.svg##{$file-name}") format("svg")';
+            $font-source: str-insert($font-source, $font-source-legacy, -1);
+        }
+        src: unquote($font-source);
+        font-style: $style;
+        font-weight: $weight;
+        font-display: $font-display;
+        @if $unicode-range {
+            unicode-range : $unicode-range;
+        }
+    }
+}
+
+@mixin reset-click-effect {
+    -webkit-tap-highlight-color: transparent;
+    &:focus { outline: none; }
+    &:active { background-color: transparent; }
+}

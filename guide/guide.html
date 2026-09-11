@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="description" content="주식, 선물옵션, 재테크, 금융상품, 체크카드, 자산관리서비스, 디지털금융전문" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="KB증권" />
+<meta property="og:description" content="국민의 평생 투자파트너" />
+<meta property="og:image" content="https://tong.kbsec.com/og/og_thum.jpg" />
+<meta property="og:url" content="http://www.kbsec.com/" />
+<title> Mable 디자인 가이드 </title>
+<link rel="stylesheet" type="text/css" href="./common/css/guide_test.css">
+<link rel="stylesheet" type="text/css" href="../common/css/index.css">
+<link rel="stylesheet" type="text/css" href="../common/css/emoji.css">
+<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+<script type="text/javascript" src="../common/js/new_ui.js"></script> 
+<script src="../common/js/theme.js"></script>
+<script type="text/javascript">
+//document.querySelector("meta[name=viewport]").setAttribute("content", "width=device-width");
+</script>
+<style>
+.preview_wrap{display:none; position:fixed; top:50%; left:50%; width:379px; height:700px; margin-left:-189px; margin-top:-350px; border:1px solid #000; background:#fff; z-index:100000;}
+.preview_wrap .dim{display:block;}
+.preview_inner{position:relative; z-index:9999;}
+.preview_inner .tit{display:table; table-layout:fixed; height:47px; background:#fff; border-bottom:1px solid #000;}
+.preview_inner .tit a{display:table-cell; width:100%; padding:0; padding-left:10px; vertical-align:middle; font-size:14px;}
+.preview_inner .tit button{display:table-cell; width:47px; border-left:1px solid #000; text-align:center; line-height:47px; vertical-align:middle; font-size:28px; font-weight:bold;}
+.preview_inner iframe{width:100%; height:650px; background:#fff;}
+.lottieLoad { width: 50px; }
+.lottieWrap { display: flex; flex-wrap: wrap; gap: 1rem;  margin-top: 1rem; }
+.emojiList { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; width: 90%; }
+.emojiList li span.noto { font-family: "Noto Color Emoji"; }
+.emojiList span { font-size: 2rem; }
+.munuLink { position: fixed; right: 10px; bottom: 10px; border:1px solid #ccc; background: #fff; z-index: 10000000; }
+.munuLink li { font-size:12px; padding:4px 10px; }
+.munuLink li a { display: block; }
+.projectName { background: #2f2a26; padding: 15px 20px; display: flex; align-items: center; }
+.projectName h1 { color: #fec92c; font-size: 22px; font-weight: bold; margin: 0; }
+</style>
+</head>
+<body>
+<div class="guideWrap">
+    <div class="projectName">
+        <img src="./images/img_logo_mable.png" onerror="this.style.display='none';" width="auto" height="40px" style="margin-right:15px;" />
+        <h1>Mable UI 가이드</h1>
+    </div>
+    <div class="contents">
+        <div class="navArea">
+            <div class="gnb">
+                <!--<h1 class="tit">공통 웹 가이드</h1>-->
+                <ul class="list guideList goLink">
+                    <li class="active"><a data-href="layout.html" title="layout.html">레이아웃</a></li>
+                    <li><a data-href="tab.html" title="tab.html">탭</a></li>
+                    <li><a data-href="font.html" title="font.html">텍스트</a></li>
+                    <li><a data-href="list.html" title="list.html">리스트</a></li>
+                    <li><a data-href="table.html" title="table.html">테이블</a></li>
+                    <li><a data-href="button.html" title="button.html">버튼</a></li>
+                    <li><a data-href="form.html" title="form.html">Form(입력양식)</a></li>
+                    <li><a data-href="accordion.html" title="accordion.html">아코디언</a></li>
+                    <li><a data-href="bottom.html" title="bottom.html">바텀시트</a></li>
+                    <li><a data-href="tag.html" title="tag.html">Tag</a></li>
+                    <li><a data-href="box.html" title="box.html">Box</a></li>
+                    <li><a data-href="step.html" title="step.html">Step</a></li>
+                    <li><a data-href="emoji.html" title="emoji.html">emoji</a></li>
+                    <li><a data-href="mark.html" title="mark.html">기본 표기 정의</a></li>
+                    <li><a data-href="html.html" title="html.html">HTML 가이드</a></li>
+                    <li><a data-href="css.html" title="css.html">CSS 가이드</a></li>
+                    <li><a href="script.html" target="_blank">script 가이드</a></li>
+                    <li><a data-href="font_calc.html" title="font_calc.html">계산기</a></li>
+                    <li><a href="/etc/encoder.html" target="_blank">URL-encoder</a></li>
+                </ul>
+                <!-- <div id="txt"></div> -->
+            </div>
+        </div>
+        <div class="guideCont"></div>
+        
+        <div class="preview_wrap">
+            <div class="dim"></div>
+            <div class="preview_inner">
+                <p class="tit">
+                    <a href="" title="새창열림" target="_blank"></a>
+                    <button type="button" class="close">X</button>
+                </p>
+                <iframe src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+    const dateNow = Date.now();  // 캐시방지
+	console.log(dateNow);
+
+$(document).ready(function() {
+
+    var tabBtn = $(".tab li");
+    tabBtn.on('click', function(){
+        var thisClass = $(this).attr('class');
+        $(this).addClass('active');
+        $('.tab li').not(this).removeClass('active');
+
+        if(thisClass === "guideList"){
+            $(".list.guideList").show();
+            $(".list.menuList").hide();
+            $(".list.guideList li:eq(0)").addClass('active');
+            $('.list.menuList li').not(this).removeClass('active');
+        } else if(thisClass === "menuList"){
+            $(".list.menuList").show();
+            $(".list.guideList").hide();
+            $(".list.menuList li:eq(0)").addClass('active');
+            $('.list.guideList li').not(this).removeClass('active');
+        };
+
+        console.log(thisClass);
+    });
+
+    var thisBtn = $(".list li");    
+    thisBtn.on('click', function(){
+        var btnClass = $(this).attr('class');
+        $(this).addClass('active');
+        $('.list li').not(this).removeClass('active');
+    });
+    openURL('layout.html');
+    
+});
+
+function bottomSheet(value){
+	var val = value;
+	var obj = $('.bottomSheet');
+	obj.close = $('.dim, .bottomSheet .close, .bottomSheet .sheetClose');
+	obj.find('.inCont').removeClass('active');
+	obj.find('.inCont.ty'+val).addClass('active');
+	obj.addClass('active');
+
+	obj.close.on('click', function(){
+		obj.removeClass('active');
+	});
+};
+
+let list = document.querySelectorAll('.goLink li');
+
+const getElmIndex = (element, range)=>{
+    if(!!range) return [].indexOf.call(element, range);
+	return [].indexOf.call(element.parentNode.children, element);
+};
+
+[].forEach.call(list, function(el){
+    el.addEventListener('click', function(){
+        let getURL = this.firstChild.getAttribute('data-href');
+        openURL(getURL);
+    });
+});
+
+function openURL(getURL){
+    if (!getURL) return;
+    fetch(getURL, {
+        cache : 'no-cache'
+    }).then(function(res){
+        if (!res.ok) {
+            throw new Error('HTTP ' + res.status + ' (' + res.statusText + ')');
+        }
+        return res.arrayBuffer();
+    }).then(function(buffer){
+        let text = '';
+        try {
+            // Try utf-8 first
+            const utf8Decoder = new TextDecoder('utf-8', { fatal: true });
+            text = utf8Decoder.decode(buffer);
+        } catch(e) {
+            // Fallback to euc-kr
+            const euckrDecoder = new TextDecoder('euc-kr');
+            text = euckrDecoder.decode(buffer);
+        }
+        let parser = new DOMParser();
+        let htmlDom = parser.parseFromString(text,'text/html');
+        var cont = htmlDom.querySelector('body') || htmlDom;
+        var guideCont = document.querySelector('.guideCont');
+        if (guideCont) {
+            guideCont.innerHTML = cont.innerHTML;
+            guideCont.scrollTo(0,0);
+        }
+        var txtElem = document.getElementById('txt');
+        if (txtElem) txtElem.innerHTML = getURL;
+
+        $('.guideCont .end').each(function(index, item){
+            $(this).parent().append('<br><span class="layBtn btnTy8 light" style="margin-top:10px;display:inline-block;cursor:pointer">라이트</span> <span class="layBtn btnTy8 dark" style="margin-top:10px;display:inline-block;cursor:pointer">다크</span>');
+        });
+        if (typeof ui !== 'undefined' && ui.init) ui.init();
+        if (typeof fontCal === 'function') fontCal();
+    }).catch(function(err){
+        console.error('가이드 로드 실패:', err);
+        var guideCont = document.querySelector('.guideCont');
+        if (guideCont) {
+            var isFileProtocol = window.location.protocol === 'file:';
+            var errorHtml = '<div style="padding:40px; line-height:1.6;">' +
+                '<h2 style="color:#d9534f; margin-bottom:15px;">페이지를 불러올 수 없습니다 (' + getURL + ')</h2>' +
+                '<p style="font-size:15px; color:#555;"><strong>에러 내용:</strong> ' + err.message + '</p>';
+            if (isFileProtocol) {
+                errorHtml += '<div style="margin-top:20px; padding:15px; background:#fff3cd; border:1px solid #ffeeba; border-radius:4px; color:#856404;">' +
+                    '<strong>[알림 - 로컬 파일(file://) 실행 시 주의사항]</strong><br>' +
+                    '브라우저 보안(CORS) 정책상 <code>file://</code> 프로토콜에서는 fetch 비동기 호출이 차단됩니다.<br>' +
+                    '<strong>VS Code의 Live Server</strong> 또는 로컬 웹 서버(<code>http://localhost:...</code>) 환경에서 실행해주세요.' +
+                    '</div>';
+            }
+            errorHtml += '</div>';
+            guideCont.innerHTML = errorHtml;
+        }
+    });
+}
+
+var ui = {
+    layer : function(e){
+        $(".layBtn").click(function(){
+            $(".layBtn").removeClass('active');
+            $(this).addClass('active');
+            var link = $(this).parent().find('.end').attr("href").replace(' ','')+'?ver='+dateNow;
+            var linkDark = $(this).parent().find('.end').attr("href").replace(' ','')+'?d&var='+dateNow;
+
+            let _this = $(this);
+            if(_this.is('.light')) {
+                $(".preview_wrap").show().find(".tit a").attr("href", link).text(link);
+                $(".preview_wrap").find("iframe").attr("src", link);
+            } else {
+                $(".preview_wrap").show().find(".tit a").attr("href", linkDark).text(linkDark);
+                $(".preview_wrap").find("iframe").attr("src", linkDark);
+            }
+        });
+        $(".close").click(function(){
+            $(".preview_wrap").hide();
+        });
+    },
+    viewBtm :function(opts){
+        var _thisBtn = $(".viewBtn button");
+        var _layout = $(".layout");
+        _thisBtn.on('click', function(){
+            var _btnClass = $(this).attr('class');
+            $(this).addClass('active');
+            $('button').not(this).removeClass('active');
+            _layout.removeClass().addClass('layout '+ _btnClass);
+        });
+    },
+    bottomSheet : function(value){
+        var val = value;
+        var obj = $('.bottomSheet');
+        obj.close = $('.dim, .bottomSheet .close, .bottomSheet .sheetClose');
+        obj.find('.inCont').removeClass('active');
+        obj.find('.inCont.ty'+val).addClass('active');
+        obj.addClass('active');
+
+        obj.close.on('click', function(){
+            obj.removeClass('active');
+        });
+    },
+    accordion : function(){
+        // graph image change
+        if ( $('.compareRate').get(0) !== undefined)  {
+            $('.btnListCR li a').on('click', function() {
+                var $thisImg = $('.areaGraph img');
+                var liAll = $('.btnListCR li');
+                var $thisIndex = $(this).closest('li').index();
+                var activeClass = 'active';
+                liAll.removeClass(activeClass);
+                liAll.eq($thisIndex).addClass(activeClass);
+                $thisImg.removeClass(activeClass);
+                $thisImg.eq($thisIndex - 1).addClass(activeClass);
+            })
+        }
+
+        // scroll tab box shadow
+        if ( $('.includeTab').get(0) !== undefined)  {
+            $(window).on('scroll',function () {
+                if ($(document).scrollTop() > 0) {
+                    $('.includeTab > div').addClass('scrollActive');
+                } else {
+                    $('.includeTab > div').removeClass('scrollActive');
+                }
+            });
+        }
+
+        // scroll tab last menu position: tabTy5
+        if ( $('.tabTy5').get(0) !== undefined)  {
+            if ($('.tabTy5').hasClass('lastMenu')) {
+                var bWidth = $('body').outerWidth();
+                $('.wrapTabTy5').scrollLeft(bWidth);
+            }
+        }
+
+        // toggleList: content visible/hidden
+        if ( $('.toggleList').get(0) !== undefined)  {
+            
+            var offsets = [],
+                faqTit = $('.toggleAccordion li > a'),
+                beforeThis = '',
+                offsetsList = function () {
+                    faqTit.each(function(){
+                        var $thisOffset = $(this).offset().top;
+                        offsets.push($thisOffset);
+                    });
+                };
+            setTimeout(offsetsList,100);
+            $('.toggleList li > a').on('click',function() {
+                var $this = $(this),
+                    $thisLi = $this.closest('li'),
+                    $thisUl = $this.closest('Ul'),
+                    $thisIndex = $thisLi.index(),
+                    activeClass = 'active';
+                if (!$thisLi.hasClass(activeClass) ) {
+                    if ($thisUl.hasClass('toggleAccordion')) {
+                        if ( beforeThis !== '') {
+                            $(beforeThis).removeClass(activeClass).find('.toggleBox').slideUp(100);
+                        }
+                        if ( $('.wrapTy5').hasClass('includeTab') && $('.toggleList').length === 1) {
+                            $("html, body").animate({scrollTop:offsets[$thisIndex]-37}, 300);
+                        } else if ( $('.toggleList').length === 1) {
+                            $("html, body").animate({scrollTop:offsets[$thisIndex]}, 300);
+                        }
+                    }
+                    $thisLi.toggleClass(activeClass).find('.toggleBox').slideToggle(100);
+                    beforeThis = $thisLi;
+                    return beforeThis;
+                } else {
+                    $thisLi.removeClass(activeClass).find('.toggleBox').slideUp(100);
+                }
+            });
+        }
+
+        // slide: guide
+        if ($('.importantGuide').get(0) !== undefined) {
+            var isArrows = true;
+            var isDots = true;
+            if (!$('.importantGuide').hasClass('ty2')) {
+                isArrows = false;
+            } else {
+                isDots = false;
+            }
+            $('.importantGuide').slick(
+                {
+                    arrows:isArrows,
+                    dots: isDots,
+                    infinite: false
+                }
+            );
+        }
+    },
+    menuList : function(e){
+        var $front = $("#FrontList"), 
+        front = $front.get(0);
+        $(".tbTy1 a").html(function(){ if(((/\/[^\/]+\.html/).test(this.href)||(/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/)){ return this.href.substring(this.href.lastIndexOf("/")+1); } }).each(function(){
+            if(this.onclick) return false;
+            else this.target = "_blank";
+        });
+
+        front.a = $front.find("a") || undefined;
+        var end = front.a.filter(".end").filter(function(){ return ((/\/[^\/]+\.html/).test(this.href) || (/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/); }).length;
+        var ing = front.a.filter(".test").filter(function(){ return ((/\/[^\/]+\.html/).test(this.href) || (/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/); }).length;
+        $("#pages").find("em").eq(0).html(front.a.length).end()
+            .eq(1).html(ing).end()
+            .eq(2).html(end).end().end()
+            .find("strong").html( (parseInt(( (end)/front.a.length )*1000)/10 || 0)+'%' );
+        $(".listHead").html($("#pages").html());
+
+
+        var lastdate = "0000-00-00";
+        $("#FrontList .push-date, #FrontList .mod-date").each(function(){
+            var compare = [this.innerHTML.replace(/-/gi,"") , lastdate.replace(/-/gi,"")];
+            if(parseFloat(compare[0]) > parseFloat(compare[1])) lastdate = this.innerHTML;
+        });
+        $("#FrontList .push-date:contains('"+lastdate+"'), #FrontList .mod-date:contains('"+lastdate+"')").addClass("last"); //최근 전달일 체크
+    },
+    init : function(opts){
+        opts = opts || {};
+        ui.viewBtm();
+        ui.accordion();
+        ui.menuList();
+        ui.layer();
+    }
+}
+
+
+function fontCal(){
+    const inputSize = document.querySelector('#fontSize');
+    const inputResult = document.querySelector('#sizeResult');
+    const inputRem = document.querySelector('#remResult');
+    const inputBtn = document.querySelector('#calcBtn');
+
+    if (!inputSize || !inputResult || !inputRem) return;
+
+    function calculate() {
+        const inValue = parseFloat(inputSize.value) || 0;
+        const result = inValue * 2 / 3;
+        inputResult.value = result.toFixed(2);
+        inputRem.value = (result / 16).toFixed(4);
+    }
+
+    if (inputBtn) {
+        inputBtn.onclick = calculate;
+    }
+
+    inputSize.addEventListener('keyup', function(event){
+        if (event.key === 'Enter' || event.keyCode === 13) {
+            event.preventDefault();
+            calculate();
+        }
+    });
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,733 @@
+<html lang="ko" data-theme="light"><head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="주식, 선물옵션, 재테크, 금융상품, 체크카드, 자산관리서비스, 디지털금융전문">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KB증권">
+<meta property="og:description" content="국민의 평생 투자파트너">
+<meta property="og:image" content="https://tong.kbsec.com/og/og_thum.jpg">
+<meta property="og:url" content="http://www.kbsec.com/">
+<title> Mable 디자인 가이드 </title>
+<link rel="preload" href="/mable/common/font/KBFGTextL.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="/mable/common/font/KBFGTextM.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="icon" href="/images/common/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/images/common/apple-touch-icon-254x254-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="254×254" href="/images/common/apple-touch-icon-254x254-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144×144" href="/images/common/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114×114" href="/images/common/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72×72" href="/images/common/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="/images/common/apple-touch-icon-57x57-precomposed.png">
+<link rel="stylesheet" type="text/css" href="/mable/guide/common/css/guide_test.css">
+<link rel="stylesheet" type="text/css" href="/mable/common/css/index.css">
+<link rel="stylesheet" type="text/css" href="/mable/common/css/emoji.css">
+<script type="text/javascript" src="/mable/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="/mable/common/js/new_ui.js"></script> 
+<script src="/mable/common/js/theme.js"></script>
+<script type="text/javascript">
+//document.querySelector("meta[name=viewport]").setAttribute("content", "width=device-width");
+</script>
+<style>
+.preview_wrap{display:none; position:fixed; top:50%; left:50%; width:379px; height:700px; margin-left:-189px; margin-top:-350px; border:1px solid #000; background:#fff; z-index:100000;}
+.preview_wrap .dim{display:block;}
+.preview_inner{position:relative; z-index:9999;}
+.preview_inner .tit{display:table; table-layout:fixed; height:47px; background:#fff; border-bottom:1px solid #000;}
+.preview_inner .tit a{display:table-cell; width:100%; padding:0; padding-left:10px; vertical-align:middle; font-size:14px;}
+.preview_inner .tit button{display:table-cell; width:47px; border-left:1px solid #000; text-align:center; line-height:47px; vertical-align:middle; font-size:28px; font-weight:bold;}
+.preview_inner iframe{width:100%; height:650px; background:#fff;}
+.lottieLoad { width: 50px; }
+.lottieWrap { display: flex; flex-wrap: wrap; gap: 1rem;  margin-top: 1rem; }
+.emojiList { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; width: 90%; }
+.emojiList li span.noto { font-family: "Noto Color Emoji"; }
+.emojiList span { font-size: 2rem; }
+.munuLink { position: fixed; right: 10px; bottom: 10px; border:1px solid #ccc; background: #fff; z-index: 10000000; }
+.munuLink li { font-size:12px; padding:4px 10px; }
+.munuLink li a { display: block; }
+</style>
+</head>
+<body style="">
+<div class="guideWrap">
+    <div class="projectName">
+        <img src="/mable/guide/images/img_logo_mable.png" width="auto" height="90px">
+    </div>
+    <div class="contents">
+        <div class="navArea">
+            <div class="gnb">
+                <!--<h1 class="tit">공통 웹 가이드</h1>-->
+                <ul class="list guideList goLink">
+                    <li class=""><a data-href="layout.html" title="layout.html">레이아웃</a></li>
+                    <li class=""><a data-href="tab.html" title="tab.html">탭</a></li>
+                    <li class=""><a data-href="font.html" title="font.html">텍스트</a></li>
+                    <li class=""><a data-href="list.html" title="list.html">리스트</a></li>
+                    <li class=""><a data-href="table.html" title="table.html">테이블</a></li>
+                    <li class=""><a data-href="button.html" title="button.html">버튼</a></li>
+                    <li class=""><a data-href="form.html" title="form.html">Form(입력양식)</a></li>
+                    <li class=""><a data-href="accordion.html" title="accordion.html">아코디언</a></li>
+                    <li class=""><a data-href="bottom.html" title="bottom.html">바텀시트</a></li>
+                    <li class=""><a data-href="tag.html" title="tag.html">Tag</a></li>
+                    <li class=""><a data-href="box.html" title="box.html">Box</a></li>
+                    <li class="active"><a data-href="step.html" title="step.html">Step</a></li>
+                    <li><a data-href="emoji.html" title="emoji.html">emoji</a></li>
+                    <li><a data-href="mark.html" title="mark.html">기본 표기 정의</a></li>
+                    <li><a data-href="html.html" title="html.html">HTML 가이드</a></li>
+                    <li><a data-href="css.html" title="css.html">CSS 가이드</a></li>
+                    <li><a href="script.html" target="_blank">script 가이드</a></li>
+                    <li><a data-href="font_calc.html" title="font_calc.html">계산기</a></li>
+                    <li><a href="/etc/encoder.html" target="_blank">URL-encoder</a></li>
+                </ul>
+                <!-- <div id="txt"></div> -->
+            </div>
+        </div>
+        <div class="guideCont">
+
+<div class="contWrap">
+
+	<div class="section">
+
+		<h2 class="guideTitTy2">Step Type</h2>
+		<div class="guideTy">
+			<ul class="mainList">
+
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.stepTy1</div>
+					</div>
+					<div class="item">
+						<div class="stepTy1 tL">
+							<h1 class="tit"><span class="fcTy5">Step 1</span> 타이틀</h1>
+							<p class="con">콘텐츠 내용 입력</p>
+					
+							<h1 class="tit"><span class="fcTy5">Step 2</span> 타이틀</h1>
+							<p class="con">콘텐츠 내용 입력</p>
+					
+							<h1 class="tit"><span class="fcTy5">Step 3</span> 타이틀</h1>
+							<p class="con">콘텐츠 내용 입력</p>
+						</div>
+					</div>
+					<div class="item subList">
+						<pre style="font-size:11px; line-height:1rem; white-space:pre-wrap;">&lt;!-- .stepTy1 Code --&gt;
+
+&lt;div class="stepTy1"&gt;
+	&lt;h1 class="tit"&gt;&lt;span class="fcTy5"&gt;Step 1&lt;/span&gt; 타이틀&lt;/h1&gt;
+	&lt;p class="con"&gt;콘텐츠 내용 입력&lt;/p&gt;
+	&lt;h1 class="tit"&gt;&lt;span class="fcTy5"&gt;Step 1&lt;/span&gt; 타이틀&lt;/h1&gt;
+	&lt;p class="con"&gt;콘텐츠 내용 입력&lt;/p&gt;
+	&lt;h1 class="tit"&gt;&lt;span class="fcTy5"&gt;Step 1&lt;/span&gt; 타이틀&lt;/h1&gt;
+	&lt;p class="con"&gt;콘텐츠 내용 입력&lt;/p&gt;
+&lt;/div&gt;
+						</pre>
+					</div>
+				</li>
+
+
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.stepTy1.ty2</div>
+					</div>
+					<div class="item">
+						<div class="stepTy1 ty2 tL">
+							<h2 class="tit"><span class="fcTy5">Step 1</span> 타이틀</h2>
+							<h2 class="tit"><span class="fcTy5">Step 2</span> 타이틀</h2>
+							<h2 class="tit"><span class="fcTy5">Step 3</span> 타이틀</h2>
+						</div>
+					</div>
+					<div class="item subList">
+						<pre style="font-size:11px; line-height:1rem; white-space:pre-wrap;">&lt;!-- .stepTy1.ty2 Code --&gt;
+
+&lt;div class="stepTy1 ty2"&gt;
+	&lt;h2 class="tit"&gt;&lt;span class="fcTy5"&gt;Step 1&lt;/span&gt; 타이틀&lt;/h2&gt;
+	&lt;h2 class="tit"&gt;&lt;span class="fcTy5"&gt;Step 2&lt;/span&gt; 타이틀&lt;/h2&gt;
+	&lt;h2 class="tit"&gt;&lt;span class="fcTy5"&gt;Step 3&lt;/span&gt; 타이틀&lt;/h2&gt;
+&lt;/div&gt;
+						</pre>
+					</div>
+				</li>
+
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.stepTy1.ty3</div>
+					</div>
+					<div class="item">
+						<div class="stepTy1 ty3 tL">
+							<h2 class="tit"><span class="fcTy5">Step 1</span> 타이틀</h2>
+							<h2 class="tit"><span class="fcTy5">Step 2</span> 타이틀</h2>
+							<h2 class="tit"><span class="fcTy5">Step 3</span> 타이틀</h2>
+						</div>
+					</div>
+					<div class="item subList">
+						<pre style="font-size:11px; line-height:1rem; white-space:pre-wrap;">&lt;!-- .stepTy1.ty2 Code --&gt;
+
+&lt;div class="stepTy1 ty3"&gt;
+	&lt;h2 class="tit"&gt;&lt;span class="fcTy5"&gt;Step 1&lt;/span&gt; 타이틀&lt;/h2&gt;
+	&lt;h2 class="tit"&gt;&lt;span class="fcTy5"&gt;Step 2&lt;/span&gt; 타이틀&lt;/h2&gt;
+	&lt;h2 class="tit"&gt;&lt;span class="fcTy5"&gt;Step 3&lt;/span&gt; 타이틀&lt;/h2&gt;
+&lt;/div&gt;
+						</pre>
+					</div>
+				</li>
+
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.stepTy2</div>
+					</div>
+					<div class="item">
+						<ul class="stepTy2" style="width:100%;">
+							<li>
+								<h1 class="tit">타이틀</h1>
+								<p class="fcTy3">콘텐츠 내용</p>
+								<img src="/mable/images/trading/ico_starMag_01.png">
+							</li>
+							<li>
+								<h1>타이틀</h1>
+								<p class="fcTy3">콘텐츠 내용</p>
+								<img src="/mable/images/trading/ico_starMag_02.png">
+							</li>
+							<li>
+								<h1>타이틀</h1>
+								<p class="fcTy3">콘텐츠 내용</p>
+								<img src="/mable/images/trading/ico_starMag_03.png">
+							</li>
+						</ul>
+					</div>
+					<div class="item subList">
+						<pre style="font-size:11px; line-height:1rem; white-space:pre-wrap;">							
+&lt;!-- .stepTy2 Code --&gt;
+
+&lt;ul class="stepTy2"&gt;
+	&lt;li&gt;
+		&lt;h1&gt;타이틀&lt;br&gt;타이틀&lt;/h1&gt;
+		&lt;p class="fcTy3"&gt;콘텐츠 내용&lt;br&gt;콘텐츠 내용&lt;/p&gt;
+		&lt;img src="/mable/images/trading/ico_starMag_01.png"&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;h1&gt;타이틀&lt;/h1&gt;
+		&lt;p class="fcTy3"&gt;콘텐츠 내용&lt;br&gt;콘텐츠 내용&lt;/p&gt;
+		&lt;img src="/mable/images/trading/ico_starMag_02.png"&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;h1&gt;타이틀&lt;/h1&gt;
+		&lt;p class="fcTy3"&gt;콘텐츠 내용&lt;/p&gt;
+		&lt;img src="/mable/images/trading/ico_starMag_03.png"&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+						</pre>
+					</div>
+				</li>
+
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.stepTy3</div>
+					</div>
+					<div class="item">
+						<ul class="stepTy3">
+							<li>
+								<span class="tit">T일</span>
+								<ul class="con">
+									<li>매도 : 삼성전자(1,000만원)</li>
+									<li>매수 : 상해 메이디(300만원), 홍콩 비야디(200만원), 미국 애플(400만원)</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tit">T+1일</span>
+								<ul class="con">
+									<li>메이디 <span class="fcTy1">매수</span>결제<span class="fcTy1">(원화 300만원 출금)</span></li>
+								</ul>
+							</li>
+							<li>
+								<span class="tit">T+2일</span>
+								<ul class="con">
+									<li>삼성전자 <span class="fcTy1">매도</span> 결제<span class="fcTy1">(원화 1,000만원 입금)</span></li>
+									<li>비야디 <span class="fcTy1">매수</span> 결제<span class="fcTy1">(원화 200만원 출금)</span></li>
+								</ul>
+							</li>
+							<li>
+								<span class="tit">T+3일</span>
+								<ul class="con">
+									<li>애플 <span class="fcTy1">매수</span> 결제<span class="fcTy1">(원화 400만원 출금)</span></li>
+									<li>잔액 100만원</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="item subList">
+						<pre style="font-size:11px; line-height:1rem; white-space:pre-wrap;">&lt;!-- .stepTy3 Code --&gt;
+
+&lt;ul class="stepTy3"&gt;
+	&lt;li&gt;
+		&lt;span class="tit"&gt;타이틀&lt;/span&gt;
+		&lt;ul class="con"&gt;
+			&lt;li&gt;콘텐츠 영역&lt;/li&gt;
+			&lt;li&gt;콘텐츠 영역&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;span class="tit"&gt;타이틀&lt;/span&gt;
+		&lt;ul class="con"&gt;
+			&lt;li&gt;콘텐츠 영역&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;span class="tit"&gt;타이틀&lt;/span&gt;
+		&lt;ul class="con"&gt;
+			&lt;li&gt;콘텐츠 영역&lt;/li&gt;
+			&lt;li&gt;콘텐츠 영역;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+						</pre>
+					</div>
+				</li>
+
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.stepTy4</div>
+					</div>
+					<div class="item">
+						<ul class="stepTy4">
+							<li>
+								<span class="tit">국내주식 신용/대출 계좌</span>
+								<ul class="con">
+									<li>담보대출 원금 : 1,000만원</li>
+									<li>담보주식평가액 : 1,500만원</li>
+								</ul>
+							</li>
+							<li class="point">
+								<span class="tit">현금으로 전액 해외주식 매수</span>
+								<ul class="con">
+									<li>종목 : 미국 A종목(해외주식 대출불가종목)</li>
+									<li>금액 : 1,000만원 매수</li>
+								</ul>
+								<ul class="listTy3">
+									<li class="fcTy1">매수체결 즉시 담보비율하락</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tit">국내주식 신용/대출 계좌</span>
+								<ul class="con">
+									<li>담보대출 원금 : 1,000만원</li>
+									<li>담보주식평가액 : 1,500만원</li>
+									<li>현금 : 0원(해외주식매수 전액 사용)</li>
+								</ul>
+								<ul class="listTy3">
+									<li class="fcTy1">해외주식평가액 중 [해외주식 대출불가종목]인 경우 담보로 인정 안됨</li>
+									<li class="fcTy1">해외주식 대출가능종목으로 등록되어 있는 경우에 한해 담보로 인정됨(대출가능종목은 정기변경일에 조정될 수 있음에 유의)</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="item subList">
+						<pre style="font-size:11px; line-height:1rem; white-space:pre-wrap;">&lt;!-- .stepTy4 Code --&gt;
+
+&lt;ul class="stepTy4"&gt;
+	&lt;li&gt;
+		&lt;span class="tit"&gt;타이틀&lt;/span&gt;
+		&lt;ul class="con"&gt;
+			&lt;li&gt;콘텐츠 영역&lt;/li&gt;
+			&lt;li&gt;콘텐츠 영역&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li class="point"&gt;
+		&lt;span class="tit"&gt;타이틀&lt;/span&gt;
+		&lt;ul class="con"&gt;
+			&lt;li&gt;콘텐츠 영역&lt;/li&gt;
+			&lt;li&gt;콘텐츠 영역&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;ul class="listTy3"&gt;
+			&lt;li class="fcTy1"&gt;콘텐츠 영역&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;span class="tit"&gt;타이틀&lt;/span&gt;
+		&lt;ul class="con"&gt;
+			&lt;li&gt;콘텐츠 영역&lt;/li&gt;
+			&lt;li&gt;콘텐츠 영역&lt;/li&gt;
+			&lt;li&gt;콘텐츠 영역&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;ul class="listTy3"&gt;
+			&lt;li class="fcTy1"&gt;콘텐츠 영역&lt;/li&gt;
+			&lt;li class="fcTy1"&gt;콘텐츠 영역&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+						</pre>
+					</div>
+				</li>
+
+
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.stepNumList</div>
+					</div>
+					<div class="item">
+						<ul class="stepNumList">
+							<li><span class="stepNum">STEP 01</span>전자금융사기예방<br>예외지정 적용서비스 선택</li>
+							<li><span class="stepNum">STEP 02</span>유의사항 동의</li>
+							<li><span class="stepNum">STEP 03</span>추가인증 방법 선택</li>
+							<li><span class="stepNum">STEP 04</span>보안카드 또는 OTP 입력</li>
+							<li><span class="stepNum">STEP 05</span>공동인증서 비밀번호 입력</li>
+							<li><span class="stepNum">STEP 06</span>완료 및 확인</li>
+						</ul>
+					</div>
+					<div class="item subList">
+						<pre style="font-size:11px; line-height:1rem; white-space:pre-wrap;">&lt;!-- .stepNumList Code --&gt;
+
+&lt;ul class="stepNumList"&gt;
+	&lt;li&gt;&lt;span class="stepNum"&gt;STEP 01&lt;/span&gt;타이틀&lt;/li&gt;
+	&lt;li&gt;&lt;span class="stepNum"&gt;STEP 02&lt;/span&gt;타이틀&lt;/li&gt;
+	&lt;li&gt;&lt;span class="stepNum"&gt;STEP 03&lt;/span&gt;타이틀&lt;/li&gt;
+	&lt;li&gt;&lt;span class="stepNum"&gt;STEP 04&lt;/span&gt;타이틀&lt;/li&gt;
+	&lt;li&gt;&lt;span class="stepNum"&gt;STEP 05&lt;/span&gt;타이틀&lt;/li&gt;
+	&lt;li&gt;&lt;span class="stepNum"&gt;STEP 06&lt;/span&gt;타이틀&lt;/li&gt;
+&lt;/ul&gt;
+						</pre>
+					</div>
+				</li>
+
+				<li class="listItem">
+					<div class="item growTy1">
+						<div>.stepNumList.ty2</div>
+					</div>
+					<div class="item">
+						<ul class="stepNumList ty2">
+							<li><span class="stepNum">STEP 01</span>자료열람요구서 및 증빙자료 접수
+								<ul class="listTy2">
+									<li>영업점 방문 또는 팩스(02-6114-5777)</li>
+								</ul>
+								<ul class="listTy4">
+									<li>자료열람의 목적, 범위, 방법 기재 필수</li>
+								</ul>
+							</li>
+							<li><span class="stepNum">STEP 02</span>자료열람요구 심사(8일이내)</li>
+							<li><span class="stepNum last">STEP 03</span>(수락) 자료 열람 조치<br>(거절) 거절사유와 함께 통지</li>
+						</ul>
+					</div>
+					<div class="item subList">
+						<pre style="font-size:11px; line-height:1rem; white-space:pre-wrap;">&lt;!-- .stepNumList.ty2 Code --&gt;
+
+&lt;ul class="stepNumList ty2"&gt;
+	&lt;li&gt;&lt;span class="stepNum"&gt;STEP 01&lt;/span&gt;타이틀
+		&lt;ul class="listTy2"&gt;
+			&lt;li&gt;콘텐츠 영역&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;ul class="listTy4"&gt;
+			&lt;li&gt;콘텐츠 영역&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li&gt;&lt;span class="stepNum"&gt;STEP 02&lt;/span&gt;타이틀&lt;/li&gt;
+	&lt;li&gt;&lt;span class="stepNum last"&gt;STEP 03&lt;/span&gt;타이틀&lt;/li&gt;
+&lt;/ul&gt;
+						</pre>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+
+	</div>
+	
+</div>
+
+
+</div>
+        
+        <div class="preview_wrap">
+            <div class="dim"></div>
+            <div class="preview_inner">
+                <p class="tit">
+                    <a href="" title="새창열림" target="_blank"></a>
+                    <button type="button" class="close">X</button>
+                </p>
+                <iframe src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+    const dateNow = Date.now();  // 캐시방지
+	console.log(dateNow);
+
+$(document).ready(function() {
+
+    var tabBtn = $(".tab li");
+    tabBtn.on('click', function(){
+        var thisClass = $(this).attr('class');
+        $(this).addClass('active');
+        $('.tab li').not(this).removeClass('active');
+
+        if(thisClass === "guideList"){
+            $(".list.guideList").show();
+            $(".list.menuList").hide();
+            $(".list.guideList li:eq(0)").addClass('active');
+            $('.list.menuList li').not(this).removeClass('active');
+        } else if(thisClass === "menuList"){
+            $(".list.menuList").show();
+            $(".list.guideList").hide();
+            $(".list.menuList li:eq(0)").addClass('active');
+            $('.list.guideList li').not(this).removeClass('active');
+        };
+
+        console.log(thisClass);
+    });
+
+    var thisBtn = $(".list li");    
+    thisBtn.on('click', function(){
+        var btnClass = $(this).attr('class');
+        $(this).addClass('active');
+        $('.list li').not(this).removeClass('active');
+    });
+    openURL('layout.html');
+    
+});
+
+function bottomSheet(value){
+	var val = value;
+	var obj = $('.bottomSheet');
+	obj.close = $('.dim, .bottomSheet .close, .bottomSheet .sheetClose');
+	obj.find('.inCont').removeClass('active');
+	obj.find('.inCont.ty'+val).addClass('active');
+	obj.addClass('active');
+
+	obj.close.on('click', function(){
+		obj.removeClass('active');
+	});
+};
+
+let list = document.querySelectorAll('.goLink li');
+
+const getElmIndex = (element, range)=>{
+    if(!!range) return [].indexOf.call(element, range);
+	return [].indexOf.call(element.parentNode.children, element);
+};
+
+[].forEach.call(list, function(el){
+    el.addEventListener('click', function(){
+        let getURL = this.firstChild.getAttribute('data-href');
+        openURL(getURL);
+    });
+});
+
+function openURL(getURL){
+    // var myHeader = new Headers();
+    // myHeader.append('Content-Type','text/html; charset=EUC-KR');
+    fetch(getURL, {
+        headers : {'Content-Type':'text/html; charset=EUC-KR'},
+        cache : 'no-cache'
+    }).then(function(res){
+        return res.arrayBuffer();
+    }).then(function(buffer){
+        const decoder = new TextDecoder('euc-kr');
+        const text = decoder.decode(buffer);
+        let parser = new DOMParser();
+        let htmlDom = parser.parseFromString(text,'text/html');
+        function encodingText(){
+            htmlDom.querySelector('body').innerHTML.charset = "euc-kr";
+        }
+        var cont = htmlDom.querySelector('body');
+        document.querySelector('.guideCont').innerHTML = cont.innerHTML;
+        document.getElementById('txt').innerHTML = getURL;
+        $('.guideCont .end').each(function(index, item){
+            // let link = this.attr('href');
+            $(this).parent().append('<br><span class="layBtn btnTy8 light" style="margin-top:10px;display:inline-block;cursor:pointer">라이트</span> <span class="layBtn btnTy8 dark" style="margin-top:10px;display:inline-block;cursor:pointer">다크</span>');
+        });
+        document.querySelector('.guideCont').scrollTo(0,0);
+        ui.init();
+        fontCal();
+    });
+}
+
+var ui = {
+    layer : function(e){
+        $(".layBtn").click(function(){
+            $(".layBtn").removeClass('active');
+            $(this).addClass('active');
+            var link = $(this).parent().find('.end').attr("href").replace(' ','')+'?ver='+dateNow;
+            var linkDark = $(this).parent().find('.end').attr("href").replace(' ','')+'?d&var='+dateNow;
+
+            let _this = $(this);
+            if(_this.is('.light')) {
+                $(".preview_wrap").show().find(".tit a").attr("href", link).text(link);
+                $(".preview_wrap").find("iframe").attr("src", link);
+            } else {
+                $(".preview_wrap").show().find(".tit a").attr("href", linkDark).text(linkDark);
+                $(".preview_wrap").find("iframe").attr("src", linkDark);
+            }
+        });
+        $(".close").click(function(){
+            $(".preview_wrap").hide();
+        });
+    },
+    viewBtm :function(opts){
+        var _thisBtn = $(".viewBtn button");
+        var _layout = $(".layout");
+        _thisBtn.on('click', function(){
+            var _btnClass = $(this).attr('class');
+            $(this).addClass('active');
+            $('button').not(this).removeClass('active');
+            _layout.removeClass().addClass('layout '+ _btnClass);
+        });
+    },
+    bottomSheet : function(value){
+        var val = value;
+        var obj = $('.bottomSheet');
+        obj.close = $('.dim, .bottomSheet .close, .bottomSheet .sheetClose');
+        obj.find('.inCont').removeClass('active');
+        obj.find('.inCont.ty'+val).addClass('active');
+        obj.addClass('active');
+
+        obj.close.on('click', function(){
+            obj.removeClass('active');
+        });
+    },
+    accordion : function(){
+        // graph image change
+        if ( $('.compareRate').get(0) !== undefined)  {
+            $('.btnListCR li a').on('click', function() {
+                var $thisImg = $('.areaGraph img');
+                var liAll = $('.btnListCR li');
+                var $thisIndex = $(this).closest('li').index();
+                var activeClass = 'active';
+                liAll.removeClass(activeClass);
+                liAll.eq($thisIndex).addClass(activeClass);
+                $thisImg.removeClass(activeClass);
+                $thisImg.eq($thisIndex - 1).addClass(activeClass);
+            })
+        }
+
+        // scroll tab box shadow
+        if ( $('.includeTab').get(0) !== undefined)  {
+            $(window).on('scroll',function () {
+                if ($(document).scrollTop() > 0) {
+                    $('.includeTab > div').addClass('scrollActive');
+                } else {
+                    $('.includeTab > div').removeClass('scrollActive');
+                }
+            });
+        }
+
+        // scroll tab last menu position: tabTy5
+        if ( $('.tabTy5').get(0) !== undefined)  {
+            if ($('.tabTy5').hasClass('lastMenu')) {
+                var bWidth = $('body').outerWidth();
+                $('.wrapTabTy5').scrollLeft(bWidth);
+            }
+        }
+
+        // toggleList: content visible/hidden
+        if ( $('.toggleList').get(0) !== undefined)  {
+            
+            var offsets = [],
+                faqTit = $('.toggleAccordion li > a'),
+                beforeThis = '',
+                offsetsList = function () {
+                    faqTit.each(function(){
+                        var $thisOffset = $(this).offset().top;
+                        offsets.push($thisOffset);
+                    });
+                };
+            setTimeout(offsetsList,100);
+            $('.toggleList li > a').on('click',function() {
+                var $this = $(this),
+                    $thisLi = $this.closest('li'),
+                    $thisUl = $this.closest('Ul'),
+                    $thisIndex = $thisLi.index(),
+                    activeClass = 'active';
+                if (!$thisLi.hasClass(activeClass) ) {
+                    if ($thisUl.hasClass('toggleAccordion')) {
+                        if ( beforeThis !== '') {
+                            $(beforeThis).removeClass(activeClass).find('.toggleBox').slideUp(100);
+                        }
+                        if ( $('.wrapTy5').hasClass('includeTab') && $('.toggleList').length === 1) {
+                            $("html, body").animate({scrollTop:offsets[$thisIndex]-37}, 300);
+                        } else if ( $('.toggleList').length === 1) {
+                            $("html, body").animate({scrollTop:offsets[$thisIndex]}, 300);
+                        }
+                    }
+                    $thisLi.toggleClass(activeClass).find('.toggleBox').slideToggle(100);
+                    beforeThis = $thisLi;
+                    return beforeThis;
+                } else {
+                    $thisLi.removeClass(activeClass).find('.toggleBox').slideUp(100);
+                }
+            });
+        }
+
+        // slide: guide
+        if ($('.importantGuide').get(0) !== undefined) {
+            var isArrows = true;
+            var isDots = true;
+            if (!$('.importantGuide').hasClass('ty2')) {
+                isArrows = false;
+            } else {
+                isDots = false;
+            }
+            $('.importantGuide').slick(
+                {
+                    arrows:isArrows,
+                    dots: isDots,
+                    infinite: false
+                }
+            );
+        }
+    },
+    menuList : function(e){
+        var $front = $("#FrontList"), 
+        front = $front.get(0);
+        $(".tbTy1 a").html(function(){ if(((/\/[^\/]+\.html/).test(this.href)||(/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/)){ return this.href.substring(this.href.lastIndexOf("/")+1); } }).each(function(){
+            if(this.onclick) return false;
+            else this.target = "_blank";
+        });
+
+        front.a = $front.find("a") || undefined;
+        var end = front.a.filter(".end").filter(function(){ return ((/\/[^\/]+\.html/).test(this.href) || (/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/); }).length;
+        var ing = front.a.filter(".test").filter(function(){ return ((/\/[^\/]+\.html/).test(this.href) || (/\/[^\/]+\.jsp/).test(this.href)) && !this.href.match(/path.html/); }).length;
+        $("#pages").find("em").eq(0).html(front.a.length).end()
+            .eq(1).html(ing).end()
+            .eq(2).html(end).end().end()
+            .find("strong").html( (parseInt(( (end)/front.a.length )*1000)/10 || 0)+'%' );
+        $(".listHead").html($("#pages").html());
+
+
+        var lastdate = "0000-00-00";
+        $("#FrontList .push-date, #FrontList .mod-date").each(function(){
+            var compare = [this.innerHTML.replace(/-/gi,"") , lastdate.replace(/-/gi,"")];
+            if(parseFloat(compare[0]) > parseFloat(compare[1])) lastdate = this.innerHTML;
+        });
+        $("#FrontList .push-date:contains('"+lastdate+"'), #FrontList .mod-date:contains('"+lastdate+"')").addClass("last"); //최근 전달일 체크
+    },
+    init : function(opts){
+        opts = opts || {};
+        ui.viewBtm();
+        ui.accordion();
+        ui.menuList();
+        ui.layer();
+    }
+}
+
+
+function fontCal(){
+
+    const inputSize = document.querySelector('#fontSize');
+const inputResult = document.querySelector('#sizeResult');
+const inputRem = document.querySelector('#remResult');
+const inputBtn = document.querySelector('#calcBtn');
+
+	const inValue = inputSize.value;
+	const result = parseInt(inValue)*2/3;
+	inputResult.value = result;
+	inputRem.value = result / 16;
+
+    inputSize.addEventListener('keyup', function(event){
+	if (event.keyCode === 13) {
+		event.preventDefault();
+		document.getElementById('calcBtn').click();
+	}
+});
+}
+
+
+</script>
+
+
+</body></html>

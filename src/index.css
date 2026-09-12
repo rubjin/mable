@@ -913,70 +913,70 @@ html[data-theme=dark] {
 
 @font-face {
   font-family: "KBFGText";
-  src: url("../../common/font/KBFGTextL.eot");
-  src: local("※"), local("KBFGText"), local("KBFGText"), url("../../common/font/KBFGTextL.woff2") format("woff2"), url("../../common/font/KBFGTextL.woff") format("woff");
+  src: url("../assets/fonts/KBFGTextL.eot");
+  src: local("※"), local("KBFGText"), local("KBFGText"), url("../assets/fonts/KBFGTextL.woff2") format("woff2"), url("../assets/fonts/KBFGTextL.woff") format("woff");
   font-style: normal;
   font-weight: 300;
   font-display: swap;
 }
 @font-face {
   font-family: "KBFGText";
-  src: url("../../common/font/KBFGTextM.eot");
-  src: local("※"), local("KBFGText"), local("KBFGText"), url("../../common/font/KBFGTextM.woff2") format("woff2"), url("../../common/font/KBFGTextM.woff") format("woff");
+  src: url("../assets/fonts/KBFGTextM.eot");
+  src: local("※"), local("KBFGText"), local("KBFGText"), url("../assets/fonts/KBFGTextM.woff2") format("woff2"), url("../assets/fonts/KBFGTextM.woff") format("woff");
   font-style: normal;
   font-weight: 500;
   font-display: swap;
 }
 @font-face {
   font-family: "KBFGText";
-  src: url("../../common/font/KBFGTextB.eot");
-  src: local("※"), local("KBFGText"), local("KBFGText"), url("../../common/font/KBFGTextB.woff2") format("woff2"), url("../../common/font/KBFGTextB.woff") format("woff");
+  src: url("../assets/fonts/KBFGTextB.eot");
+  src: local("※"), local("KBFGText"), local("KBFGText"), url("../assets/fonts/KBFGTextB.woff2") format("woff2"), url("../assets/fonts/KBFGTextB.woff") format("woff");
   font-style: normal;
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: "KBFGText-Light";
-  src: url("../../common/font/KBFGTextL.eot");
-  src: local("※"), local("KBFGText-Light"), local("KBFGText-Light"), url("../../common/font/KBFGTextL.woff2") format("woff2"), url("../../common/font/KBFGTextL.woff") format("woff");
+  src: url("../assets/fonts/KBFGTextL.eot");
+  src: local("※"), local("KBFGText-Light"), local("KBFGText-Light"), url("../assets/fonts/KBFGTextL.woff2") format("woff2"), url("../assets/fonts/KBFGTextL.woff") format("woff");
   font-style: normal;
   font-weight: 300;
   font-display: swap;
 }
 @font-face {
   font-family: "KBFGText-Medium";
-  src: url("../../common/font/KBFGTextM.eot");
-  src: local("※"), local("KBFGText-Medium"), local("KBFGText-Medium"), url("../../common/font/KBFGTextM.woff2") format("woff2"), url("../../common/font/KBFGTextM.woff") format("woff");
+  src: url("../assets/fonts/KBFGTextM.eot");
+  src: local("※"), local("KBFGText-Medium"), local("KBFGText-Medium"), url("../assets/fonts/KBFGTextM.woff2") format("woff2"), url("../assets/fonts/KBFGTextM.woff") format("woff");
   font-style: normal;
   font-weight: 500;
   font-display: swap;
 }
 @font-face {
   font-family: "KBFGText-Bold";
-  src: url("../../common/font/KBFGTextB.eot");
-  src: local("※"), local("KBFGText-Bold"), local("KBFGText-Bold"), url("../../common/font/KBFGTextB.woff2") format("woff2"), url("../../common/font/KBFGTextB.woff") format("woff");
+  src: url("../assets/fonts/KBFGTextB.eot");
+  src: local("※"), local("KBFGText-Bold"), local("KBFGText-Bold"), url("../assets/fonts/KBFGTextB.woff2") format("woff2"), url("../assets/fonts/KBFGTextB.woff") format("woff");
   font-style: normal;
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: "SpoqaR";
-  src: url("../../common/font/SpoqaHanSansNeo-Regular.eot");
-  src: local("※"), local("SpoqaR"), local("SpoqaR"), url("../../common/font/SpoqaHanSansNeo-Regular.woff2") format("woff2"), url("../../common/font/SpoqaHanSansNeo-Regular.woff") format("woff");
+  src: url("../assets/fonts/SpoqaHanSansNeo-Regular.eot");
+  src: local("※"), local("SpoqaR"), local("SpoqaR"), url("../assets/fonts/SpoqaHanSansNeo-Regular.woff2") format("woff2"), url("../assets/fonts/SpoqaHanSansNeo-Regular.woff") format("woff");
   font-style: normal;
   font-weight: normal;
 }
 @font-face {
   font-family: "SpoqaM";
-  src: url("../../common/font/SpoqaHanSansNeo-Medium.eot");
-  src: local("※"), local("SpoqaM"), local("SpoqaM"), url("../../common/font/SpoqaHanSansNeo-Medium.woff2") format("woff2"), url("../../common/font/SpoqaHanSansNeo-Medium.woff") format("woff");
+  src: url("../assets/fonts/SpoqaHanSansNeo-Medium.eot");
+  src: local("※"), local("SpoqaM"), local("SpoqaM"), url("../assets/fonts/SpoqaHanSansNeo-Medium.woff2") format("woff2"), url("../assets/fonts/SpoqaHanSansNeo-Medium.woff") format("woff");
   font-style: normal;
   font-weight: normal;
 }
 @font-face {
   font-family: "SpoqaB";
-  src: url("../../common/font/SpoqaHanSansNeo-Bold.eot");
-  src: local("※"), local("SpoqaB"), local("SpoqaB"), url("../../common/font/SpoqaHanSansNeo-Bold.woff2") format("woff2"), url("../../common/font/SpoqaHanSansNeo-Bold.woff") format("woff");
+  src: url("../assets/fonts/SpoqaHanSansNeo-Bold.eot");
+  src: local("※"), local("SpoqaB"), local("SpoqaB"), url("../assets/fonts/SpoqaHanSansNeo-Bold.woff2") format("woff2"), url("../assets/fonts/SpoqaHanSansNeo-Bold.woff") format("woff");
   font-style: normal;
   font-weight: normal;
 }
@@ -1668,10 +1668,6 @@ select.selectTy2 option {
   max-height: 50vh;
   overflow-y: scroll;
 }
-.bottomSheet .caution .conBox {
-  color: rgb(var(--color-004));
-  font-size: 1.063rem;
-}
 .bottomSheet .caution {
   padding-top: 2.5rem !important;
   color: rgb(var(--color-004));
@@ -1681,7 +1677,7 @@ select.selectTy2 option {
   background: url("https://dtong.kbsec.com/mable/images/common/ico_caution.png") 50% 0.625rem no-repeat;
   background-size: 2.75rem;
 }
-.bottomSheet .cautionTy2 .conBox {
+.bottomSheet .caution .conBox {
   color: rgb(var(--color-004));
   font-size: 1.063rem;
 }
@@ -1693,6 +1689,14 @@ select.selectTy2 option {
   text-align: center;
   background: url("https://dtong.kbsec.com/mable/images/common/ico_cautionTy2.png") 50% 0.625rem no-repeat;
   background-size: 2.75rem;
+}
+.bottomSheet .cautionTy2 .conBox {
+  color: rgb(var(--color-004));
+  font-size: 1.063rem;
+}
+.bottomSheet .sotingList {
+  overflow-y: scroll;
+  max-height: 12.5rem;
 }
 .bottomSheet .sotingList li {
   position: relative;
@@ -1712,10 +1716,6 @@ select.selectTy2 option {
   font-weight: 500;
   background: url("https://dtong.kbsec.com/mable/images/common/ico_soting_check.png") right 50% no-repeat;
   background-size: 1.5rem;
-}
-.bottomSheet .sotingList {
-  overflow-y: scroll;
-  max-height: 12.5rem;
 }
 .bottomSheet.active {
   display: block;

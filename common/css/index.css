@@ -5928,10 +5928,6 @@ button.swiper-pagination-bullet {
   max-height: 50vh;
   overflow-y: scroll;
 }
-.bottomSheet .caution .conBox {
-  color: rgb(var(--color-004));
-  font-size: 1.063rem;
-}
 .bottomSheet .caution {
   padding-top: 2.5rem !important;
   color: rgb(var(--color-004));
@@ -5941,7 +5937,7 @@ button.swiper-pagination-bullet {
   background: url("https://dtong.kbsec.com/mable/guide/images/common/ico_caution.png") 50% 0.625rem no-repeat;
   background-size: 2.75rem;
 }
-.bottomSheet .cautionTy2 .conBox {
+.bottomSheet .caution .conBox {
   color: rgb(var(--color-004));
   font-size: 1.063rem;
 }
@@ -5953,6 +5949,14 @@ button.swiper-pagination-bullet {
   text-align: center;
   background: url("https://dtong.kbsec.com/mable/guide/images/common/ico_cautionTy2.png") 50% 0.625rem no-repeat;
   background-size: 2.75rem;
+}
+.bottomSheet .cautionTy2 .conBox {
+  color: rgb(var(--color-004));
+  font-size: 1.063rem;
+}
+.bottomSheet .sotingList {
+  overflow-y: scroll;
+  max-height: 12.5rem;
 }
 .bottomSheet .sotingList li {
   position: relative;
@@ -5971,10 +5975,6 @@ button.swiper-pagination-bullet {
   font-weight: 500;
   background: url("https://dtong.kbsec.com/mable/guide/images/common/ico_soting_check.png") right 50% no-repeat;
   background-size: 1.5rem;
-}
-.bottomSheet .sotingList {
-  overflow-y: scroll;
-  max-height: 12.5rem;
 }
 .bottomSheet .sotingList.ty2 li {
   position: relative;
@@ -6533,6 +6533,9 @@ hr.gray {
   display: none;
 }
 
+html { /* Mable */
+  /* Moweb(No Dark) */
+}
 html[data-theme=light] .numTit.linkTy:after {
   background: url("https://dtong.kbsec.com/mable/images/common/arrowList.png") right center no-repeat;
   background-size: 0.375rem 0.6875rem;
@@ -7895,7 +7898,7 @@ html[data-theme=light] .ico_private {
   background-size: 420px auto;
 }
 html[data-theme=light] .ico_private.i1_1 {
-  background-position: -0px 0px;
+  background-position: 0px 0px;
 }
 html[data-theme=light] .ico_private.i1_2 {
   background-position: -35px 0px;
@@ -7931,7 +7934,7 @@ html[data-theme=light] .ico_private.i1_12 {
   background-position: -385px 0px;
 }
 html[data-theme=light] .ico_private.i2_1 {
-  background-position: -0px -35px;
+  background-position: 0px -35px;
 }
 html[data-theme=light] .ico_private.i2_2 {
   background-position: -35px -35px;
@@ -7967,7 +7970,7 @@ html[data-theme=light] .ico_private.i2_12 {
   background-position: -385px -35px;
 }
 html[data-theme=light] .ico_private.i3_1 {
-  background-position: -0px -70px;
+  background-position: 0px -70px;
 }
 html[data-theme=light] .ico_private.i3_2 {
   background-position: -35px -70px;
@@ -8007,7 +8010,7 @@ html[data-theme=light] .privacyBox .ico_privacy {
   background-size: 480px auto;
 }
 html[data-theme=light] .privacyBox .ico_privacy.i1_1 {
-  background-position: -0px 0px;
+  background-position: 0px 0px;
 }
 html[data-theme=light] .privacyBox .ico_privacy.i1_2 {
   background-position: -40px 0px;
@@ -8043,7 +8046,7 @@ html[data-theme=light] .privacyBox .ico_privacy.i1_12 {
   background-position: -440px 0px;
 }
 html[data-theme=light] .privacyBox .ico_privacy.i2_1 {
-  background-position: -0px -40px;
+  background-position: 0px -40px;
 }
 html[data-theme=light] .privacyBox .ico_privacy.i2_2 {
   background-position: -40px -40px;
@@ -8079,7 +8082,7 @@ html[data-theme=light] .privacyBox .ico_privacy.i2_12 {
   background-position: -440px -40px;
 }
 html[data-theme=light] .privacyBox .ico_privacy.i3_1 {
-  background-position: -0px -80px;
+  background-position: 0px -80px;
 }
 html[data-theme=light] .privacyBox .ico_privacy.i3_2 {
   background-position: -40px -80px;
@@ -8364,6 +8367,7 @@ html[data-theme=light] .branchKB {
 html[data-theme=light] .branchNorm {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='42' viewBox='0 0 42 42' fill='none'%3E%3Crect x='0.5' y='0.5' width='41' height='41' rx='20.5' fill='white'/%3E%3Crect x='0.5' y='0.5' width='41' height='41' rx='20.5' stroke='%2360584C'/%3E%3Cpath opacity='0.9' fill-rule='evenodd' clip-rule='evenodd' d='M33.3547 21.5164C32.5873 20.7386 31.5203 20.4005 30.0928 20.4855C28.9043 20.5598 27.9611 21.0381 27.2415 21.4834C27.2415 21.4723 27.2399 21.4622 27.2399 21.4505C27.2399 21.0722 27.2833 20.6626 27.3245 20.2642C27.3663 19.8585 27.4092 19.4467 27.4092 19.0567C27.4092 18.6588 27.3646 18.2822 27.2294 17.9598C27.1948 17.8749 27.1211 17.8263 27.026 17.8263C26.6407 17.8358 25.8915 18.1034 25.7095 18.2649L25.6111 18.4839C25.604 18.9164 25.5116 20.1239 25.4171 20.2698C25.4209 20.2653 25.3654 20.4156 25.3654 20.4156C25.2043 22.14 25.201 23.656 25.3506 24.9562C25.3676 25.087 25.6133 25.2826 25.8041 25.353C26.0118 25.4317 26.6654 25.2535 27.0414 25.1088C27.0376 25.1099 27.1843 25.087 27.1843 25.087C27.3036 25.0736 27.374 24.9719 27.3668 24.8339C27.3663 24.8316 27.3756 24.4595 27.3756 24.4595C27.6483 23.3363 28.7488 21.9958 30.0499 21.7947C30.7854 21.6762 31.3664 21.8673 31.8254 22.3769C31.8875 22.468 32.0217 23.276 31.5363 24.2052C31.1762 24.8925 30.4534 25.4709 29.504 25.8346C28.6047 26.1805 27.6153 26.3213 26.3933 26.2777C26.3439 26.2442 25.2494 25.4927 25.2494 25.4927C24.2831 24.8014 23.0798 23.9409 21.987 23.5196C21.7973 23.4453 21.4521 23.1559 21.2465 22.9821L21.1339 22.8876C20.5045 22.3752 19.3072 21.5639 18.3447 20.9124C18.3447 20.9124 17.9104 20.6179 17.8258 20.5598C17.8269 20.5229 17.8291 20.4497 17.8291 20.4497C17.856 20.419 18.4601 20.0502 18.4601 20.0502C19.3061 19.5473 19.6969 19.3003 19.7805 19.1718C19.7635 19.1925 19.8932 19.1053 19.8932 19.1053C19.8992 19.1019 21.9903 17.8989 21.9903 17.8989C24.0022 16.7741 26.2834 15.4984 27.4812 14.2373C27.4834 14.2356 27.5394 14.0456 27.5394 14.0456L27.5664 13.8729C27.6444 13.6047 27.6499 13.3969 27.5845 13.1571C27.5664 13.0884 27.5043 13.0096 27.4213 12.994C26.4868 12.9007 25.2802 13.4706 24.1819 14.5172C23.934 14.7536 23.7251 14.8692 23.5052 14.9916L23.3376 15.0855C22.1266 15.7851 19.3985 17.5061 17.9715 18.4348C18.0655 16.8741 18.3496 14.6547 18.6987 12.8034L18.6597 12.5822C18.6553 12.5743 18.5124 12.3028 18.5124 12.3028L18.4008 12.1016L18.3683 12.0932C18.0841 11.9468 17.8511 12.0055 17.6807 12.0508C17.6812 12.0508 17.3943 12.1575 17.3943 12.1575L17.015 12.2972C16.9402 12.3123 16.8858 12.3592 16.8561 12.4341C16.1751 14.1087 15.6061 16.8646 15.4725 19.069C14.1093 18.1872 12.8489 17.5547 12.2326 17.2479L12.214 17.239L12.1403 17.2222C11.9193 17.1937 11.6478 17.0272 11.3861 16.8657C11.3597 16.8501 10.8689 16.5254 10.8689 16.5254L10.0762 16.0102C10.0839 16.0142 9.86841 15.9616 9.86841 15.9616C9.5276 16.0209 8.87511 16.4668 8.68162 16.7707C8.65524 16.811 8.64589 16.8546 8.64589 16.8998C8.64589 16.9635 8.66458 17.0289 8.68162 17.0904L8.7168 17.2546L8.75363 17.3524C9.13347 17.7486 10.0905 18.4085 11.0299 18.9215L12.1189 19.5076L13.7844 20.4335C13.7844 20.4408 14.0697 20.6626 14.0697 20.6626C14.0708 20.6626 14.266 20.7777 14.266 20.7777C14.266 20.7777 14.2869 20.7911 14.3 20.8001C13.8564 21.1012 11.2707 22.8569 11.2707 22.8569L9.67602 23.9303C9.52595 24.0359 8.89545 24.3226 8.75803 24.3779C8.41227 24.5215 8.15062 24.7411 8.04178 24.9797L8 25.0725L8.04288 25.135L8.16326 25.2289C8.15941 25.2278 8.32817 25.3368 8.32817 25.3368L8.50352 25.4602C8.50682 25.4614 8.66898 25.4854 8.66898 25.4854C8.94932 25.4966 9.36434 25.3345 10.1405 24.9892C10.8524 24.6679 12.7878 23.4816 13.6157 22.9748L13.9686 22.7591C14.1148 22.7714 14.2759 22.6463 14.4182 22.5362C14.5848 22.4015 14.9465 22.1769 15.1664 22.078C15.1719 22.0757 15.2988 22.0037 15.4154 21.9383C15.4143 21.9752 15.4132 22.0344 15.4132 22.0344C15.4506 24.6076 15.5968 26.4772 15.8722 27.9189L15.8777 27.9451L15.9041 28.0016C16.0409 28.2072 16.1959 28.8157 16.3334 29.3538L16.6483 30.4278C16.6544 30.4395 16.7379 30.5278 16.7379 30.5278C16.9177 30.6518 17.4652 30.8658 17.8324 30.8217L17.9236 30.8111L17.9814 30.6798C18.0116 30.5194 18.0237 30.3613 18.0237 30.188C18.0237 29.9919 18.0088 29.7751 17.9918 29.5114L17.9671 29.123C17.8516 27.3271 17.7345 24.7327 17.7345 23.0078C17.7345 22.9608 17.7356 22.9173 17.7362 22.8714C18.0358 23.0631 19.3495 23.9046 19.3495 23.9046C21.5835 25.3781 24.9597 27.6048 26.9996 28.1938C27.1063 28.2262 27.2168 28.201 27.2959 28.1245C27.2992 28.1217 27.6109 27.9205 27.6109 27.9205L27.6681 27.8959C27.7863 27.8389 27.8654 27.6383 27.8786 27.421C29.5975 27.3327 31.9969 26.6594 33.2799 25.0194C33.7768 24.384 34 23.6057 34 22.9379C34 22.392 33.851 21.921 33.5806 21.6623L33.3547 21.5164Z' fill='%23FFCC00'/%3E%3C/svg%3E") center center/1.75rem no-repeat !important;
 }
+html[data-theme=dark] { /* Moweb(No Dark) */ }
 html[data-theme=dark] .numTit.linkTy:after {
   background: url("/mable/images_dark/common/arrowList.png") right center no-repeat;
   background-size: 0.375rem 0.6875rem;
@@ -8546,7 +8550,6 @@ html[data-theme=dark] .boardTop .csVis {
   background: #ffed7f url("https://dtong.kbsec.com/mable/images/cs/img_workguide_visual.png") 96% 50% no-repeat;
   background-size: 84px auto;
 }
-html[data-theme=dark] { /* Moweb(No Dark) */ }
 html[data-theme=dark] .todaysCock .contBox .titHead > .moreBtn {
   background: url("/mable/images_dark/common/ic_arrow.png") 50% 50% no-repeat;
   background-size: 1rem;
@@ -9731,7 +9734,7 @@ html[data-theme=dark] .ico_private {
   background-size: 420px auto;
 }
 html[data-theme=dark] .ico_private.i1_1 {
-  background-position: -0px 0px;
+  background-position: 0px 0px;
 }
 html[data-theme=dark] .ico_private.i1_2 {
   background-position: -35px 0px;
@@ -9767,7 +9770,7 @@ html[data-theme=dark] .ico_private.i1_12 {
   background-position: -385px 0px;
 }
 html[data-theme=dark] .ico_private.i2_1 {
-  background-position: -0px -35px;
+  background-position: 0px -35px;
 }
 html[data-theme=dark] .ico_private.i2_2 {
   background-position: -35px -35px;
@@ -9803,7 +9806,7 @@ html[data-theme=dark] .ico_private.i2_12 {
   background-position: -385px -35px;
 }
 html[data-theme=dark] .ico_private.i3_1 {
-  background-position: -0px -70px;
+  background-position: 0px -70px;
 }
 html[data-theme=dark] .ico_private.i3_2 {
   background-position: -35px -70px;
@@ -9843,7 +9846,7 @@ html[data-theme=dark] .privacyBox .ico_privacy {
   background-size: 480px auto;
 }
 html[data-theme=dark] .privacyBox .ico_privacy.i1_1 {
-  background-position: -0px 0px;
+  background-position: 0px 0px;
 }
 html[data-theme=dark] .privacyBox .ico_privacy.i1_2 {
   background-position: -40px 0px;
@@ -9879,7 +9882,7 @@ html[data-theme=dark] .privacyBox .ico_privacy.i1_12 {
   background-position: -440px 0px;
 }
 html[data-theme=dark] .privacyBox .ico_privacy.i2_1 {
-  background-position: -0px -40px;
+  background-position: 0px -40px;
 }
 html[data-theme=dark] .privacyBox .ico_privacy.i2_2 {
   background-position: -40px -40px;
@@ -9915,7 +9918,7 @@ html[data-theme=dark] .privacyBox .ico_privacy.i2_12 {
   background-position: -440px -40px;
 }
 html[data-theme=dark] .privacyBox .ico_privacy.i3_1 {
-  background-position: -0px -80px;
+  background-position: 0px -80px;
 }
 html[data-theme=dark] .privacyBox .ico_privacy.i3_2 {
   background-position: -40px -80px;
@@ -10006,12 +10009,10 @@ html .tabTy6 .tabMoreBtn {
   background: url("/mable/images_dark/common/btn_arrowTab.png") 50% 50% no-repeat;
   background-size: 1.5rem auto;
 }
-html { /* Mable */ }
 html .tabTy6.noFixed .tabMoreBtn {
   background: url("/mable/images/common/btn_arrowTab.png") 50% 50% no-repeat;
   background-size: 1.5rem auto;
 }
-html { /* Moweb(No Dark) */ }
 html .brief .briefStep {
   background: url("/mable/images_dark/investment/brief_line.png") 1rem top repeat-y;
   background-size: 1px auto;
@@ -10906,6 +10907,10 @@ html .branchNorm {
     scale: 1;
   }
 }
+.otpGuideVis {
+  padding: 22px 20px;
+  background: rgb(var(--color-421));
+}
 .otpGuideVis h1 {
   color: var(--color-004);
   font-size: 1.125rem;
@@ -10919,10 +10924,6 @@ html .branchNorm {
   font-style: normal;
   font-weight: 300;
   line-height: 1.25rem;
-}
-.otpGuideVis {
-  padding: 22px 20px;
-  background: rgb(var(--color-421));
 }
 .otpGuideVis .boxTy dl + dl {
   margin-top: 0.5rem;
@@ -13444,6 +13445,9 @@ html .branchNorm {
   z-index: 999;
   padding: 1rem 0;
   background: rgb(var(--color-028));
+  /* moWeb No Dark, No Fixed, page Type */
+  /* No Fixed, no Tab scrool, Tab Type */
+  /* sticky */
 }
 .tabTy6 ul {
   display: flex;
@@ -13527,14 +13531,14 @@ html .branchNorm {
   padding-top: 0;
   margin-top: 4.25rem;
 }
-.tabTy6 + .contBox .tabContBox:first-child {
-  padding-top: 0px;
-}
 .tabTy6 + .contBox .tabContBox {
   position: relative;
   margin: 0 -20px;
   padding: 20px;
   scroll-margin: 4.25rem;
+}
+.tabTy6 + .contBox .tabContBox:first-child {
+  padding-top: 0px;
 }
 .tabTy6 + .contBox .tabContBox + .tabContBox {
   margin-top: 0.438rem;
@@ -13550,9 +13554,6 @@ html .branchNorm {
   height: 0.4375rem;
   background-color: rgb(var(--color-406));
 }
-.tabTy6 {
-  /* moWeb No Dark, No Fixed, page Type */
-}
 .tabTy6.noFixed {
   position: relative;
   z-index: 1;
@@ -13566,9 +13567,6 @@ html .branchNorm {
 .tabTy6.noFixed + .contArea .btnAreaTy2 {
   margin-top: 1.5rem;
 }
-.tabTy6 {
-  /* No Fixed, no Tab scrool, Tab Type */
-}
 .tabTy6.noFixedTab {
   position: relative;
   z-index: 1;
@@ -13578,9 +13576,6 @@ html .branchNorm {
 }
 .tabTy6.noFixedTab ul:after {
   display: none;
-}
-.tabTy6 {
-  /* sticky */
 }
 .tabTy6.stickTy {
   position: sticky !important;
@@ -14730,13 +14725,13 @@ html .branchNorm {
   margin-right: -20px;
   overflow: hidden;
 }
-.scrollTable .leftTh th:last-of-type {
-  border-right: 0;
-}
 .scrollTable .leftTh {
   position: relative;
   width: 50%;
   z-index: 1;
+}
+.scrollTable .leftTh th:last-of-type {
+  border-right: 0;
 }
 .scrollTable .leftTh:after {
   display: block;
@@ -18377,6 +18372,11 @@ ul .listTy10 > li:first-child {
   padding: 0 0.938rem;
 }
 
+.rs-container {
+  margin-top: 0.25rem;
+  height: 3.75rem;
+  position: relative;
+}
 .rs-container * {
   box-sizing: border-box;
   -webkit-touch-callout: none;
@@ -18385,11 +18385,6 @@ ul .listTy10 > li:first-child {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-.rs-container {
-  margin-top: 0.25rem;
-  height: 3.75rem;
-  position: relative;
 }
 .rs-container .rs-bg {
   background-color: rgb(var(--color-408));
@@ -18467,12 +18462,12 @@ ul .listTy10 > li:first-child {
 .rs-container .rs-scale span:first-child ins {
   margin-left: 0 !important;
 }
-.rs-container .rs-scale span:last-child ins {
-  margin-left: -0.625rem !important;
-}
 .rs-container .rs-scale span:last-child {
   margin-left: -0.063rem;
   width: 0 !important;
+}
+.rs-container .rs-scale span:last-child ins {
+  margin-left: -0.625rem !important;
 }
 .rs-container .rs-scale span ins {
   color: rgb(var(--color-409));
@@ -21283,12 +21278,12 @@ ul .listTy10 > li:first-child {
   transform: rotate(-45deg);
   content: "";
 }
+.boardDetail .replyWrap .btnRe.active {
+  background: rgb(var(--color-336));
+}
 .boardDetail .replyWrap .btnRe.active:after {
   margin-top: -0.375rem;
   transform: rotate(135deg);
-}
-.boardDetail .replyWrap .btnRe.active {
-  background: rgb(var(--color-336));
 }
 .boardDetail .reply {
   position: relative;
@@ -21754,6 +21749,11 @@ ul .listTy10 > li:first-child {
 .publicStock .rating_graph .swiper-pagination-bullet-active {
   background: rgb(var(--color-400));
 }
+.publicStock .txtBox {
+  display: block;
+  position: relative;
+  margin-top: 1.875rem;
+}
 .publicStock .txtBox .txt {
   display: none;
   font-size: 0.938rem;
@@ -21762,11 +21762,6 @@ ul .listTy10 > li:first-child {
 }
 .publicStock .txtBox .txt.active {
   display: block;
-}
-.publicStock .txtBox {
-  display: block;
-  position: relative;
-  margin-top: 1.875rem;
 }
 
 .investInfo .vis {
@@ -30347,6 +30342,11 @@ ul .listTy10 > li:first-child {
 .myKB .radTab .fR .stabTy1 label {
   width: 3.875rem;
 }
+.myKB .rs-container {
+  margin-top: 0.25rem;
+  height: 3.75rem;
+  position: relative;
+}
 .myKB .rs-container * {
   box-sizing: border-box;
   -webkit-touch-callout: none;
@@ -30355,11 +30355,6 @@ ul .listTy10 > li:first-child {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-.myKB .rs-container {
-  margin-top: 0.25rem;
-  height: 3.75rem;
-  position: relative;
 }
 .myKB .rs-container .rs-bg {
   background-color: rgb(var(--color-408));
@@ -30436,12 +30431,12 @@ ul .listTy10 > li:first-child {
 .myKB .rs-container .rs-scale span:first-child ins {
   margin-left: 0 !important;
 }
-.myKB .rs-container .rs-scale span:last-child ins {
-  margin-left: -0.625rem !important;
-}
 .myKB .rs-container .rs-scale span:last-child {
   margin-left: -1px;
   width: 0px !important;
+}
+.myKB .rs-container .rs-scale span:last-child ins {
+  margin-left: -0.625rem !important;
 }
 .myKB .rs-container .rs-scale span ins {
   color: rgb(var(--color-412));
@@ -32327,11 +32322,11 @@ ul .listTy10 > li:first-child {
 .krxInfo .titTy1 img {
   height: 1.5rem;
 }
-.krxInfo .titTy2:first-of-type {
-  margin-top: 0;
-}
 .krxInfo .titTy2 {
   margin: 2.5rem 0 0.75rem;
+}
+.krxInfo .titTy2:first-of-type {
+  margin-top: 0;
 }
 .krxInfo .titTy2 img {
   height: 1.5rem;

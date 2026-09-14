@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UI 컴포넌트 스타일 가이드</title>
   <link rel="stylesheet" href="../styles/globalsPub.scss">
+  <link rel="stylesheet" href="../assets/css/prism.css">
   <style>
     /* html 그리드 오버라이드 - PC 레이아웃 */
     html { display: block !important; grid-template-columns: none !important; height: 100% !important; overflow: hidden !important; }
@@ -107,15 +108,25 @@
     .guideCodeCopy:hover { background-color: #e5e7eb; color: #1f2937; }
     .guideCodeCopy.isCopied { background-color: #d1fae5; color: #065f46; border-color: #6ee7b7; }
     .guideCodeBlock {
-      display: none; max-height: 400px; padding: 20px 24px; background-color: #1f2937;
+      display: none; max-height: 400px; padding: 20px 24px; background-color: #1e1e2e;
       overflow-x: auto; margin: 0;
     }
     .guideCodeBlock.isOpen { display: block; }
     .guideCodeBlock code {
-      font-family: 'Consolas', 'Monaco', monospace;
-      font-size: 13px; line-height: 1.7; color: #e5e7eb;
+      font-family: 'Consolas', 'Monaco', 'Fira Code', monospace;
+      font-size: 13px; line-height: 1.65; color: #e5e7eb;
       white-space: pre;
     }
+
+    /* Prism Syntax Highlighting Tokens */
+    .token.comment, .token.prolog, .token.doctype, .token.cdata { color: #6b7280; font-style: italic; }
+    .token.punctuation { color: #94a3b8; }
+    .token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted { color: #f43f5e; }
+    .token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted { color: #38bdf8; }
+    .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string { color: #fbbf24; }
+    .token.atrule, .token.attr-value, .token.keyword { color: #a3e635; }
+    .token.function, .token.class-name { color: #c084fc; }
+    .token.regex, .token.important, .token.variable { color: #fb923c; }
 
     /* Full width 버튼 별도 박스 */
     .guideBoxFullwidth { gap: 10px; }

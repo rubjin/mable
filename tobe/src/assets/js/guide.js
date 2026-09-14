@@ -56,9 +56,11 @@
       wrap.innerHTML = 
         '<div class="guideCodeHeader">' +
           '<button type="button" class="guideCodeToggle" onclick="toggleCode(this)">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>' +
             '<span>코드 보기</span>' +
           '</button>' +
           '<button type="button" class="guideCodeCopy" onclick="copyCode(this)">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>' +
             '<span>코드 복사</span>' +
           '</button>' +
         '</div>' +
@@ -184,29 +186,56 @@
 })();
 
 // ==========================================
-// 3. 코드 보기 토글 & 복사 전역 함수
+// 4. 코드 보기 토글 & 복사 전역 함수
 // ==========================================
 function toggleCode(btn) {
   var wrap = btn.closest('.guideCodeWrap');
   var codeBlock = wrap.querySelector('.guideCodeBlock');
   btn.classList.toggle('isOpen');
   codeBlock.classList.toggle('isOpen');
-  var label = btn.querySelector('span') || btn.childNodes[2];
+  var label = btn.querySelector('span');
   if (label) {
-    label.textContent = codeBlock.classList.contains('isOpen') ? ' 코드 닫기' : ' 코드 보기';
+    label.textContent = codeBlock.classList.contains('isOpen') ? '코드 닫기' : '코드 보기';
   }
+}
+
+function fallbackCopy(text, cb) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.left = '-9999px';
+  ta.style.top = '-9999px';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try {
+    document.execCommand('copy');
+    if (cb) cb();
+  } catch (e) {
+    console.error('Clipboard copy failed:', e);
+  }
+  document.body.removeChild(ta);
 }
 
 function copyCode(btn) {
   var wrap = btn.closest('.guideCodeWrap');
   var code = wrap.querySelector('code').textContent;
-  navigator.clipboard.writeText(code).then(function() {
+
+  function onCopied() {
     btn.classList.add('isCopied');
-    var label = btn.querySelector('span') || btn.childNodes[2];
-    if (label) label.textContent = ' 복사됨';
+    var label = btn.querySelector('span');
+    if (label) label.textContent = '복사됨';
     setTimeout(function() {
       btn.classList.remove('isCopied');
-      if (label) label.textContent = ' 복사';
+      if (label) label.textContent = '코드 복사';
     }, 2000);
-  });
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(code).then(onCopied).catch(function() {
+      fallbackCopy(code, onCopied);
+    });
+  } else {
+    fallbackCopy(code, onCopied);
+  }
 }

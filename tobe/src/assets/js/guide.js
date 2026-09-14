@@ -125,20 +125,59 @@
     }
   });
 
-  // 초기 로드 시 저장된 탭 복원
+  // ==========================================
+  // 3. 테마(다크모드/라이트모드) 관리
+  // ==========================================
+  window.setTheme = function(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try {
+      localStorage.setItem('guideTheme', theme);
+    } catch (e) {}
+
+    var toggleBtn = document.getElementById('themeToggleBtn');
+    if (toggleBtn) {
+      var icon = toggleBtn.querySelector('.themeIcon');
+      var text = toggleBtn.querySelector('.themeText');
+      if (theme === 'dark') {
+        if (icon) icon.textContent = '☀️';
+        if (text) text.textContent = 'Light Mode';
+      } else {
+        if (icon) icon.textContent = '🌙';
+        if (text) text.textContent = 'Dark Mode';
+      }
+    }
+  };
+
+  // 테마 전환 버튼 클릭 이벤트
+  document.addEventListener('click', function(e) {
+    var themeBtn = e.target.closest('#themeToggleBtn');
+    if (themeBtn) {
+      var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      var nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      window.setTheme(nextTheme);
+    }
+  });
+
+  // 초기 로드 시 저장된 탭 및 테마 복원
   document.addEventListener('DOMContentLoaded', function() {
+    var savedTheme = 'light';
+    try {
+      savedTheme = localStorage.getItem('guideTheme') || 'light';
+    } catch (e) {}
+    window.setTheme(savedTheme);
+
     var hash = window.location.hash ? window.location.hash.replace('#', '') : null;
     var savedTab = null;
     try {
       savedTab = localStorage.getItem('activeGuideTab');
     } catch (e) {}
 
-    var initialTab = hash || savedTab || 'sectionButtons';
+    var initialTab = hash || savedTab || 'sectionForms';
 
     if (document.getElementById(initialTab)) {
       window.activateTab(initialTab);
     } else {
-      window.activateTab('sectionButtons');
+      window.activateTab('sectionForms');
     }
   });
 

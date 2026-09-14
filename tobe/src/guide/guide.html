@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI 컴포넌트 스타일 가이드</title>
+  <link rel="stylesheet" href="../styles/globalsPub.scss">
+  <style>
+    /* html 그리드 오버라이드 - PC 레이아웃 */
+    html { display: block !important; grid-template-columns: none !important; height: 100% !important; overflow: hidden !important; }
+    body { background-color: #f9fafb; padding: 0; margin: 0; min-width: 1200px; height: 100% !important; overflow: hidden !important; display: flex !important; flex-direction: column !important; }
+
+    /* 고정 상단 네비게이션 */
+    .guideNav {
+      position: relative; top: 0; z-index: 1000; flex-shrink: 0; width: 100%;
+      background-color: #fff; border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .guideNavInner {
+      max-width: 1200px; margin: 0 auto; padding: 0 40px;
+      display: flex; align-items: center; gap: 0;
+    }
+    .guideNavItem {
+      padding: 16px 24px; font-size: 15px; font-weight: 600;
+      color: #6b7280; white-space: nowrap; cursor: pointer;
+      border-bottom: 3px solid transparent; transition: all 0.2s;
+      background: none; border-top: none; border-left: none; border-right: none;
+    }
+    .guideNavItem:hover { color: #1f2937; background-color: #fefce8; }
+    .guideNavItem.isActive {
+      color: #1f2937; border-bottom-color: #FFDC00;
+    }
+
+    /* 가이드 레이아웃 (독립 스크롤 영역) */
+    .guideWrapper { flex: 1 1 auto; width: 100%; max-width: 1200px; margin: 0 auto; padding: 40px 40px 80px; overflow-y: auto; box-sizing: border-box; }
+    .guideHeader { margin-bottom: 48px; border-bottom: 3px solid rgb(255,188,0); padding-bottom: 24px; }
+    .guideHeader h1 { font-size: 36px; margin: 0 0 12px 0; color: #111; }
+    .guideHeader p { color: #666; margin: 0; font-size: 16px; }
+    .guideSection { margin-bottom: 60px; scroll-margin-top: 70px; }
+    .guideTitle { font-size: 24px; font-weight: bold; margin-bottom: 24px; color: #1f2937; display: flex; align-items: center; }
+    .guideTitle::before { content: ''; display: inline-block; width: 6px; height: 24px; background-color: rgb(255,188,0); margin-right: 12px; border-radius: 3px; }
+
+    /* 가이드 박스 */
+    .guideBox { padding: 30px; border: 1px dashed #d1d5db; border-radius: 8px 8px 0 0; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+    .guideBoxBlock { display: block; }
+
+    /* 사이즈 레이블 */
+    .guideSizeLabel {
+      display: block; font-size: 12px; font-weight: 700; color: #9ca3af;
+      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
+    }
+    .guideSizeGroup { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-end; }
+    .guideSizeItem { display: flex; flex-direction: column; align-items: flex-start; }
+
+    /* 서브 타이틀 */
+    .guideSubtitle {
+      font-size: 16px; font-weight: 600; color: #374151;
+      margin: 28px 0 14px; padding-left: 16px; border-left: 3px solid #FFDC00;
+    }
+
+    /* 코드 블록 */
+    .guideCodeWrap {
+      border: 1px dashed #d1d5db; border-top: none; border-radius: 0 0 8px 8px;
+      overflow: hidden; margin-bottom: 24px;
+    }
+    .guideCodeHeader {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 20px; background-color: #f3f4f6; border-top: 1px solid #e5e7eb;
+    }
+    .guideCodeToggle {
+      font-size: 13px; font-weight: 600; color: #6b7280;
+      cursor: pointer; background: none; border: none; padding: 6px 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .guideCodeToggle:hover { color: #1f2937; }
+    .guideCodeToggle svg { width: 14px; height: 14px; transition: transform 0.2s; }
+    .guideCodeToggle.isOpen svg { transform: rotate(180deg); }
+    .guideCodeCopy {
+      font-size: 13px; font-weight: 600; color: #6b7280;
+      cursor: pointer; background: none; border: 1px solid #d1d5db;
+      padding: 6px 14px; border-radius: 4px; transition: all 0.2s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .guideCodeCopy:hover { background-color: #e5e7eb; color: #1f2937; }
+    .guideCodeCopy.isCopied { background-color: #d1fae5; color: #065f46; border-color: #6ee7b7; }
+    .guideCodeBlock {
+      display: none; max-height: 400px; padding: 20px 24px; background-color: #1f2937;
+      overflow-x: auto; margin: 0;
+    }
+    .guideCodeBlock.isOpen { display: block; }
+    .guideCodeBlock code {
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 13px; line-height: 1.7; color: #e5e7eb;
+      white-space: pre;
+    }
+
+    /* Full width 버튼 별도 박스 */
+    .guideBoxFullwidth { gap: 10px; }
+    .guideBoxFullwidth .full { display: flex; }
+
+    /* 팝업 가이드 박제(상자 안에 가두기) 래퍼 */
+    .popupPreviewBox {
+      background-color: #f3f4f6;
+      display: block;
+    }
+    .popupPreviewBox .popupDimmed {
+      position: relative !important;
+      display: flex !important;
+      width: 100% !important;
+      height: 400px !important;
+      z-index: 1 !important;
+      margin-bottom: 24px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .popupPreviewBox .popupDimmed:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 초기 깜빡임 방지: 모든 섹션 기본 숨김 */
+    .guideSection { display: none; }
+
+    /* Guide Component Layout Styles */
+    .contWrap { width: 100%; }
+    .section { display: block; position: relative; width: 100%; box-sizing: border-box; background-color: #fff; }
+    .section + .section { margin-top: 30px; padding-top: 30px; border-top: 2px solid #f3f4f6; }
+    .guideTitTy1 { display: block; font-size: 1.5rem; font-weight: 500; }
+    .guideTitTy2 { display: block; margin: 1.5rem 0 0.875rem; color: #15594D; font-size: 1.25rem; font-weight: 600; }
+    .guideTitTy2:first-of-type { margin-top: 0; }
+
+    .guideTy { background-color: #fff; overflow: hidden; width: 100%; }
+    .guideTy .titTy1, .guideTy .titTy2 { margin: 0 !important; padding: 0 !important; font-size: 1rem; font-weight: 600; color: #374151; } 
+    .guideTy .mainList { border-top: 1px solid #d1d5db; }
+    .guideTy .mainList .listItem { display: flex; border-bottom: 1px solid #e5e7eb; align-items: center; }
+    .guideTy .mainList .listItem > .item { display: flex; flex-basis: 20%; flex-grow: 1; flex-shrink: 1; align-items: center; flex-wrap: wrap; padding: 1.25rem 1rem; box-sizing: border-box; }
+    .guideTy .mainList .listItem > .item.nowrap { flex-wrap: nowrap; }
+    .guideTy .mainList .listItem > .item > div { display: block; width: 100%; text-align: left; }
+    .guideTy .mainList .listItem > .item button + button { margin-left: 0.625rem !important; }
+    .growTy1 { flex-grow: 0 !important; min-width: 140px; }
+    .growTy2 { flex-grow: 1 !important; }
+    .dataBoxSelect { width: 100%; }
+    .dataBoxSelect .selectBox { display: flex; gap: 0.75rem; }
+  </style>
+
+  <!-- 초기 렌더링 시 깜빡임 방지 즉시 실행 스크립트 -->
+  <script>
+    (function() {
+      var hash = window.location.hash ? window.location.hash.replace('#', '') : null;
+      var savedTab = null;
+      try { savedTab = localStorage.getItem('activeGuideTab'); } catch(e) {}
+      var activeId = hash || savedTab || 'sectionForms';
+      var style = document.createElement('style');
+      style.id = 'guideInitStyle';
+      style.textContent = '#' + activeId + ' { display: block !important; } ' +
+                          '.guideNavItem[data-target="' + activeId + '"] { color: #1f2937 !important; border-bottom-color: #FFDC00 !important; }';
+      document.head.appendChild(style);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- 스티키 네비게이션 -->
+  <nav class="guideNav">
+    <div class="guideNavInner">
+      <button type="button" class="guideNavItem" data-target="sectionForms">Forms</button>
+    </div>
+  </nav>
+
+  <div class="guideWrapper">
+    <!-- ==================== 폼 가이드 ==================== -->
+    <section id="sectionForms" class="guideSection">
+      <h2 class="guideTitle">Input</h2>
+      <div class="guideBox guideBoxBlock">
+        <include src="./src/components/input.html"></include>
+      </div>
+      <h2 class="guideTitle">Select</h2>
+      <div class="guideBox guideBoxBlock">
+        <include src="./src/components/select.html"></include>
+      </div>
+    </section>
+  </div>
+
+  <!-- Syntax Highlighting JS -->
+  <script src="../assets/js/prism.min.js"></script>
+
+  <!-- 1. 공통 UI 컴포넌트 동작 스크립트 (실제 서비스 화면용) -->
+  <script src="../assets/js/ui.js"></script>
+
+  <!-- 2. UI 스타일 가이드 전용 시스템 스크립트 (코드 보기/복사, 가이드 탭) -->
+  <script src="../assets/js/guide.js"></script>
+</body>
+</html>
+

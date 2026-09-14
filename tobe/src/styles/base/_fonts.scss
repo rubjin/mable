@@ -1,0 +1,10 @@
+@use '../abstracts/mixins' as *;
+
+// Local Fonts (woff2 / woff)
+@include font-face('KBFGText', '../../assets/font/KBFGTextL', 300, normal, false, swap);
+@include font-face('KBFGText', '../../assets/font/KBFGTextM', 500, normal, false, swap);
+@include font-face('KBFGText', '../../assets/font/KBFGTextB', 700, normal, false, swap);
+@include font-face('KBFGText-Light', '../../assets/font/KBFGTextL', 300, normal, false, swap);
+@include font-face('KBFGText-Medium', '../../assets/font/KBFGTextM', 500, normal, false, swap);
+@include font-face('KBFGText-Bold', '../../assets/font/KBFGTextB', 700, normal, false, swap);
+

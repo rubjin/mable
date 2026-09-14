@@ -1,96 +1,143 @@
-
+﻿<!--
+  ==========================================================================
+  [Input Component]
+  - Tag: <input>
+  - Props / Options:
+    * id (string, required): label의 for 속성과 매핑되는 고유 식별자
+    * type (text | password | number, default: 'text'): 인풋 타입
+    * class (string):
+        - '' (기본 / Inactive)
+        - 'focus' (포커스 활성 상태)
+        - 'impos' (오류 / 유효성 검사 실패 상태)
+        - 'text' (패딩/배경 변형)
+    * placeholder (string): 입력 안내 문구
+    * value (string): 입력값
+    * disabled (boolean): 비활성화 여부
+  - Slots / Structure:
+    * label.srOnly (required): 스크린리더용 접근성 라벨
+    * .fmPrefix (optional): 좌측 접두 요소 (셀렉트, 아이콘 등)
+    * .fmField (required): 인풋 + 클리어 버튼 + unit 래퍼
+    * .adornment (optional): 인풋 내부에 표시되는 보조 요소 - 단위 텍스트, 아이콘 등 입력값과 함께 표시되는 요소 
+    * .fmSuffix (optional): 우측 접미 요소 (단위 텍스트, 확인 버튼 등)
+  ==========================================================================
+-->
+<!-- 1. 기본 텍스트 인풋 (Default / Inactive) -->
 <div class="fm">
-    <label for="f-inp-1" class="blind">Inactive</label>
-    <input id="f-inp-1" type="text" class="" placeholder="placeholder" value="" style="width:100%;">
-    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
-</div>
-
-<div class="fm tR">
-    <label for="f-inp-1" class="blind">Inactive</label>
-    <input id="f-inp-1" type="text" class="" placeholder="placeholder" value="" style="width:100%;">
-    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
-    <span class="price">원</span>
-</div>
-
-<div class="fm">
-    <label for="f-inp-2" class="blind">Focused</label>
-    <input id="f-inp-2" type="text" class="focus" placeholder="placeholder" value="" style="width:100%;">
-    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
-</div>
-<div class="fm tR">
-    <label for="f-inp-2" class="blind">Focused</label>
-    <input id="f-inp-2" type="text" class="focus" placeholder="placeholder" value="" style="width:100%;">
-    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
-    <span class="price">원</span>
-</div>
-
-<div class="fm">
-    <label for="f-inp-3" class="blind">Filled</label>
-    <input id="f-inp-3" type="text" class="impos" placeholder="placeholder" value="" style="width:100%;">
-    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
-</div>
-
-<div class="fm tR">
-    <label for="f-inp-3" class="blind">Filled</label>
-    <input id="f-inp-3" type="text" class="impos" placeholder="placeholder" value="" style="width:100%;">
-    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
-    <span class="price">원</span>
-</div>
-
-<div class="fm">
-    <label for="f-inp-4" class="blind">Activated</label>
-    <input id="f-inp-4" type="text" class="" placeholder="placeholder" value="Activated" style="width:100%;">
-    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
-</div>
-
-<div class="fm tR">
-    <label for="f-inp-4" class="blind">Activated</label>
-    <input id="f-inp-4" type="text" class="" placeholder="placeholder" value="20,000" style="width:100%;">
-    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
-    <span class="price">원</span>
-</div>
-
-<div class="fm">
-    <label for="f-inp-5" class="blind">Disabled</label>
-    <input id="f-inp-5" type="text" class="" placeholder="placeholder" value="" style="width:100%;" disabled="">
-    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
-</div>
-<div class="fm tR">
-    <label for="f-inp-5" class="blind">Disabled</label>
-    <input id="f-inp-5" type="text" class="" placeholder="placeholder" value="" style="width:100%;" disabled="">
-    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
-</div>
-
-<div class="fm">
-    <label for="f-inp-5" class="blind">PassWord</label>
-    <input id="f-inp-5" type="password" class="" placeholder="비밀번호 입력" value="" style="width:100%;">
-    <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
-</div>
-
-<div class="fm searchTy">
-    <label for="keyword" class="blind">종목</label>
-    <input id="keyword" name="keyword" type="text" class="text" value="" placeholder="제목을 입력해주세요.">
-    <button type="button" class="searchBtn"><span class="blind">검색</span></button>
-</div>
-
-<div class="formBox gridTy1">
-    <div class="fm item">
-        <label for="f-inp-1" class="blind">Inactive</label>
-        <input id="f-inp-1" type="text" class="" placeholder="placeholder" value="" style="width:100%;">
-        <button type="button" class="clearBtn"><span class="blind">삭제</span></button>
-    </div>
-    <div class="item">
-        <button class="btnTy2">텍스트</button>
-    </div>
-</div>
-                
-
-
-<div class="fm">
-    <label for="fInp4" class="srOnly">라벨</label>
-    <span class="fmPrefix"></span>
+    <label for="fInp1" class="srOnly">Inactive</label>
     <div class="fmField">
-        <input id="fInp4" type="text" class="" placeholder="placeholder" value="">
+        <input id="fInp1" type="text" class="" placeholder="placeholder" value="">
+        <button type="button" class="clearBtn" aria-label="텍스트 삭제"></button>
+    </div>
+</div>
+
+<!-- 2. 오른쪽 정렬 + 접미사 단위 텍스트 (Text Right with adornment) -->
+<div class="fm tR">
+    <label for="fInp1Right" class="srOnly">Inactive Right</label>
+    <div class="fmField">
+        <input id="fInp1Right" type="text" class="" placeholder="placeholder" value="">
+        <button type="button" class="clearBtn" aria-label="텍스트 삭제"></button>
+        <span class="price">원</span>
+    </div>
+</div>
+
+<!-- 3. 포커스 상태 (Focused) -->
+<div class="fm">
+    <label for="fInp2" class="srOnly">Focused</label>
+    <div class="fmField">
+        <input id="fInp2" type="text" class="focus" placeholder="placeholder" value="">
+        <button type="button" class="clearBtn active" aria-label="텍스트 삭제"></button>
+    </div>
+</div>
+
+<!-- 4. 포커스 상태 (Focused Right with adornment) -->
+<div class="fm tR">
+    <label for="fInp2Right" class="srOnly">Focused Right</label>
+    <div class="fmField">
+        <input id="fInp2Right" type="text" class="focus" placeholder="placeholder" value="">
+        <button type="button" class="clearBtn active" aria-label="텍스트 삭제"></button>
+        <span class="price">원</span>
+    </div>
+</div>
+
+<!-- 5. 유효성 검사 실패 / 오류 상태 (Filled / Error) -->
+<div class="fm">
+    <label for="fInp3" class="srOnly">Filled Error</label>
+    <div class="fmField isError">
+        <input id="fInp3" type="text" placeholder="placeholder" value="">
+        <button type="button" class="clearBtn active" aria-label="오류 확인"></button>
+    </div>
+</div>
+
+<!-- 6. 유효성 검사 실패 (Filled Error Right with adornment) -->
+<div class="fm tR">
+    <label for="fInp3Right" class="srOnly">Filled Error Right</label>
+    <div class="fmField isError">
+        <input id="fInp3Right" type="text" placeholder="placeholder" value="">
+        <button type="button" class="clearBtn active" aria-label="오류 확인"></button>
+        <span class="price">원</span>
+    </div>
+</div>
+
+<!-- 7. 활성화 상태 (Activated with Value) -->
+<div class="fm">
+    <label for="fInp4" class="srOnly">Activated</label>
+    <div class="fmField">
+        <input id="fInp4" type="text" class="" placeholder="placeholder" value="Activated">
+        <button type="button" class="clearBtn active" aria-label="텍스트 삭제"></button>
+    </div>
+</div>
+
+<!-- 8. 활성화 상태 (Activated Right with adornment) -->
+<div class="fm tR">
+    <label for="fInp4Right" class="srOnly">Activated Right</label>
+    <div class="fmField">
+        <input id="fInp4Right" type="text" class="" placeholder="placeholder" value="20,000">
+        <button type="button" class="clearBtn active" aria-label="텍스트 삭제"></button>
+        <span class="price">원</span>
+    </div>
+</div>
+
+<!-- 9. 비활성화 상태 (Disabled) -->
+<div class="fm">
+    <label for="fInp5" class="srOnly">Disabled</label>
+    <div class="fmField">
+        <input id="fInp5" type="text" class="" placeholder="placeholder" value="" disabled="">
+        <button type="button" class="clearBtn" aria-label="텍스트 삭제" disabled=""></button>
+    </div>
+</div>
+
+<!-- 10. 비활성화 상태 (Disabled Right) -->
+<div class="fm tR">
+    <label for="fInp5Right" class="srOnly">Disabled Right</label>
+    <div class="fmField">
+        <input id="fInp5Right" type="text" class="" placeholder="placeholder" value="" disabled="">
+        <button type="button" class="clearBtn" aria-label="텍스트 삭제" disabled=""></button>
+    </div>
+</div>
+
+<!-- 11. 비밀번호 인풋 (Password) -->
+<div class="fm">
+    <label for="fInpPwd" class="srOnly">PassWord</label>
+    <div class="fmField">
+        <input id="fInpPwd" type="password" class="" placeholder="비밀번호 입력" value="">
+        <button type="button" class="clearBtn" aria-label="텍스트 삭제"></button>
+    </div>
+</div>
+
+<!-- 12. 검색 인풋 (Search Input with Suffix Button) -->
+<div class="fm searchTy">
+    <label for="keyword" class="srOnly">종목 검색</label>
+    <div class="fmField">
+        <input id="keyword" name="keyword" type="text" class="text" value="" placeholder="제목을 입력해주세요.">
+        <button type="button" class="searchBtn" aria-label="검색"></button>
+    </div>
+</div>
+
+<!-- 13. 인풋 + 확인 버튼 조합 (Input with Suffix Button) -->
+<div class="fm">
+    <label for="fInpBtn" class="srOnly">인풋 + 버튼 조합</label>
+    <div class="fmField">
+        <input id="fInpBtn" type="text" class="" placeholder="placeholder" value="">
         <button type="button" class="clearBtn" aria-label="텍스트 삭제"></button>
     </div>
     <span class="fmSuffix">

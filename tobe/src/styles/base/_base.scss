@@ -81,8 +81,9 @@ label {
 	cursor: pointer;
 }
 
-/* Screen reader blind text (기본 숨김) */
-.blind {
+/* Screen reader accessible text (기본 숨김) */
+.blind,
+.srOnly {
 	display: block;
 	position: absolute;
 	left: -624.9375rem;

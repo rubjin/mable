@@ -1,16 +1,113 @@
 ﻿@use '../abstracts' as *;
 
+.fm {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	box-sizing: border-box;
+
+	.fmField {
+		position: relative;
+		flex: 1 1 auto;
+		display: flex;
+		align-items: center;
+		width: 100%;
+		min-width: 0;
+
+		input[type=text],
+		input[type=password],
+		input[type=number],
+		select {
+			width: 100%;
+		}
+	}
+
+	.fmPrefix {
+		flex: 0 0 auto;
+		display: inline-flex;
+		align-items: center;
+		margin-right: 0.5rem;
+	}
+
+	.fmSuffix {
+		flex: 0 0 auto;
+		display: inline-flex;
+		align-items: center;
+		margin-left: 0.5rem;
+
+		.price {
+			position: static;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: auto;
+			min-width: 2rem;
+			height: 3rem;
+			padding: 0 0.5rem;
+			color: rgb(var(--color-004));
+			font-size: 1.063rem;
+			line-height: 3rem;
+			text-align: center;
+		}
+
+		.btnTy2 {
+			white-space: nowrap;
+			padding: 0 1.25rem;
+			width: auto;
+		}
+	}
+
+	/* tR: 텍스트 오른쪽 정렬 */
+	&.tR {
+		.fmField input[type=text],
+		.fmField input[type=number] {
+			padding: 0 2.5rem 0 1rem;
+			text-align: right;
+		}
+		.clearBtn {
+			left: 1.2rem;
+			right: auto;
+		}
+	}
+
+	/* searchTy: 통합 검색 인풋 형태 */
+	&.searchTy {
+		.fmPrefix {
+			margin-right: 0;
+			select.searchTy {
+				border-radius: 4px 0 0 4px;
+				background-color: rgb(var(--color-187));
+			}
+		}
+		.fmField {
+			input[type=text] {
+				padding: 0 3rem 0 1rem !important;
+				border-radius: 4px;
+			}
+		}
+		.fmPrefix + .fmField input[type=text] {
+			border-radius: 0 4px 4px 0;
+		}
+		.fmSuffix {
+			margin-left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			.searchBtn {
+				position: relative;
+				top: auto;
+				right: auto;
+			}
+		}
+	}
+}
+
 .formBox {
 	display: block;
 	box-sizing: border-box;
-	> span {
-		select {
-			border: none !important;
-		}
-		input {
-			border: none !important;
-		}
-	}
+
 	&.gridTy1 {
 		display: grid !important;
 		grid-template-columns: 80% 20%;
@@ -42,32 +139,17 @@
 			margin-top: 0.5rem;
 		}
 	}
-	&.searchTy {
-		display: flex;
-		margin: 0;
-		box-sizing: border-box;
-		select {
-			flex-shrink: 0;
-			width: 42%;
-			font-size: 1rem;
-			border-radius: 4px 0 0 4px;
-			z-index: 10;
-			background-color: rgb(var(--color-187));
-			&.placeholder {
-				color: rgb(var(--color-411));
-			}
-		}
-		.fm.searchTy input[type=text] {
-			border-radius: 0 4px 4px 0;
-		}
-	}
 }
 
 .dataBoxSelect {
 	width: 100%;
 	.selectBox {
 		display: flex;
+		align-items: center;
 		gap: 0.75rem;
+		.fm {
+			width: auto;
+		}
 	}
 }
 

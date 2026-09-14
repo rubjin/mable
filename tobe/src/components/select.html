@@ -1,45 +1,97 @@
-﻿<select style="width:100%">
-    <option class="all" selected="">option</option>
-    <option id="">option</option>
-    <option id="">option</option>
-    <option id="">option</option>
-</select>
+﻿<!--
+  ==========================================================================
+  [Select Component]
+  - Tag: <select>
+  - Props / Options:
+    * id (string, required): label의 for 속성과 매핑되는 고유 식별자
+    * class (string):
+        - '' (기본 3rem 높이의 셀렉트 박스)
+        - 'selectTy2' (1.125rem 가변형 인라인 셀렉트 박스)
+        - 'searchTy' (검색 인풋과 결합되는 접두 셀렉트 박스)
+    * style (string): 'width: 100%' 등 너비 스타일
+    * disabled (boolean): 비활성화 여부
+  - Slots / Structure:
+    * label.srOnly (required): 스크린리더용 접근성 라벨
+    * .fmPrefix (optional): 좌측 접두 요소 (결합 셀렉트 박스 등)
+    * .fmField (required): 셀렉트 / 인풋 필드 래퍼
+    * .fmSuffix (optional): 우측 접미 요소 (검색 버튼, 확인 버튼 등)
+  ==========================================================================
+-->
 
-<select class="selectTy2">
-    <option selected="">전체</option>
-    <option>KOSPI</option>
-    <option>KOSDAQ</option>
-    <option>업종/섹터</option>
-    <option>스마일/테마</option>
-</select>
-
-<div class="dataBoxSelect">
-    <div class="selectBox">
-        <select class="selectTy2">
-            <option selected="">전체</option>
-            <option>글로벌</option>
-            <option>아시아</option>
-            <option>북미</option>
-            <option>남미</option>
-            <option>유럽</option>
-        </select>
-        <select class="selectTy2">
-            <option selected="">배율 전체</option>
-            <option>1X</option>
-            <option>2X</option>
-            <option>-1X</option>
-            <option>-2X</option>
+<!-- 1. 기본 셀렉트 박스 (Default Select Box) -->
+<div class="fm">
+    <label for="sel1" class="srOnly">기본 옵션 선택</label>
+    <div class="fmField">
+        <select id="sel1" style="width:100%">
+            <option class="all" selected="">option</option>
+            <option>option 1</option>
+            <option>option 2</option>
+            <option>option 3</option>
         </select>
     </div>
 </div>
 
-<div class="formBox searchTy">
-    <select class="searchTy">
-        <option>Option</option>
-    </select>
-    <div class="fm searchTy">
-        <label for="fm-srchKeyword" class="blind">Input Text</label>
-        <input id="fm-srchKeyword" type="text" class="" placeholder="종목명 검색" value="" style="width:100%;">
-        <button type="button" class="searchBtn"><span class="blind">검색</span></button>
+<!-- 2. 가변형 인라인 셀렉트 (Select Ty2 - Compact / Dynamic) -->
+<div class="fm">
+    <label for="sel2" class="srOnly">시장 구분 선택</label>
+    <div class="fmField">
+        <select id="sel2" class="selectTy2">
+            <option selected="">전체</option>
+            <option>KOSPI</option>
+            <option>KOSDAQ</option>
+            <option>업종/섹터</option>
+            <option>스마일/테마</option>
+        </select>
     </div>
+</div>
+
+<!-- 3. 복수 셀렉트 그룹 (Multi Select Box Group) -->
+<div class="dataBoxSelect">
+    <div class="selectBox">
+        <div class="fm">
+            <label for="selRegion" class="srOnly">지역 선택</label>
+            <div class="fmField">
+                <select id="selRegion" class="selectTy2">
+                    <option selected="">전체</option>
+                    <option>글로벌</option>
+                    <option>아시아</option>
+                    <option>북미</option>
+                    <option>남미</option>
+                    <option>유럽</option>
+                </select>
+            </div>
+        </div>
+        <div class="fm">
+            <label for="selScale" class="srOnly">배율 선택</label>
+            <div class="fmField">
+                <select id="selScale" class="selectTy2">
+                    <option selected="">배율 전체</option>
+                    <option>1X</option>
+                    <option>2X</option>
+                    <option>-1X</option>
+                    <option>-2X</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 4. 셀렉트 + 검색 인풋 조합 (Select + Search Input Combination) -->
+<div class="fm searchTy">
+    <label for="selSrchKeyword" class="srOnly">종목명 검색</label>
+    <!-- 좌측 요소 (셀렉트 박스) -->
+    <span class="fmPrefix">
+        <select class="searchTy">
+            <option>Option</option>
+            <option>종목명</option>
+            <option>종목코드</option>
+        </select>
+    </span>
+    <div class="fmField">
+        <input id="selSrchKeyword" type="text" class="" placeholder="종목명 검색" value="">
+    </div>
+    <!-- 우측 요소 (검색 버튼) -->
+    <span class="fmSuffix">
+        <button type="button" class="searchBtn" aria-label="검색"></button>
+    </span>
 </div>

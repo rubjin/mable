@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko" data-theme="light">
 <head>
   <meta charset="UTF-8">
@@ -80,14 +80,15 @@
       gap: 20px;
     }
 
-    /* 가이드 전용: label.blind 시각화 */
-    .guideBox label.blind {
+    /* 가이드 전용: label.blind / label.srOnly 시각화 */
+    .guideBox label.blind,
+    .guideBox label.srOnly {
       position: absolute !important;
       display: inline-block !important;
       width: auto !important;
       height: auto !important;
       top: -20px;
-      left: auto !important;
+      left: 0 !important;
       text-indent: 0 !important;
       overflow: visible !important;
       font-size: 11px !important;
@@ -99,8 +100,9 @@
       margin-bottom: 4px !important;
       font-weight: 600 !important;
       vertical-align: middle !important;
+      z-index: 10;
     }
-    .fm, .formBox  .item { margin-top: 20px; }
+    .fm, .formBox .item { margin-top: 20px; }
     /* 코드 블록 */
     .guideCodeWrap {
       border: 1px dashed #d1d5db; border-top: none; border-radius: 0 0 8px 8px;
@@ -155,11 +157,10 @@
     html[data-theme='dark'] .guideNavItem.isActive { color: #ffffff; border-bottom-color: #FFDC00; }
     html[data-theme='dark'] .guideHeader h1 { color: #f3f4f6; }
     html[data-theme='dark'] .guideHeader p { color: #9ca3af; }
-    html[data-theme='dark'] .guideTitle { color: #f3f4f6; }
     html[data-theme='dark'] .guideBox { background-color: #18181b; border-color: #3f3f46; }
-    html[data-theme='dark'] .guideBox label.blind { color: #c7d2fe !important; background-color: #312e81 !important; }
+    html[data-theme='dark'] .guideBox label.blind,
+    html[data-theme='dark'] .guideBox label.srOnly { color: #c7d2fe !important; background-color: #312e81 !important; }
     html[data-theme='dark'] .guideCodeHeader { background-color: #27272a; border-color: #3f3f46; }
-    html[data-theme='dark'] .guideCodeToggle, html[data-theme='dark'] .guideCodeCopy { color: #d4d4d8; }
     html[data-theme='dark'] .guideCodeToggle:hover { color: #ffffff; }
     html[data-theme='dark'] .guideCodeCopy { border-color: #52525b; }
     html[data-theme='dark'] .guideCodeCopy:hover { background-color: #3f3f46; color: #ffffff; }

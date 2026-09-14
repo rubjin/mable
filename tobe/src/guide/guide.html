@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko" data-theme="light">
 <head>
   <meta charset="UTF-8">
@@ -60,28 +60,47 @@
     .guideHeader { margin-bottom: 48px; border-bottom: 3px solid rgb(255,188,0); padding-bottom: 24px; }
     .guideHeader h1 { font-size: 36px; margin: 0 0 12px 0; color: #111; }
     .guideHeader p { color: #666; margin: 0; font-size: 16px; }
-    .guideSection { margin-bottom: 60px; scroll-margin-top: 70px; }
+    .guideSection { margin-bottom: 60px; scroll-margin-top: 70px; display: none; }
     .guideTitle { font-size: 24px; font-weight: bold; margin-bottom: 24px; color: #1f2937; display: flex; align-items: center; }
     .guideTitle::before { content: ''; display: inline-block; width: 6px; height: 24px; background-color: rgb(255,188,0); margin-right: 12px; border-radius: 3px; }
 
     /* 가이드 박스 */
-    .guideBox { padding: 30px; border: 1px dashed #d1d5db; border-radius: 8px 8px 0 0; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
-    .guideBoxBlock { display: block; }
-
-    /* 사이즈 레이블 */
-    .guideSizeLabel {
-      display: block; font-size: 12px; font-weight: 700; color: #9ca3af;
-      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
+    .guideBox {
+      padding: 30px;
+      border: 1px dashed #d1d5db;
+      border-radius: 8px 8px 0 0;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
-    .guideSizeGroup { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-end; }
-    .guideSizeItem { display: flex; flex-direction: column; align-items: flex-start; }
-
-    /* 서브 타이틀 */
-    .guideSubtitle {
-      font-size: 16px; font-weight: 600; color: #374151;
-      margin: 28px 0 14px; padding-left: 16px; border-left: 3px solid #FFDC00;
+    .guideBoxBlock {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
+    /* 가이드 전용: label.blind 시각화 */
+    .guideBox label.blind {
+      position: absolute !important;
+      display: inline-block !important;
+      width: auto !important;
+      height: auto !important;
+      top: -20px;
+      left: auto !important;
+      text-indent: 0 !important;
+      overflow: visible !important;
+      font-size: 11px !important;
+      line-height: 1.2 !important;
+      color: #4338ca !important;
+      background-color: #e0e7ff !important;
+      padding: 2px 6px !important;
+      border-radius: 3px !important;
+      margin-bottom: 4px !important;
+      font-weight: 600 !important;
+      vertical-align: middle !important;
+    }
+    .fm, .formBox  .item { margin-top: 20px; }
     /* 코드 블록 */
     .guideCodeWrap {
       border: 1px dashed #d1d5db; border-top: none; border-radius: 0 0 8px 8px;
@@ -128,53 +147,6 @@
     .token.function, .token.class-name { color: #c084fc; }
     .token.regex, .token.important, .token.variable { color: #fb923c; }
 
-    /* Full width 버튼 별도 박스 */
-    .guideBoxFullwidth { gap: 10px; }
-    .guideBoxFullwidth .full { display: flex; }
-
-    /* 팝업 가이드 박제(상자 안에 가두기) 래퍼 */
-    .popupPreviewBox {
-      background-color: #f3f4f6;
-      display: block;
-    }
-    .popupPreviewBox .popupDimmed {
-      position: relative !important;
-      display: flex !important;
-      width: 100% !important;
-      height: 400px !important;
-      z-index: 1 !important;
-      margin-bottom: 24px;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .popupPreviewBox .popupDimmed:last-child {
-      margin-bottom: 0;
-    }
-
-    /* 초기 깜빡임 방지: 모든 섹션 기본 숨김 */
-    .guideSection { display: none; }
-
-    /* Guide Component Layout Styles */
-    .contWrap { width: 100%; }
-    .section { display: block; position: relative; width: 100%; box-sizing: border-box; background-color: #fff; }
-    .section + .section { margin-top: 30px; padding-top: 30px; border-top: 2px solid #f3f4f6; }
-    .guideTitTy1 { display: block; font-size: 1.5rem; font-weight: 500; }
-    .guideTitTy2 { display: block; margin: 1.5rem 0 0.875rem; color: #15594D; font-size: 1.25rem; font-weight: 600; }
-    .guideTitTy2:first-of-type { margin-top: 0; }
-
-    .guideTy { background-color: #fff; overflow: hidden; width: 100%; }
-    .guideTy .titTy1, .guideTy .titTy2 { margin: 0 !important; padding: 0 !important; font-size: 1rem; font-weight: 600; color: #374151; } 
-    .guideTy .mainList { border-top: 1px solid #d1d5db; }
-    .guideTy .mainList .listItem { display: flex; border-bottom: 1px solid #e5e7eb; align-items: center; }
-    .guideTy .mainList .listItem > .item { display: flex; flex-basis: 20%; flex-grow: 1; flex-shrink: 1; align-items: center; flex-wrap: wrap; padding: 1.25rem 1rem; box-sizing: border-box; }
-    .guideTy .mainList .listItem > .item.nowrap { flex-wrap: nowrap; }
-    .guideTy .mainList .listItem > .item > div { display: block; width: 100%; text-align: left; }
-    .guideTy .mainList .listItem > .item button + button { margin-left: 0.625rem !important; }
-    .growTy1 { flex-grow: 0 !important; min-width: 140px; }
-    .growTy2 { flex-grow: 1 !important; }
-    .dataBoxSelect { width: 100%; }
-    /* .dataBoxSelect .selectBox { display: flex; gap: 0.75rem; } */
-
     /* 다크모드 테마 오버라이드 */
     html[data-theme='dark'] body { background-color: #121212 !important; color: rgb(var(--color-004)); }
     html[data-theme='dark'] .guideNav { background-color: #1e1e1e; border-color: #2d3748; box-shadow: 0 1px 4px rgba(0,0,0,0.4); }
@@ -184,23 +156,15 @@
     html[data-theme='dark'] .guideHeader h1 { color: #f3f4f6; }
     html[data-theme='dark'] .guideHeader p { color: #9ca3af; }
     html[data-theme='dark'] .guideTitle { color: #f3f4f6; }
-    html[data-theme='dark'] .guideSubtitle { color: #e5e7eb; }
     html[data-theme='dark'] .guideBox { background-color: #18181b; border-color: #3f3f46; }
+    html[data-theme='dark'] .guideBox label.blind { color: #c7d2fe !important; background-color: #312e81 !important; }
     html[data-theme='dark'] .guideCodeHeader { background-color: #27272a; border-color: #3f3f46; }
     html[data-theme='dark'] .guideCodeToggle, html[data-theme='dark'] .guideCodeCopy { color: #d4d4d8; }
     html[data-theme='dark'] .guideCodeToggle:hover { color: #ffffff; }
     html[data-theme='dark'] .guideCodeCopy { border-color: #52525b; }
     html[data-theme='dark'] .guideCodeCopy:hover { background-color: #3f3f46; color: #ffffff; }
-    html[data-theme='dark'] .popupPreviewBox { background-color: #27272a; }
     html[data-theme='dark'] .themeToggleBtn { color: #f3f4f6; background-color: #27272a; border-color: #3f3f46; }
     html[data-theme='dark'] .themeToggleBtn:hover { background-color: #3f3f46; color: #ffffff; }
-    html[data-theme='dark'] .section { background-color: #18181b; }
-    html[data-theme='dark'] .section + .section { border-top-color: #27272a; }
-    html[data-theme='dark'] .guideTy { background-color: #18181b; }
-    html[data-theme='dark'] .guideTy .titTy1, html[data-theme='dark'] .guideTy .titTy2 { color: #f4f4f5; }
-    html[data-theme='dark'] .guideTy .mainList { border-top-color: #3f3f46; }
-    html[data-theme='dark'] .guideTy .mainList .listItem { border-bottom-color: #27272a; }
-    html[data-theme='dark'] .guideTitTy2 { color: #5eead4; }
   </style>
 
   <!-- 초기 렌더링 시 깜빡임 방지 및 테마 복원 즉시 실행 스크립트 -->
@@ -262,4 +226,3 @@
   <script src="../assets/js/guide.js"></script>
 </body>
 </html>
-

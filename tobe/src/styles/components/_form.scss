@@ -1,0 +1,80 @@
+﻿@use '../abstracts' as *;
+
+.formBox {
+	display: block;
+	box-sizing: border-box;
+	> span {
+		select {
+			border: none !important;
+		}
+		input {
+			border: none !important;
+		}
+	}
+	&.gridTy1 {
+		display: grid !important;
+		grid-template-columns: 80% 20%;
+		align-items: center;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		> .item {
+			display: block;
+			box-sizing: border-box;
+			&:first-child {
+				padding-right: 0.5rem;
+			}
+			&:last-of-type {
+				button {
+					width: 100% !important;
+					height: 3.125rem;
+					font-size: 1rem;
+					line-height: 3.125rem;
+				}
+			}
+		}
+	}
+	&.gridTy2 {
+		display: flex;
+		flex-direction: column;
+		> span + span {
+			margin-top: 0.5rem;
+		}
+	}
+	&.searchTy {
+		display: flex;
+		margin: 0;
+		box-sizing: border-box;
+		select {
+			flex-shrink: 0;
+			width: 42%;
+			font-size: 1rem;
+			border-radius: 4px 0 0 4px;
+			z-index: 10;
+			background-color: rgb(var(--color-187));
+			&.placeholder {
+				color: rgb(var(--color-411));
+			}
+		}
+		.fm.searchTy input[type=text] {
+			border-radius: 0 4px 4px 0;
+		}
+	}
+}
+
+.dataBoxSelect {
+	width: 100%;
+	.selectBox {
+		display: flex;
+		gap: 0.75rem;
+	}
+}
+
+.growTy1 {
+	flex-grow: 0 !important;
+	min-width: 140px;
+}
+.growTy2 {
+	flex-grow: 1 !important;
+}

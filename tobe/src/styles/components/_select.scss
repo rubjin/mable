@@ -1,0 +1,54 @@
+﻿@use '../abstracts' as *;
+
+select {
+	font-family: inherit;
+	color: rgb(var(--color-004));
+	font-weight: 300;
+	line-height: 1.5;
+	vertical-align: middle;
+	box-sizing: border-box;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 3rem;
+	padding: 0 2.5rem 0 1rem;
+	font-size: 1.063rem;
+	border: 0;
+	border-radius: 4px;
+	white-space: nowrap;
+	background: rgb(var(--color-499)) url('#{$imgURL}/images/common/select_arrow.png') calc(100% - .625rem) center no-repeat;
+	background-size: 1.25rem;
+
+	option {
+		width: 100%;
+		height: 3rem;
+		padding: 0 2.5rem 0 1rem;
+		font-size: 1.063rem;
+		line-height: 3rem;
+		color: rgb(var(--color-004));
+		background: rgb(var(--color-028));
+
+		&:checked,
+		&:hover {
+			color: rgb(var(--color-403));
+			background: rgb(var(--color-028));
+		}
+	}
+
+	&.selectTy2 {
+		width: auto;
+		height: 1.125rem;
+		padding: 0 1.25rem 0 0;
+		background: transparent url('#{$imgURL}/images/common/select_arrow_ty2.png') 100% center no-repeat;
+		background-size: 0.75rem;
+		font-size: 0.8125rem;
+		border-radius: 0;
+
+		option {
+			font-size: 0.8125rem;
+		}
+	}
+}

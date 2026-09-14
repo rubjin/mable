@@ -1,6 +1,9 @@
 // Global Variables & Design Tokens for React Components
-$imgURL: "https://dtong.kbsec.com/mable/images";
+// $imgURL: "https://dtong.kbsec.com/mable/images";
 $imgURLGuide: "https://dtong.kbsec.com/mable/guide/images";
+
+$imgURL : "../assets";
+// $imgURL : unquote("../assets");
 
 // Font Stacks
 $font-kb-text: 'KBFGText', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;

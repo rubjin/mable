@@ -1,25 +1,9 @@
-@use 'abstracts' as *;
-
-@use 'origin/common';
-@use 'origin/bgimg';
-@use 'origin/btn';
-@use 'origin/box';
-
+﻿@use 'abstracts' as *;
 @use 'base/fonts';
+@use 'base/base';
 @use 'base/layout';
-@use 'base/icon';
 
-@use 'offering/offering';
-
-
-@use 'components/header';
 @use 'components/button';
-@use 'components/tab';
-@use 'components/popup';
 @use 'components/form';
-@use 'components/monthCalendar';
-@use 'components/weekCalendar';
-@use 'components/accordion';
 @use 'components/input';
-
-
+@use 'components/select';

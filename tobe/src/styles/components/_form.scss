@@ -71,37 +71,10 @@
 		}
 	}
 
-	/* searchTy: 통합 검색 인풋 형태 */
-	&.searchTy {
-		.fmPrefix {
-			margin-right: 0;
-			select.searchTy {
-				border-radius: 4px 0 0 4px;
-				background-color: rgb(var(--color-187));
-			}
-		}
-		.fmField {
-			input[type=text] {
-				padding: 0 3rem 0 1rem !important;
-				border-radius: 4px;
-			}
-		}
-		.fmPrefix + .fmField input[type=text] {
-			border-radius: 0 4px 4px 0;
-		}
-		.fmSuffix {
-			margin-left: 0;
-			position: absolute;
-			right: 0;
-			top: 0;
-			bottom: 0;
-			.searchBtn {
-				position: relative;
-				top: auto;
-				right: auto;
-			}
-		}
-	}
+	// searchTy(통합 검색 인풋)의 규칙은 여기 없습니다 — _input.scss 의
+	// `.fm.searchTy` 한 블록에 모여 있습니다. 레이아웃과 인풋 스타일이 두 파일로
+	// 나뉘어 서로 !important 로 덮어쓰던 문제가 있어 한 곳으로 합쳤습니다.
+	// 검색 관련 규칙을 이 파일에 다시 추가하지 마세요.
 }
 
 .formBox {

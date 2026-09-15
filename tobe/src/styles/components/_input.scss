@@ -1,0 +1,344 @@
+﻿@use '../abstracts' as *;
+
+input {
+	font-family: inherit;
+	color: rgb(var(--color-004));
+	font-weight: 300;
+	line-height: 1.5;
+	vertical-align: middle;
+	box-sizing: border-box;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+
+	&::-webkit-search-cancel-button,
+	&::-webkit-clear-button,
+	&::-webkit-inner-spin-button,
+	&::-webkit-outer-spin-button,
+	&::-webkit-calendar-picker-indicator {
+		display: none;
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+	}
+
+	&::-webkit-input-placeholder {
+		color: rgb(var(--color-411));
+		font-size: 1.063rem;
+	}
+	&::-moz-placeholder {
+		color: rgb(var(--color-411));
+		font-size: 1.063rem;
+	}
+	&::placeholder {
+		color: rgb(var(--color-411));
+		font-size: 1.063rem;
+	}
+
+	+ .clearBtn {
+		opacity: 0;
+	}
+
+	&.text {
+		padding: 15px 16px 12px;
+		font-size: 16px;
+		border-radius: 6px;
+		border: 0;
+		line-height: 100%;
+		background: rgb(var(--color-187));
+		&::placeholder {
+			color: rgb(var(--color-411));
+			font-size: 16px;
+		}
+	}
+}
+
+input[type=text],
+input[type=password],
+input[type=number] {
+	width: 100%;
+	height: 3rem;
+	padding: 0 2.5rem 0 1rem;
+	color: rgb(var(--color-004));
+	font-size: 1.063rem;
+	line-height: 3rem;
+	border: 0;
+	border-radius: 4px;
+	box-sizing: border-box;
+	background: rgb(var(--color-187));
+
+	&:focus,
+	&.focus {
+		box-sizing: border-box;
+		box-shadow: 0rem -0.125rem 0 0rem rgb(var(--color-401)) inset;
+		border-radius: 4px 4px 0 0;
+		+ .clearBtn {
+			opacity: 1;
+		}
+	}
+
+	&[disabled] {
+		background-color: rgb(var(--color-405));
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+
+	// 오류 상태는 input이 아니라 래퍼(.fmField.isError)가 담당합니다.
+	// 아래 `.fm` 블록의 `.fmField.isError` 를 보세요.
+}
+
+
+.fm {
+	position: relative;
+
+	&.tR {
+		input[type=text] {
+			padding: 0 2.5rem;
+			text-align: right;
+			+ .clearBtn {
+				left: 1.2rem;
+				right: auto;
+			}
+		}
+
+		// 우측 정렬에서는 오류 아이콘도 좌측에 둡니다.
+		// (.fmField.isError .clearBtn 이 right 를 잡으므로 여기서 되돌립니다)
+		.fmField.isError .clearBtn {
+			left: 1.2rem;
+			right: auto;
+		}
+	}
+
+	// ==================================================================
+	// isError: 유효성 오류 상태
+	// ------------------------------------------------------------------
+	// 클래스는 input이 아니라 래퍼(.fmField)에 붙습니다. 래퍼 기준이라
+	// clearBtn이 input의 '바로 다음 형제'가 아니어도 동작합니다 —
+	// 예전 `input.impos + .clearBtn` 방식에 있던 DOM 순서 제약이 없어집니다.
+	// ==================================================================
+	.fmField.isError {
+		input[type=text],
+		input[type=password],
+		input[type=number] {
+			box-sizing: border-box;
+			box-shadow: 0rem -0.125rem 0 0rem rgb(var(--color-255)) inset;
+			border-radius: 4px 4px 0 0;
+			background: rgb(var(--color-044));
+		}
+
+		// 지우기 아이콘 → 오류 아이콘. 값이 없어도(.active 없이도) 항상 보입니다.
+		// position:absolute 는 _button.scss 의 .clearBtn 이 이미 잡고 있습니다.
+		.clearBtn {
+			top: 50%;
+			right: 0.9375rem;
+			margin-top: -0.5625rem;
+			width: 1.125rem;
+			height: 1.125rem;
+			background: url('#{$imgURL}/images/common/ico_impos.png') no-repeat;
+			background-size: 100%;
+			opacity: 1;
+		}
+	}
+
+	// ==================================================================
+	// searchTy: 통합 검색 인풋 (SearchField)
+	// ------------------------------------------------------------------
+	// 검색 인풋 규칙은 전부 이 블록 안에만 둡니다. _form.scss 에는 검색 전용
+	// 규칙을 두지 마세요. 예전에는 레이아웃(.fmPrefix/.fmSuffix)이 _form.scss,
+	// 인풋·버튼이 _input.scss 로 나뉘어 있었고, 양쪽이 같은 패딩을 서로
+	// !important 로 덮어쓰고 있었습니다. 한 곳에 모으면서 !important 를 전부
+	// 걷어냈으니, 변형을 추가할 때도 명시도만으로 해결됩니다.
+	//
+	// 변형 3축은 서로 조합할 수 있습니다 (예: .searchTy.bdTy.icoL.szLg).
+	// 단 .icoL 은 .fmPrefix(filter 셀렉트)와 함께 쓸 수 없습니다 —
+	// 좌측 자리를 검색 버튼과 셀렉트가 서로 차지합니다.
+	//
+	// 주석에 // 를 쓰는 이유: /* */ 는 중첩 안에 있으면 sass가 이를 담기 위해
+	// `.fm.searchTy {}` 같은 빈 규칙을 출력합니다. // 는 컴파일 시 사라집니다.
+	// ==================================================================
+	&.searchTy {
+		position: relative;
+		flex-grow: 1;
+		flex-shrink: 1;
+
+		.fmPrefix {
+			margin-right: 0;
+
+			// 높이는 _select.scss 의 `select { height: 3rem }` 를 그대로 씁니다.
+			// szSm / szLg 모디파이어만 이를 덮어씁니다.
+			select.searchTy {
+				border-radius: 4px 0 0 4px;
+				background-color: rgb(var(--color-187));
+			}
+		}
+
+		.fmField input[type=text] {
+			width: 100%;
+			height: 3rem;
+			padding: 0 3rem 0 1rem;
+			color: rgb(var(--color-004));
+			font-size: 1.063rem;
+			line-height: 3rem;
+			border: 0;
+			border-radius: 4px;
+			box-sizing: border-box;
+			background: rgb(var(--color-187));
+
+			&:focus {
+				box-shadow: 0rem -0.125rem 0 0rem rgb(var(--color-401)) inset;
+				border-radius: 4px 4px 0 0;
+			}
+
+			&[disabled] {
+				background-color: rgb(var(--color-405));
+				opacity: 0.6;
+			}
+		}
+
+		// 접두 셀렉트가 붙으면 인풋의 좌측 모서리는 각지게 맞물립니다
+		.fmPrefix + .fmField input[type=text] {
+			border-radius: 0 4px 4px 0;
+
+			&:focus {
+				border-radius: 0 4px 0 0;
+			}
+		}
+
+		.fmSuffix {
+			margin-left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+
+			// 버튼의 크기·아이콘은 _button.scss 의 .searchBtn 이 이미 정의합니다.
+			// 여기서는 절대배치를 .fmSuffix 기준으로 되돌리기만 합니다.
+			.searchBtn {
+				position: relative;
+				top: auto;
+				right: auto;
+			}
+		}
+
+		// bdTy: 보더 타입 — 회색 배경 대신 1px 테두리 (.btnTy2와 같은 토큰)
+		&.bdTy {
+			.fmField input[type=text] {
+				background: rgb(var(--color-028));
+				border: 1px solid rgb(var(--color-112));
+
+				&[disabled] {
+					background-color: rgb(var(--color-405));
+				}
+			}
+			.fmPrefix select.searchTy {
+				background-color: rgb(var(--color-028));
+				border: 1px solid rgb(var(--color-112));
+				border-right: 0;
+			}
+		}
+
+		// icoL: 검색 버튼을 좌측으로 (기본은 우측)
+		&.icoL {
+			.fmSuffix {
+				right: auto;
+				left: 0;
+			}
+			.fmField input[type=text] {
+				padding: 0 1rem 0 3rem;
+			}
+		}
+
+		// 높이 — 모디파이어가 없으면 기본 3rem
+		&.szSm {
+			.fmField input[type=text] {
+				height: 2.5rem;
+				font-size: 0.938rem;
+				line-height: 2.5rem;
+			}
+			.fmPrefix select.searchTy {
+				height: 2.5rem;
+			}
+			.fmSuffix .searchBtn {
+				width: 2.5rem;
+				height: 2.5rem;
+			}
+		}
+		&.szLg {
+			.fmField input[type=text] {
+				height: 3.5rem;
+				line-height: 3.5rem;
+			}
+			.fmPrefix select.searchTy {
+				height: 3.5rem;
+			}
+			.fmSuffix .searchBtn {
+				width: 3.5rem;
+				height: 3.5rem;
+			}
+		}
+	}
+}
+
+.price {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 3rem;
+	height: 3rem;
+	color: rgb(var(--color-004));
+	font-size: 1.063rem;
+	line-height: 3rem;
+	text-align: center;
+}
+
+.imposTxt {
+	display: none;
+	margin-top: 0.25rem;
+	color: rgb(var(--color-010));
+	font-size: 0.813rem;
+	font-weight: 500;
+	&.active {
+		display: block;
+	}
+}
+
+// ======================================================================
+// fmHelp: 필드 하단 보조 영역
+// ----------------------------------------------------------------------
+// 좌측에 에러 문구(.imposTxt), 우측에 입력 글자수(.fmCount)를 한 줄에 둡니다.
+// 둘 중 하나만 있어도 자리는 유지됩니다 — .imposTxt 가 없을 때(.active 미부여로
+// display:none) .fmCount 는 margin-left:auto 로 계속 우측에 붙습니다.
+// ======================================================================
+.fmHelp {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 0.5rem;
+	margin-top: 0.25rem;
+
+	// 상단 여백은 .fmHelp 가 담당하므로 문구 자체의 여백은 지웁니다
+	.imposTxt {
+		flex: 1 1 auto;
+		min-width: 0;
+		margin-top: 0;
+	}
+
+	.fmCount {
+		flex: 0 0 auto;
+		margin-left: auto;
+		color: rgb(var(--color-411));
+		font-size: 0.813rem;
+		font-weight: 500;
+		line-height: 1.4;
+		white-space: nowrap;
+
+		// 현재 글자수. 초과하면 .isOver 로 색만 바뀝니다
+		.num {
+			color: rgb(var(--color-004));
+		}
+
+		&.isOver .num {
+			color: rgb(var(--color-010));
+		}
+	}
+}

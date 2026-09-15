@@ -1,0 +1,181 @@
+<!--
+  ==========================================================================
+  [Select Components]
+
+  컴포넌트 경계 표기 규칙
+    <!-- @@컴포넌트명: props(...) --      ← 컴포넌트 시작
+    ...마크업...
+    <!-- //@@컴포넌트명: props(...) --    ← 컴포넌트 종료
+  중첩 컴포넌트는 부모 안쪽에 같은 방식으로 표기합니다.
+  props(...)에 적힌 값은 "그 케이스에서 실제로 넘긴 값"이며,
+  목록에 없는 props는 기본값으로 동작합니다.
+
+  --------------------------------------------------------------------------
+  이 파일에 등장하는 컴포넌트
+  --------------------------------------------------------------------------
+  * Field       모든 필드가 공유하는 레이아웃 셸. input.html과 동일하며 별도 마커 없이
+                SelectField 안에 흡수되어 있습니다.
+                구조: .fm > label.srOnly + [.fmPrefix] + .fmField + [.fmSuffix] + [.imposTxt]
+  * SelectField 셀렉트 필드 (1, 2, 3번)
+  * SelectGroup 여러 SelectField를 한 줄에 나열하는 래퍼 (3번)
+  * SearchField 셀렉트 + 검색 인풋 조합 (4번).
+                SelectField가 아니라 input.html 12번과 "같은 컴포넌트"이며,
+                좌측 셀렉트는 filter prop으로 주입됩니다. 마크업을 두 파일에서 동일하게 맞췄습니다.
+
+  --------------------------------------------------------------------------
+  SelectField props
+  --------------------------------------------------------------------------
+  * label (string, required)          라벨 텍스트 → label.srOnly
+  * labelHidden (boolean, def true)   false면 .srOnly를 빼서 라벨이 화면에 보임
+  * options ({value,label}[], req)    option 목록
+  * placeholder (string)              맨 위에 붙는 안내용 option (.all, value=""). 넘기면 초기값은 미선택('')
+  * value / defaultValue              선택값 (value를 넘기면 제어 컴포넌트)
+  * variant (default|compact, def default)
+                                      compact면 select에 .selectTy2 (1.125rem 가변형 인라인 —
+                                      옵션 텍스트 길이만큼만 너비를 차지)
+  * grow (fixed|fill, optional)       SelectGroup 안에서의 폭 배분 (_form.scss)
+                                        fixed → .growTy1 (flex-grow:0, min-width:140px)
+                                        fill  → .growTy2 (flex-grow:1)
+                                      그룹 밖 셀렉트는 .fm이 이미 width:100%라 필요 없습니다.
+  * disabled (boolean)
+  * error (string)                    하단 .imposTxt.active 문구 +
+                                      select에 aria-invalid / aria-describedby 연결.
+                                      아래 '오류 상태' 항목을 반드시 읽어 주세요.
+
+  --------------------------------------------------------------------------
+  개발 주의
+  --------------------------------------------------------------------------
+  * 아래 <option>에는 모두 value를 명시해 두었습니다. options 배열의 value와 1:1로 대응하며,
+    placeholder option만 value=""(미선택)입니다.
+  * select의 화살표/배경은 SCSS가 처리합니다. 인라인 style은 쓰지 마세요 —
+    폭 조절은 SelectGroup 안에서 grow prop(.growTy1 / .growTy2)으로 해결합니다.
+  * 오류 상태 — 클래스는 .fmField.isError 이며 input.html 5번과 같습니다.
+    다만 _input.scss의 .fmField.isError 는 배경/밑줄을
+    `input[type=text], input[type=password], input[type=number]` 에만 걸고 있어
+    select 자체에는 시각적 변화가 없습니다.
+    지금 셀렉트에서 쓸 수 있는 건 하단 .imposTxt.active 문구 + aria-invalid 뿐입니다.
+    셀렉트 자체의 오류 표시가 필요하면 .fmField.isError 블록에 select 선택자를
+    추가하는 작업이 선행되어야 합니다.
+  ==========================================================================
+-->
+
+<!-- 1. 기본 셀렉트 박스 (Default Select Box) -->
+<!-- @@SelectField: props(label="기본 옵션 선택", placeholder="option", options=[option 1|2|3]) -->
+<div class="fm">
+    <label for="sel1" class="srOnly">기본 옵션 선택</label>
+    <div class="fmField">
+        <select id="sel1">
+            <option class="all" value="" selected>option</option>
+            <option value="opt1">option 1</option>
+            <option value="opt2">option 2</option>
+            <option value="opt3">option 3</option>
+        </select>
+    </div>
+</div>
+<!-- //@@SelectField: props(label="기본 옵션 선택", placeholder="option", options=[option 1|2|3]) -->
+
+<!-- 2. 가변형 인라인 셀렉트 (Select Ty2 - Compact / Dynamic) -->
+<!-- @@SelectField: props(label="시장 구분 선택", variant="compact", options=[전체|KOSPI|KOSDAQ|업종/섹터|스마일/테마]) -->
+<div class="fm">
+    <label for="sel2" class="srOnly">시장 구분 선택</label>
+    <div class="fmField">
+        <select id="sel2" class="selectTy2">
+            <option value="all" selected>전체</option>
+            <option value="kospi">KOSPI</option>
+            <option value="kosdaq">KOSDAQ</option>
+            <option value="sector">업종/섹터</option>
+            <option value="theme">스마일/테마</option>
+        </select>
+    </div>
+</div>
+<!-- //@@SelectField: props(label="시장 구분 선택", variant="compact", options=[전체|KOSPI|KOSDAQ|업종/섹터|스마일/테마]) -->
+
+<!--
+  3. 복수 셀렉트 그룹 (Multi Select Box Group)
+  SelectGroup props
+    * children (ReactNode, required)  나열할 SelectField들 (보통 variant="compact")
+  구조
+    * .dataBoxSelect  그룹 전체를 감싸는 바깥 박스
+    * .selectBox      .fm들을 가로로 나열하는 flex 컨테이너 (gap: 0.75rem, .fm은 width:auto)
+-->
+<!-- @@SelectGroup: props(children=[SelectField x2]) -->
+<div class="dataBoxSelect">
+    <div class="selectBox">
+        <!-- @@SelectField: props(label="지역 선택", variant="compact", options=[전체|글로벌|아시아|북미|남미|유럽]) -->
+        <div class="fm">
+            <label for="selRegion" class="srOnly">지역 선택</label>
+            <div class="fmField">
+                <select id="selRegion" class="selectTy2">
+                    <option value="all" selected>전체</option>
+                    <option value="global">글로벌</option>
+                    <option value="asia">아시아</option>
+                    <option value="na">북미</option>
+                    <option value="sa">남미</option>
+                    <option value="eu">유럽</option>
+                </select>
+            </div>
+        </div>
+        <!-- //@@SelectField: props(label="지역 선택", variant="compact", options=[전체|글로벌|아시아|북미|남미|유럽]) -->
+
+        <!-- @@SelectField: props(label="배율 선택", variant="compact", options=[배율 전체|1X|2X|-1X|-2X]) -->
+        <div class="fm">
+            <label for="selScale" class="srOnly">배율 선택</label>
+            <div class="fmField">
+                <select id="selScale" class="selectTy2">
+                    <option value="all" selected>배율 전체</option>
+                    <option value="1x">1X</option>
+                    <option value="2x">2X</option>
+                    <option value="-1x">-1X</option>
+                    <option value="-2x">-2X</option>
+                </select>
+            </div>
+        </div>
+        <!-- //@@SelectField: props(label="배율 선택", variant="compact", options=[배율 전체|1X|2X|-1X|-2X]) -->
+    </div>
+</div>
+<!-- //@@SelectGroup: props(children=[SelectField x2]) -->
+
+<!--
+  4. 셀렉트 + 검색 인풋 조합 (Select + Search Input Combination)
+  SelectField가 아니라 SearchField 입니다. input.html 12번과 같은 컴포넌트이며,
+  여기서는 filter prop이 추가로 넘어가 .fmPrefix에 접두 셀렉트가 생깁니다.
+
+  filter 객체
+    * label (string)                  접두 셀렉트의 접근성 라벨 → aria-label
+                                      (이 셀렉트는 별도 <label>이 없으므로 aria-label 필수)
+    * options ({value,label}[])       접두 셀렉트 option 목록
+    * value / defaultValue / onChange 선택값과 변경 콜백
+  onSearch는 (keyword, filterValue) 두 값을 함께 넘겨받습니다.
+
+  변형 3축 (variant / iconPosition / size)
+    input.html 12-1 ~ 12-8 에 케이스와 클래스 매핑이 정리돼 있습니다.
+    filter가 붙은 이 형태에도 variant(.bdTy)와 size(.szSm/.szLg)는 그대로 조합됩니다 —
+    .bdTy와 .szSm/.szLg 는 .fmPrefix select.searchTy 의 배경·테두리·높이도 함께 맞춥니다.
+
+  개발 주의 (input.html 12번과 동일)
+    * input type은 'search'가 아니라 'text'. SCSS가 input[type=text]만 잡습니다.
+    * Enter 처리 시 IME 조합 중(e.nativeEvent.isComposing)은 걸러야 합니다.
+    * clearBtn은 넣지 않습니다 (.searchBtn과 우측에서 겹침).
+    * iconPosition="left"(.icoL) 는 filter와 함께 쓸 수 없습니다.
+      검색 버튼과 접두 셀렉트가 둘 다 좌측을 차지해 겹칩니다.
+-->
+<!-- @@SearchField: props(label="종목명 검색", placeholder="종목명 검색", filter={label:"검색 조건 선택", options:[Option|종목명|종목코드]}) -->
+<div class="fm searchTy" role="search">
+    <label for="selSrchKeyword" class="srOnly">종목명 검색</label>
+    <!-- 좌측 요소 (접두 셀렉트) — filter prop으로 주입되는 컴포넌트 내부 부품 -->
+    <span class="fmPrefix">
+        <select class="searchTy" aria-label="검색 조건 선택">
+            <option value="option" selected>Option</option>
+            <option value="name">종목명</option>
+            <option value="code">종목코드</option>
+        </select>
+    </span>
+    <div class="fmField">
+        <input id="selSrchKeyword" type="text" placeholder="종목명 검색" value="">
+    </div>
+    <!-- 우측 요소 (검색 버튼) — 컴포넌트 내부 부품 -->
+    <span class="fmSuffix">
+        <button type="button" class="searchBtn" aria-label="검색"></button>
+    </span>
+</div>
+<!-- //@@SearchField: props(label="종목명 검색", placeholder="종목명 검색", filter={label:"검색 조건 선택", options:[Option|종목명|종목코드]}) -->

@@ -1,0 +1,352 @@
+<!--
+  ==========================================================================
+  [Input Components]
+
+  컴포넌트 경계 표기 규칙
+    <!-- @@컴포넌트명: props(...) --      ← 컴포넌트 시작
+    ...마크업...
+    <!-- //@@컴포넌트명: props(...) --    ← 컴포넌트 종료
+  중첩 컴포넌트는 부모 안쪽에 같은 방식으로 표기합니다.
+  props(...)에 적힌 값은 "그 케이스에서 실제로 넘긴 값"이며,
+  목록에 없는 props는 기본값으로 동작합니다.
+
+  --------------------------------------------------------------------------
+  이 파일에 등장하는 컴포넌트
+  --------------------------------------------------------------------------
+  * Field       모든 필드가 공유하는 레이아웃 셸. 단독으로 쓰이지 않으므로 별도 마커 없이
+                TextField / SearchField / SelectField 안에 흡수되어 있습니다.
+                구조: .fm > label.srOnly + [.fmPrefix] + .fmField + [.fmSuffix] + [.fmHelp]
+                .fmHelp > [.imposTxt] + [.fmCount]  (에러 문구 / 입력 글자수)
+  * TextField   텍스트 / 비밀번호 / 숫자 입력 (1~9, 13번)
+  * SearchField 검색 인풋 (12번). 레이아웃(.searchTy)과 동작(Enter 검색, 한글 IME 조합)이 달라
+                TextField와 분리한 별도 컴포넌트. select.html 4번과 같은 컴포넌트입니다.
+  * Button      재사용 버튼 (13번의 .btnTy2).
+                clearBtn / searchBtn은 각 필드의 내부 부품이라 컴포넌트로 보지 않습니다.
+
+  --------------------------------------------------------------------------
+  TextField props
+  --------------------------------------------------------------------------
+  * label (string, required)        라벨 텍스트 → label.srOnly
+  * labelHidden (boolean, def true) false면 .srOnly를 빼서 라벨이 화면에 보임
+  * type (text|password|number, def text)
+  * align (left|right, def left)    right면 .fm에 .tR (우측 정렬 + clearBtn 좌측 이동)
+  * value / defaultValue            입력값 (value를 넘기면 제어 컴포넌트)
+  * placeholder (string)
+  * disabled (boolean)              input과 clearBtn에 함께 적용
+  * error (string)                  .fmField에 .isError + .fmHelp 안 .imposTxt.active 문구 +
+                                    aria-invalid / aria-describedby 연결
+  * counter (boolean)               .fmHelp 우측에 .fmCount(입력 글자수) 노출
+  * maxLength (number)              input의 maxlength — 하드 리밋 (초과 입력 자체를 막음)
+  * counterMax (number)             maxlength 없이 세기만 하는 소프트 리밋.
+                                    초과하면 .fmCount에 .isOver. 5-3 케이스 참고.
+                                    maxLength와 counterMax는 둘 중 하나만 쓰세요
+  * icon (string)                   .fieldIco에 붙일 클래스(예: icoSearch). .fmField에 .hasIcon 추가
+  * adornment (ReactNode)           .fmField 내부 우측 보조 텍스트 (.price, 예: "원")
+  * prefix / suffix (ReactNode)     .fmField 바깥 좌 / 우 슬롯
+  * clearable (boolean, def true)   clearBtn 노출 여부
+  * name (string)                   폼 제출 / react-hook-form 연동용. 위 예시의 id는
+                                    퍼블리싱용 고정값이므로 개발에서는 useId()로 생성하고
+                                    name을 따로 받으세요
+
+  --------------------------------------------------------------------------
+  props가 아니라 '상태'로 자동 계산되는 것 — prop으로 만들지 마세요
+  --------------------------------------------------------------------------
+  * input:focus       네이티브 CSS :focus.
+                      3번의 class="focus"는 퍼블리싱 화면에서 포커스 모양을 고정 캡처하기
+                      위한 데모 클래스입니다. 실제 구현에는 옮기지 마세요.
+  * .clearBtn.active  입력값이 비어있지 않으면 자동으로 붙음
+  * .fmField.isError  error가 있으면 자동으로 붙음 (input이 아니라 래퍼에 붙습니다)
+  * .fmField.hasIcon  icon이 있으면 자동으로 붙음
+  * .fmCount.isOver   counterMax를 넘으면 자동으로 붙음 (숫자만 오류색으로)
+
+  --------------------------------------------------------------------------
+  DOM 순서 제약 — 지키지 않으면 CSS가 깨집니다
+  --------------------------------------------------------------------------
+  * clearBtn은 input의 '바로 다음 형제'여야 합니다.
+    _input.scss가 `input + .clearBtn`, `input:focus + .clearBtn` 인접 형제 선택자로
+    평상시 노출을 제어합니다. 사이에 다른 요소를 끼우면 무효가 됩니다.
+    .price(adornment)와 .fieldIco(icon)는 clearBtn 뒤 / input 앞에 두세요.
+    (오류 상태는 래퍼 기준 .fmField.isError .clearBtn 이라 이 제약을 받지 않습니다)
+  * .fmHelp는 .fmField 안이 아니라 .fm 직속 마지막 자식입니다.
+    그 안에서 .imposTxt(좌) → .fmCount(우) 순서를 지키세요.
+
+  --------------------------------------------------------------------------
+  이 파일이 다루지 않는 것 (SCSS에는 있으나 케이스 없음)
+  --------------------------------------------------------------------------
+  * .formBox.gridTy1 / .gridTy2  폼 레이아웃 래퍼 (_form.scss)
+  * .growTy1 / .growTy2          .fm에 붙는 flex 모디파이어 (_form.scss)
+  * 다크 모드                     html[data-theme='dark'] 에서 clearBtn 아이콘이 교체됩니다.
+                                  별도 prop 없이 CSS가 처리하므로 개발에서 신경 쓸 것 없음.
+  ==========================================================================
+-->
+
+<!-- 1. 기본 텍스트 인풋 (Default / Inactive) -->
+<!-- @@TextField: props(label="Inactive", placeholder="placeholder") -->
+<div class="fm">
+    <label for="fInp1" class="srOnly">Inactive</label>
+    <div class="fmField">
+        <input id="fInp1" type="text" placeholder="placeholder" value="">
+        <button type="button" class="clearBtn" aria-label="텍스트 삭제"></button>
+    </div>
+</div>
+<!-- //@@TextField: props(label="Inactive", placeholder="placeholder") -->
+
+<!-- 2. 오른쪽 정렬 + 접미사 단위 텍스트 -->
+<!-- @@TextField: props(label="Inactive Right", align="right", adornment="원", placeholder="placeholder") -->
+<div class="fm tR">
+    <label for="fInp1Right" class="srOnly">Inactive Right</label>
+    <div class="fmField">
+        <input id="fInp1Right" type="text" placeholder="placeholder" value="">
+        <button type="button" class="clearBtn" aria-label="텍스트 삭제"></button>
+        <span class="price">원</span>
+    </div>
+</div>
+<!-- //@@TextField: props(label="Inactive Right", align="right", adornment="원", placeholder="placeholder") -->
+
+<!-- 3. 포커스 상태 (Focused) — 넘길 props는 1번과 동일. input.focus는 캡처용 데모 클래스 -->
+<!-- @@TextField: props(label="Focused", placeholder="placeholder") -->
+<div class="fm">
+    <label for="fInp2" class="srOnly">Focused</label>
+    <div class="fmField">
+        <input id="fInp2" type="text" class="focus" placeholder="placeholder" value="">
+        <button type="button" class="clearBtn active" aria-label="텍스트 삭제"></button>
+    </div>
+</div>
+<!-- //@@TextField: props(label="Focused", placeholder="placeholder") -->
+
+<!--
+  5. 유효성 검사 실패 / 오류 상태 + 입력 글자수 (Error with Counter)
+
+  오류 클래스는 .isError 이며 input이 아니라 래퍼(.fmField)에 붙습니다.
+  래퍼 기준이라 clearBtn이 input의 바로 다음 형제가 아니어도 동작합니다.
+  이때 clearBtn은 .isError 규칙이 opacity:1을 강제하므로 .active 없이도 보이고,
+  아이콘도 지우기(X) 대신 오류 아이콘으로 바뀝니다.
+
+  하단 보조 영역(.fmHelp)
+    좌측 .imposTxt  에러 문구. error가 없으면 .active를 빼서 감춥니다(display:none).
+    우측 .fmCount   입력 글자수. .imposTxt가 감춰져도 margin-left:auto 로 우측을 지킵니다.
+                    현재 글자수만 <span class="num">으로 감싸 색을 따로 줍니다.
+                    maxLength 초과 시 .fmCount 에 .isOver 를 붙이면 숫자가 빨갛게 변합니다.
+
+  글자수는 aria-hidden="true" 입니다 — 매 타이핑마다 읽히면 스크린리더에 소음이 되고,
+  입력 한도는 input의 maxlength 가 이미 알려줍니다.
+-->
+<!-- @@TextField: props(label="Filled Error", error="올바른 형식으로 입력해주세요", maxLength=20, counter) -->
+<div class="fm">
+    <label for="fInp3" class="srOnly">Filled Error</label>
+    <div class="fmField isError">
+        <input id="fInp3" type="text" placeholder="placeholder" value="" maxlength="20" aria-invalid="true" aria-describedby="fInp3-error">
+        <button type="button" class="clearBtn" aria-label="오류 확인"></button>
+    </div>
+    <div class="fmHelp">
+        <p class="imposTxt active" id="fInp3-error">올바른 형식으로 입력해주세요</p>
+        <span class="fmCount" aria-hidden="true"><span class="num">0</span>/20</span>
+    </div>
+</div>
+<!-- //@@TextField: props(label="Filled Error", error="올바른 형식으로 입력해주세요", maxLength=20, counter) -->
+
+<!-- 5-2. 글자수만 (에러 없음) — .imposTxt 에 .active 가 없어 감춰지고, 글자수만 우측에 남습니다 -->
+<!-- @@TextField: props(label="글자수 표시", maxLength=20, counter, placeholder="placeholder") -->
+<div class="fm">
+    <label for="fInp3Cnt" class="srOnly">글자수 표시</label>
+    <div class="fmField">
+        <input id="fInp3Cnt" type="text" placeholder="placeholder" value="" maxlength="20">
+        <button type="button" class="clearBtn" aria-label="텍스트 삭제"></button>
+    </div>
+    <div class="fmHelp">
+        <p class="imposTxt" id="fInp3Cnt-error"></p>
+        <span class="fmCount" aria-hidden="true"><span class="num">0</span>/20</span>
+    </div>
+</div>
+<!-- //@@TextField: props(label="글자수 표시", maxLength=20, counter, placeholder="placeholder") -->
+
+<!--
+  5-3. 글자수 초과 (.isOver) — 숫자만 오류색으로 바뀝니다
+
+  한도를 넘기는 두 가지 방식
+    * 하드 리밋 (5-1, 5-2): input에 maxlength 를 걸어 애초에 초과 입력이 안 됩니다.
+      이 방식에서는 .isOver 가 발생할 일이 없습니다.
+    * 소프트 리밋 (이 케이스): maxlength 를 걸지 않고 세기만 해서, 초과하면
+      .isOver 와 에러 문구로 알립니다. 붙여넣기까지 막지 않으려면 이쪽입니다.
+  둘 중 어느 쪽인지 기획에 확인하고 하나만 고르세요. 섞으면 .isOver 가 죽은 코드가 됩니다.
+-->
+<!-- @@TextField: props(label="글자수 초과", counterMax=20, counter, value="가나다라마바사아자차카타파하가나다라마바사", error="최대 20자까지 입력할 수 있습니다") -->
+<div class="fm">
+    <label for="fInp3Over" class="srOnly">글자수 초과</label>
+    <div class="fmField isError">
+        <input id="fInp3Over" type="text" value="가나다라마바사아자차카타파하가나다라마바사" aria-invalid="true" aria-describedby="fInp3Over-error">
+        <button type="button" class="clearBtn" aria-label="오류 확인"></button>
+    </div>
+    <div class="fmHelp">
+        <p class="imposTxt active" id="fInp3Over-error">최대 20자까지 입력할 수 있습니다</p>
+        <span class="fmCount isOver" aria-hidden="true"><span class="num">21</span>/20</span>
+    </div>
+</div>
+<!-- //@@TextField: props(label="글자수 초과", counterMax=20, counter, value="가나다라마바사아자차카타파하가나다라마바사", error="최대 20자까지 입력할 수 있습니다") -->
+
+<!-- 7. 활성화 상태 (Activated with Value) — clearBtn.active는 값이 있어 자동으로 붙은 것 -->
+<!-- @@TextField: props(label="Activated", value="Activated", placeholder="placeholder") -->
+<div class="fm">
+    <label for="fInp4" class="srOnly">Activated</label>
+    <div class="fmField">
+        <input id="fInp4" type="text" placeholder="placeholder" value="Activated">
+        <button type="button" class="clearBtn active" aria-label="텍스트 삭제"></button>
+    </div>
+</div>
+<!-- //@@TextField: props(label="Activated", value="Activated", placeholder="placeholder") -->
+
+<!-- 9. 비활성화 상태 (Disabled) -->
+<!-- @@TextField: props(label="Disabled", disabled, placeholder="placeholder") -->
+<div class="fm">
+    <label for="fInp5" class="srOnly">Disabled</label>
+    <div class="fmField">
+        <input id="fInp5" type="text" placeholder="placeholder" value="" disabled>
+        <button type="button" class="clearBtn" aria-label="텍스트 삭제" disabled></button>
+    </div>
+</div>
+<!-- //@@TextField: props(label="Disabled", disabled, placeholder="placeholder") -->
+
+<!--
+  12. 검색 인풋 (Search Input)
+  TextField가 아니라 SearchField 입니다. select.html 4번(접두 셀렉트 결합)과 같은 컴포넌트이고,
+  그쪽은 filter prop이 추가로 넘어간 형태입니다. 두 파일의 마크업을 동일하게 맞춰 두었습니다.
+
+  SearchField props
+    * label (string, required)         label.srOnly
+    * value / defaultValue, placeholder, disabled
+    * onSearch (function)              검색 버튼 클릭 또는 Enter 시 호출 → (keyword, filterValue)
+    * filter (object, optional)        .fmPrefix에 들어가는 접두 셀렉트. 없으면 .fmPrefix 자체가 없음
+    * searchLabel (string, def "검색")  검색 버튼 aria-label
+    * variant (fill|border, def fill)  fill   → 모디파이어 없음 (회색 배경 .color-187)
+                                       border → .bdTy (흰 배경 + 1px 테두리)
+    * iconPosition (right|left, def right)
+                                       right → 모디파이어 없음
+                                       left  → .icoL (검색 버튼이 좌측으로, 입력 패딩도 반전)
+    * size (sm|md|lg, def md)          sm → .szSm (2.5rem)  md → 모디파이어 없음 (3rem)
+                                       lg → .szLg (3.5rem)
+
+  변형 3축은 서로 조합할 수 있습니다 — 예: variant="border" iconPosition="left" size="lg"
+  → class="fm searchTy bdTy icoL szLg"
+  '기본값은 클래스를 붙이지 않는다'가 규칙입니다. fill / right / md 에 해당하는 클래스는 없습니다.
+
+  개발 주의
+    * input의 type은 'search'가 아니라 'text' 입니다. SCSS가 input[type=text] 선택자로만
+      검색형 스타일을 잡고 있어 type을 바꾸면 스타일이 전부 빠집니다. 시맨틱은 role="search"로 확보.
+    * Enter 처리 시 IME 조합 중인 Enter(e.nativeEvent.isComposing)는 걸러야 합니다.
+      한글 입력에서 '조합 확정' Enter가 검색으로 잘못 실행됩니다.
+    * clearBtn은 넣지 않습니다. .searchBtn과 .clearBtn이 둘 다 우측에 absolute로 겹칩니다.
+    * iconPosition="left" 와 filter 는 함께 쓸 수 없습니다.
+      둘 다 좌측 자리를 차지해서 검색 버튼이 셀렉트 위에 겹칩니다.
+      컴포넌트에서 둘이 동시에 들어오면 개발 단계에서 경고를 띄우는 편이 안전합니다.
+-->
+
+<!-- 12-1. 검색 인풋 — 기본 타입 (fill / 아이콘 우측 / md) -->
+<!-- @@SearchField: props(label="종목 검색", name="keyword", placeholder="제목을 입력해주세요.") -->
+<div class="fm searchTy" role="search">
+    <label for="keyword" class="srOnly">종목 검색</label>
+    <div class="fmField">
+        <input id="keyword" name="keyword" type="text" placeholder="제목을 입력해주세요." value="">
+    </div>
+    <!-- 우측 요소 (검색 버튼) — 컴포넌트 내부 부품 -->
+    <span class="fmSuffix">
+        <button type="button" class="searchBtn" aria-label="검색"></button>
+    </span>
+</div>
+<!-- //@@SearchField: props(label="종목 검색", name="keyword", placeholder="제목을 입력해주세요.") -->
+
+<!-- 12-2. 보더 타입 (border / 아이콘 우측 / md) -->
+<!-- @@SearchField: props(label="종목 검색", name="keywordBd", variant="border", placeholder="제목을 입력해주세요.") -->
+<div class="fm searchTy bdTy" role="search">
+    <label for="keywordBd" class="srOnly">종목 검색</label>
+    <div class="fmField">
+        <input id="keywordBd" name="keywordBd" type="text" placeholder="제목을 입력해주세요." value="">
+    </div>
+    <span class="fmSuffix">
+        <button type="button" class="searchBtn" aria-label="검색"></button>
+    </span>
+</div>
+<!-- //@@SearchField: props(label="종목 검색", name="keywordBd", variant="border", placeholder="제목을 입력해주세요.") -->
+
+<!-- 12-3. 아이콘 좌측 — 기본 타입 (fill / 아이콘 좌측 / md) -->
+<!-- @@SearchField: props(label="종목 검색", name="keywordIcoL", iconPosition="left", placeholder="제목을 입력해주세요.") -->
+<div class="fm searchTy icoL" role="search">
+    <label for="keywordIcoL" class="srOnly">종목 검색</label>
+    <div class="fmField">
+        <input id="keywordIcoL" name="keywordIcoL" type="text" placeholder="제목을 입력해주세요." value="">
+    </div>
+    <!-- 좌측 요소 (검색 버튼) — .icoL 이 .fmSuffix 를 좌측으로 보냅니다. DOM 순서는 그대로입니다 -->
+    <span class="fmSuffix">
+        <button type="button" class="searchBtn" aria-label="검색"></button>
+    </span>
+</div>
+<!-- //@@SearchField: props(label="종목 검색", name="keywordIcoL", iconPosition="left", placeholder="제목을 입력해주세요.") -->
+
+<!-- 12-4. 아이콘 좌측 + 보더 타입 (border / 아이콘 좌측 / md) -->
+<!-- @@SearchField: props(label="종목 검색", name="keywordBdIcoL", variant="border", iconPosition="left", placeholder="제목을 입력해주세요.") -->
+<div class="fm searchTy bdTy icoL" role="search">
+    <label for="keywordBdIcoL" class="srOnly">종목 검색</label>
+    <div class="fmField">
+        <input id="keywordBdIcoL" name="keywordBdIcoL" type="text" placeholder="제목을 입력해주세요." value="">
+    </div>
+    <span class="fmSuffix">
+        <button type="button" class="searchBtn" aria-label="검색"></button>
+    </span>
+</div>
+<!-- //@@SearchField: props(label="종목 검색", name="keywordBdIcoL", variant="border", iconPosition="left", placeholder="제목을 입력해주세요.") -->
+
+<!-- 12-5. 높이 sm — 2.5rem (font-size도 0.938rem로 함께 줄어듭니다) -->
+<!-- @@SearchField: props(label="종목 검색", name="keywordSm", size="sm", placeholder="제목을 입력해주세요.") -->
+<div class="fm searchTy szSm" role="search">
+    <label for="keywordSm" class="srOnly">종목 검색</label>
+    <div class="fmField">
+        <input id="keywordSm" name="keywordSm" type="text" placeholder="제목을 입력해주세요." value="">
+    </div>
+    <span class="fmSuffix">
+        <button type="button" class="searchBtn" aria-label="검색"></button>
+    </span>
+</div>
+<!-- //@@SearchField: props(label="종목 검색", name="keywordSm", size="sm", placeholder="제목을 입력해주세요.") -->
+
+<!-- 12-6. 높이 md — 2.5rem/3.5rem 사이 기본값. 12-1과 동일하므로 모디파이어 없음 (참고용 주석만) -->
+
+<!-- 12-7. 높이 lg — 3.5rem -->
+<!-- @@SearchField: props(label="종목 검색", name="keywordLg", size="lg", placeholder="제목을 입력해주세요.") -->
+<div class="fm searchTy szLg" role="search">
+    <label for="keywordLg" class="srOnly">종목 검색</label>
+    <div class="fmField">
+        <input id="keywordLg" name="keywordLg" type="text" placeholder="제목을 입력해주세요." value="">
+    </div>
+    <span class="fmSuffix">
+        <button type="button" class="searchBtn" aria-label="검색"></button>
+    </span>
+</div>
+<!-- //@@SearchField: props(label="종목 검색", name="keywordLg", size="lg", placeholder="제목을 입력해주세요.") -->
+
+<!-- 12-8. 3축 조합 — border + 아이콘 좌측 + lg -->
+<!-- @@SearchField: props(label="종목 검색", name="keywordAll", variant="border", iconPosition="left", size="lg", placeholder="제목을 입력해주세요.") -->
+<div class="fm searchTy bdTy icoL szLg" role="search">
+    <label for="keywordAll" class="srOnly">종목 검색</label>
+    <div class="fmField">
+        <input id="keywordAll" name="keywordAll" type="text" placeholder="제목을 입력해주세요." value="">
+    </div>
+    <span class="fmSuffix">
+        <button type="button" class="searchBtn" aria-label="검색"></button>
+    </span>
+</div>
+<!-- //@@SearchField: props(label="종목 검색", name="keywordAll", variant="border", iconPosition="left", size="lg", placeholder="제목을 입력해주세요.") -->
+
+<!-- 13. 인풋 + 확인 버튼 조합 (Input with Suffix Button) — 버튼은 suffix 슬롯으로 주입 -->
+<!-- @@TextField: props(label="인풋 + 버튼 조합", placeholder="placeholder", suffix=<Button/>) -->
+<div class="fm">
+    <label for="fInpBtn" class="srOnly">인풋 + 버튼 조합</label>
+    <div class="fmField">
+        <input id="fInpBtn" type="text" placeholder="placeholder" value="">
+        <button type="button" class="clearBtn" aria-label="텍스트 삭제"></button>
+    </div>
+    <span class="fmSuffix">
+        <!-- @@Button: props(variant="ty2", children="확인") -->
+        <button type="button" class="btnTy2">확인</button>
+        <!-- //@@Button: props(variant="ty2", children="확인") -->
+    </span>
+</div>
+<!-- //@@TextField: props(label="인풋 + 버튼 조합", placeholder="placeholder", suffix=<Button/>) -->

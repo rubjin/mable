@@ -1,0 +1,39 @@
+﻿@use '../abstracts' as *;
+
+.wrap {
+	padding: 28px 20px;
+	box-sizing: border-box;
+}
+.wrapTy2 {
+	padding: 0 20px 20px;
+	box-sizing: border-box;
+}
+.wrapTy3 {
+	padding: 0 20px;
+	box-sizing: border-box;
+}
+.wrapTy4 {
+	padding: 28px 20px 0;
+	box-sizing: border-box;
+}
+.wrapTy5 {
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.contWrap {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.section {
+	display: block;
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+	+ .section {
+		margin-top: 1.875rem;
+		padding-top: 1.875rem;
+		border-top: 1px solid rgb(var(--color-225));
+	}
+}

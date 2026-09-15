@@ -1,0 +1,400 @@
+@use '../abstracts' as *;
+
+// ======================================================================
+// 미션 안내 페이지 (pages/missionGuide.html)
+// ----------------------------------------------------------------------
+// 아직 이 페이지에서만 쓰는 클래스라 pages/ 에 두었습니다.
+// 다른 화면에서 같은 모양이 또 나오면 그때 components/ 로 옮기세요.
+//
+// 색은 전부 theme 토큰(rgb(var(--color-xxx)))이라 다크모드가 자동으로 따라옵니다.
+// 예외는 아이콘 SVG 안의 고정 색뿐이고, 필요한 것만 파일 맨 아래에서 다크모드로
+// 덮어씁니다.
+// ======================================================================
+
+// ----------------------------------------------------------------------
+// PageHeader — 타이틀 + 닫기
+// ----------------------------------------------------------------------
+.pageHead {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 0.75rem;
+	padding: 24px 20px 16px;
+	box-sizing: border-box;
+
+	.pageTit {
+		flex: 1 1 auto;
+		min-width: 0;
+		color: rgb(var(--color-004));
+		font-size: 1.25rem;
+		font-weight: 700;
+		line-height: 1.4;
+	}
+
+	.btnClose {
+		flex: 0 0 auto;
+		width: 1.5rem;
+		height: 1.5rem;
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5 5L19 19M19 5L5 19' stroke='rgba(34, 34, 34, 1)' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center center / 1.25rem;
+	}
+}
+
+// ----------------------------------------------------------------------
+// NoticeBox — 상단 크림색 안내 박스
+// ----------------------------------------------------------------------
+.noticeBox {
+	padding: 1rem 1.125rem 1.125rem;
+	border-radius: 8px;
+	background-color: rgb(var(--color-438));
+	box-sizing: border-box;
+
+	.noticeTit {
+		display: block;
+		margin-bottom: 0.5rem;
+		color: rgb(var(--color-004));
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 1.4;
+	}
+
+	.noticeTxt {
+		color: rgb(var(--color-004));
+		font-size: 0.938rem;
+		line-height: 1.6;
+	}
+}
+
+// ----------------------------------------------------------------------
+// Section — 제목 + 본문
+// layout 의 .section 과 다릅니다. 이 페이지 시안에는 섹션 구분선이 없습니다.
+// ----------------------------------------------------------------------
+.contSec {
+	margin-top: 1.875rem;
+
+	.contTit {
+		margin-bottom: 0.875rem;
+		color: rgb(var(--color-004));
+		font-size: 1.125rem;
+		font-weight: 700;
+		line-height: 1.4;
+	}
+
+	// 섹션 본문 문단 (컴포넌트 아님)
+	.contTxt {
+		color: rgb(var(--color-004));
+		font-size: 0.938rem;
+		line-height: 1.6;
+
+		+ .contTxt {
+			margin-top: 0.75rem;
+		}
+	}
+}
+
+// ----------------------------------------------------------------------
+// DescList / DescItem — '항목 : 값'
+// dt 와 dd 를 flex 로 한 줄에 두고, dd 가 남는 폭을 전부 가져갑니다.
+// 그래서 dd 안에서 줄이 바뀌거나 문단이 늘어도 값 기준으로 자동 정렬됩니다.
+// ----------------------------------------------------------------------
+.descList {
+	.descItem {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.375rem;
+		color: rgb(var(--color-004));
+		font-size: 0.938rem;
+		line-height: 1.6;
+
+		+ .descItem {
+			margin-top: 0.875rem;
+		}
+
+		> dt {
+			flex: 0 0 auto;
+
+			// 콜론은 마크업이 아니라 CSS 가 붙입니다
+			&::after {
+				content: ' :';
+			}
+		}
+
+		> dd {
+			flex: 1 1 auto;
+			min-width: 0;
+
+			p + p {
+				margin-top: 0.625rem;
+			}
+
+			// 부연 문구는 바로 위 값에 붙여 둡니다
+			p + p.subTxt {
+				margin-top: 0.125rem;
+			}
+		}
+	}
+}
+
+// 값 아래 붙는 작은 부연 문구. 블록으로도, 인라인(span)으로도 씁니다.
+// 위아래 간격은 쓰는 쪽(.descList)이 정합니다 — 여기서는 색/크기만 담당합니다.
+.subTxt {
+	color: rgb(var(--color-096));
+	font-size: 0.875rem;
+}
+
+// ----------------------------------------------------------------------
+// StepList / StepItem — 번호 목록
+// 번호는 CSS counter 입니다. 마크업/props 로 숫자를 넣지 마세요.
+// ----------------------------------------------------------------------
+.stepList {
+	counter-reset: stepNum;
+
+	> li {
+		position: relative;
+		counter-increment: stepNum;
+		padding-left: 1.75rem;
+
+		+ li {
+			margin-top: 1rem;
+		}
+
+		&::before {
+			content: counter(stepNum);
+			position: absolute;
+			top: 0.188rem;
+			left: 0;
+			width: 1.25rem;
+			height: 1.25rem;
+			color: rgb(var(--theme-bg));
+			background-color: rgb(var(--color-004));
+			border-radius: 50%;
+			font-size: 0.688rem;
+			font-weight: 500;
+			line-height: 1.25rem;
+			text-align: center;
+		}
+	}
+
+	.stepTxt {
+		color: rgb(var(--color-004));
+		font-size: 0.938rem;
+		line-height: 1.6;
+	}
+
+	.stepTit {
+		font-weight: 500;
+	}
+}
+
+// ----------------------------------------------------------------------
+// Note — ※ 보조 문구
+// ※ 를 ::before 로 빼서, 줄이 넘어가도 문구가 ※ 아래로 흐르지 않고
+// 첫 글자 기준으로 들여쓰기가 유지됩니다.
+// ----------------------------------------------------------------------
+.note {
+	position: relative;
+	margin-top: 0.5rem;
+	padding-left: 0.938rem;
+	color: rgb(var(--color-096));
+	font-size: 0.813rem;
+	line-height: 1.55;
+
+	&::before {
+		content: '※';
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	// 반드시 지켜야 하는 조건을 짚어줄 때만 씁니다
+	&.tyPoint {
+		color: rgb(var(--color-010));
+		font-weight: 500;
+	}
+
+	+ .note {
+		margin-top: 0.313rem;
+	}
+}
+
+// ----------------------------------------------------------------------
+// RewardBox / RewardItem — 보상안내 카드
+// 아이콘은 absolute 라서 블록 높이에 영향을 주지 않습니다.
+// 대신 .rewardItem 이 padding-right 로 자리를 비워둡니다.
+// ----------------------------------------------------------------------
+.rewardBox {
+	padding: 1.25rem;
+	border-radius: 10px;
+	background-color: rgb(var(--color-187));
+	box-sizing: border-box;
+}
+
+.rewardItem {
+	position: relative;
+	padding-right: 3.75rem;
+
+	+ .rewardItem {
+		margin-top: 1.125rem;
+		padding-top: 1.125rem;
+		border-top: 1px solid rgb(var(--color-225));
+	}
+
+	// 아이콘이 없는 항목
+	&.noIco {
+		padding-right: 0;
+	}
+
+	.rewardTit {
+		display: block;
+		margin-bottom: 0.5rem;
+		color: rgb(var(--color-004));
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 1.4;
+	}
+
+	.rewardTxt {
+		color: rgb(var(--color-004));
+		font-size: 0.938rem;
+		line-height: 1.6;
+	}
+
+	.rewardIco {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		width: 2.75rem;
+		height: 2.75rem;
+		margin-top: -1.375rem;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: contain;
+	}
+
+	// 디자인 asset 이 없어 임시로 그린 SVG 입니다. 실제 이미지가 나오면 이 두 줄만 교체하세요
+	.icoSchedule {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='44' viewBox='0 0 48 44' fill='none'%3E%3Crect x='2' y='10' width='21' height='28' rx='6' fill='rgba(168, 196, 245, 1)'/%3E%3Cpath d='M7.5 24.5L10.5 27.5L17 20.5' stroke='rgba(255, 255, 255, 1)' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Crect x='25' y='6' width='21' height='28' rx='6' fill='rgba(74, 123, 232, 1)'/%3E%3Cpath d='M30.5 20.5L33.5 23.5L40 16.5' stroke='rgba(255, 255, 255, 1)' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	}
+
+	.icoPoint {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44' fill='none'%3E%3Ccircle cx='22' cy='22' r='22' fill='rgba(253, 217, 67, 1)'/%3E%3Cpath d='M22 11L25.5 18.2L33.5 19.3L27.7 24.9L29.1 32.8L22 29L14.9 32.8L16.3 24.9L10.5 19.3L18.5 18.2L22 11Z' fill='rgba(255, 255, 255, 1)'/%3E%3C/svg%3E");
+	}
+}
+
+// ----------------------------------------------------------------------
+// CheckList — 체크 목록
+// ----------------------------------------------------------------------
+.checkList {
+	> li {
+		position: relative;
+		padding-left: 1.125rem;
+		color: rgb(var(--color-004));
+		font-size: 0.938rem;
+		line-height: 1.6;
+
+		+ li {
+			margin-top: 0.375rem;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0.375rem;
+			left: 0;
+			width: 0.75rem;
+			height: 0.75rem;
+			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5L6.5 12L13 4.5' stroke='rgba(136, 136, 136, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / contain;
+		}
+	}
+}
+
+// ----------------------------------------------------------------------
+// DotList — 점 불릿 목록
+// ----------------------------------------------------------------------
+.dotList {
+	> li {
+		position: relative;
+		padding-left: 0.688rem;
+		color: rgb(var(--color-096));
+		font-size: 0.813rem;
+		line-height: 1.6;
+
+		+ li {
+			margin-top: 0.5rem;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0.563rem;
+			left: 0.125rem;
+			width: 0.188rem;
+			height: 0.188rem;
+			border-radius: 50%;
+			background-color: rgb(var(--color-411));
+		}
+	}
+}
+
+// ----------------------------------------------------------------------
+// LinkMore — '> ' 이동 링크
+// ----------------------------------------------------------------------
+.linkMore {
+	display: inline-flex;
+	align-items: center;
+	margin-top: 0.875rem;
+	color: rgb(var(--color-096));
+	font-size: 0.813rem;
+	line-height: 1.4;
+
+	&::after {
+		content: '';
+		width: 0.5rem;
+		height: 0.5rem;
+		margin-left: 0.25rem;
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6 3L11 8L6 13' stroke='rgba(136, 136, 136, 1)' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / contain;
+	}
+}
+
+// ----------------------------------------------------------------------
+// ConfirmBox — 하단 유의사항
+// 좌우 꽉 차는 배경이라 좌우 여백을 스스로 가집니다. .wrapTy3 안에 넣지 마세요.
+// ----------------------------------------------------------------------
+.confirmBox {
+	margin-top: 1.875rem;
+	padding: 1.5rem 20px 2.5rem;
+	background-color: rgb(var(--color-405));
+	box-sizing: border-box;
+
+	.confirmTit {
+		display: block;
+		margin-bottom: 0.75rem;
+		color: rgb(var(--color-004));
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 1.4;
+	}
+}
+
+// 인라인 강조 (컴포넌트 아님)
+.fcRed {
+	color: rgb(var(--color-010));
+	font-style: normal;
+	font-weight: 500;
+}
+
+// ======================================================================
+// 다크모드 — SVG 안에 색이 박혀 있어 토큰으로 못 바꾸는 것만 여기서 교체합니다
+// ======================================================================
+html[data-theme='dark'] {
+	.pageHead .btnClose {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5 5L19 19M19 5L5 19' stroke='rgba(224, 224, 224, 1)' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+	}
+
+	.checkList > li::before {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5L6.5 12L13 4.5' stroke='rgba(153, 153, 153, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	}
+
+	.linkMore::after {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6 3L11 8L6 13' stroke='rgba(153, 153, 153, 1)' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	}
+}

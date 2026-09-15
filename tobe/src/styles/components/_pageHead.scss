@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+
+// ----------------------------------------------------------------------
+// PageHeader — 타이틀 + 닫기
+// ----------------------------------------------------------------------
+.pageHead {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: figmaRem(12);
+	padding: 24px 20px 16px;
+	box-sizing: border-box;
+
+	.pageTit {
+		flex: 1 1 auto;
+		min-width: 0;
+		color: rgb(var(--color-004));
+		font-size: figmaRem(20);
+		font-weight: 700;
+		line-height: 1.4;
+	}
+
+	.btnClose {
+		flex: 0 0 auto;
+		width: figmaRem(24);
+		height: figmaRem(24);
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5 5L19 19M19 5L5 19' stroke='rgba(34, 34, 34, 1)' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center center / figmaRem(20);
+	}
+}
+
+html[data-theme='dark'] .pageHead .btnClose {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5 5L19 19M19 5L5 19' stroke='rgba(224, 224, 224, 1)' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+}

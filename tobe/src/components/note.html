@@ -1,0 +1,26 @@
+<!--
+  ==========================================================================
+  [Note Component]
+
+  ※ 로 시작하는 보조 문구. ※ 는 마크업이 아니라 .note::before 가 붙입니다
+  (줄이 넘어가도 첫 글자 기준으로 들여쓰기가 유지됩니다).
+
+  props
+    * children (ReactNode, required)
+    * tone (default|point, def default)  default → 회색
+                                         point   → .tyPoint (빨강 + 굵게). 필수 조건 강조용
+
+  형제로 이어붙이면 간격(margin-top)이 자동으로 붙습니다 (.note + .note).
+  스타일은 styles/components/_note.scss 입니다.
+  ==========================================================================
+-->
+
+<!-- 기본 -->
+<!-- @@Note -->
+<p class="note">미션 평가 금액은 현재 계좌에서 확인되는 평가금액과 다를 수 있습니다.</p>
+<!-- //@@Note -->
+
+<!-- 강조 (tone="point") -->
+<!-- @@Note: props(tone="point") -->
+<p class="note tyPoint">투자봉과 성장봉은 각 조건 달성 후 산악회 화면에 진입해야 미션달성으로 인정됩니다.</p>
+<!-- //@@Note: props(tone="point") -->

@@ -1,0 +1,23 @@
+<!--
+  ==========================================================================
+  [PageHeader Component]
+
+  구조: header.pageHead > h1.pageTit + button.btnClose
+
+  props
+    * title (string, required)          h1.pageTit 텍스트
+    * onClose (function, required)      닫기 버튼 클릭
+    * closeLabel (string, def "닫기")   닫기 버튼 aria-label
+
+  개발 주의
+    * href="#" / onClose 는 더미입니다. 라우팅·모달 닫기는 개발에서 연결하세요.
+    * 스타일은 styles/components/_pageHead.scss 입니다.
+  ==========================================================================
+-->
+
+<!-- @@PageHeader: props(title="자산성장 산악회 미션 안내", onClose) -->
+<header class="pageHead">
+    <h1 class="pageTit">자산성장 산악회 미션 안내</h1>
+    <button type="button" class="btnClose" aria-label="닫기"></button>
+</header>
+<!-- //@@PageHeader: props(title="자산성장 산악회 미션 안내", onClose) -->

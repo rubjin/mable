@@ -1,0 +1,8 @@
+@use 'sass:math';
+
+// Figma 시안의 px 값을 rem 으로 변환합니다. (기준: html font-size 16px)
+// base.scss 의 반응형 html font-size 미디어쿼리에 의해 화면에서는 자동으로 스케일됩니다.
+// 사용: font-size: figmaRem(24);
+@function figmaRem($px, $base: 16) {
+    @return math.div($px, $base) * 1rem;
+}

@@ -1,0 +1,29 @@
+@use '../abstracts' as *;
+
+// ----------------------------------------------------------------------
+// DotList — 점 불릿 목록
+// ----------------------------------------------------------------------
+.dotList {
+	> li {
+		position: relative;
+		padding-left: figmaRem(11);
+		color: rgb(var(--color-096));
+		font-size: figmaRem(13);
+		line-height: 1.6;
+
+		+ li {
+			margin-top: figmaRem(8);
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: figmaRem(9);
+			left: figmaRem(2);
+			width: figmaRem(3);
+			height: figmaRem(3);
+			border-radius: 50%;
+			background-color: rgb(var(--color-411));
+		}
+	}
+}

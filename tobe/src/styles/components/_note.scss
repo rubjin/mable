@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+// ----------------------------------------------------------------------
+// Note — ※ 보조 문구
+// ※ 를 ::before 로 빼서, 줄이 넘어가도 문구가 ※ 아래로 흐르지 않고
+// 첫 글자 기준으로 들여쓰기가 유지됩니다.
+// ----------------------------------------------------------------------
+.note {
+	position: relative;
+	margin-top: figmaRem(8);
+	padding-left: figmaRem(15);
+	color: rgb(var(--color-096));
+	font-size: figmaRem(13);
+	line-height: 1.55;
+
+	&::before {
+		content: '※';
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	// 반드시 지켜야 하는 조건을 짚어줄 때만 씁니다
+	&.tyPoint {
+		color: rgb(var(--color-010));
+		font-weight: 500;
+	}
+
+	+ .note {
+		margin-top: figmaRem(5);
+	}
+}

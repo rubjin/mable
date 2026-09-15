@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+// ----------------------------------------------------------------------
+// CheckList — 체크 목록
+// ----------------------------------------------------------------------
+.checkList {
+	> li {
+		position: relative;
+		padding-left: figmaRem(18);
+		color: rgb(var(--color-004));
+		font-size: figmaRem(15);
+		line-height: 1.6;
+
+		+ li {
+			margin-top: figmaRem(6);
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: figmaRem(6);
+			left: 0;
+			width: figmaRem(12);
+			height: figmaRem(12);
+			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5L6.5 12L13 4.5' stroke='rgba(136, 136, 136, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / contain;
+		}
+	}
+}
+
+html[data-theme='dark'] .checkList > li::before {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5L6.5 12L13 4.5' stroke='rgba(153, 153, 153, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}

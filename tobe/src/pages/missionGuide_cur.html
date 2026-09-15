@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자산성장 산악회 미션 안내</title>
+    <link rel="stylesheet" href="../styles/globals.scss">
+</head>
+<body>
+
+<!--
+  ==========================================================================
+  [미션 안내 페이지 — MissionGuidePage]
+
+  컴포넌트 경계 표기 규칙
+    <!-- @@컴포넌트명: props(...) --      ← 컴포넌트 시작
+    ...마크업...
+    <!-- //@@컴포넌트명: props(...) --    ← 컴포넌트 종료
+  중첩 컴포넌트는 부모 안쪽에 같은 방식으로 표기합니다.
+  props(...)에 적힌 값은 "그 케이스에서 실제로 넘긴 값"이며,
+  목록에 없는 props는 기본값으로 동작합니다.
+
+  스타일은 이 페이지 전용 콘텐츠(NoticeBox/RewardBox/DescList/StepList 등)만
+  styles/pages/_mission.scss 에 있고, 구조가 고정된 범용 컴포넌트(PageHeader,
+  Note, CheckList, DotList, LinkMore, ConfirmBox)는 styles/components/ 로
+  옮겼습니다. 마크업 예시/props 문서는 src/components/ 에 각각 있습니다.
+
+  --------------------------------------------------------------------------
+  이 파일에 등장하는 컴포넌트
+  --------------------------------------------------------------------------
+  (범용, src/components/ 에 마크업 예시가 따로 있음)
+  * PageHeader   페이지 상단 타이틀 + 닫기               → components/pageHeader.html
+  * Note         ※ 로 시작하는 보조 문구                 → components/note.html
+  * CheckList    체크 아이콘 목록                        → components/checkList.html
+  * DotList      점 불릿 목록                            → components/dotList.html
+  * LinkMore     '> ' 화살표가 붙는 이동 링크             → components/linkMore.html
+  * ConfirmBox   페이지 하단 좌우 꽉 찬 회색 유의사항 박스 → components/confirmBox.html
+
+  (이 페이지 전용, 문구가 이미 박혀있어 pages/_mission.scss 에 남겨둠)
+  * NoticeBox    상단 크림색 안내 박스
+  * Section      제목(h2) + 본문 묶음. 이 페이지의 대제목 단위
+  * DescList     '항목 : 값' 정의 목록 (참여조건)
+  * DescItem     DescList의 한 줄. 단독으로 쓰지 않습니다
+  * StepList     번호가 붙는 순서 목록 (참여방법)
+  * StepItem     StepList의 한 항목
+  * RewardBox    보상안내 카드(회색 박스)
+  * RewardItem   RewardBox 안의 한 블록. 두 번째부터 구분선이 자동으로 붙습니다
+
+  컴포넌트가 아닌 것 (그냥 유틸 클래스입니다 — 컴포넌트로 만들지 마세요)
+  * .contTxt     섹션 본문 문단. 형제로 이어붙이면 간격이 자동
+  * .subTxt      값 아래 붙는 작은 회색 부연 문구
+  * .fcRed       인라인 강조(빨강). <em>/<strong> 안쪽 텍스트에만 씁니다
+
+  --------------------------------------------------------------------------
+  props 명세
+  --------------------------------------------------------------------------
+  * PageHeader
+      title (string, required)          h1.pageTit 텍스트
+      onClose (function, required)      닫기 버튼 클릭
+      closeLabel (string, def "닫기")    닫기 버튼 aria-label
+
+  * NoticeBox
+      title (string)                    없으면 .noticeTit 자체를 렌더하지 않습니다
+      children (ReactNode, required)    본문
+
+  * Section
+      title (string, required)          h2.contTit
+      children (ReactNode, required)
+
+  * DescList
+      children (DescItem[])
+
+  * DescItem
+      term (string, required)           dt 텍스트. 뒤의 ' :' 는 CSS가 붙입니다
+      children (ReactNode, required)    dd 내용. <p> 를 여러 개 넣으면 간격이 자동
+
+  * StepList
+      children (StepItem[])
+
+  * StepItem
+      label (string)                    '투자봉:' 처럼 앞에 붙는 굵은 말머리
+      children (ReactNode, required)    설명 문구
+
+  * Note
+      children (ReactNode, required)    ※ 뒤에 올 문구
+      tone (default|point, def default) default → 회색
+                                        point   → .tyPoint (빨강 + 굵게). 필수 조건 강조용
+
+  * RewardBox
+      children (RewardItem[])
+
+  * RewardItem
+      title (string, required)          .rewardTit
+      icon (schedule|point)             우측 아이콘. .rewardIco 에 .icoSchedule / .icoPoint
+                                        없으면 아이콘 영역 없이 본문이 끝까지 찹니다
+      children (ReactNode, required)
+
+  * CheckList / DotList
+      items (string[] | ReactNode[])    li 내용. 체크·점 아이콘은 CSS가 그립니다
+
+  * LinkMore
+      href (string, required)
+      children (string, required)       화살표는 CSS라 텍스트만 넘기세요
+
+  * ConfirmBox
+      title (string, def "확인해주세요")
+      children (ReactNode, required)
+
+  --------------------------------------------------------------------------
+  props가 아니라 CSS가 자동으로 처리하는 것 — prop/텍스트로 넣지 마세요
+  --------------------------------------------------------------------------
+  * StepItem 의 번호(1,2,3)   .stepList 의 CSS counter. 순서를 바꾸면 번호도 따라갑니다.
+                              index 를 prop 으로 받아 찍지 마세요
+  * DescItem 의 ' :'          dt::after
+  * Note 의 '※'               .note::before (줄바꿈 시 들여쓰기까지 맞춰집니다)
+  * CheckList 의 체크 / DotList 의 점   ::before 배경 이미지
+  * LinkMore 의 '>'           .linkMore::after
+  * RewardItem 사이 구분선     .rewardItem + .rewardItem 에서 자동. 마지막 항목 뒤에는 안 붙습니다
+
+  --------------------------------------------------------------------------
+  DOM 순서 / 배치 제약 — 지키지 않으면 CSS가 깨집니다
+  --------------------------------------------------------------------------
+  * .rewardIco 는 .rewardItem 의 마지막 자식이고 position:absolute 입니다.
+    .rewardItem 이 padding-right 로 아이콘 자리를 비워두므로, 아이콘이 없는
+    RewardItem 은 .rewardIco 를 빼는 대신 .rewardItem 에 .noIco 를 붙여
+    padding-right 를 없애세요.
+  * .confirmBox 는 좌우 여백 컨테이너(.wrapTy3) '바깥'에 둡니다.
+    배경이 화면 끝까지 차야 해서 좌우 padding 을 스스로 가지고 있습니다.
+  * .descItem 은 dl 직속 div 입니다. dt/dd 를 이 div 없이 나열하면 한 줄 정렬이 깨집니다.
+
+  --------------------------------------------------------------------------
+  이 파일이 다루지 않는 것
+  --------------------------------------------------------------------------
+  * 닫기 / 링크 동작       href="#" 는 더미입니다. 라우팅은 개발에서 연결하세요
+  * 날짜 · 포인트 값       2026/00/00, 1000P 등은 시안 그대로의 더미 텍스트입니다
+  * .icoSchedule / .icoPoint  디자인 아이콘 파일이 없어 data-URI SVG 로 임시 구현했습니다.
+                              실제 asset 이 나오면 _mission.scss 에서 배경만 교체하세요
+  * 스크롤 고정 헤더       시안만으로는 판단할 수 없어 일반 흐름으로 두었습니다.
+                           고정이 필요하면 .pageHead 에 position:sticky 를 추가하세요
+
+  ※ 시안 3번 항목의 '레버리지/인버스 EFT' 는 ETF 오타로 보여 ETF 로 적었습니다. 기획 확인 필요.
+  ==========================================================================
+-->
+
+<!-- @@PageHeader: props(title="자산성장 산악회 미션 안내", onClose) -->
+<header class="pageHead">
+    <h1 class="pageTit">자산성장 산악회 미션 안내</h1>
+    <button type="button" class="btnClose" aria-label="닫기"></button>
+</header>
+<!-- //@@PageHeader: props(title="자산성장 산악회 미션 안내", onClose) -->
+
+<main class="wrapTy3">
+
+    <!-- 상단 안내 박스 -->
+    <!-- @@NoticeBox: props(title="자산성장 산악회 미션이란?") -->
+    <div class="noticeBox">
+        <strong class="noticeTit">자산성장 산악회 미션이란?</strong>
+        <p class="noticeTxt">투자의 시작부터 자산을 키워가는 경험까지 30일 동안 3개 코스에 도전하고 7,000P 혜택을 받는 미션이에요.</p>
+    </div>
+    <!-- //@@NoticeBox: props(title="자산성장 산악회 미션이란?") -->
+
+    <!-- 참여조건 -->
+    <!-- @@Section: props(title="참여조건") -->
+    <section class="contSec">
+        <h2 class="contTit">참여조건</h2>
+
+        <!-- @@DescList -->
+        <dl class="descList">
+            <!-- @@DescItem: props(term="참여 대상") -->
+            <div class="descItem">
+                <dt>참여 대상</dt>
+                <dd>
+                    <p>국내 거주 개인 고객</p>
+                    <p class="subTxt">(법인, 임의단체, 외국인, 재외국민 제외)</p>
+                    <p>1개월 내 국내 주식 거래가 없으면서 국내 주식 평가 금액 100만원 이하 고객</p>
+                </dd>
+            </div>
+            <!-- //@@DescItem: props(term="참여 대상") -->
+
+            <!-- @@DescItem: props(term="신청 가능 계좌") -->
+            <div class="descItem">
+                <dt>신청 가능 계좌</dt>
+                <dd>
+                    <p>비대면/은행연계/지점 계좌</p>
+                </dd>
+            </div>
+            <!-- //@@DescItem: props(term="신청 가능 계좌") -->
+
+            <!-- @@DescItem: props(term="참여 기간") -->
+            <div class="descItem">
+                <dt>참여 기간</dt>
+                <dd>
+                    <p>2026/00/00 ~ 2026/00/00</p>
+                </dd>
+            </div>
+            <!-- //@@DescItem: props(term="참여 기간") -->
+
+            <!-- @@DescItem: props(term="대상 종목") -->
+            <div class="descItem">
+                <dt>대상 종목</dt>
+                <dd>
+                    <p>국내주식/ETF <span class="subTxt">(코스피/코스닥 소수점 온주 포함)</span></p>
+                </dd>
+            </div>
+            <!-- //@@DescItem: props(term="대상 종목") -->
+        </dl>
+        <!-- //@@DescList -->
+    </section>
+    <!-- //@@Section: props(title="참여조건") -->
+
+    <!-- 참여방법 -->
+    <!-- @@Section: props(title="참여방법") -->
+    <section class="contSec">
+        <h2 class="contTit">참여방법</h2>
+
+        <!-- @@StepList -->
+        <ol class="stepList">
+            <!-- @@StepItem: props(label="투자봉:") -->
+            <li>
+                <p class="stepTxt"><strong class="stepTit">투자봉:</strong> 신청 계좌의 원화 예수금 200만원 이상 달성</p>
+            </li>
+            <!-- //@@StepItem: props(label="투자봉:") -->
+
+            <!-- @@StepItem: props(label="성장봉:") -->
+            <li>
+                <p class="stepTxt"><strong class="stepTit">성장봉:</strong> 신청일 D+30일 이내 국내주식/ETF 2회 이상 누적 체결금액 200만원 이상 달성</p>
+                <!-- @@Note: props(tone="point") -->
+                <p class="note tyPoint">투자봉과 성장봉은 각 조건 달성 후 산악회 화면에 진입해야 미션달성으로 인정됩니다.</p>
+                <!-- //@@Note: props(tone="point") -->
+            </li>
+            <!-- //@@StepItem: props(label="성장봉:") -->
+
+            <!-- @@StepItem: props(label="정상:") -->
+            <li>
+                <p class="stepTxt"><strong class="stepTit">정상:</strong> 종료일 KRX종가 확정 기준으로, 국내주식 평가금액이 200만원 이상인 경우 달성</p>
+                <!-- @@Note -->
+                <p class="note">미션 평가 금액은 현재 계좌에서 확인되는 평가금액과 다를 수 있습니다.</p>
+                <!-- //@@Note -->
+                <!-- @@Note -->
+                <p class="note">종료일이 비 영업일인 경우 가장 최근 영업일 기준으로 평가합니다.</p>
+                <!-- //@@Note -->
+                <!-- @@Note -->
+                <p class="note">단일 종목 레버리지/인버스 ETF 종목은 미션 실적 평가에서 제외됩니다.</p>
+                <!-- //@@Note -->
+            </li>
+            <!-- //@@StepItem: props(label="정상:") -->
+        </ol>
+        <!-- //@@StepList -->
+    </section>
+    <!-- //@@Section: props(title="참여방법") -->
+
+    <!-- 보상안내 -->
+    <!-- @@Section: props(title="보상안내") -->
+    <section class="contSec">
+        <h2 class="contTit">보상안내</h2>
+
+        <!-- @@RewardBox -->
+        <div class="rewardBox">
+            <!-- @@RewardItem: props(title="보상시점", icon="schedule") -->
+            <div class="rewardItem">
+                <strong class="rewardTit">보상시점</strong>
+                <p class="rewardTxt">성공 조건 달성 시, <em class="fcRed">다음 영업일 지급</em></p>
+                <span class="rewardIco icoSchedule" aria-hidden="true"></span>
+            </div>
+            <!-- //@@RewardItem: props(title="보상시점", icon="schedule") -->
+
+            <!-- @@RewardItem: props(title="보상 금액", icon="point") -->
+            <div class="rewardItem">
+                <strong class="rewardTit">보상 금액</strong>
+                <!-- @@CheckList -->
+                <ul class="checkList">
+                    <li>투자봉 달성 시 : 1000P</li>
+                    <li>성장봉 달성 시 : 1000P</li>
+                    <li>정상 달성 시 : 5000P</li>
+                </ul>
+                <!-- //@@CheckList -->
+                <span class="rewardIco icoPoint" aria-hidden="true"></span>
+            </div>
+            <!-- //@@RewardItem: props(title="보상 금액", icon="point") -->
+        </div>
+        <!-- //@@RewardBox -->
+
+        <!-- @@Note -->
+        <p class="note">보상 지급 시점에 마케팅 동의 철회, 계좌 폐쇄 또는 휴면 전환 시 지급 제외 됩니다.</p>
+        <!-- //@@Note -->
+    </section>
+    <!-- //@@Section: props(title="보상안내") -->
+
+    <!-- 휴면계좌 해지 안내 -->
+    <!-- @@Section: props(title="휴면계좌 해지 안내") -->
+    <section class="contSec">
+        <h2 class="contTit">휴면계좌 해지 안내</h2>
+        <p class="contTxt">휴면계좌란 현금을 포함한 잔고평가금액이 10만원 이하이면서 최근 6개월 간 매매거래, 입출금 및 입고거래가 중단된 계좌입니다.</p>
+        <p class="contTxt">휴면계좌 해제 가능 시간은 영업일 기준 00:30~21:30입니다.</p>
+        <!-- @@LinkMore: props(href="#") -->
+        <a href="#" class="linkMore">휴면계좌 해제 바로가기</a>
+        <!-- //@@LinkMore: props(href="#") -->
+    </section>
+    <!-- //@@Section: props(title="휴면계좌 해지 안내") -->
+
+</main>
+
+<!-- 하단 유의사항 — 좌우 꽉 차는 배경이라 .wrapTy3 바깥입니다 -->
+<!-- @@ConfirmBox: props(title="확인해주세요") -->
+<section class="confirmBox">
+    <strong class="confirmTit">확인해주세요</strong>
+    <!-- @@DotList -->
+    <ul class="dotList">
+        <li>본 이벤트는 당사 사정 또는 금융당국의 지도 및 권고에 따라 일정이 변경되거나 중단될 수 있습니다. (단, 기조건 충족고객 제외)</li>
+        <li>이벤트 참여와 관련한 세금(제세공과금)이 발생할 경우, 관련 법령에 따라 고객 본인에게 귀속됩니다.</li>
+        <li>이벤트 기간 중 허수성거래, 가장/통정성 거래 등 불공정거래로 판단되는 주문 발생 시 해당 주문 관련자에 대해서는 이벤트 조건 충족 여부에 관계없이 이벤트 혜택 대상에서 제외될 수 있습니다.</li>
+        <li>불공정 거래(공정거래질서 저해행위) 및 이상 거래 징후 발견된 바 있는 종목의 거래금액은 이벤트 실적에서 제외되며, 상기 사유로 제외종목으로 지정될 수 있습니다.</li>
+    </ul>
+    <!-- //@@DotList -->
+    <!-- @@LinkMore: props(href="#") -->
+    <a href="#" class="linkMore">미션 종료하기</a>
+    <!-- //@@LinkMore: props(href="#") -->
+</section>
+<!-- //@@ConfirmBox: props(title="확인해주세요") -->
+
+<script src="../assets/js/ui.js"></script>
+</body>
+</html>

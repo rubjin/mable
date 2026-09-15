@@ -1,0 +1,26 @@
+<!--
+  ==========================================================================
+  [ConfirmBox Component]
+
+  페이지 하단 좌우 꽉 찬 회색 유의사항 박스. 배경이 화면 끝까지 차야 해서
+  좌우 여백 컨테이너(.wrapTy3) '바깥'에 두고, 좌우 padding 은 스스로 가집니다.
+
+  props
+    * title (string, def "확인해주세요")
+    * children (ReactNode, required)   보통 DotList
+
+  스타일은 styles/components/_confirmBox.scss 입니다.
+  ==========================================================================
+-->
+
+<!-- @@ConfirmBox: props(title="확인해주세요") -->
+<section class="confirmBox">
+    <strong class="confirmTit">확인해주세요</strong>
+    <!-- @@DotList -->
+    <ul class="dotList">
+        <li>본 이벤트는 당사 사정 또는 금융당국의 지도 및 권고에 따라 일정이 변경되거나 중단될 수 있습니다. (단, 기조건 충족고객 제외)</li>
+        <li>이벤트 참여와 관련한 세금(제세공과금)이 발생할 경우, 관련 법령에 따라 고객 본인에게 귀속됩니다.</li>
+    </ul>
+    <!-- //@@DotList -->
+</section>
+<!-- //@@ConfirmBox: props(title="확인해주세요") -->

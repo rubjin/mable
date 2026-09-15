@@ -1,0 +1,25 @@
+@use '../abstracts' as *;
+
+// ----------------------------------------------------------------------
+// LinkMore — '> ' 이동 링크
+// ----------------------------------------------------------------------
+.linkMore {
+	display: inline-flex;
+	align-items: center;
+	margin-top: figmaRem(14);
+	color: rgb(var(--color-096));
+	font-size: figmaRem(13);
+	line-height: 1.4;
+
+	&::after {
+		content: '';
+		width: figmaRem(8);
+		height: figmaRem(8);
+		margin-left: figmaRem(4);
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6 3L11 8L6 13' stroke='rgba(136, 136, 136, 1)' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / contain;
+	}
+}
+
+html[data-theme='dark'] .linkMore::after {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6 3L11 8L6 13' stroke='rgba(153, 153, 153, 1)' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}

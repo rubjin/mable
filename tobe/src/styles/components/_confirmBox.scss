@@ -1,0 +1,21 @@
+@use '../abstracts' as *;
+
+// ----------------------------------------------------------------------
+// ConfirmBox — 하단 유의사항
+// 좌우 꽉 차는 배경이라 좌우 여백을 스스로 가집니다. .wrapTy3 안에 넣지 마세요.
+// ----------------------------------------------------------------------
+.confirmBox {
+	margin-top: figmaRem(30);
+	padding: figmaRem(24) 20px figmaRem(40);
+	background-color: rgb(var(--color-405));
+	box-sizing: border-box;
+
+	.confirmTit {
+		display: block;
+		margin-bottom: figmaRem(12);
+		color: rgb(var(--color-004));
+		font-size: figmaRem(16);
+		font-weight: 700;
+		line-height: 1.4;
+	}
+}

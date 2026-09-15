@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "node build.js",
+    "build:watch": "node build.js --watch",
     "sass:watch": "sass --watch --load-path=src/styles --load-path=src/styles/abstracts --load-path=src/assets --load-path=src src/styles/globals.scss:src/assets/css/globals.css src/styles/globalsPub.scss:src/assets/css/globalsPub.css --no-source-map",
     "sass:build": "sass --load-path=src/styles --load-path=src/styles/abstracts --load-path=src/assets --load-path=src src/styles/globals.scss:src/assets/css/globals.css src/styles/globalsPub.scss:src/assets/css/globalsPub.css --no-source-map"
   },

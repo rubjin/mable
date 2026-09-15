@@ -4,15 +4,20 @@
 	position: relative;
 	display: flex;
 	align-items: center;
+	// .fmHelp / .imposTxt 를 아래 줄로 내리기 위한 wrap 입니다.
+	// 대신 한 줄에 남아야 하는 .fmPrefix / .fmField / .fmSuffix 가 밀려 내려가지
+	// 않도록, 아래에서 .fmField 에 width:100% 를 주지 않습니다.
+	flex-wrap: wrap;
 	width: 100%;
 	box-sizing: border-box;
 
 	.fmField {
 		position: relative;
+		// width:100% 를 주면 flex-basis 가 한 줄을 통째로 차지해서
+		// .fmSuffix(확인 버튼 등)가 다음 줄로 밀려납니다. 남는 폭은 flex-grow 가 채웁니다.
 		flex: 1 1 auto;
 		display: flex;
 		align-items: center;
-		width: 100%;
 		min-width: 0;
 
 		input[type=text],
@@ -27,14 +32,14 @@
 		flex: 0 0 auto;
 		display: inline-flex;
 		align-items: center;
-		margin-right: 0.5rem;
+		margin-right: figmaRem(8);
 	}
 
 	.fmSuffix {
 		flex: 0 0 auto;
 		display: inline-flex;
 		align-items: center;
-		margin-left: 0.5rem;
+		margin-left: figmaRem(8);
 
 		.price {
 			position: static;
@@ -42,31 +47,39 @@
 			align-items: center;
 			justify-content: center;
 			width: auto;
-			min-width: 2rem;
-			height: 3rem;
-			padding: 0 0.5rem;
+			min-width: figmaRem(32);
+			height: figmaRem(48);
+			padding: 0 figmaRem(8);
 			color: rgb(var(--color-004));
-			font-size: 1.063rem;
-			line-height: 3rem;
+			font-size: figmaRem(17);
+			line-height: figmaRem(48);
 			text-align: center;
 		}
 
 		.btnTy2 {
 			white-space: nowrap;
-			padding: 0 1.25rem;
+			padding: 0 figmaRem(20);
 			width: auto;
 		}
+	}
+
+	// 하단 보조 영역(에러 문구 / 글자수)은 필드와 같은 줄에 서면 안 됩니다.
+	// flex-basis 100% 로 항상 다음 줄을 통째로 차지하게 합니다.
+	// .imposTxt 는 .fmHelp 없이 .fm 직속으로 오는 경우(select)만 잡습니다.
+	.fmHelp,
+	> .imposTxt {
+		flex: 1 0 100%;
 	}
 
 	/* tR: 텍스트 오른쪽 정렬 */
 	&.tR {
 		.fmField input[type=text],
 		.fmField input[type=number] {
-			padding: 0 2.5rem 0 1rem;
+			padding: 0 figmaRem(40) 0 figmaRem(16);
 			text-align: right;
 		}
 		.clearBtn {
-			left: 1.2rem;
+			left: figmaRem(19.2);
 			right: auto;
 		}
 	}
@@ -93,14 +106,14 @@
 			display: block;
 			box-sizing: border-box;
 			&:first-child {
-				padding-right: 0.5rem;
+				padding-right: figmaRem(8);
 			}
 			&:last-of-type {
 				button {
 					width: 100% !important;
-					height: 3.125rem;
-					font-size: 1rem;
-					line-height: 3.125rem;
+					height: figmaRem(50);
+					font-size: figmaRem(16);
+					line-height: figmaRem(50);
 				}
 			}
 		}
@@ -109,7 +122,7 @@
 		display: flex;
 		flex-direction: column;
 		> span + span {
-			margin-top: 0.5rem;
+			margin-top: figmaRem(8);
 		}
 	}
 }
@@ -119,7 +132,7 @@
 	.selectBox {
 		display: flex;
 		align-items: center;
-		gap: 0.75rem;
+		gap: figmaRem(12);
 		.fm {
 			width: auto;
 		}

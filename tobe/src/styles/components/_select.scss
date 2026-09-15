@@ -13,21 +13,21 @@ select {
 	position: relative;
 	overflow: hidden;
 	width: 100%;
-	height: 3rem;
-	padding: 0 2.5rem 0 1rem;
-	font-size: 1.063rem;
+	height: figmaRem(48);
+	padding: 0 figmaRem(40) 0 figmaRem(16);
+	font-size: figmaRem(17);
 	border: 0;
 	border-radius: 4px;
 	white-space: nowrap;
-	background: rgb(var(--color-499)) url('#{$imgURL}/images/common/select_arrow.png') calc(100% - .625rem) center no-repeat;
-	background-size: 1.25rem;
+	background: rgb(var(--color-499)) url('#{$imgURL}/images/common/select_arrow.png') calc(100% - figmaRem(10)) center no-repeat;
+	background-size: figmaRem(20);
 
 	option {
 		width: 100%;
-		height: 3rem;
-		padding: 0 2.5rem 0 1rem;
-		font-size: 1.063rem;
-		line-height: 3rem;
+		height: figmaRem(48);
+		padding: 0 figmaRem(40) 0 figmaRem(16);
+		font-size: figmaRem(17);
+		line-height: figmaRem(48);
 		color: rgb(var(--color-004));
 		background: rgb(var(--color-028));
 
@@ -40,15 +40,15 @@ select {
 
 	&.selectTy2 {
 		width: auto;
-		height: 1.125rem;
-		padding: 0 1.25rem 0 0;
+		height: figmaRem(18);
+		padding: 0 figmaRem(20) 0 0;
 		background: transparent url('#{$imgURL}/images/common/select_arrow_ty2.png') 100% center no-repeat;
-		background-size: 0.75rem;
-		font-size: 0.8125rem;
+		background-size: figmaRem(12);
+		font-size: figmaRem(13);
 		border-radius: 0;
 
 		option {
-			font-size: 0.8125rem;
+			font-size: figmaRem(13);
 		}
 	}
 }

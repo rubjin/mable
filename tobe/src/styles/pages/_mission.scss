@@ -18,7 +18,7 @@
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
-	gap: 0.75rem;
+	gap: figmaRem(12);
 	padding: 24px 20px 16px;
 	box-sizing: border-box;
 
@@ -26,16 +26,16 @@
 		flex: 1 1 auto;
 		min-width: 0;
 		color: rgb(var(--color-004));
-		font-size: 1.25rem;
+		font-size: figmaRem(20);
 		font-weight: 700;
 		line-height: 1.4;
 	}
 
 	.btnClose {
 		flex: 0 0 auto;
-		width: 1.5rem;
-		height: 1.5rem;
-		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5 5L19 19M19 5L5 19' stroke='rgba(34, 34, 34, 1)' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center center / 1.25rem;
+		width: figmaRem(24);
+		height: figmaRem(24);
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5 5L19 19M19 5L5 19' stroke='rgba(34, 34, 34, 1)' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center center / figmaRem(20);
 	}
 }
 
@@ -43,23 +43,23 @@
 // NoticeBox — 상단 크림색 안내 박스
 // ----------------------------------------------------------------------
 .noticeBox {
-	padding: 1rem 1.125rem 1.125rem;
+	padding: figmaRem(16) figmaRem(18) figmaRem(18);
 	border-radius: 8px;
 	background-color: rgb(var(--color-438));
 	box-sizing: border-box;
 
 	.noticeTit {
 		display: block;
-		margin-bottom: 0.5rem;
+		margin-bottom: figmaRem(8);
 		color: rgb(var(--color-004));
-		font-size: 1rem;
+		font-size: figmaRem(16);
 		font-weight: 700;
 		line-height: 1.4;
 	}
 
 	.noticeTxt {
 		color: rgb(var(--color-004));
-		font-size: 0.938rem;
+		font-size: figmaRem(15);
 		line-height: 1.6;
 	}
 }
@@ -69,12 +69,12 @@
 // layout 의 .section 과 다릅니다. 이 페이지 시안에는 섹션 구분선이 없습니다.
 // ----------------------------------------------------------------------
 .contSec {
-	margin-top: 1.875rem;
+	margin-top: figmaRem(30);
 
 	.contTit {
-		margin-bottom: 0.875rem;
+		margin-bottom: figmaRem(14);
 		color: rgb(var(--color-004));
-		font-size: 1.125rem;
+		font-size: figmaRem(18);
 		font-weight: 700;
 		line-height: 1.4;
 	}
@@ -82,11 +82,11 @@
 	// 섹션 본문 문단 (컴포넌트 아님)
 	.contTxt {
 		color: rgb(var(--color-004));
-		font-size: 0.938rem;
+		font-size: figmaRem(15);
 		line-height: 1.6;
 
 		+ .contTxt {
-			margin-top: 0.75rem;
+			margin-top: figmaRem(12);
 		}
 	}
 }
@@ -100,13 +100,13 @@
 	.descItem {
 		display: flex;
 		align-items: flex-start;
-		gap: 0.375rem;
+		gap: figmaRem(6);
 		color: rgb(var(--color-004));
-		font-size: 0.938rem;
+		font-size: figmaRem(15);
 		line-height: 1.6;
 
 		+ .descItem {
-			margin-top: 0.875rem;
+			margin-top: figmaRem(14);
 		}
 
 		> dt {
@@ -123,12 +123,12 @@
 			min-width: 0;
 
 			p + p {
-				margin-top: 0.625rem;
+				margin-top: figmaRem(10);
 			}
 
 			// 부연 문구는 바로 위 값에 붙여 둡니다
 			p + p.subTxt {
-				margin-top: 0.125rem;
+				margin-top: figmaRem(2);
 			}
 		}
 	}
@@ -138,7 +138,7 @@
 // 위아래 간격은 쓰는 쪽(.descList)이 정합니다 — 여기서는 색/크기만 담당합니다.
 .subTxt {
 	color: rgb(var(--color-096));
-	font-size: 0.875rem;
+	font-size: figmaRem(14);
 }
 
 // ----------------------------------------------------------------------
@@ -151,32 +151,32 @@
 	> li {
 		position: relative;
 		counter-increment: stepNum;
-		padding-left: 1.75rem;
+		padding-left: figmaRem(28);
 
 		+ li {
-			margin-top: 1rem;
+			margin-top: figmaRem(16);
 		}
 
 		&::before {
 			content: counter(stepNum);
 			position: absolute;
-			top: 0.188rem;
+			top: figmaRem(3);
 			left: 0;
-			width: 1.25rem;
-			height: 1.25rem;
+			width: figmaRem(20);
+			height: figmaRem(20);
 			color: rgb(var(--theme-bg));
 			background-color: rgb(var(--color-004));
 			border-radius: 50%;
-			font-size: 0.688rem;
+			font-size: figmaRem(11);
 			font-weight: 500;
-			line-height: 1.25rem;
+			line-height: figmaRem(20);
 			text-align: center;
 		}
 	}
 
 	.stepTxt {
 		color: rgb(var(--color-004));
-		font-size: 0.938rem;
+		font-size: figmaRem(15);
 		line-height: 1.6;
 	}
 
@@ -192,10 +192,10 @@
 // ----------------------------------------------------------------------
 .note {
 	position: relative;
-	margin-top: 0.5rem;
-	padding-left: 0.938rem;
+	margin-top: figmaRem(8);
+	padding-left: figmaRem(15);
 	color: rgb(var(--color-096));
-	font-size: 0.813rem;
+	font-size: figmaRem(13);
 	line-height: 1.55;
 
 	&::before {
@@ -212,7 +212,7 @@
 	}
 
 	+ .note {
-		margin-top: 0.313rem;
+		margin-top: figmaRem(5);
 	}
 }
 
@@ -222,7 +222,7 @@
 // 대신 .rewardItem 이 padding-right 로 자리를 비워둡니다.
 // ----------------------------------------------------------------------
 .rewardBox {
-	padding: 1.25rem;
+	padding: figmaRem(20);
 	border-radius: 10px;
 	background-color: rgb(var(--color-187));
 	box-sizing: border-box;
@@ -230,11 +230,11 @@
 
 .rewardItem {
 	position: relative;
-	padding-right: 3.75rem;
+	padding-right: figmaRem(60);
 
 	+ .rewardItem {
-		margin-top: 1.125rem;
-		padding-top: 1.125rem;
+		margin-top: figmaRem(18);
+		padding-top: figmaRem(18);
 		border-top: 1px solid rgb(var(--color-225));
 	}
 
@@ -245,16 +245,16 @@
 
 	.rewardTit {
 		display: block;
-		margin-bottom: 0.5rem;
+		margin-bottom: figmaRem(8);
 		color: rgb(var(--color-004));
-		font-size: 1rem;
+		font-size: figmaRem(16);
 		font-weight: 700;
 		line-height: 1.4;
 	}
 
 	.rewardTxt {
 		color: rgb(var(--color-004));
-		font-size: 0.938rem;
+		font-size: figmaRem(15);
 		line-height: 1.6;
 	}
 
@@ -262,9 +262,9 @@
 		position: absolute;
 		top: 50%;
 		right: 0;
-		width: 2.75rem;
-		height: 2.75rem;
-		margin-top: -1.375rem;
+		width: figmaRem(44);
+		height: figmaRem(44);
+		margin-top: figmaRem(-22);
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: contain;
@@ -286,22 +286,22 @@
 .checkList {
 	> li {
 		position: relative;
-		padding-left: 1.125rem;
+		padding-left: figmaRem(18);
 		color: rgb(var(--color-004));
-		font-size: 0.938rem;
+		font-size: figmaRem(15);
 		line-height: 1.6;
 
 		+ li {
-			margin-top: 0.375rem;
+			margin-top: figmaRem(6);
 		}
 
 		&::before {
 			content: '';
 			position: absolute;
-			top: 0.375rem;
+			top: figmaRem(6);
 			left: 0;
-			width: 0.75rem;
-			height: 0.75rem;
+			width: figmaRem(12);
+			height: figmaRem(12);
 			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5L6.5 12L13 4.5' stroke='rgba(136, 136, 136, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / contain;
 		}
 	}
@@ -313,22 +313,22 @@
 .dotList {
 	> li {
 		position: relative;
-		padding-left: 0.688rem;
+		padding-left: figmaRem(11);
 		color: rgb(var(--color-096));
-		font-size: 0.813rem;
+		font-size: figmaRem(13);
 		line-height: 1.6;
 
 		+ li {
-			margin-top: 0.5rem;
+			margin-top: figmaRem(8);
 		}
 
 		&::before {
 			content: '';
 			position: absolute;
-			top: 0.563rem;
-			left: 0.125rem;
-			width: 0.188rem;
-			height: 0.188rem;
+			top: figmaRem(9);
+			left: figmaRem(2);
+			width: figmaRem(3);
+			height: figmaRem(3);
 			border-radius: 50%;
 			background-color: rgb(var(--color-411));
 		}
@@ -341,16 +341,16 @@
 .linkMore {
 	display: inline-flex;
 	align-items: center;
-	margin-top: 0.875rem;
+	margin-top: figmaRem(14);
 	color: rgb(var(--color-096));
-	font-size: 0.813rem;
+	font-size: figmaRem(13);
 	line-height: 1.4;
 
 	&::after {
 		content: '';
-		width: 0.5rem;
-		height: 0.5rem;
-		margin-left: 0.25rem;
+		width: figmaRem(8);
+		height: figmaRem(8);
+		margin-left: figmaRem(4);
 		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6 3L11 8L6 13' stroke='rgba(136, 136, 136, 1)' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / contain;
 	}
 }
@@ -360,16 +360,16 @@
 // 좌우 꽉 차는 배경이라 좌우 여백을 스스로 가집니다. .wrapTy3 안에 넣지 마세요.
 // ----------------------------------------------------------------------
 .confirmBox {
-	margin-top: 1.875rem;
-	padding: 1.5rem 20px 2.5rem;
+	margin-top: figmaRem(30);
+	padding: figmaRem(24) 20px figmaRem(40);
 	background-color: rgb(var(--color-405));
 	box-sizing: border-box;
 
 	.confirmTit {
 		display: block;
-		margin-bottom: 0.75rem;
+		margin-bottom: figmaRem(12);
 		color: rgb(var(--color-004));
-		font-size: 1rem;
+		font-size: figmaRem(16);
 		font-weight: 700;
 		line-height: 1.4;
 	}

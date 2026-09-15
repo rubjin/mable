@@ -913,72 +913,51 @@ html[data-theme=dark] {
 
 @font-face {
   font-family: "KBFGText";
-  src: url("../assets/fonts/KBFGTextL.eot");
-  src: local("※"), local("KBFGText"), local("KBFGText"), url("../assets/fonts/KBFGTextL.woff2") format("woff2"), url("../assets/fonts/KBFGTextL.woff") format("woff");
+  src: url("../../assets/font/KBFGTextL.eot");
+  src: local("※"), local("KBFGText"), local("KBFGText"), url("../../assets/font/KBFGTextL.woff2") format("woff2"), url("../../assets/font/KBFGTextL.woff") format("woff");
   font-style: normal;
   font-weight: 300;
   font-display: swap;
 }
 @font-face {
   font-family: "KBFGText";
-  src: url("../assets/fonts/KBFGTextM.eot");
-  src: local("※"), local("KBFGText"), local("KBFGText"), url("../assets/fonts/KBFGTextM.woff2") format("woff2"), url("../assets/fonts/KBFGTextM.woff") format("woff");
+  src: url("../../assets/font/KBFGTextM.eot");
+  src: local("※"), local("KBFGText"), local("KBFGText"), url("../../assets/font/KBFGTextM.woff2") format("woff2"), url("../../assets/font/KBFGTextM.woff") format("woff");
   font-style: normal;
   font-weight: 500;
   font-display: swap;
 }
 @font-face {
   font-family: "KBFGText";
-  src: url("../assets/fonts/KBFGTextB.eot");
-  src: local("※"), local("KBFGText"), local("KBFGText"), url("../assets/fonts/KBFGTextB.woff2") format("woff2"), url("../assets/fonts/KBFGTextB.woff") format("woff");
+  src: url("../../assets/font/KBFGTextB.eot");
+  src: local("※"), local("KBFGText"), local("KBFGText"), url("../../assets/font/KBFGTextB.woff2") format("woff2"), url("../../assets/font/KBFGTextB.woff") format("woff");
   font-style: normal;
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: "KBFGText-Light";
-  src: url("../assets/fonts/KBFGTextL.eot");
-  src: local("※"), local("KBFGText-Light"), local("KBFGText-Light"), url("../assets/fonts/KBFGTextL.woff2") format("woff2"), url("../assets/fonts/KBFGTextL.woff") format("woff");
+  src: url("../../assets/font/KBFGTextL.eot");
+  src: local("※"), local("KBFGText-Light"), local("KBFGText-Light"), url("../../assets/font/KBFGTextL.woff2") format("woff2"), url("../../assets/font/KBFGTextL.woff") format("woff");
   font-style: normal;
   font-weight: 300;
   font-display: swap;
 }
 @font-face {
   font-family: "KBFGText-Medium";
-  src: url("../assets/fonts/KBFGTextM.eot");
-  src: local("※"), local("KBFGText-Medium"), local("KBFGText-Medium"), url("../assets/fonts/KBFGTextM.woff2") format("woff2"), url("../assets/fonts/KBFGTextM.woff") format("woff");
+  src: url("../../assets/font/KBFGTextM.eot");
+  src: local("※"), local("KBFGText-Medium"), local("KBFGText-Medium"), url("../../assets/font/KBFGTextM.woff2") format("woff2"), url("../../assets/font/KBFGTextM.woff") format("woff");
   font-style: normal;
   font-weight: 500;
   font-display: swap;
 }
 @font-face {
   font-family: "KBFGText-Bold";
-  src: url("../assets/fonts/KBFGTextB.eot");
-  src: local("※"), local("KBFGText-Bold"), local("KBFGText-Bold"), url("../assets/fonts/KBFGTextB.woff2") format("woff2"), url("../assets/fonts/KBFGTextB.woff") format("woff");
+  src: url("../../assets/font/KBFGTextB.eot");
+  src: local("※"), local("KBFGText-Bold"), local("KBFGText-Bold"), url("../../assets/font/KBFGTextB.woff2") format("woff2"), url("../../assets/font/KBFGTextB.woff") format("woff");
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-}
-@font-face {
-  font-family: "SpoqaR";
-  src: url("../assets/fonts/SpoqaHanSansNeo-Regular.eot");
-  src: local("※"), local("SpoqaR"), local("SpoqaR"), url("../assets/fonts/SpoqaHanSansNeo-Regular.woff2") format("woff2"), url("../assets/fonts/SpoqaHanSansNeo-Regular.woff") format("woff");
-  font-style: normal;
-  font-weight: normal;
-}
-@font-face {
-  font-family: "SpoqaM";
-  src: url("../assets/fonts/SpoqaHanSansNeo-Medium.eot");
-  src: local("※"), local("SpoqaM"), local("SpoqaM"), url("../assets/fonts/SpoqaHanSansNeo-Medium.woff2") format("woff2"), url("../assets/fonts/SpoqaHanSansNeo-Medium.woff") format("woff");
-  font-style: normal;
-  font-weight: normal;
-}
-@font-face {
-  font-family: "SpoqaB";
-  src: url("../assets/fonts/SpoqaHanSansNeo-Bold.eot");
-  src: local("※"), local("SpoqaB"), local("SpoqaB"), url("../assets/fonts/SpoqaHanSansNeo-Bold.woff2") format("woff2"), url("../assets/fonts/SpoqaHanSansNeo-Bold.woff") format("woff");
-  font-style: normal;
-  font-weight: normal;
 }
 @media all and (max-width: 319px) {
   body {
@@ -1194,6 +1173,7 @@ html[data-theme=dark] .clearBtn {
   position: relative;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   width: 100%;
   box-sizing: border-box;
 }
@@ -1202,7 +1182,6 @@ html[data-theme=dark] .clearBtn {
   flex: 1 1 auto;
   display: flex;
   align-items: center;
-  width: 100%;
   min-width: 0;
 }
 .fm .fmField input[type=text],
@@ -1233,7 +1212,7 @@ html[data-theme=dark] .clearBtn {
   height: 3rem;
   padding: 0 0.5rem;
   color: rgb(var(--color-004));
-  font-size: 1.063rem;
+  font-size: 1.0625rem;
   line-height: 3rem;
   text-align: center;
 }
@@ -1241,6 +1220,10 @@ html[data-theme=dark] .clearBtn {
   white-space: nowrap;
   padding: 0 1.25rem;
   width: auto;
+}
+.fm .fmHelp,
+.fm > .imposTxt {
+  flex: 1 0 100%;
 }
 .fm {
   /* tR: 텍스트 오른쪽 정렬 */
@@ -1329,15 +1312,15 @@ input::-webkit-search-cancel-button, input::-webkit-clear-button, input::-webkit
 }
 input::-webkit-input-placeholder {
   color: rgb(var(--color-411));
-  font-size: 1.063rem;
+  font-size: 1.0625rem;
 }
 input::-moz-placeholder {
   color: rgb(var(--color-411));
-  font-size: 1.063rem;
+  font-size: 1.0625rem;
 }
 input::placeholder {
   color: rgb(var(--color-411));
-  font-size: 1.063rem;
+  font-size: 1.0625rem;
 }
 input + .clearBtn {
   opacity: 0;
@@ -1362,7 +1345,7 @@ input[type=number] {
   height: 3rem;
   padding: 0 2.5rem 0 1rem;
   color: rgb(var(--color-004));
-  font-size: 1.063rem;
+  font-size: 1.0625rem;
   line-height: 3rem;
   border: 0;
   border-radius: 4px;
@@ -1443,7 +1426,7 @@ input[type=number][disabled] {
   height: 3rem;
   padding: 0 3rem 0 1rem;
   color: rgb(var(--color-004));
-  font-size: 1.063rem;
+  font-size: 1.0625rem;
   line-height: 3rem;
   border: 0;
   border-radius: 4px;
@@ -1497,7 +1480,7 @@ input[type=number][disabled] {
 }
 .fm.searchTy.szSm .fmField input[type=text] {
   height: 2.5rem;
-  font-size: 0.938rem;
+  font-size: 0.9375rem;
   line-height: 2.5rem;
 }
 .fm.searchTy.szSm .fmPrefix select.searchTy {
@@ -1526,7 +1509,7 @@ input[type=number][disabled] {
   width: 3rem;
   height: 3rem;
   color: rgb(var(--color-004));
-  font-size: 1.063rem;
+  font-size: 1.0625rem;
   line-height: 3rem;
   text-align: center;
 }
@@ -1535,7 +1518,7 @@ input[type=number][disabled] {
   display: none;
   margin-top: 0.25rem;
   color: rgb(var(--color-010));
-  font-size: 0.813rem;
+  font-size: 0.8125rem;
   font-weight: 500;
 }
 .imposTxt.active {
@@ -1546,6 +1529,7 @@ input[type=number][disabled] {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  flex: 0 0 100%;
   gap: 0.5rem;
   margin-top: 0.25rem;
 }
@@ -1558,7 +1542,7 @@ input[type=number][disabled] {
   flex: 0 0 auto;
   margin-left: auto;
   color: rgb(var(--color-411));
-  font-size: 0.813rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   line-height: 1.4;
   white-space: nowrap;
@@ -1585,7 +1569,7 @@ select {
   width: 100%;
   height: 3rem;
   padding: 0 2.5rem 0 1rem;
-  font-size: 1.063rem;
+  font-size: 1.0625rem;
   border: 0;
   border-radius: 4px;
   white-space: nowrap;
@@ -1596,7 +1580,7 @@ select option {
   width: 100%;
   height: 3rem;
   padding: 0 2.5rem 0 1rem;
-  font-size: 1.063rem;
+  font-size: 1.0625rem;
   line-height: 3rem;
   color: rgb(var(--color-004));
   background: rgb(var(--color-028));
@@ -1641,6 +1625,135 @@ select.selectTy2 option {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5 5L19 19M19 5L5 19' stroke='rgba(34, 34, 34, 1)' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center center/1.25rem;
 }
 
+html[data-theme=dark] .pageHead .btnClose {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5 5L19 19M19 5L5 19' stroke='rgba(224, 224, 224, 1)' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.note {
+  position: relative;
+  margin-top: 0.5rem;
+  padding-left: 0.9375rem;
+  color: rgb(var(--color-096));
+  font-size: 0.8125rem;
+  line-height: 1.55;
+}
+.note::before {
+  content: "※";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.note.tyPoint {
+  color: rgb(var(--color-010));
+  font-weight: 500;
+}
+.note + .note {
+  margin-top: 0.3125rem;
+}
+
+.checkList > li {
+  position: relative;
+  padding-left: 1.125rem;
+  color: rgb(var(--color-004));
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+.checkList > li + li {
+  margin-top: 0.375rem;
+}
+.checkList > li::before {
+  content: "";
+  position: absolute;
+  top: 0.375rem;
+  left: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5L6.5 12L13 4.5' stroke='rgba(136, 136, 136, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center/contain;
+}
+
+html[data-theme=dark] .checkList > li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5L6.5 12L13 4.5' stroke='rgba(153, 153, 153, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.dotList > li {
+  position: relative;
+  padding-left: 0.6875rem;
+  color: rgb(var(--color-096));
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+.dotList > li + li {
+  margin-top: 0.5rem;
+}
+.dotList > li::before {
+  content: "";
+  position: absolute;
+  top: 0.5625rem;
+  left: 0.125rem;
+  width: 0.1875rem;
+  height: 0.1875rem;
+  border-radius: 50%;
+  background-color: rgb(var(--color-411));
+}
+
+.linkMore {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.875rem;
+  color: rgb(var(--color-096));
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+.linkMore::after {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-left: 0.25rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6 3L11 8L6 13' stroke='rgba(136, 136, 136, 1)' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center/contain;
+}
+
+html[data-theme=dark] .linkMore::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6 3L11 8L6 13' stroke='rgba(153, 153, 153, 1)' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.confirmBox {
+  margin-top: 1.875rem;
+  padding: 1.5rem 20px 2.5rem;
+  background-color: rgb(var(--color-405));
+  box-sizing: border-box;
+}
+.confirmBox .confirmTit {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: rgb(var(--color-004));
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.pageHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 24px 20px 16px;
+  box-sizing: border-box;
+}
+.pageHead .pageTit {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: rgb(var(--color-004));
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.pageHead .btnClose {
+  flex: 0 0 auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5 5L19 19M19 5L5 19' stroke='rgba(34, 34, 34, 1)' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center center/1.25rem;
+}
+
 .noticeBox {
   padding: 1rem 1.125rem 1.125rem;
   border-radius: 8px;
@@ -1657,7 +1770,7 @@ select.selectTy2 option {
 }
 .noticeBox .noticeTxt {
   color: rgb(var(--color-004));
-  font-size: 0.938rem;
+  font-size: 0.9375rem;
   line-height: 1.6;
 }
 
@@ -1673,7 +1786,7 @@ select.selectTy2 option {
 }
 .contSec .contTxt {
   color: rgb(var(--color-004));
-  font-size: 0.938rem;
+  font-size: 0.9375rem;
   line-height: 1.6;
 }
 .contSec .contTxt + .contTxt {
@@ -1685,7 +1798,7 @@ select.selectTy2 option {
   align-items: flex-start;
   gap: 0.375rem;
   color: rgb(var(--color-004));
-  font-size: 0.938rem;
+  font-size: 0.9375rem;
   line-height: 1.6;
 }
 .descList .descItem + .descItem {
@@ -1727,21 +1840,21 @@ select.selectTy2 option {
 .stepList > li::before {
   content: counter(stepNum);
   position: absolute;
-  top: 0.188rem;
+  top: 0.1875rem;
   left: 0;
   width: 1.25rem;
   height: 1.25rem;
   color: rgb(var(--theme-bg));
   background-color: rgb(var(--color-004));
   border-radius: 50%;
-  font-size: 0.688rem;
+  font-size: 0.6875rem;
   font-weight: 500;
   line-height: 1.25rem;
   text-align: center;
 }
 .stepList .stepTxt {
   color: rgb(var(--color-004));
-  font-size: 0.938rem;
+  font-size: 0.9375rem;
   line-height: 1.6;
 }
 .stepList .stepTit {
@@ -1751,9 +1864,9 @@ select.selectTy2 option {
 .note {
   position: relative;
   margin-top: 0.5rem;
-  padding-left: 0.938rem;
+  padding-left: 0.9375rem;
   color: rgb(var(--color-096));
-  font-size: 0.813rem;
+  font-size: 0.8125rem;
   line-height: 1.55;
 }
 .note::before {
@@ -1766,80 +1879,8 @@ select.selectTy2 option {
   color: rgb(var(--color-010));
   font-weight: 500;
 }
-.bottomSheet .titTy2 {
-  margin: 1.25rem 0 0.75rem;
-  color: rgb(var(--color-004));
-  font-size: 1rem;
-  font-weight: 500;
-}
-.bottomSheet .titTy2:first-child {
-  margin: 0 0 0.75rem;
-}
-.bottomSheet .conBox {
-  padding: 1.5rem 0 0;
-  color: rgb(var(--color-412));
-  font-size: 1rem;
-}
-.bottomSheet .conBox.maxH {
-  max-height: 50vh;
-  overflow-y: scroll;
-}
-.bottomSheet .caution {
-  padding-top: 2.5rem !important;
-  color: rgb(var(--color-004));
-  font-size: 1.3125rem;
-  font-weight: 500;
-  text-align: center;
-  background: url("https://dtong.kbsec.com/mable/images/common/ico_caution.png") 50% 0.625rem no-repeat;
-  background-size: 2.75rem;
-}
-.bottomSheet .caution .conBox {
-  color: rgb(var(--color-004));
-  font-size: 1.063rem;
-}
-.bottomSheet .cautionTy2 {
-  padding-top: 2.5rem !important;
-  color: rgb(var(--color-004));
-  font-size: 1.3125rem;
-  font-weight: 500;
-  text-align: center;
-  background: url("https://dtong.kbsec.com/mable/images/common/ico_cautionTy2.png") 50% 0.625rem no-repeat;
-  background-size: 2.75rem;
-}
-.bottomSheet .cautionTy2 .conBox {
-  color: rgb(var(--color-004));
-  font-size: 1.063rem;
-}
-.bottomSheet .sotingList {
-  overflow-y: scroll;
-  max-height: 12.5rem;
-}
-.bottomSheet .sotingList li {
-  position: relative;
-  display: block;
-  padding: 1.125rem 0;
-  color: rgb(var(--color-004));
-  font-size: 1rem;
-  border-bottom: 1px solid rgb(var(--color-406));
-  background: none;
-  cursor: pointer;
-}
-.bottomSheet .sotingList li span {
-  color: rgb(var(--color-409));
-}
-.bottomSheet .sotingList li.active {
-  color: rgb(var(--color-403));
-  font-weight: 500;
-  background: url("https://dtong.kbsec.com/mable/images/common/ico_soting_check.png") right 50% no-repeat;
-  background-size: 1.5rem;
-}
-.bottomSheet.active {
-  display: block;
-  opacity: 1;
-  z-index: 10000;
-}
-.bottomSheet.active .cont {
-  bottom: 0%;
+.note + .note {
+  margin-top: 0.3125rem;
 }
 
 .rewardBox {
@@ -1871,7 +1912,7 @@ select.selectTy2 option {
 }
 .rewardItem .rewardTxt {
   color: rgb(var(--color-004));
-  font-size: 0.938rem;
+  font-size: 0.9375rem;
   line-height: 1.6;
 }
 .rewardItem .rewardIco {
@@ -1896,7 +1937,7 @@ select.selectTy2 option {
   position: relative;
   padding-left: 1.125rem;
   color: rgb(var(--color-004));
-  font-size: 0.938rem;
+  font-size: 0.9375rem;
   line-height: 1.6;
 }
 .checkList > li + li {
@@ -1914,9 +1955,9 @@ select.selectTy2 option {
 
 .dotList > li {
   position: relative;
-  padding-left: 0.688rem;
+  padding-left: 0.6875rem;
   color: rgb(var(--color-096));
-  font-size: 0.813rem;
+  font-size: 0.8125rem;
   line-height: 1.6;
 }
 .dotList > li + li {
@@ -1925,10 +1966,10 @@ select.selectTy2 option {
 .dotList > li::before {
   content: "";
   position: absolute;
-  top: 0.563rem;
+  top: 0.5625rem;
   left: 0.125rem;
-  width: 0.188rem;
-  height: 0.188rem;
+  width: 0.1875rem;
+  height: 0.1875rem;
   border-radius: 50%;
   background-color: rgb(var(--color-411));
 }
@@ -1938,7 +1979,7 @@ select.selectTy2 option {
   align-items: center;
   margin-top: 0.875rem;
   color: rgb(var(--color-096));
-  font-size: 0.813rem;
+  font-size: 0.8125rem;
   line-height: 1.4;
 }
 .linkMore::after {

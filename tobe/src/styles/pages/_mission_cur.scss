@@ -16,17 +16,17 @@
 // NoticeBox — 상단 크림색 안내 박스
 // ----------------------------------------------------------------------
 .noticeBox {
-	padding: figmaRem(16) figmaRem(18) figmaRem(18);
-	border-radius: 8px;
-	background-color: rgb(var(--color-438));
+	padding: figmaRem(30);
+	border-radius: 16px;
+	background-color: rgb(var(--color-181));
 	box-sizing: border-box;
 
 	.noticeTit {
 		display: block;
-		margin-bottom: figmaRem(8);
-		color: rgb(var(--color-004));
-		font-size: figmaRem(16);
-		font-weight: 700;
+		margin-bottom: figmaRem(16);
+		color: $txt-black;
+		font-size: figmaRem(22);
+		font-weight: 500;
 		line-height: 1.4;
 	}
 
@@ -48,7 +48,7 @@
 		margin-bottom: figmaRem(14);
 		color: rgb(var(--color-004));
 		font-size: figmaRem(18);
-		font-weight: 700;
+		font-weight: 500;
 		line-height: 1.4;
 	}
 
@@ -76,7 +76,7 @@
 		gap: figmaRem(6);
 		color: rgb(var(--color-004));
 		font-size: figmaRem(15);
-		line-height: 1.6;
+		line-height: 1.5;
 
 		+ .descItem {
 			margin-top: figmaRem(14);
@@ -138,7 +138,7 @@
 			width: figmaRem(20);
 			height: figmaRem(20);
 			color: rgb(var(--theme-bg));
-			background-color: rgb(var(--color-004));
+			background-color: $txt-secondary;
 			border-radius: 50%;
 			font-size: figmaRem(11);
 			font-weight: 500;
@@ -165,8 +165,8 @@
 // ----------------------------------------------------------------------
 .rewardBox {
 	padding: figmaRem(20);
-	border-radius: 10px;
-	background-color: rgb(var(--color-187));
+	border-radius: figmaRem(18);
+	background-color: rgb(var(--color-499));
 	box-sizing: border-box;
 }
 
@@ -177,7 +177,7 @@
 	+ .rewardItem {
 		margin-top: figmaRem(18);
 		padding-top: figmaRem(18);
-		border-top: 1px solid rgb(var(--color-225));
+		border-top: 1px solid rgb(var(--color-039));
 	}
 
 	// 아이콘이 없는 항목
@@ -187,17 +187,17 @@
 
 	.rewardTit {
 		display: block;
-		margin-bottom: figmaRem(8);
-		color: rgb(var(--color-004));
-		font-size: figmaRem(16);
-		font-weight: 700;
+		margin-bottom: figmaRem(16);
+		color: $txt-primary;
+		font-size: $fs-22;
+		font-weight: 500;
 		line-height: 1.4;
 	}
 
 	.rewardTxt {
-		color: rgb(var(--color-004));
-		font-size: figmaRem(15);
-		line-height: 1.6;
+		color: $txt-primary;
+		font-size: $fs-20;
+		line-height: 1.5;
 	}
 
 	.rewardIco {

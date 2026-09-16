@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자산성장 산악회 미션</title>
+    <link rel="stylesheet" href="../styles/globals.scss">
+</head>
+<body class="">
+<main>
+    <div class="wrap">
+        <!-- @@CourseList -->
+        <ol class="courseList">
+
+            <li>
+                <!-- @@CourseCard: props(step="1코스", name="투자봉", order=1, state="done", href="#") -->
+                <div class="courseCard course1 isOn">
+                    <!-- 카드 위에 떠 있는 안내 말풍선 — .courseCard 직속 자식이어야 합니다 -->
+                    <!-- @@Tooltip: props(onClose) -->
+                    <div class="tooltip">
+                        <p class="tooltipTxt">종료일 KRX종가 기준으로 평가하며, 실제 계좌 평가금액과 다를 수 있습니다.</p>
+                        <button type="button" class="btnTooltipClose" aria-label="안내 닫기"></button>
+                    </div>
+                    <!-- //@@Tooltip: props(onClose) -->
+                    <div class="courseCardHead">
+                        <span class="courseIco" aria-hidden="true"></span>
+                        <a href="#" class="courseTit">1코스 : 투자봉</a>
+                        <button type="button" class="btnCourseTip" aria-label="평가 기준 안내"></button>
+                        <span class="courseState">진행중</span>
+                    </div>
+                    <!-- <div class="courseCardBody">
+                        <p class="courseCardTxt">예수금 200만원 이상 달성</p>
+                    </div> -->
+                    <div class="courseCardBody">
+                         <!-- @@AmountBox: props(amount="3,600,000", date="2026.08.26 KRX 종가 기준") -->
+                        <div class="amountRow">
+                            <span class="amountLabel">현재실적</span>
+                            <strong class="amountNum">0<span class="amountUnit">원</span></strong>
+                        </div>
+                        <!-- <p class="amountDate">2026.08.26 KRX 종가 기준</p> -->
+                        <!-- //@@AmountBox: props(amount="3,600,000", date="2026.08.26 KRX 종가 기준") -->
+
+                        <div class="courseCond">
+                            <p class="courseCondTxt">예수금 200만원 이상 달성</p>
+                            <button type="button" class="btnRefresh" aria-label="평가금액 새로고침"></button>
+                        </div>
+
+                        <a href="#" class="btnLine">입금하기</a>
+                    </div>
+                    <!-- @@StampDone -->
+                    <span class="stampDone"><span class="blind">미션완료</span></span>
+                    <!-- //@@StampDone -->
+                </div>
+                <!-- //@@CourseCard: props(step="1코스", name="투자봉", order=1, state="done", href="#") -->
+            </li>
+
+            <li>
+                <!-- @@CourseCard: props(step="2코스", name="성장봉", order=2, state="done", href="#") -->
+                <div class="courseCard course2 isOn">
+                    <!-- 카드 위에 떠 있는 안내 말풍선 — .courseCard 직속 자식이어야 합니다 -->
+                    <!-- @@Tooltip: props(onClose) -->
+                    <div class="tooltip">
+                        <p class="tooltipTxt">종료일 KRX종가 기준으로 평가하며, 실제 계좌 평가금액과 다를 수 있습니다.</p>
+                        <button type="button" class="btnTooltipClose" aria-label="안내 닫기"></button>
+                    </div>
+                    <!-- //@@Tooltip: props(onClose) -->
+                    <div class="courseCardHead">
+                        <span class="courseIco" aria-hidden="true"></span>
+                        <a href="#" class="courseTit">2코스 : 성장봉</a>
+                        <button type="button" class="btnCourseTip" aria-label="평가 기준 안내"></button>
+                        <span class="courseState">진행중</span>
+                    </div>
+                    <!-- <div class="courseCardBody">
+                        <p class="courseCardTxt">국내주식 2회 매수ㆍ체결금액 200만원 이상</p>
+                    </div> -->
+                    <div class="courseCardBody">
+                         <!-- @@AmountBox: props(amount="3,600,000", date="2026.08.26 KRX 종가 기준") -->
+                        <div class="amountRow">
+                            <span class="amountLabel">현재평가금액</span>
+                            <strong class="amountNum">3,600,000<span class="amountUnit">원</span></strong>
+                        </div>
+                        <!-- <p class="amountDate">2026.08.26 KRX 종가 기준</p> -->
+                        <!-- //@@AmountBox: props(amount="3,600,000", date="2026.08.26 KRX 종가 기준") -->
+
+                        <div class="courseCond">
+                            <p class="courseCondTxt">종료일 종가 기준 국내주식 평가금액 200만원 이상</p>
+                            <button type="button" class="btnRefresh" aria-label="평가금액 새로고침"></button>
+                        </div>
+
+                        <a href="#" class="btnLine">입금하기</a>
+                    </div>
+                    <!-- @@StampDone -->
+                    <span class="stampDone"><span class="blind">미션완료</span></span>
+                    <!-- //@@StampDone -->
+                </div>
+                <!-- //@@CourseCard: props(step="2코스", name="성장봉", order=2, state="done", href="#") -->
+            </li>
+
+            <li>
+                <!-- @@CourseCard: props(step="3코스", name="정상", order=3, state="on", onTip) -->
+                <div class="courseCard course3 isOn">
+
+                    <!-- 카드 위에 떠 있는 안내 말풍선 — .courseCard 직속 자식이어야 합니다 -->
+                    <!-- @@Tooltip: props(onClose) -->
+                    <div class="tooltip">
+                        <p class="tooltipTxt">종료일 KRX종가 기준으로 평가하며, 실제 계좌 평가금액과 다를 수 있습니다.</p>
+                        <button type="button" class="btnTooltipClose" aria-label="안내 닫기"></button>
+                    </div>
+                    <!-- //@@Tooltip: props(onClose) -->
+
+                    <div class="courseCardHead">
+                        <span class="courseIco" aria-hidden="true"></span>
+                        <span class="courseTit">3코스 : 정상</span>
+                        <button type="button" class="btnCourseTip" aria-label="평가 기준 안내"></button>
+                        <span class="courseState">진행중</span>
+                    </div>
+
+                    <div class="courseCardBody">
+                        <!-- @@AmountBox: props(amount="3,600,000", date="2026.08.26 KRX 종가 기준") -->
+                        <div class="amountRow">
+                            <span class="amountLabel">현재평가금액</span>
+                            <strong class="amountNum">3,600,000<span class="amountUnit">원</span></strong>
+                        </div>
+                        <p class="amountDate">2026.08.26 KRX 종가 기준</p>
+                        <!-- //@@AmountBox: props(amount="3,600,000", date="2026.08.26 KRX 종가 기준") -->
+
+                        <div class="courseCond">
+                            <p class="courseCondTxt">종료일 종가 기준 국내주식 평가금액 200만원 이상</p>
+                            <button type="button" class="btnRefresh" aria-label="평가금액 새로고침"></button>
+                        </div>
+
+                        <a href="#" class="btnLine">평가금액 확인하기</a>
+                    </div>
+                </div>
+                <!-- //@@CourseCard: props(step="3코스", name="정상", order=3, state="on", onTip) -->
+            </li>
+
+        </ol>
+        <!-- //@@CourseList -->
+    </div>
+</main>
+
+<script src="../assets/js/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자산성장 산악회 미션</title>
+    <link rel="stylesheet" href="../styles/globals.scss">
+</head>
+<body class="missionStatusPage">
+
+<!--
+  ==========================================================================
+  [미션 현황 페이지 — MissionStatusPage]  시안: testimg/OFR_MB_CL_003.png
+
+  컴포넌트 경계 표기 규칙
+    <!-- @@컴포넌트명: props(...) --      ← 컴포넌트 시작
+    ...마크업...
+    <!-- //@@컴포넌트명: props(...) --    ← 컴포넌트 종료
+  중첩 컴포넌트는 부모 안쪽에 같은 방식으로 표기합니다.
+  props(...)에 적힌 값은 "그 케이스에서 실제로 넘긴 값"이며,
+  목록에 없는 props는 기본값으로 동작합니다.
+
+  스타일은 styles/pages/_missionStatus.scss 한 파일에 있습니다.
+  (missionGuide 와 공유하는 컴포넌트가 없어 components/ 로 뺀 것이 없습니다.
+   .tooltip / .switch / .btnLine 은 다른 화면에도 나오면 그때 옮기세요)
+
+  --------------------------------------------------------------------------
+  이 파일에 등장하는 컴포넌트
+  --------------------------------------------------------------------------
+  * AppHeader     뒤로가기 + 타이틀 + 우측 유틸 아이콘(포인트/안내)
+  * MissionHero   하늘·언덕 일러스트 + 타이틀 + D-day + 말풍선 + 캐릭터
+  * CourseStep    시작~3코스 진행 게이지
+  * AccountBar    신청계좌 + 복사 버튼
+  * CourseList    코스 카드 목록
+  * CourseCard    코스 한 장. 완료(isDone) / 진행중(isOn) 두 상태
+  * StampDone     '미션완료' 도장. CourseCard 안에서만 씁니다
+  * Tooltip       진행중 카드 위에 떠 있는 안내 말풍선
+  * AmountBox     현재평가금액 + 기준일 (진행중 카드 본문)
+  * AlarmBox      하단 알림 받기 배너
+  * Switch        on/off 토글
+
+  컴포넌트가 아닌 것 (그냥 유틸 클래스입니다 — 컴포넌트로 만들지 마세요)
+  * .btnLine      1px 테두리 라인 버튼
+  * .courseState  '진행중' 뱃지
+  * .blind        스크린리더 전용 텍스트
+
+  --------------------------------------------------------------------------
+  props 명세
+  --------------------------------------------------------------------------
+  * AppHeader
+      title (string, required)          h1.appTit 텍스트
+      onBack (function, required)       뒤로가기
+      onPoint (function)                포인트 아이콘. 없으면 버튼 자체를 빼세요
+      infoHref (string)                 안내 아이콘이 이동할 주소
+
+  * MissionHero
+      title (ReactNode, required)       .heroTit (줄바꿈은 <br>)
+      dday (string, required)           'D-8'
+      bubble (string)                   말풍선 문구. 없으면 .heroBubble 을 렌더하지 마세요
+
+  * CourseStep
+      steps (string[], required)        각 단계 이름. 4개 기준으로 CSS 가 맞춰져 있습니다
+      current (0~3, required)           진행 단계. 루트에 .step0~.step3 으로 나갑니다
+      hrefs (string[])                  코스명 링크. 없으면 span 으로 렌더
+
+  * AccountBar
+      label (string, def "신청계좌")
+      account (string, required)
+      onCopy (function, required)
+
+  * CourseCard
+      step (string, required)           '1코스'
+      name (string, required)           '투자봉'  → 제목은 '1코스 : 투자봉'
+      order (1|2|3, required)           헤더 색. .course1 / .course2 / .course3
+      state (done|on, required)         .isDone → 회색 본문 + 도장
+                                        .isOn   → 흰 본문 + 초록 테두리 + 진행중 뱃지
+      href (string)                     완료 카드의 코스명 링크
+      onTip (function)                  진행중 카드 제목 옆 (i) 버튼
+      children (ReactNode, required)    본문
+
+  * Tooltip
+      children (ReactNode, required)
+      onClose (function, required)
+      open (boolean, def true)          false 면 hidden 속성을 붙이세요
+
+  * AmountBox
+      label (string, def "현재평가금액")
+      amount (string, required)         천단위 콤마까지 넣어서 넘기세요
+      unit (string, def "원")
+      date (string)                     기준일 문구
+
+  * AlarmBox
+      title (string, required)
+      desc (string)
+      checked (boolean, def false)
+      onChange (function, required)
+
+  * Switch
+      id (string, required)             label 의 for 와 짝
+      label (string, required)          .blind 로 들어가는 스크린리더용 이름
+      checked / onChange
+
+  --------------------------------------------------------------------------
+  props가 아니라 CSS가 자동으로 처리하는 것 — prop/텍스트로 넣지 마세요
+  --------------------------------------------------------------------------
+  * CourseStep 의 진행 게이지 너비   .step1~.step3 모디파이어가 25/50/75% 로 그립니다.
+                                     inline style 로 width 를 넣지 마세요
+  * 지나온 점 / 현재 점 모양          .isDone / .isOn 클래스만 붙이면 됩니다
+  * 카드 헤더 깃발 아이콘             .courseIco 배경 이미지
+  * 도장의 별(★★★)                  .stampDone::before / ::after
+  * Switch 의 손잡이 이동             input:checked + .switchBtn
+
+  --------------------------------------------------------------------------
+  DOM 순서 / 배치 제약 — 지키지 않으면 CSS가 깨집니다
+  --------------------------------------------------------------------------
+  * .stampDone 는 .courseCard 직속 자식이고 position:absolute 입니다.
+    헤더와 본문에 걸쳐 찍혀야 해서 .courseCardHead 안에 넣으면 안 됩니다.
+  * .tooltip 은 기준이 되는 .courseCard.isOn 의 직속 자식이어야 합니다
+    (bottom:100% 로 카드 위에 뜹니다). 완료 카드(.isDone)는 도장을 잘라내려고
+    overflow:hidden 이라 툴팁을 넣을 수 없습니다.
+  * .courseStepList 의 li 는 4개 기준입니다. 개수가 바뀌면 트랙의
+    left/right 12.5% 와 게이지 25/50/75% 를 같이 고쳐야 합니다.
+  * 페이지 배경(크림색)은 body.missionStatusPage 가 가집니다.
+    히어로 일러스트 아래쪽 지면색과 이어져야 해서 래퍼로 옮기지 마세요.
+  * .missionHero / .courseStep 은 좌우 여백을 스스로 가집니다 (.wrapTy2 바깥).
+
+  --------------------------------------------------------------------------
+  이 파일이 다루지 않는 것
+  --------------------------------------------------------------------------
+  * 뒤로가기 / 복사 / 새로고침 / 토글 동작   href="#" 와 버튼은 더미입니다
+  * 계좌번호·금액·D-day·날짜               시안 그대로의 더미 텍스트입니다
+  * 히어로 배경(하늘·구름·언덕)             디자인 asset 이 없어 data-URI SVG 로
+                                            임시 구현했습니다. 실제 이미지가 나오면
+                                            _missionStatus.scss 의 .missionHero
+                                            background 한 줄만 교체하세요
+  * 캐릭터(곰) 이미지                       assets/images/mission/img_mission_char.png
+                                            자리만 잡아뒀습니다. 파일이 없으면 아무것도
+                                            그려지지 않고 레이아웃은 유지됩니다
+  * '미션완료' 도장                         asset 이 없어 CSS 로 흉내만 냈습니다
+  * 다크모드                                이벤트 전용 팔레트라 라이트 기준입니다.
+                                            시안이 나오면 _missionStatus.scss 맨 아래에
+                                            html[data-theme='dark'] 블록을 추가하세요
+  * 스크롤 고정 헤더                        시안만으로는 판단할 수 없어 일반 흐름입니다
+
+  ※ 시안에서 밑줄이 그어진 코스명(1코스/2코스/3코스, 1코스 : 투자봉 등)은 각 코스로
+    이동하는 링크로 보고 <a> 로 마크업했습니다. 링크가 아니라면 <span> 으로 바꾸고
+    밑줄만 남기면 됩니다. 기획 확인 필요.
+  ==========================================================================
+-->
+
+<!-- @@AppHeader: props(title="자산성장 산악회 미션", onBack, onPoint, infoHref="missionGuide.html") -->
+<header class="appHead">
+    <button type="button" class="btnBack" aria-label="이전 화면으로"></button>
+    <h1 class="appTit">자산성장 산악회 미션</h1>
+    <div class="appHeadUtil">
+        <button type="button" class="btnHeadUtil icoPoint" aria-label="포인트"></button>
+        <a href="missionGuide.html" class="btnHeadUtil icoInfo" aria-label="미션 안내"></a>
+    </div>
+</header>
+<!-- //@@AppHeader: props(title="자산성장 산악회 미션", onBack, onPoint, infoHref="missionGuide.html") -->
+
+<!-- 히어로 — 좌우 여백을 스스로 가집니다 -->
+<!-- @@MissionHero: props(title, dday="D-8", bubble="9월13일까지 화이팅!") -->
+<section class="missionHero">
+    <p class="heroTit">정상을 향한<br>마지막 도전이 시작됐어요</p>
+    <strong class="heroDday">D-8</strong>
+    <p class="heroBubble"><span class="heroBubbleTxt">9월13일까지 화이팅!</span></p>
+    <span class="heroChar" aria-hidden="true"></span>
+</section>
+<!-- //@@MissionHero: props(title, dday="D-8", bubble="9월13일까지 화이팅!") -->
+
+<!-- 진행 게이지 — 현재 2코스라 루트에 .step2 -->
+<!-- @@CourseStep: props(steps=["시작","1코스","2코스","3코스"], current=2) -->
+<div class="courseStep step2">
+    <div class="courseStepTrack">
+        <span class="courseStepGauge"></span>
+        <ol class="courseStepList">
+            <li class="isDone">
+                <span class="stepDot"></span>
+                <span class="stepName">시작</span>
+            </li>
+            <li class="isDone">
+                <span class="stepDot"></span>
+                <a href="#" class="stepName">1코스</a>
+            </li>
+            <li class="isOn">
+                <span class="stepDot"></span>
+                <a href="#" class="stepName">2코스</a>
+            </li>
+            <li>
+                <span class="stepDot"></span>
+                <a href="#" class="stepName">3코스</a>
+            </li>
+        </ol>
+    </div>
+    <span class="courseGoal" aria-hidden="true"></span>
+</div>
+<!-- //@@CourseStep: props(steps=["시작","1코스","2코스","3코스"], current=2) -->
+
+<main class="wrapTy2">
+
+    <!-- @@AccountBar: props(account="368-721-969 01", onCopy) -->
+    <div class="accountBar">
+        <span class="accountLabel">신청계좌</span>
+        <span class="accountNum">368-721-969 01</span>
+        <button type="button" class="btnCopy" aria-label="계좌번호 복사"></button>
+    </div>
+    <!-- //@@AccountBar: props(account="368-721-969 01", onCopy) -->
+
+    <!-- @@CourseList -->
+    <ol class="courseList">
+
+        <li>
+            <!-- @@CourseCard: props(step="1코스", name="투자봉", order=1, state="done", href="#") -->
+            <div class="courseCard course1 isDone">
+                <div class="courseCardHead">
+                    <span class="courseIco" aria-hidden="true"></span>
+                    <a href="#" class="courseTit">1코스 : 투자봉</a>
+                </div>
+                <div class="courseCardBody">
+                    <p class="courseCardTxt">예수금 200만원 이상 달성</p>
+                </div>
+                <!-- @@StampDone -->
+                <span class="stampDone" aria-label="미션완료">미션완료</span>
+                <!-- //@@StampDone -->
+            </div>
+            <!-- //@@CourseCard: props(step="1코스", name="투자봉", order=1, state="done", href="#") -->
+        </li>
+
+        <li>
+            <!-- @@CourseCard: props(step="2코스", name="성장봉", order=2, state="done", href="#") -->
+            <div class="courseCard course2 isDone">
+                <div class="courseCardHead">
+                    <span class="courseIco" aria-hidden="true"></span>
+                    <a href="#" class="courseTit">2코스 : 성장봉</a>
+                </div>
+                <div class="courseCardBody">
+                    <p class="courseCardTxt">국내주식 2회 이상 누적 체결금액 200만원 이상 달성</p>
+                </div>
+                <!-- @@StampDone -->
+                <span class="stampDone" aria-label="미션완료">미션완료</span>
+                <!-- //@@StampDone -->
+            </div>
+            <!-- //@@CourseCard: props(step="2코스", name="성장봉", order=2, state="done", href="#") -->
+        </li>
+
+        <li>
+            <!-- @@CourseCard: props(step="3코스", name="정상", order=3, state="on", onTip) -->
+            <div class="courseCard course3 isOn">
+
+                <!-- 카드 위에 떠 있는 안내 말풍선 — .courseCard 직속 자식이어야 합니다 -->
+                <!-- @@Tooltip: props(onClose) -->
+                <div class="tooltip">
+                    <p class="tooltipTxt">종료일 KRX종가 기준으로 평가하며, 실제 계좌 평가금액과 다를 수 있습니다.</p>
+                    <button type="button" class="btnTooltipClose" aria-label="안내 닫기"></button>
+                </div>
+                <!-- //@@Tooltip: props(onClose) -->
+
+                <div class="courseCardHead">
+                    <span class="courseIco" aria-hidden="true"></span>
+                    <span class="courseTit">3코스 : 정상</span>
+                    <button type="button" class="btnCourseTip" aria-label="평가 기준 안내"></button>
+                    <span class="courseState">진행중</span>
+                </div>
+
+                <div class="courseCardBody">
+                    <!-- @@AmountBox: props(amount="3,600,000", date="2026.08.26 KRX 종가 기준") -->
+                    <div class="amountRow">
+                        <span class="amountLabel">현재평가금액</span>
+                        <strong class="amountNum">3,600,000<span class="amountUnit">원</span></strong>
+                    </div>
+                    <p class="amountDate">2026.08.26 KRX 종가 기준</p>
+                    <!-- //@@AmountBox: props(amount="3,600,000", date="2026.08.26 KRX 종가 기준") -->
+
+                    <div class="courseCond">
+                        <p class="courseCondTxt">종료일 종가 기준 국내주식 평가금액 200만원 이상</p>
+                        <button type="button" class="btnRefresh" aria-label="평가금액 새로고침"></button>
+                    </div>
+
+                    <a href="#" class="btnLine">평가금액 확인하기</a>
+                </div>
+            </div>
+            <!-- //@@CourseCard: props(step="3코스", name="정상", order=3, state="on", onTip) -->
+        </li>
+
+    </ol>
+    <!-- //@@CourseList -->
+
+    <!-- @@AlarmBox: props(title="자산성장 산악회 알림 받기", desc="미션에 대한 알림을 보내드릴게요", checked=false) -->
+    <div class="alarmBox">
+        <span class="alarmIco" aria-hidden="true"></span>
+        <div class="alarmTxtBox">
+            <strong class="alarmTit">자산성장 산악회 알림 받기</strong>
+            <p class="alarmDesc">미션에 대한 알림을 보내드릴게요</p>
+        </div>
+        <!-- @@Switch: props(id="alarmAgree", label="자산성장 산악회 알림 받기") -->
+        <span class="switch">
+            <input type="checkbox" id="alarmAgree" class="blind">
+            <label for="alarmAgree" class="switchBtn"><span class="blind">자산성장 산악회 알림 받기</span></label>
+        </span>
+        <!-- //@@Switch: props(id="alarmAgree", label="자산성장 산악회 알림 받기") -->
+    </div>
+    <!-- //@@AlarmBox: props(title="자산성장 산악회 알림 받기", desc="미션에 대한 알림을 보내드릴게요", checked=false) -->
+
+</main>
+
+<script src="../assets/js/ui.js"></script>
+</body>
+</html>

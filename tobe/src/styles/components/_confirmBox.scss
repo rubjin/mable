@@ -13,9 +13,12 @@
 	.confirmTit {
 		display: block;
 		margin-bottom: figmaRem(12);
-		color: rgb(var(--color-004));
-		font-size: figmaRem(16);
+		color: $txt-primary;
+		font-size: $fs-20;
 		font-weight: 700;
 		line-height: 1.4;
+	}
+	.linkMore {
+		margin-top: figmaRem(24);
 	}
 }

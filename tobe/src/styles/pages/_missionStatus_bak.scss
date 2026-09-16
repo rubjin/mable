@@ -1,0 +1,708 @@
+@use '../abstracts' as *;
+
+// ======================================================================
+// 자산성장 산악회 미션 현황 페이지 (pages/missionStatus.html)
+// ----------------------------------------------------------------------
+// 아직 이 페이지에서만 쓰는 클래스라 pages/ 에 두었습니다.
+// 다른 화면에서 같은 모양이 또 나오면 그때 components/ 로 옮기세요.
+// (특히 .tooltip / .switch 는 재사용 가능성이 높습니다)
+//
+// 색 : 이 페이지는 이벤트 전용 일러스트 팔레트라서 theme 토큰이 아니라
+//      아래 $mc-xxx 지역 변수를 씁니다. 다크모드 시안이 나오면 이 파일 맨 아래에
+//      html[data-theme='dark'] 블록을 추가해서 덮어쓰세요.
+//      (일반 텍스트/보더는 가능한 한 토큰을 씁니다)
+// 크기 : PNG 시안(540px = 360dp x 1.5)에서 읽은 값이라 Figma 확정값으로
+//        한 번 검수가 필요합니다.
+// ======================================================================
+
+// ----------------------------------------------------------------------
+// 이벤트 팔레트 — Figma 토큰이 나오면 이 블록만 교체하면 됩니다
+// ----------------------------------------------------------------------
+$mc-green-deep: #0c6b3f; // 3코스(진행중) 헤더 · 카드 테두리
+$mc-green-mid: #93d283; // 2코스 헤더
+$mc-green-lite: #cde9a5; // 1코스 헤더
+$mc-green-gauge: #22b14c; // 코스 진행 게이지
+$mc-green-dot: #8fd44a; // 지나온 코스 점
+$mc-sand: #e8dcbc; // 게이지 빈 트랙
+$mc-cream: #faf3e2; // 페이지 배경 (히어로 지면과 이어집니다)
+$mc-card: #fdfaf2; // 신청계좌 바 · 알림 박스 배경
+$mc-done: #f1f2ed; // 완료 코스 카드 본문 배경
+$mc-tip: #4e4e4e; // 툴팁 배경
+
+// ----------------------------------------------------------------------
+// 페이지 배경 — body 에 붙입니다.
+// 히어로 일러스트 아래쪽 지면색과 페이지 배경색이 이어져야 해서
+// 래퍼가 아니라 body 가 배경을 가집니다.
+// ----------------------------------------------------------------------
+.missionStatusPage {
+	background-color: $mc-cream;
+}
+
+// ----------------------------------------------------------------------
+// AppHeader — 뒤로가기 + 타이틀 + 우측 유틸 아이콘
+// pageHead(닫기형)와 구조가 달라 별도로 둡니다.
+// ----------------------------------------------------------------------
+.appHead {
+	display: flex;
+	align-items: center;
+	gap: figmaRem(6);
+	height: figmaRem(52);
+	padding: 0 figmaRem(14);
+	background-color: rgb(var(--theme-bg));
+	box-sizing: border-box;
+
+	.appTit {
+		flex: 1 1 auto;
+		min-width: 0;
+		margin-left: figmaRem(2);
+		color: $txt-primary;
+		font-size: figmaRem(19);
+		font-weight: 500;
+		line-height: 1.4;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	.btnBack {
+		flex: 0 0 auto;
+		width: figmaRem(28);
+		height: figmaRem(28);
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M15 4.5L7.5 12L15 19.5' stroke='rgba(34, 34, 34, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / figmaRem(24);
+	}
+
+	.appHeadUtil {
+		flex: 0 0 auto;
+		display: flex;
+		align-items: center;
+		gap: figmaRem(10);
+	}
+
+	.btnHeadUtil {
+		display: block;
+		width: figmaRem(28);
+		height: figmaRem(28);
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: figmaRem(26);
+	}
+
+	.icoPoint {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='10.4' stroke='rgba(34, 34, 34, 1)' stroke-width='1.4'/%3E%3Cpath d='M10 6.8V17.2M10 6.8H13.1A2.7 2.7 0 0 1 13.1 12.2H10' stroke='rgba(34, 34, 34, 1)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	}
+
+	.icoInfo {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='10.4' stroke='rgba(34, 34, 34, 1)' stroke-width='1.4'/%3E%3Ccircle cx='12' cy='7' r='1.2' fill='rgba(34, 34, 34, 1)'/%3E%3Cpath d='M12 10.4V17.4' stroke='rgba(34, 34, 34, 1)' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+	}
+}
+
+// ----------------------------------------------------------------------
+// MissionHero — 하늘/언덕 일러스트 + 문구 + 캐릭터
+//
+// 배경(하늘·구름·언덕·지면)은 디자인 asset 이 없어 data-URI SVG 로 임시 구현했습니다.
+// 실제 배경 이미지가 나오면 background 한 줄만 교체하세요.
+// 캐릭터(곰)는 별도 이미지라 .heroChar 가 자리만 잡아둡니다.
+// 파일이 없으면 아무것도 그려지지 않고 레이아웃은 그대로 유지됩니다.
+// ----------------------------------------------------------------------
+.missionHero {
+	position: relative;
+	min-height: figmaRem(410);
+	padding: figmaRem(34) figmaRem(20) figmaRem(200);
+	background: #d4f0f7 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='410' viewBox='0 0 360 410' preserveAspectRatio='xMidYMax slice'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='rgba(176, 226, 245, 1)'/%3E%3Cstop offset='0.5' stop-color='rgba(212, 240, 247, 1)'/%3E%3Cstop offset='1' stop-color='rgba(232, 247, 238, 1)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='360' height='410' fill='url(%23sky)'/%3E%3Cg fill='rgba(255, 255, 255, 0.9)'%3E%3Cellipse cx='300' cy='135' rx='38' ry='19'/%3E%3Cellipse cx='278' cy='128' rx='22' ry='15'/%3E%3Cellipse cx='322' cy='126' rx='18' ry='13'/%3E%3Cellipse cx='52' cy='232' rx='30' ry='15'/%3E%3Cellipse cx='38' cy='226' rx='18' ry='12'/%3E%3Cellipse cx='68' cy='225' rx='14' ry='10'/%3E%3C/g%3E%3Cpath d='M0 215C55 182 105 208 165 200C235 191 300 168 360 184L360 410L0 410Z' fill='rgba(169, 222, 124, 1)'/%3E%3Cpath d='M0 258C70 232 132 260 200 250C266 240 320 252 360 240L360 410L0 410Z' fill='rgba(127, 203, 87, 1)'/%3E%3Cg fill='rgba(111, 191, 82, 1)'%3E%3Ccircle cx='330' cy='300' r='26'/%3E%3Ccircle cx='352' cy='314' r='17'/%3E%3C/g%3E%3Cpath d='M0 366C100 356 152 373 250 363C305 357 336 365 360 361L360 410L0 410Z' fill='rgba(246, 236, 201, 1)'/%3E%3C/svg%3E") no-repeat center bottom / cover;
+	text-align: center;
+	box-sizing: border-box;
+
+	.heroTit {
+		color: $txt-primary;
+		font-size: figmaRem(21);
+		font-weight: 500;
+		line-height: 1.45;
+	}
+
+	.heroDday {
+		display: block;
+		margin-top: figmaRem(14);
+		color: $txt-primary;
+		font-family: $font-kb-display;
+		font-size: figmaRem(38);
+		font-weight: 700;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+	}
+
+	// 캐릭터 머리 위 말풍선. 캐릭터가 왼쪽에 서 있어 오른쪽으로 살짝 밀어둡니다.
+	.heroBubble {
+		margin-top: figmaRem(24);
+	}
+
+	.heroBubbleTxt {
+		display: inline-block;
+		position: relative;
+		margin-left: figmaRem(48);
+		padding: figmaRem(8) figmaRem(14);
+		background-color: rgba(255, 255, 255, 0.92);
+		border-radius: $radius-full;
+		color: $txt-primary;
+		font-size: figmaRem(13);
+		line-height: 1.3;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: figmaRem(-6);
+			left: figmaRem(22);
+			border-top: figmaRem(8) solid rgba(255, 255, 255, 0.92);
+			border-right: figmaRem(7) solid transparent;
+		}
+	}
+
+	// 캐릭터 이미지 자리. asset 이 들어오기 전에는 비어 있습니다.
+	.heroChar {
+		position: absolute;
+		bottom: figmaRem(10);
+		left: figmaRem(24);
+		width: figmaRem(160);
+		height: figmaRem(200);
+		background: url('#{$imgURL}/images/mission/img_mission_char.png') no-repeat center bottom / contain;
+	}
+}
+
+// ----------------------------------------------------------------------
+// CourseStep — 시작 ~ 3코스 진행 게이지
+//
+// 점 4개를 flex(각 1/4)로 깔고, 선은 첫 점 중심(12.5%)에서 마지막 점 중심(87.5%)까지
+// 그립니다. 그래서 진행 게이지 너비는 컨테이너 기준 25% / 50% / 75% 로 떨어집니다.
+// 진행 단계는 마크업의 .step0~.step3 모디파이어로만 바꾸세요 (inline style 금지).
+// ----------------------------------------------------------------------
+.courseStep {
+	display: flex;
+	align-items: flex-start;
+	gap: figmaRem(14);
+	padding: figmaRem(26) figmaRem(20) 0;
+
+	.courseStepTrack {
+		position: relative;
+		flex: 1 1 auto;
+		min-width: 0;
+		padding-top: figmaRem(3);
+
+		// 빈 트랙
+		&::before {
+			content: '';
+			position: absolute;
+			top: figmaRem(4);
+			left: 12.5%;
+			right: 12.5%;
+			height: figmaRem(8);
+			background-color: $mc-sand;
+			border-radius: $radius-full;
+		}
+	}
+
+	.courseStepGauge {
+		position: absolute;
+		top: figmaRem(4);
+		left: 12.5%;
+		width: 0;
+		height: figmaRem(8);
+		background-color: $mc-green-gauge;
+		border-radius: $radius-full;
+	}
+
+	.courseStepList {
+		display: flex;
+		position: relative;
+
+		> li {
+			flex: 1 1 0;
+			min-width: 0;
+			text-align: center;
+		}
+	}
+
+	.stepDot {
+		display: block;
+		width: figmaRem(10);
+		height: figmaRem(10);
+		margin: 0 auto;
+		background-color: $mc-sand;
+		border-radius: 50%;
+	}
+
+	.stepName {
+		display: block;
+		margin-top: figmaRem(10);
+		color: $txt-tertiary;
+		font-size: figmaRem(13);
+		line-height: 1.3;
+	}
+
+	// 코스명은 각 코스 카드로 이동하는 링크입니다 (시안의 밑줄)
+	a.stepName {
+		text-decoration: underline;
+		text-underline-offset: figmaRem(3);
+	}
+
+	// 지나온 단계
+	.isDone {
+		.stepDot {
+			background-color: $mc-green-dot;
+		}
+
+		.stepName {
+			color: $txt-primary;
+		}
+	}
+
+	// 현재 단계 — 점이 커지는 만큼 음수 margin 으로 선 중심에 맞춥니다
+	.isOn {
+		.stepDot {
+			width: figmaRem(18);
+			height: figmaRem(18);
+			margin-top: figmaRem(-4);
+			background-color: rgb(var(--theme-bg));
+			border: figmaRem(4) solid $mc-green-gauge;
+		}
+
+		.stepName {
+			color: $txt-primary;
+			font-weight: 500;
+		}
+	}
+
+	// 진행 단계 모디파이어 (트랙 폭 75% 를 3등분)
+	&.step1 .courseStepGauge {
+		width: 25%;
+	}
+
+	&.step2 .courseStepGauge {
+		width: 50%;
+	}
+
+	&.step3 .courseStepGauge {
+		width: 75%;
+	}
+
+	// 게이지 끝 목표 뱃지
+	.courseGoal {
+		flex: 0 0 auto;
+		width: figmaRem(28);
+		height: figmaRem(28);
+		margin-top: figmaRem(-6);
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28' fill='none'%3E%3Crect width='28' height='28' rx='8' fill='rgba(12, 107, 63, 1)'/%3E%3Cpath d='M9.5 7V21' stroke='rgba(255, 255, 255, 1)' stroke-width='1.8' stroke-linecap='round'/%3E%3Cpath d='M10.8 8.2H19.2L17.3 11.4L19.2 14.6H10.8V8.2Z' fill='rgba(255, 255, 255, 1)'/%3E%3C/svg%3E") no-repeat center center / contain;
+	}
+}
+
+// ----------------------------------------------------------------------
+// AccountBar — 신청계좌 + 복사
+// ----------------------------------------------------------------------
+.accountBar {
+	display: flex;
+	align-items: center;
+	gap: figmaRem(12);
+	margin-top: figmaRem(26);
+	padding: figmaRem(14) figmaRem(16);
+	background-color: $mc-card;
+	border-radius: figmaRem(12);
+	box-sizing: border-box;
+
+	.accountLabel {
+		flex: 0 0 auto;
+		color: $txt-secondary;
+		font-size: figmaRem(15);
+		line-height: 1.4;
+	}
+
+	.accountNum {
+		flex: 1 1 auto;
+		min-width: 0;
+		color: $txt-primary;
+		font-size: figmaRem(16);
+		font-weight: 500;
+		line-height: 1.4;
+		text-decoration: underline;
+		text-underline-offset: figmaRem(3);
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	.btnCopy {
+		flex: 0 0 auto;
+		width: figmaRem(24);
+		height: figmaRem(24);
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Crect x='9' y='9' width='11' height='12' rx='2.5' stroke='rgba(136, 136, 136, 1)' stroke-width='1.5'/%3E%3Cpath d='M15.5 6.2A2 2 0 0 0 13.7 5H6.5A2 2 0 0 0 4.5 7V16.5' stroke='rgba(136, 136, 136, 1)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center center / figmaRem(22);
+	}
+}
+
+// ----------------------------------------------------------------------
+// CourseList / CourseCard — 코스별 진행 카드
+//
+// 카드 상태는 .isDone(완료) / .isOn(진행중) 두 가지입니다.
+// 헤더 배경색만 코스별로 다르므로 .courseCard 에 .course1~.course3 을 같이 붙입니다.
+// ----------------------------------------------------------------------
+.courseList {
+	margin-top: figmaRem(16);
+
+	> li + li {
+		margin-top: figmaRem(12);
+	}
+}
+
+.courseCard {
+	position: relative;
+	border-radius: figmaRem(16);
+
+	// 완료 카드는 도장이 카드 밖으로 나가지 않게 잘라냅니다.
+	// 진행중 카드는 툴팁이 카드 위로 떠야 해서 overflow 를 건드리지 않습니다.
+	&.isDone {
+		overflow: hidden;
+	}
+
+	.courseCardHead {
+		display: flex;
+		align-items: center;
+		gap: figmaRem(8);
+		padding: figmaRem(13) figmaRem(18);
+		border-radius: figmaRem(16) figmaRem(16) 0 0;
+	}
+
+	.courseIco {
+		flex: 0 0 auto;
+		width: figmaRem(20);
+		height: figmaRem(20);
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 3V17' stroke='rgba(255, 255, 255, 1)' stroke-width='1.8' stroke-linecap='round'/%3E%3Cpath d='M6.2 4.2H15.5L13.4 7.2L15.5 10.2H6.2V4.2Z' fill='rgba(255, 255, 255, 1)'/%3E%3C/svg%3E") no-repeat center center / contain;
+	}
+
+	.courseTit {
+		flex: 1 1 auto;
+		min-width: 0;
+		color: rgb(var(--color-027));
+		font-size: figmaRem(16);
+		font-weight: 500;
+		line-height: 1.4;
+	}
+
+	// 완료 코스명은 코스 상세로 이동하는 링크입니다 (시안의 밑줄)
+	a.courseTit {
+		flex: 0 0 auto;
+		text-decoration: underline;
+		text-underline-offset: figmaRem(3);
+	}
+
+	.courseCardBody {
+		padding: figmaRem(20) figmaRem(18);
+		border-radius: 0 0 figmaRem(16) figmaRem(16);
+	}
+
+	.courseCardTxt {
+		font-size: figmaRem(15);
+		line-height: 1.5;
+	}
+
+	// 코스별 헤더 색
+	&.course1 .courseCardHead {
+		background-color: $mc-green-lite;
+	}
+
+	&.course2 .courseCardHead {
+		background-color: $mc-green-mid;
+	}
+
+	&.course3 .courseCardHead {
+		background-color: $mc-green-deep;
+	}
+
+	// 완료 상태 — 본문이 회색으로 죽습니다
+	&.isDone {
+		.courseCardBody {
+			background-color: $mc-done;
+		}
+
+		.courseCardTxt {
+			color: $txt-tertiary;
+		}
+	}
+
+	// 진행중 상태 — 흰 본문 + 진한 초록 테두리
+	&.isOn {
+		border: figmaRem(2) solid $mc-green-deep;
+
+		.courseCardHead {
+			margin: figmaRem(-2) figmaRem(-2) 0;
+			border-radius: figmaRem(14) figmaRem(14) 0 0;
+		}
+
+		.courseCardBody {
+			background-color: rgb(var(--theme-bg));
+		}
+	}
+}
+
+// 카드 헤더 우측 요소
+.courseState {
+	flex: 0 0 auto;
+	padding: figmaRem(3) figmaRem(11);
+	background-color: rgb(var(--theme-bg));
+	border-radius: $radius-full;
+	color: $mc-green-deep;
+	font-size: figmaRem(12);
+	font-weight: 500;
+	line-height: 1.5;
+}
+
+.btnCourseTip {
+	flex: 0 0 auto;
+	width: figmaRem(18);
+	height: figmaRem(18);
+	margin-left: figmaRem(-2);
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3E%3Ccircle cx='9' cy='9' r='8' stroke='rgba(255, 255, 255, 1)' stroke-width='1.3'/%3E%3Ccircle cx='9' cy='5.2' r='0.95' fill='rgba(255, 255, 255, 1)'/%3E%3Cpath d='M9 7.8V13.2' stroke='rgba(255, 255, 255, 1)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center center / contain;
+}
+
+// 헤더와 본문에 걸쳐 찍히는 '미션완료' 도장.
+// 디자인 asset 이 없어 CSS 로 흉내만 냈습니다. 실제 이미지가 나오면
+// 텍스트/보더 대신 background-image 로 교체하세요.
+.stampDone {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: figmaRem(26);
+	right: figmaRem(14);
+	width: figmaRem(98);
+	height: figmaRem(60);
+	border: figmaRem(2) solid rgba(140, 140, 140, 0.55);
+	border-radius: 50%;
+	color: rgba(140, 140, 140, 0.55);
+	font-size: figmaRem(17);
+	font-weight: 500;
+	line-height: 1;
+	letter-spacing: figmaRem(1);
+	transform: rotate(-12deg);
+	pointer-events: none;
+
+	&::before,
+	&::after {
+		content: '★ ★ ★';
+		position: absolute;
+		left: 0;
+		right: 0;
+		font-size: figmaRem(7);
+		letter-spacing: figmaRem(2);
+		text-align: center;
+	}
+
+	&::before {
+		top: figmaRem(9);
+	}
+
+	&::after {
+		bottom: figmaRem(9);
+	}
+}
+
+// ----------------------------------------------------------------------
+// 진행중 카드 본문 — 평가금액 영역
+// ----------------------------------------------------------------------
+.amountRow {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: figmaRem(10);
+
+	.amountLabel {
+		flex: 0 0 auto;
+		color: $txt-primary;
+		font-size: figmaRem(15);
+		line-height: 1.4;
+	}
+
+	.amountNum {
+		flex: 1 1 auto;
+		min-width: 0;
+		color: $txt-primary;
+		font-size: figmaRem(24);
+		font-weight: 700;
+		line-height: 1.2;
+		text-align: right;
+	}
+
+	.amountUnit {
+		margin-left: figmaRem(2);
+		font-size: figmaRem(14);
+		font-weight: 400;
+	}
+}
+
+.amountDate {
+	margin-top: figmaRem(6);
+	color: $txt-tertiary;
+	font-size: figmaRem(12);
+	line-height: 1.4;
+	text-align: right;
+}
+
+.courseCond {
+	display: flex;
+	align-items: center;
+	gap: figmaRem(10);
+	margin-top: figmaRem(18);
+	padding-top: figmaRem(18);
+	border-top: 1px solid rgb(var(--color-039));
+
+	.courseCondTxt {
+		flex: 1 1 auto;
+		min-width: 0;
+		color: $txt-secondary;
+		font-size: figmaRem(14);
+		line-height: 1.5;
+	}
+
+	.btnRefresh {
+		flex: 0 0 auto;
+		width: figmaRem(22);
+		height: figmaRem(22);
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M18 11A7 7 0 1 1 15.95 6.05' stroke='rgba(153, 153, 153, 1)' stroke-width='1.6' stroke-linecap='round'/%3E%3Cpath d='M18 3.5V7.5H14' stroke='rgba(153, 153, 153, 1)' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / contain;
+	}
+}
+
+// 라인 버튼 — 이 페이지에서만 쓰는 모양이라 여기 둡니다.
+// 다른 화면에도 나오면 components/_button.scss 로 옮기세요.
+.btnLine {
+	display: block;
+	width: 100%;
+	margin-top: figmaRem(18);
+	padding: figmaRem(13) figmaRem(10);
+	background-color: rgb(var(--theme-bg));
+	border: 1px solid rgb(var(--color-112));
+	border-radius: figmaRem(8);
+	color: $txt-primary;
+	font-size: figmaRem(15);
+	font-weight: 500;
+	line-height: 1.4;
+	text-align: center;
+	box-sizing: border-box;
+
+	&:active {
+		background-color: rgb(var(--color-499));
+	}
+}
+
+// ----------------------------------------------------------------------
+// Tooltip — 카드 위에 떠 있는 말풍선 안내
+// 기준이 되는 요소(.courseCard.isOn)가 position:relative 라서 그 위에 붙습니다.
+// 닫으면 마크업을 지우는 게 아니라 [hidden] 으로 감춥니다.
+// ----------------------------------------------------------------------
+.tooltip {
+	display: flex;
+	align-items: flex-start;
+	gap: figmaRem(10);
+	position: absolute;
+	bottom: 100%;
+	right: figmaRem(-2);
+	z-index: $z-dropdown;
+	width: figmaRem(224);
+	max-width: calc(100% + #{figmaRem(4)});
+	margin-bottom: figmaRem(6);
+	padding: figmaRem(12) figmaRem(14);
+	background-color: $mc-tip;
+	border-radius: figmaRem(10);
+	box-sizing: border-box;
+
+	.tooltipTxt {
+		flex: 1 1 auto;
+		min-width: 0;
+		color: rgb(var(--color-027));
+		font-size: figmaRem(13);
+		line-height: 1.45;
+	}
+
+	.btnTooltipClose {
+		flex: 0 0 auto;
+		width: figmaRem(18);
+		height: figmaRem(18);
+		margin-top: figmaRem(1);
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M4 4L14 14M14 4L4 14' stroke='rgba(255, 255, 255, 1)' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center center / contain;
+	}
+}
+
+// ----------------------------------------------------------------------
+// AlarmBox — 하단 알림 받기 배너
+// ----------------------------------------------------------------------
+.alarmBox {
+	display: flex;
+	align-items: center;
+	gap: figmaRem(12);
+	margin-top: figmaRem(24);
+	padding: figmaRem(16) figmaRem(18);
+	background-color: $mc-card;
+	border-radius: figmaRem(16);
+	box-sizing: border-box;
+
+	.alarmIco {
+		flex: 0 0 auto;
+		width: figmaRem(32);
+		height: figmaRem(32);
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M15 7C10.6 7 7.4 10.3 7.4 14.6C7.4 19.8 6 21.7 5 22.8C4.5 23.4 4.9 24.3 5.7 24.3H24.3C25.1 24.3 25.5 23.4 25 22.8C24 21.7 22.6 19.8 22.6 14.6C22.6 10.3 19.4 7 15 7Z' fill='rgba(253, 203, 58, 1)'/%3E%3Cpath d='M11.6 26C11.6 27.9 13.1 29.4 15 29.4C16.9 29.4 18.4 27.9 18.4 26H11.6Z' fill='rgba(240, 170, 20, 1)'/%3E%3Ccircle cx='25' cy='8' r='5' fill='rgba(240, 98, 120, 1)'/%3E%3Cpath d='M25 5.4V8.8M25 10.6V10.8' stroke='rgba(255, 255, 255, 1)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center center / contain;
+	}
+
+	.alarmTxtBox {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
+	.alarmTit {
+		display: block;
+		color: $txt-primary;
+		font-size: figmaRem(16);
+		font-weight: 500;
+		line-height: 1.4;
+	}
+
+	.alarmDesc {
+		margin-top: figmaRem(2);
+		color: $txt-tertiary;
+		font-size: figmaRem(13);
+		line-height: 1.4;
+	}
+}
+
+// ----------------------------------------------------------------------
+// Switch — on/off 토글
+// input 은 .blind 로 숨기고 label 을 그립니다. 상태는 :checked 가 만듭니다.
+// ----------------------------------------------------------------------
+.switch {
+	flex: 0 0 auto;
+	position: relative;
+
+	.switchBtn {
+		display: block;
+		position: relative;
+		width: figmaRem(44);
+		height: figmaRem(26);
+		background-color: rgb(var(--color-026));
+		border-radius: $radius-full;
+		transition: background-color 0.2s;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: figmaRem(3);
+			left: figmaRem(3);
+			width: figmaRem(20);
+			height: figmaRem(20);
+			background-color: rgb(var(--color-027));
+			border-radius: 50%;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+			transition: transform 0.2s;
+		}
+	}
+
+	input:checked + .switchBtn {
+		background-color: $mc-green-gauge;
+
+		&::after {
+			transform: translateX(figmaRem(18));
+		}
+	}
+}

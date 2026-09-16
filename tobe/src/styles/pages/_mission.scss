@@ -6,9 +6,15 @@
 // 아직 이 페이지에서만 쓰는 클래스라 pages/ 에 두었습니다.
 // 다른 화면에서 같은 모양이 또 나오면 그때 components/ 로 옮기세요.
 //
-// 색은 전부 theme 토큰(rgb(var(--color-xxx)))이라 다크모드가 자동으로 따라옵니다.
+// 색과 폰트사이즈는 abstracts/_variables.scss 의 변수만 씁니다.
+//   색   $txt-primary(#222) / $txt-secondary(#666) / $txt-tertiary(#888) /
+//        $txt-black(#000) / $txt-danger(#ED1A1A)
+//   크기 $fs-22 / $fs-20 / $fs-18
+// 색 변수는 내부가 rgb(var(--color-xxx)) 라서 다크모드가 자동으로 따라옵니다.
 // 예외는 아이콘 SVG 안의 고정 색뿐이고, 필요한 것만 파일 맨 아래에서 다크모드로
 // 덮어씁니다.
+//
+// 배경색은 이번 텍스트 토큰 정리 대상이 아니라 기존 --color-xxx 를 그대로 둡니다.
 // ======================================================================
 
 // ----------------------------------------------------------------------
@@ -25,9 +31,9 @@
 	.pageTit {
 		flex: 1 1 auto;
 		min-width: 0;
-		color: rgb(var(--color-004));
-		font-size: figmaRem(20);
-		font-weight: 700;
+		color: $txt-primary;
+		font-size: $fs-22;
+		font-weight: 500;
 		line-height: 1.4;
 	}
 
@@ -43,23 +49,24 @@
 // NoticeBox — 상단 크림색 안내 박스
 // ----------------------------------------------------------------------
 .noticeBox {
-	padding: figmaRem(16) figmaRem(18) figmaRem(18);
-	border-radius: 8px;
-	background-color: rgb(var(--color-438));
+	padding: figmaRem(30);
+	border-radius: 16px;
+	background-color: rgb(var(--color-181));
 	box-sizing: border-box;
 
 	.noticeTit {
 		display: block;
-		margin-bottom: figmaRem(8);
-		color: rgb(var(--color-004));
-		font-size: figmaRem(16);
-		font-weight: 700;
+		margin-bottom: figmaRem(16);
+		color: $txt-black;
+		font-size: $fs-22;
+		font-weight: 500;
 		line-height: 1.4;
 	}
 
 	.noticeTxt {
-		color: rgb(var(--color-004));
-		font-size: figmaRem(15);
+		color: $txt-primary;
+		font-size: $fs-20;
+		font-weight: 300;
 		line-height: 1.6;
 	}
 }
@@ -72,21 +79,21 @@
 	margin-top: figmaRem(30);
 
 	.contTit {
-		margin-bottom: figmaRem(14);
-		color: rgb(var(--color-004));
-		font-size: figmaRem(18);
-		font-weight: 700;
+		margin-bottom: figmaRem(24);
+		color: $txt-primary;
+		font-size: $fs-20;
+		font-weight: 500;
 		line-height: 1.4;
 	}
 
 	// 섹션 본문 문단 (컴포넌트 아님)
 	.contTxt {
-		color: rgb(var(--color-004));
-		font-size: figmaRem(15);
-		line-height: 1.6;
+		color: $txt-primary;
+		font-size: $fs-18;
+		line-height: 1.5;
 
 		+ .contTxt {
-			margin-top: figmaRem(12);
+			margin-top: figmaRem(16);
 		}
 	}
 }
@@ -101,12 +108,12 @@
 		display: flex;
 		align-items: flex-start;
 		gap: figmaRem(6);
-		color: rgb(var(--color-004));
-		font-size: figmaRem(15);
+		color: $txt-primary;
+		font-size: $fs-20;
 		line-height: 1.6;
 
 		+ .descItem {
-			margin-top: figmaRem(14);
+			margin-top: figmaRem(16);
 		}
 
 		> dt {
@@ -137,8 +144,8 @@
 // 값 아래 붙는 작은 부연 문구. 블록으로도, 인라인(span)으로도 씁니다.
 // 위아래 간격은 쓰는 쪽(.descList)이 정합니다 — 여기서는 색/크기만 담당합니다.
 .subTxt {
-	color: rgb(var(--color-096));
-	font-size: figmaRem(14);
+	color: $txt-tertiary;
+	font-size: $fs-18;
 }
 
 // ----------------------------------------------------------------------
@@ -151,7 +158,8 @@
 	> li {
 		position: relative;
 		counter-increment: stepNum;
-		padding-left: figmaRem(28);
+		padding-left: figmaRem(44);
+		
 
 		+ li {
 			margin-top: figmaRem(16);
@@ -160,28 +168,33 @@
 		&::before {
 			content: counter(stepNum);
 			position: absolute;
-			top: figmaRem(3);
+			top: 0; // 본문 18px · line-height 1.5 기준 세로 중앙
 			left: 0;
-			width: figmaRem(20);
-			height: figmaRem(20);
+			width: figmaRem(30);
+			height: figmaRem(30);
 			color: rgb(var(--theme-bg));
-			background-color: rgb(var(--color-004));
+			background-color: $txt-secondary;
+
 			border-radius: 50%;
-			font-size: figmaRem(11);
+			// 20px 원 안에 들어가는 장식용 숫자라 3단계(22/20/18) 밖의 예외입니다.
+			// 본문 크기를 쓰면 원을 넘칩니다.
+			font-size: figmaRem(14);
 			font-weight: 500;
-			line-height: figmaRem(20);
+			line-height: figmaRem(30);
 			text-align: center;
 		}
 	}
 
 	.stepTxt {
-		color: rgb(var(--color-004));
-		font-size: figmaRem(15);
-		line-height: 1.6;
+		color: $txt-primary;
+		font-size: $fs-20;
+		line-height: 1.5;
+		font-weight: 300;
 	}
 
 	.stepTit {
-		font-weight: 500;
+		// font-weight: 500;
+		font-weight: 300;
 	}
 }
 
@@ -192,23 +205,25 @@
 // ----------------------------------------------------------------------
 .note {
 	position: relative;
-	margin-top: figmaRem(8);
-	padding-left: figmaRem(15);
-	color: rgb(var(--color-096));
-	font-size: figmaRem(13);
-	line-height: 1.55;
+	margin-top: figmaRem(6);
+	// padding-left: figmaRem(22); // ::before 의 ※ 폭(본문 18px 기준) + 여백
+	color: $txt-tertiary;
+	font-size: $fs-18;
+	font-weight: 300;
+	line-height: 1.5;
 
 	&::before {
 		content: '※';
-		position: absolute;
-		top: 0;
-		left: 0;
+		margin-right: 4px;
+		// position: absolute;
+		// top: 0;
+		// left: 0;
 	}
 
 	// 반드시 지켜야 하는 조건을 짚어줄 때만 씁니다
 	&.tyPoint {
-		color: rgb(var(--color-010));
-		font-weight: 500;
+		color: $txt-danger;
+		font-weight: 300;
 	}
 
 	+ .note {
@@ -223,8 +238,8 @@
 // ----------------------------------------------------------------------
 .rewardBox {
 	padding: figmaRem(20);
-	border-radius: 10px;
-	background-color: rgb(var(--color-187));
+	border-radius: figmaRem(18);
+	background-color: rgb(var(--color-499));
 	box-sizing: border-box;
 }
 
@@ -233,9 +248,9 @@
 	padding-right: figmaRem(60);
 
 	+ .rewardItem {
-		margin-top: figmaRem(18);
-		padding-top: figmaRem(18);
-		border-top: 1px solid rgb(var(--color-225));
+		margin-top: figmaRem(36);
+		padding-top: figmaRem(36);
+		border-top: 1px solid rgb(var(--color-039));
 	}
 
 	// 아이콘이 없는 항목
@@ -245,17 +260,17 @@
 
 	.rewardTit {
 		display: block;
-		margin-bottom: figmaRem(8);
-		color: rgb(var(--color-004));
-		font-size: figmaRem(16);
-		font-weight: 700;
+		margin-bottom: figmaRem(16);
+		color: $txt-primary;
+		font-size: $fs-22;
+		font-weight: 500;
 		line-height: 1.4;
 	}
 
 	.rewardTxt {
-		color: rgb(var(--color-004));
-		font-size: figmaRem(15);
-		line-height: 1.6;
+		color: $txt-primary;
+		font-size: $fs-20;
+		line-height: 1.5;
 	}
 
 	.rewardIco {
@@ -287,8 +302,8 @@
 	> li {
 		position: relative;
 		padding-left: figmaRem(18);
-		color: rgb(var(--color-004));
-		font-size: figmaRem(15);
+		color: $txt-primary;
+		font-size: $fs-18;
 		line-height: 1.6;
 
 		+ li {
@@ -298,11 +313,11 @@
 		&::before {
 			content: '';
 			position: absolute;
-			top: figmaRem(6);
+			top: figmaRem(8); // 본문 18px · line-height 1.6 기준 세로 중앙
 			left: 0;
-			width: figmaRem(12);
-			height: figmaRem(12);
-			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5L6.5 12L13 4.5' stroke='rgba(136, 136, 136, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / contain;
+			width: figmaRem(20);
+			height: figmaRem(26);
+			background: url('#{$imgURL}/images/common/checkList.svg') no-repeat center center / contain;
 		}
 	}
 }
@@ -313,24 +328,24 @@
 .dotList {
 	> li {
 		position: relative;
-		padding-left: figmaRem(11);
-		color: rgb(var(--color-096));
-		font-size: figmaRem(13);
-		line-height: 1.6;
+		padding-left: figmaRem(14);
+		color: $txt-tertiary;
+		font-size: $fs-18;
+		line-height: 1.5;
 
 		+ li {
-			margin-top: figmaRem(8);
+			margin-top: figmaRem(16);
 		}
 
 		&::before {
 			content: '';
 			position: absolute;
-			top: figmaRem(9);
+			top: figmaRem(13); // 본문 18px · line-height 1.6 기준 세로 중앙
 			left: figmaRem(2);
 			width: figmaRem(3);
 			height: figmaRem(3);
 			border-radius: 50%;
-			background-color: rgb(var(--color-411));
+			background-color: $txt-tertiary;
 		}
 	}
 }
@@ -341,17 +356,18 @@
 .linkMore {
 	display: inline-flex;
 	align-items: center;
-	margin-top: figmaRem(14);
-	color: rgb(var(--color-096));
-	font-size: figmaRem(13);
+	margin-top: figmaRem(16);
+	color: $txt-tertiary;
+	font-size: $fs-18;
+	font-weight: 500;
 	line-height: 1.4;
 
 	&::after {
 		content: '';
-		width: figmaRem(8);
-		height: figmaRem(8);
+		width: figmaRem(10);
+		height: figmaRem(10);
 		margin-left: figmaRem(4);
-		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6 3L11 8L6 13' stroke='rgba(136, 136, 136, 1)' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / contain;
+		background: url('#{$imgURL}/images/common/ic_l_12_more_dd.svg') no-repeat center center / contain;
 	}
 }
 
@@ -362,22 +378,25 @@
 .confirmBox {
 	margin-top: figmaRem(30);
 	padding: figmaRem(24) 20px figmaRem(40);
-	background-color: rgb(var(--color-405));
+	background-color: rgb(var(--color-423));
 	box-sizing: border-box;
 
 	.confirmTit {
 		display: block;
 		margin-bottom: figmaRem(12);
-		color: rgb(var(--color-004));
-		font-size: figmaRem(16);
-		font-weight: 700;
+		color: $txt-primary;
+		font-size: $fs-20;
+		font-weight: 500;
 		line-height: 1.4;
+	}
+	.linkMore {
+		margin-top: figmaRem(24);
 	}
 }
 
 // 인라인 강조 (컴포넌트 아님)
 .fcRed {
-	color: rgb(var(--color-010));
+	color: $txt-danger;
 	font-style: normal;
 	font-weight: 500;
 }
@@ -391,10 +410,10 @@ html[data-theme='dark'] {
 	}
 
 	.checkList > li::before {
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5L6.5 12L13 4.5' stroke='rgba(153, 153, 153, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+		background-image: url('#{$imgURL}/images/common/ic_l_12_more_dd.svg');
 	}
 
 	.linkMore::after {
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6 3L11 8L6 13' stroke='rgba(153, 153, 153, 1)' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+		background-image: url('#{$imgURL}/images/common/ic_l_12_more_dd.svg');
 	}
 }

@@ -8,22 +8,23 @@
 .note {
 	position: relative;
 	margin-top: figmaRem(8);
-	padding-left: figmaRem(15);
-	color: rgb(var(--color-096));
-	font-size: figmaRem(13);
+	// padding-left: figmaRem(22); // ::before 의 ※ 폭(본문 18px 기준) + 여백
+	color: $txt-tertiary;
+	font-size: $fs-18;
 	line-height: 1.55;
 
 	&::before {
 		content: '※';
-		position: absolute;
-		top: 0;
-		left: 0;
+		margin-right: 4px;
+		// position: absolute;
+		// top: 0;
+		// left: 0;
 	}
 
 	// 반드시 지켜야 하는 조건을 짚어줄 때만 씁니다
 	&.tyPoint {
-		color: rgb(var(--color-010));
-		font-weight: 500;
+		color: $txt-danger;
+		font-weight: 300;
 	}
 
 	+ .note {

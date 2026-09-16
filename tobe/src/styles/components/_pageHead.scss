@@ -14,8 +14,8 @@
 	.pageTit {
 		flex: 1 1 auto;
 		min-width: 0;
-		color: rgb(var(--color-004));
-		font-size: figmaRem(20);
+		color: $txt-primary;
+		font-size: $fs-22;
 		font-weight: 700;
 		line-height: 1.4;
 	}

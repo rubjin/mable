@@ -6,24 +6,24 @@
 .dotList {
 	> li {
 		position: relative;
-		padding-left: figmaRem(11);
-		color: rgb(var(--color-096));
-		font-size: figmaRem(13);
-		line-height: 1.6;
+		padding-left: figmaRem(14);
+		color: $txt-tertiary;
+		font-size: $fs-18;
+		line-height: 1.5;
 
 		+ li {
-			margin-top: figmaRem(8);
+			margin-top: figmaRem(16);
 		}
 
 		&::before {
 			content: '';
 			position: absolute;
-			top: figmaRem(9);
+			top: figmaRem(13); // 본문 18px · line-height 1.6 기준 세로 중앙
 			left: figmaRem(2);
 			width: figmaRem(3);
 			height: figmaRem(3);
 			border-radius: 50%;
-			background-color: rgb(var(--color-411));
+			background-color: $txt-tertiary;
 		}
 	}
 }

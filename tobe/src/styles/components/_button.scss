@@ -11,6 +11,31 @@ button {
 	cursor: pointer;
 }
 
+// 주요 버튼 — 노란 배경. 화면당 하나(하단 CTA)만 쓰세요.
+.btnTy1 {
+	display: block;
+	width: 100%;
+	height: figmaRem(44);
+	line-height: figmaRem(44);
+	font-size: $fs-20;
+	text-align: center;
+	font-weight: 700;
+	color: $txt-primary;
+	background-color: rgb(var(--color-220));
+	border-radius: figmaRem(6);
+	border: 0;
+	box-sizing: border-box;
+
+	&:active, &.active {
+		opacity: 0.8;
+	}
+
+	&:disabled, &.disabled {
+		cursor: not-allowed;
+		opacity: 0.3;
+	}
+}
+
 .btnTy2 {
 	display: block;
 	width: 100%;

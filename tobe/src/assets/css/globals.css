@@ -1114,6 +1114,28 @@ button {
   cursor: pointer;
 }
 
+.btnTy1 {
+  display: block;
+  width: 100%;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  font-size: 1.25rem;
+  text-align: center;
+  font-weight: 700;
+  color: rgb(var(--color-004));
+  background-color: rgb(var(--color-220));
+  border-radius: 0.375rem;
+  border: 0;
+  box-sizing: border-box;
+}
+.btnTy1:active, .btnTy1.active {
+  opacity: 0.8;
+}
+.btnTy1:disabled, .btnTy1.disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
 .btnTy2 {
   display: block;
   width: 100%;
@@ -2023,6 +2045,287 @@ html[data-theme=dark] .checkList > li::before {
 }
 html[data-theme=dark] .linkMore::after {
   background-image: url("../assets/images/common/ic_l_12_more_dd.svg");
+}
+
+.navHead {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  background-color: rgb(var(--theme-bg));
+  box-sizing: border-box;
+}
+.navHead .navTit {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: rgb(var(--color-004));
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.navHead .btnNavBack {
+  flex: 0 0 auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M15 4L7 12L15 20' stroke='rgba(34, 34, 34, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center/1.25rem;
+}
+.navHead .navUtil {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.navHead .btnPoint,
+.navHead .btnInfo {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+.navHead .btnPoint {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='10.1' stroke='rgba(34, 34, 34, 1)' stroke-width='1.4'/%3E%3Cpath d='M9.7 17V7h3.5a3 3 0 0 1 0 6H9.7' stroke='rgba(34, 34, 34, 1)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+}
+.navHead .btnInfo {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='10.1' stroke='rgba(34, 34, 34, 1)' stroke-width='1.4'/%3E%3Cpath d='M12 10.6v6.2' stroke='rgba(34, 34, 34, 1)' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='7.4' r='1.05' fill='rgba(34, 34, 34, 1)'/%3E%3C/svg%3E");
+}
+
+.missionKv {
+  position: relative;
+  aspect-ratio: 320/426;
+  padding-top: 1.625rem;
+  background: #cfe9fd url("../assets/images/mission/kv_mission.png") no-repeat center top/cover;
+  text-align: center;
+  box-sizing: border-box;
+}
+.missionKv .kvBadge {
+  display: inline-block;
+  padding: 0.3125rem 0.875rem;
+  border-radius: 9999px;
+  background-color: #cceFde;
+  color: #007d40;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.missionKv .kvTit {
+  margin-top: 0.875rem;
+  color: rgb(var(--color-004));
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.introSec {
+  padding: 1.625rem 1.875rem 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+.introSec .introDeco {
+  display: block;
+  width: 2.625rem;
+  height: 0.6875rem;
+  margin: 0 auto;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='11' viewBox='0 0 42 11' fill='none'%3E%3Cpath d='M5.5 0C6 3 7.5 4.5 11 5.5C7.5 6.5 6 8 5.5 11C5 8 3.5 6.5 0 5.5C3.5 4.5 5 3 5.5 0Z' fill='%2328AA74'/%3E%3Cpath d='M21 0C21.5 3 23 4.5 26.5 5.5C23 6.5 21.5 8 21 11C20.5 8 19 6.5 15.5 5.5C19 4.5 20.5 3 21 0Z' fill='%2328AA74'/%3E%3Cpath d='M36.5 0C37 3 38.5 4.5 42 5.5C38.5 6.5 37 8 36.5 11C36 8 34.5 6.5 31 5.5C34.5 4.5 36 3 36.5 0Z' fill='%2328AA74'/%3E%3C/svg%3E") no-repeat center center/contain;
+}
+.introSec .introTit {
+  margin-top: 1rem;
+  color: rgb(var(--color-004));
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.introSec .introTxt {
+  margin-top: 0.75rem;
+  color: rgb(var(--color-411));
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+.introSec .introVisual {
+  display: block;
+  width: 100%;
+  max-width: 13.125rem;
+  aspect-ratio: 210/140;
+  margin: 1.25rem auto 0;
+  background: url("../assets/images/mission/img_course.png") no-repeat center center/contain;
+}
+
+.wrapApply {
+  padding: 0 1.875rem;
+  box-sizing: border-box;
+}
+
+.targetBox {
+  margin-top: 1.875rem;
+  padding: 1.25rem 1.125rem 1.375rem;
+  border-radius: 0.75rem;
+  background-color: rgb(var(--color-181));
+  box-sizing: border-box;
+}
+.targetBox .targetTit {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: rgb(var(--color-004));
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.targetBox .checkList > li {
+  padding-left: 1.5rem;
+}
+.targetBox .checkList > li::before {
+  top: 0.375rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.6L6.3 12L13 4.8' stroke='%2328AA74' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.targetBox .subTxt {
+  display: block;
+  margin-top: 0.125rem;
+  color: rgb(var(--color-411));
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.missionStep {
+  counter-reset: missionStepNum;
+  margin-top: 1.875rem;
+}
+.missionStep > li {
+  position: relative;
+  counter-increment: missionStepNum;
+  padding-left: 2.125rem;
+}
+.missionStep > li + li {
+  margin-top: 1.375rem;
+}
+.missionStep > li::before {
+  content: counter(missionStepNum);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 1.125rem;
+  height: 1.125rem;
+  color: rgb(var(--theme-bg));
+  background-color: rgb(var(--color-004));
+  border-radius: 50%;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.125rem;
+  text-align: center;
+}
+.missionStep > li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 1.375rem;
+  left: 0.5rem;
+  width: 0.125rem;
+  height: 100%;
+  background-color: rgb(var(--color-225));
+}
+.missionStep .missionStepTit {
+  display: block;
+  color: rgb(var(--color-004));
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.missionStep .missionStepTxt {
+  margin-top: 0.5rem;
+  color: rgb(var(--color-411));
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.fcPoint {
+  color: rgb(var(--color-131));
+  font-style: normal;
+  font-weight: 500;
+}
+
+.dormantBox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.875rem;
+  padding: 1rem 1.125rem;
+  border-radius: 0.75rem;
+  background-color: rgb(var(--color-066));
+  box-sizing: border-box;
+}
+.dormantBox .dormantIco {
+  flex: 0 0 auto;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: url("../assets/images/mission/ic_sprout.svg") no-repeat center center/contain;
+}
+.dormantBox .dormantCont {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.dormantBox .dormantTit {
+  display: block;
+  color: rgb(var(--color-004));
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.dormantBox .linkMore {
+  margin-top: 0.25rem;
+  color: rgb(var(--color-298));
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.confirmAcc {
+  margin-top: 1.875rem;
+  border-top: 0.375rem solid rgb(var(--color-187));
+  box-sizing: border-box;
+}
+.confirmAcc .confirmAccHead {
+  padding: 0 1.875rem;
+}
+.confirmAcc .btnConfirmAcc {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 1.25rem 1.75rem 1.25rem 0;
+  color: rgb(var(--color-004));
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: left;
+}
+.confirmAcc .btnConfirmAcc::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: -0.625rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9.5L12 15.5L18 9.5' stroke='rgba(34, 34, 34, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center/contain;
+  transition: transform 0.2s;
+}
+.confirmAcc .confirmAccBody {
+  display: none;
+  padding: 0 1.875rem 1.875rem;
+}
+.confirmAcc.isOpen .btnConfirmAcc::after {
+  transform: rotate(180deg);
+}
+.confirmAcc.isOpen .confirmAccBody {
+  display: block;
+}
+
+.btnBottom {
+  padding: 0.875rem 0.875rem 1.25rem;
+  background-color: rgb(var(--theme-bg));
+  box-sizing: border-box;
 }
 
 .missionStatusPage {

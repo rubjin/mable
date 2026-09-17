@@ -1,0 +1,387 @@
+@use '../abstracts' as *;
+
+// ======================================================================
+// 미션 신청 페이지 (pages/missionApply.html) — 시안 testimg/OFR_MB_CL_001.png
+// ----------------------------------------------------------------------
+// 아직 이 페이지에서만 쓰는 클래스라 pages/ 에 두었습니다.
+// 다른 화면에서 같은 모양이 또 나오면 그때 components/ 로 옮기세요.
+//
+// 크기는 figmaRem(시안px), 색·폰트는 abstracts/_variables.scss 의 변수를 씁니다.
+// 시안 이미지(540px)는 1.6875배 확대본이라 'image px ÷ 1.6875 = figmaRem 값' 입니다.
+//
+// 아직 토큰이 없는 색은 여기서 hex 로 두고 주석을 달았습니다.
+// --color-xxx 토큰이 생기면 그 자리만 rgb(var(--color-xxx)) 로 바꾸세요.
+//
+// ----------------------------------------------------------------------
+// 이미지 asset — 아직 파일이 없어 경로만 연결하고 임시 배경을 깔아두었습니다.
+// 아래 3개를 넣으면 임시 배경은 가려지고 그대로 보입니다.
+//   assets/images/mission/kv_mission.png   상단 키비주얼 (곰 · 산)
+//   assets/images/mission/img_course.png   코스 일러스트 (산 · 포인트)
+//   assets/images/mission/ic_sprout.svg    휴면계좌 배너 아이콘 (새싹)
+// ======================================================================
+
+// 시안 전용 색 — 대응 토큰이 아직 없습니다
+$kv-badge-bg: #cceFde; // 키비주얼 뱃지 배경
+$kv-badge-txt: #007d40; // 키비주얼 뱃지 글자
+$intro-deco: #28aa74; // 소개 영역 상단 초록 장식
+$kv-sky: #cfe9fd; // 키비주얼 이미지 로딩 전 하늘색
+
+// ----------------------------------------------------------------------
+// NavHeader — 뒤로가기 + 타이틀 + 우측 유틸
+// 기존 .pageHead(타이틀 + 닫기)와 구성이 달라 별도로 두었습니다.
+// ----------------------------------------------------------------------
+.navHead {
+	display: flex;
+	align-items: center;
+	gap: figmaRem(6);
+	height: figmaRem(40);
+	padding: 0 figmaRem(12);
+	background-color: rgb(var(--theme-bg));
+	box-sizing: border-box;
+
+	.navTit {
+		flex: 1 1 auto;
+		min-width: 0;
+		color: $txt-primary;
+		font-size: $fs-22;
+		font-weight: 500;
+		line-height: 1.4;
+	}
+
+	.btnNavBack {
+		flex: 0 0 auto;
+		width: figmaRem(24);
+		height: figmaRem(24);
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M15 4L7 12L15 20' stroke='rgba(34, 34, 34, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / figmaRem(20);
+	}
+
+	.navUtil {
+		flex: 0 0 auto;
+		display: flex;
+		align-items: center;
+		gap: figmaRem(8);
+	}
+
+	// 포인트(P) · 안내(i) — 동그란 선 아이콘
+	.btnPoint,
+	.btnInfo {
+		width: figmaRem(24);
+		height: figmaRem(24);
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: contain;
+	}
+
+	.btnPoint {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='10.1' stroke='rgba(34, 34, 34, 1)' stroke-width='1.4'/%3E%3Cpath d='M9.7 17V7h3.5a3 3 0 0 1 0 6H9.7' stroke='rgba(34, 34, 34, 1)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+	}
+
+	.btnInfo {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='10.1' stroke='rgba(34, 34, 34, 1)' stroke-width='1.4'/%3E%3Cpath d='M12 10.6v6.2' stroke='rgba(34, 34, 34, 1)' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='7.4' r='1.05' fill='rgba(34, 34, 34, 1)'/%3E%3C/svg%3E");
+	}
+}
+
+// ----------------------------------------------------------------------
+// MissionKv — 상단 키비주얼
+// 뱃지와 타이틀이 이미지 위에 얹힙니다. 이미지 비율(320:426)은 시안 그대로라
+// 화면 폭이 달라져도 구도가 유지됩니다.
+// ----------------------------------------------------------------------
+.missionKv {
+	position: relative;
+	aspect-ratio: 320 / 426;
+	padding-top: figmaRem(26);
+	background: $kv-sky url('#{$imgURL}/images/mission/kv_mission.png') no-repeat center top / cover;
+	text-align: center;
+	box-sizing: border-box;
+
+	.kvBadge {
+		display: inline-block;
+		padding: figmaRem(5) figmaRem(14);
+		border-radius: $radius-full;
+		background-color: $kv-badge-bg;
+		color: $kv-badge-txt;
+		font-size: $fs-16;
+		font-weight: 500;
+		line-height: 1.4;
+	}
+
+	.kvTit {
+		margin-top: figmaRem(14);
+		color: $txt-primary;
+		font-size: figmaRem(28); // 키비주얼 전용 크기 — 대응 $fs 토큰이 없습니다
+		font-weight: 700;
+		line-height: 1.4;
+	}
+}
+
+// ----------------------------------------------------------------------
+// IntroSec — '미션이란?' 소개
+// ----------------------------------------------------------------------
+.introSec {
+	padding: figmaRem(26) figmaRem(30) 0;
+	text-align: center;
+	box-sizing: border-box;
+
+	// 타이틀 위 초록 장식 3개
+	.introDeco {
+		display: block;
+		width: figmaRem(42);
+		height: figmaRem(11);
+		margin: 0 auto;
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='11' viewBox='0 0 42 11' fill='none'%3E%3Cpath d='M5.5 0C6 3 7.5 4.5 11 5.5C7.5 6.5 6 8 5.5 11C5 8 3.5 6.5 0 5.5C3.5 4.5 5 3 5.5 0Z' fill='%2328AA74'/%3E%3Cpath d='M21 0C21.5 3 23 4.5 26.5 5.5C23 6.5 21.5 8 21 11C20.5 8 19 6.5 15.5 5.5C19 4.5 20.5 3 21 0Z' fill='%2328AA74'/%3E%3Cpath d='M36.5 0C37 3 38.5 4.5 42 5.5C38.5 6.5 37 8 36.5 11C36 8 34.5 6.5 31 5.5C34.5 4.5 36 3 36.5 0Z' fill='%2328AA74'/%3E%3C/svg%3E") no-repeat center center / contain;
+	}
+
+	.introTit {
+		margin-top: figmaRem(16);
+		color: $txt-primary;
+		font-size: $fs-22;
+		font-weight: 700;
+		line-height: 1.4;
+	}
+
+	.introTxt {
+		margin-top: figmaRem(12);
+		color: $txt-tertiary;
+		font-size: $fs-18;
+		font-weight: 300;
+		line-height: 1.6;
+	}
+
+	// 코스 일러스트 — asset 이 들어오기 전까지 자리만 잡아둡니다
+	.introVisual {
+		display: block;
+		width: 100%;
+		max-width: figmaRem(210);
+		aspect-ratio: 210 / 140;
+		margin: figmaRem(20) auto 0;
+		background: url('#{$imgURL}/images/mission/img_course.png') no-repeat center center / contain;
+	}
+}
+
+// 이 페이지의 좌우 여백 컨테이너 (.wrapTy3 는 20px 고정이라 시안과 다릅니다)
+.wrapApply {
+	padding: 0 figmaRem(30);
+	box-sizing: border-box;
+}
+
+// ----------------------------------------------------------------------
+// TargetBox — 크림색 '미션 참여대상' 박스
+// ----------------------------------------------------------------------
+.targetBox {
+	margin-top: figmaRem(30);
+	padding: figmaRem(20) figmaRem(18) figmaRem(22);
+	border-radius: figmaRem(12);
+	background-color: rgb(var(--color-181));
+	box-sizing: border-box;
+
+	.targetTit {
+		display: block;
+		margin-bottom: figmaRem(12);
+		color: $txt-primary;
+		font-size: $fs-20;
+		font-weight: 700;
+		line-height: 1.4;
+	}
+
+	// 이 박스 안에서는 체크가 초록입니다 (공통 .checkList 는 회색)
+	.checkList > li {
+		padding-left: figmaRem(24);
+
+		&::before {
+			top: figmaRem(6);
+			width: figmaRem(14);
+			height: figmaRem(14);
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.6L6.3 12L13 4.8' stroke='%2328AA74' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+		}
+	}
+
+	// 값 아래 붙는 작은 부연 문구
+	.subTxt {
+		display: block;
+		margin-top: figmaRem(2);
+		color: $txt-tertiary;
+		font-size: $fs-16;
+		line-height: 1.5;
+	}
+}
+
+// ----------------------------------------------------------------------
+// CourseStep — 번호가 붙는 3단계 코스
+// 번호는 CSS counter, 항목 사이 세로 연결선은 ::after 입니다.
+// 마크업/props 로 숫자나 선을 넣지 마세요.
+// ----------------------------------------------------------------------
+.missionStep {
+	counter-reset: missionStepNum;
+	margin-top: figmaRem(30);
+
+	> li {
+		position: relative;
+		counter-increment: missionStepNum;
+		padding-left: figmaRem(34);
+
+		+ li {
+			margin-top: figmaRem(22);
+		}
+
+		// 번호 원
+		&::before {
+			content: counter(missionStepNum);
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			width: figmaRem(18);
+			height: figmaRem(18);
+			color: rgb(var(--theme-bg));
+			background-color: $txt-primary;
+			border-radius: 50%;
+			font-size: $fs-15;
+			font-weight: 500;
+			line-height: figmaRem(18);
+			text-align: center;
+		}
+
+		// 다음 항목으로 이어지는 세로선 — 마지막 항목에는 붙지 않습니다.
+		// top 22 에서 시작해 높이 100%(= li 높이)면 끝점이 다음 li 의 번호 원과 만납니다.
+		&:not(:last-child)::after {
+			content: '';
+			position: absolute;
+			top: figmaRem(22);
+			left: figmaRem(8);
+			width: figmaRem(2);
+			height: 100%;
+			background-color: rgb(var(--color-225));
+		}
+	}
+
+	.missionStepTit {
+		display: block;
+		color: $txt-primary;
+		font-size: $fs-20;
+		font-weight: 700;
+		line-height: 1.4;
+	}
+
+	.missionStepTxt {
+		margin-top: figmaRem(8);
+		color: $txt-tertiary;
+		font-size: $fs-18;
+		font-weight: 300;
+		line-height: 1.6;
+	}
+}
+
+// 포인트 금액 강조 (컴포넌트 아님)
+.fcPoint {
+	color: rgb(var(--color-131));
+	font-style: normal;
+	font-weight: 500;
+}
+
+// ----------------------------------------------------------------------
+// DormantBox — 휴면계좌 안내 배너
+// ----------------------------------------------------------------------
+.dormantBox {
+	display: flex;
+	align-items: center;
+	gap: figmaRem(12);
+	margin-top: figmaRem(30);
+	padding: figmaRem(16) figmaRem(18);
+	border-radius: figmaRem(12);
+	background-color: rgb(var(--color-066));
+	box-sizing: border-box;
+
+	.dormantIco {
+		flex: 0 0 auto;
+		width: figmaRem(28);
+		height: figmaRem(28);
+		background: url('#{$imgURL}/images/mission/ic_sprout.svg') no-repeat center center / contain;
+	}
+
+	.dormantCont {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
+	.dormantTit {
+		display: block;
+		color: $txt-primary;
+		font-size: $fs-18;
+		font-weight: 500;
+		line-height: 1.4;
+	}
+
+	// 이 배너 안에서는 링크가 파란색입니다 (공통 .linkMore 는 회색)
+	.linkMore {
+		margin-top: figmaRem(4);
+		color: rgb(var(--color-298));
+		font-size: $fs-18;
+		font-weight: 500;
+	}
+}
+
+// ----------------------------------------------------------------------
+// ConfirmAcc — '확인해주세요!' 접힘/펼침
+// 위쪽 굵은 구분선이 화면 끝까지 차야 해서 좌우 여백을 스스로 가집니다.
+// 열림 상태는 .confirmAcc 에 .isOpen 을 토글하세요 (동작은 개발에서 연결).
+// ----------------------------------------------------------------------
+.confirmAcc {
+	margin-top: figmaRem(30);
+	border-top: figmaRem(6) solid rgb(var(--color-187));
+	box-sizing: border-box;
+
+	.confirmAccHead {
+		padding: 0 figmaRem(30);
+	}
+
+	.btnConfirmAcc {
+		position: relative;
+		display: block;
+		width: 100%;
+		padding: figmaRem(20) figmaRem(28) figmaRem(20) 0;
+		color: $txt-primary;
+		font-size: $fs-20;
+		font-weight: 700;
+		line-height: 1.4;
+		text-align: left;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 0;
+			width: figmaRem(20);
+			height: figmaRem(20);
+			margin-top: figmaRem(-10);
+			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9.5L12 15.5L18 9.5' stroke='rgba(34, 34, 34, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / contain;
+			transition: transform 0.2s;
+		}
+	}
+
+	.confirmAccBody {
+		display: none;
+		padding: 0 figmaRem(30) figmaRem(30);
+	}
+
+	// 펼친 상태
+	&.isOpen {
+		.btnConfirmAcc::after {
+			transform: rotate(180deg);
+		}
+
+		.confirmAccBody {
+			display: block;
+		}
+	}
+}
+
+// ----------------------------------------------------------------------
+// 하단 CTA
+// 시안은 일반 흐름이라 그대로 두었습니다.
+// 화면 하단 고정이 필요하면 position:sticky; bottom:0 을 추가하세요.
+// ----------------------------------------------------------------------
+.btnBottom {
+	padding: figmaRem(14) figmaRem(14) figmaRem(20);
+	background-color: rgb(var(--theme-bg));
+	box-sizing: border-box;
+}

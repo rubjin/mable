@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자산성장 트래킹 미션</title>
+    <link rel="stylesheet" href="../styles/globals.scss">
+</head>
+<body>
+
+<!--
+  ==========================================================================
+  [미션 신청 페이지 — MissionApplyPage]  시안: testimg/OFR_MB_CL_001.png
+
+  컴포넌트 경계 표기 규칙
+    <!-- @@컴포넌트명: props(...) --      ← 컴포넌트 시작
+    ...마크업...
+    <!-- //@@컴포넌트명: props(...) --    ← 컴포넌트 종료
+
+  스타일은 styles/pages/_missionApply.scss 한 파일에 모여 있습니다.
+
+  --------------------------------------------------------------------------
+  재사용 컴포넌트 (styles/components/)
+  --------------------------------------------------------------------------
+  * CheckList    체크 목록 (미션 참여대상)
+  * DotList      점 불릿 목록 (확인해주세요)
+  * LinkMore     '>' 화살표가 붙는 이동 링크 (휴면계좌 배너)
+  * Button       하단 CTA (.btnTy1 — 노란 주요 버튼, _button.scss)
+
+  --------------------------------------------------------------------------
+  이 페이지 전용 (styles/pages/_missionApply.scss)
+  --------------------------------------------------------------------------
+  * NavHeader    뒤로가기 + 타이틀 + 우측 유틸 아이콘(포인트/안내)
+                 기존 .pageHead(타이틀+닫기)와 구성이 달라 따로 두었습니다.
+                 다른 화면에도 같은 헤더가 나오면 그때 components/ 로 옮기세요.
+  * MissionKv    상단 키비주얼. 뱃지 + 2줄 타이틀이 이미지 위에 얹힙니다
+  * IntroSec     '미션이란?' 소개 — 장식 + 타이틀 + 설명 + 코스 일러스트
+  * TargetBox    크림색 '미션 참여대상' 박스 (안에 CheckList)
+  * CourseStep   번호가 붙는 3단계 코스 목록. 번호와 연결선은 CSS가 그립니다
+  * DormantBox   휴면계좌 안내 배너 (아이콘 + 문구 + LinkMore)
+  * ConfirmAcc   '확인해주세요!' 접힘/펼침 영역 (안에 DotList)
+
+  --------------------------------------------------------------------------
+  props가 아니라 CSS가 자동으로 처리하는 것 — prop/텍스트로 넣지 마세요
+  --------------------------------------------------------------------------
+  * CourseStep 의 번호(1,2,3)     .missionStep 의 CSS counter
+  * CourseStep 사이 세로 연결선    li:not(:last-child)::after
+  * IntroSec 상단 초록 장식        .introDeco 배경 이미지
+  * CheckList 의 체크 / DotList 의 점   ::before 배경 이미지
+  * LinkMore 의 '>'               .linkMore::after
+  * ConfirmAcc 의 화살표           .btnConfirmAcc 배경 (열림 상태는 .isOpen)
+
+  --------------------------------------------------------------------------
+  이 파일이 다루지 않는 것
+  --------------------------------------------------------------------------
+  * 뒤로가기 / 링크 / 신청 동작   href="#" 는 더미입니다. 라우팅은 개발에서 연결하세요
+  * 아코디언 토글 동작            마크업만 펼친 상태(.isOpen)로 두었습니다.
+                                  .btnConfirmAcc 클릭 시 .confirmAcc 에 .isOpen 을
+                                  토글하면 됩니다 (CSS 는 준비돼 있습니다)
+  * 날짜 · 포인트 값              2026/00/00, 20,000P 등은 시안 그대로의 더미 텍스트입니다
+  * 일러스트 3종                  아직 asset 이 없어 경로만 연결하고 임시 배경을 깔았습니다.
+                                  파일을 넣으면 그대로 보입니다 —
+                                    assets/images/mission/kv_mission.png   (상단 키비주얼)
+                                    assets/images/mission/img_course.png   (코스 일러스트)
+                                    assets/images/mission/ic_sprout.svg    (휴면계좌 아이콘)
+  * 하단 CTA 고정 여부            시안만으로는 판단할 수 없어 일반 흐름으로 두었습니다.
+                                  화면 하단 고정이 필요하면 .btnBottom 에
+                                  position:sticky; bottom:0 을 추가하세요
+  ==========================================================================
+-->
+
+<!-- @@NavHeader: props(title="자산성장 트래킹 미션", onBack, onPoint, onInfo) -->
+<header class="navHead">
+    <button type="button" class="btnNavBack" aria-label="뒤로가기"></button>
+    <h1 class="navTit">자산성장 트래킹 미션</h1>
+    <div class="navUtil">
+        <button type="button" class="btnPoint" aria-label="포인트"></button>
+        <button type="button" class="btnInfo" aria-label="미션 안내"></button>
+    </div>
+</header>
+<!-- //@@NavHeader: props(title="자산성장 트래킹 미션", onBack, onPoint, onInfo) -->
+
+<main>
+
+    <!-- 상단 키비주얼 -->
+    <!-- @@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반") -->
+    <section class="missionKv">
+        <span class="kvBadge">자산성장 트래킹 미션</span>
+        <h2 class="kvTit">자산 성장을 향한<br>30일 투자 등반</h2>
+    </section>
+    <!-- //@@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반") -->
+
+    <!-- 미션 소개 -->
+    <!-- @@IntroSec: props(title="자산성장 트래킹 미션이란?") -->
+    <section class="introSec">
+        <span class="introDeco" aria-hidden="true"></span>
+        <h2 class="introTit">자산성장 트래킹 미션이란?</h2>
+        <p class="introTxt">투자의 시작부터 자산 성장까지!<br>30일 동안 3개 코스에 도전하고 20,000P 받아요</p>
+        <span class="introVisual" aria-hidden="true"></span>
+    </section>
+    <!-- //@@IntroSec: props(title="자산성장 트래킹 미션이란?") -->
+
+    <div class="wrapApply">
+
+        <!-- 미션 참여대상 -->
+        <!-- @@TargetBox: props(title="미션 참여대상") -->
+        <div class="targetBox">
+            <strong class="targetTit">미션 참여대상</strong>
+            <!-- @@CheckList -->
+            <ul class="checkList">
+                <li>국내 거주 개인 고객
+                    <span class="subTxt">(법인, 임의단체, 외국인, 재외국민 제외)</span>
+                </li>
+                <li>1개월 내 국내 주식 거래가 없으면서 국내 주식 평가 금액 100만원 이하 고객</li>
+            </ul>
+            <!-- //@@CheckList -->
+        </div>
+        <!-- //@@TargetBox: props(title="미션 참여대상") -->
+
+        <!-- 3단계 코스 -->
+        <!-- @@CourseStep -->
+        <ol class="missionStep">
+            <!-- @@CourseStepItem: props(title="투자봉 – 자산성장의 시작") -->
+            <li>
+                <strong class="missionStepTit">투자봉 – 자산성장의 시작</strong>
+                <p class="missionStepTxt">예수금 200만원 이상 채우고 <em class="fcPoint">5,000P</em> 받아요.</p>
+            </li>
+            <!-- //@@CourseStepItem: props(title="투자봉 – 자산성장의 시작") -->
+
+            <!-- @@CourseStepItem: props(title="성장봉 – 투자로 이어지는 한걸음") -->
+            <li>
+                <strong class="missionStepTit">성장봉 – 투자로 이어지는 한걸음</strong>
+                <p class="missionStepTxt">국내주식을 2회 이상, 200만원 이상 매수하고 <em class="fcPoint">5,000P</em> 받아요.</p>
+            </li>
+            <!-- //@@CourseStepItem: props(title="성장봉 – 투자로 이어지는 한걸음") -->
+
+            <!-- @@CourseStepItem: props(title="정상 – 30일 여정의 완성") -->
+            <li>
+                <strong class="missionStepTit">정상 – 30일 여정의 완성</strong>
+                <p class="missionStepTxt">종료일에 국내주식 평가금액이 200만원 이상이면 <em class="fcPoint">10,000P</em> 받아요.</p>
+            </li>
+            <!-- //@@CourseStepItem: props(title="정상 – 30일 여정의 완성") -->
+        </ol>
+        <!-- //@@CourseStep -->
+
+        <!-- 휴면계좌 안내 배너 -->
+        <!-- @@DormantBox: props(title="잠든 계좌, 다시 성장할 시간이에요", href="#") -->
+        <div class="dormantBox">
+            <span class="dormantIco" aria-hidden="true"></span>
+            <div class="dormantCont">
+                <strong class="dormantTit">잠든 계좌, 다시 성장할 시간이에요</strong>
+                <!-- @@LinkMore: props(href="#") -->
+                <a href="#" class="linkMore">휴면계좌 해제 바로가기</a>
+                <!-- //@@LinkMore: props(href="#") -->
+            </div>
+        </div>
+        <!-- //@@DormantBox: props(title="잠든 계좌, 다시 성장할 시간이에요", href="#") -->
+
+    </div>
+
+    <!-- 확인해주세요! — 좌우 꽉 차는 구분선이 있어 .wrapApply 바깥입니다 -->
+    <!-- @@ConfirmAcc: props(title="확인해주세요!", defaultOpen=true) -->
+    <section class="confirmAcc isOpen">
+        <h2 class="confirmAccHead">
+            <button type="button" class="btnConfirmAcc" aria-expanded="true" aria-controls="confirmAccBody">
+                확인해주세요!
+            </button>
+        </h2>
+        <div class="confirmAccBody" id="confirmAccBody">
+            <!-- @@DotList -->
+            <ul class="dotList">
+                <li>미션 진행 기간은 2026/00/00 ~ 종료시까지이며, KB증권 사정에 따라 사전 고지 없이 변경 또는 조기 종료될 수 있습니다.</li>
+                <li>본 이벤트는 당사 사정 또는 금융당국의 지도 및 권고에 따라 일정이 변경되거나 중단될 수 있습니다. (단, 기조건 충족고객 제외)</li>
+                <li>이벤트 참여와 관련한 세금(제세공과금)이 발생할 경우, 관련 법령에 따라 고객 본인에게 귀속됩니다.</li>
+                <li>이벤트 기간 중 허수성거래, 가장/통정성 거래 등 불공정거래로 판단되는 주문 발생 시 해당 주문 관련자에 대해서는 이벤트 조건 충족 여부에 관계없이 이벤트 혜택 대상에서 제외될 수 있습니다.</li>
+                <li>불공정 거래(공정거래질서 저해행위) 및 이상 거래 징후 발견된 바 있는 종목의 거래금액은 이벤트 실적에서 제외되며, 상기 사유로 제외종목으로 지정될 수 있습니다.</li>
+            </ul>
+            <!-- //@@DotList -->
+        </div>
+    </section>
+    <!-- //@@ConfirmAcc: props(title="확인해주세요!", defaultOpen=true) -->
+
+    <!-- 하단 CTA -->
+    <div class="btnBottom">
+        <!-- @@Button: props(variant="ty1", children="미션 신청하기", href="#") -->
+        <a href="#" class="btnTy1">미션 신청하기</a>
+        <!-- //@@Button: props(variant="ty1", children="미션 신청하기", href="#") -->
+    </div>
+
+</main>
+
+<script src="../assets/js/ui.js"></script>
+</body>
+</html>

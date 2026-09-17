@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>자산성장 산악회 미션</title>
+    <title>자산성장 트래킹 미션</title>
     <link rel="stylesheet" href="../styles/globals.scss">
 </head>
 <body class="missionStatusPage">
@@ -37,6 +37,7 @@
   * Tooltip       진행중 카드 위에 떠 있는 안내 말풍선
   * AmountBox     현재평가금액 + 기준일 (진행중 카드 본문)
   * AlarmBox      하단 알림 받기 배너
+  * InfoNote      맨 아래 회색 안내 박스 (아이콘 + 문구)
   * Switch        on/off 토글
 
   컴포넌트가 아닌 것 (그냥 유틸 클래스입니다 — 컴포넌트로 만들지 마세요)
@@ -61,7 +62,9 @@
   * CourseStep
       steps (string[], required)        각 단계 이름. 4개 기준으로 CSS 가 맞춰져 있습니다
       current (0~3, required)           진행 단계. 루트에 .step0~.step3 으로 나갑니다
+                                        current=3(100%) 이면 마지막 단계에 .isGoal 을 같이 붙이세요
       hrefs (string[])                  코스명 링크. 없으면 span 으로 렌더
+      badge (string)                    '달성!' / '미달성' 안내. 없으면 .stepBadge 를 렌더하지 마세요
 
   * AccountBar
       label (string, def "신청계좌")
@@ -95,6 +98,9 @@
       checked (boolean, def false)
       onChange (function, required)
 
+  * InfoNote
+      text (ReactNode, required)        안내 문구 (줄바꿈은 <br>)
+
   * Switch
       id (string, required)             label 의 for 와 짝
       label (string, required)          .blind 로 들어가는 스크린리더용 이름
@@ -103,9 +109,12 @@
   --------------------------------------------------------------------------
   props가 아니라 CSS가 자동으로 처리하는 것 — prop/텍스트로 넣지 마세요
   --------------------------------------------------------------------------
-  * CourseStep 의 진행 게이지 너비   .step1~.step3 모디파이어가 25/50/75% 로 그립니다.
-                                     inline style 로 width 를 넣지 마세요
-  * 지나온 점 / 현재 점 모양          .isDone / .isOn 클래스만 붙이면 됩니다
+  * CourseStep 의 진행 게이지        구간(시작~1코스 / 1코스~2코스 / 2코스~3코스)마다
+                                     색이 달라서 .gaugeBar 3개가 항상 깔려 있고,
+                                     .step1~.step3 모디파이어가 어디까지 보일지 정합니다.
+                                     바를 지우거나 inline style 로 width 를 넣지 마세요
+  * 코스명 색 / 굵기                  .isDone / .isOn 클래스만 붙이면 됩니다
+                                     (점은 전 단계 같은 모양입니다. 진행도는 게이지 색이 표현합니다)
   * 카드 헤더 깃발 아이콘             .courseIco 배경 이미지
   * 도장의 별(★★★)                  .stampDone::before / ::after
   * Switch 의 손잡이 이동             input:checked + .switchBtn
@@ -148,20 +157,22 @@
   ==========================================================================
 -->
 
-<!-- @@AppHeader: props(title="자산성장 산악회 미션", onBack, onPoint, infoHref="missionGuide.html") -->
+<!-- @@AppHeader: props(title="자산성장 트래킹 미션", onBack, onPoint, infoHref="missionGuide.html") -->
 <header class="appHead">
     <button type="button" class="btnBack" aria-label="이전 화면으로"></button>
-    <h1 class="appTit">자산성장 산악회 미션</h1>
+    <h1 class="appTit">자산성장 트래킹 미션</h1>
     <div class="appHeadUtil">
         <button type="button" class="btnHeadUtil icoPoint" aria-label="포인트"></button>
         <a href="missionGuide.html" class="btnHeadUtil icoInfo" aria-label="미션 안내"></a>
     </div>
 </header>
-<!-- //@@AppHeader: props(title="자산성장 산악회 미션", onBack, onPoint, infoHref="missionGuide.html") -->
+<!-- //@@AppHeader: props(title="자산성장 트래킹 미션", onBack, onPoint, infoHref="missionGuide.html") -->
 
 <!-- 히어로 — 좌우 여백을 스스로 가집니다 -->
 <!-- @@MissionHero: props(title, dday="D-8", bubble="9월13일까지 화이팅!") -->
 <section class="missionHero">
+    <!-- 우 → 좌 로 끝없이 흐르는 배경 레이어. 문구/캐릭터는 이 위에 멈춰 있습니다 -->
+    <span class="missionHeroBg" aria-hidden="true"></span>
     <p class="heroTit">정상을 향한<br>마지막 도전이 시작됐어요</p>
     <strong class="heroDday">D-8</strong>
     <p class="heroBubble"><span class="heroBubbleTxt">9월13일까지 화이팅!</span></p>
@@ -173,7 +184,12 @@
 <!-- @@CourseStep: props(steps=["시작","1코스","2코스","3코스"], current=2) -->
 <div class="courseStep step2">
     <div class="courseStepTrack">
-        <span class="courseStepGauge"></span>
+        <!-- 구간별 색이 달라서 바를 3개로 나눴습니다. 노출은 루트의 .step1~.step3 이 합니다 -->
+        <span class="courseStepGauge" aria-hidden="true">
+            <span class="gaugeBar bar1"></span>
+            <span class="gaugeBar bar2"></span>
+            <span class="gaugeBar bar3"></span>
+        </span>
         <ol class="courseStepList">
             <li class="isDone">
                 <span class="stepDot"></span>
@@ -196,6 +212,45 @@
     <span class="courseGoal" aria-hidden="true"></span>
 </div>
 <!-- //@@CourseStep: props(steps=["시작","1코스","2코스","3코스"], current=2) -->
+
+<!--
+  [상태 예시] 100% 달성 — 뱃지 위치 확인용입니다. 실제 연동할 때는 이 블록을 지우고
+  위의 CourseStep 하나만 쓰세요. 달라지는 것은 세 가지뿐입니다.
+    1) 루트 .step3          게이지가 3코스까지 모두 찹니다
+    2) 마지막 li 에 .isGoal  점이 흰 원 + 진초록 링으로 바뀝니다
+    3) .stepBadge 추가       목표 깃발 위에 '달성!' 이 뜹니다 (미달성이면 문구만 바꾸세요)
+-->
+<!-- @@CourseStep: props(steps=["시작","1코스","2코스","3코스"], current=3, badge="달성!") -->
+<div class="courseStep step3">
+    <div class="courseStepTrack">
+        <span class="courseStepGauge" aria-hidden="true">
+            <span class="gaugeBar bar1"></span>
+            <span class="gaugeBar bar2"></span>
+            <span class="gaugeBar bar3"></span>
+        </span>
+        <ol class="courseStepList">
+            <li class="isDone">
+                <span class="stepDot"></span>
+                <span class="stepName">시작</span>
+            </li>
+            <li class="isDone">
+                <span class="stepDot"></span>
+                <a href="#" class="stepName">1코스</a>
+            </li>
+            <li class="isDone">
+                <span class="stepDot"></span>
+                <a href="#" class="stepName">2코스</a>
+            </li>
+            <li class="isDone isGoal">
+                <span class="stepDot"></span>
+                <a href="#" class="stepName">3코스</a>
+            </li>
+        </ol>
+    </div>
+    <span class="courseGoal" aria-hidden="true"></span>
+    <span class="stepBadge">달성!</span>
+</div>
+<!-- //@@CourseStep: props(steps=["시작","1코스","2코스","3코스"], current=3, badge="달성!") -->
 
 <main class="wrapTy2">
 
@@ -286,21 +341,29 @@
     </ol>
     <!-- //@@CourseList -->
 
-    <!-- @@AlarmBox: props(title="자산성장 산악회 알림 받기", desc="미션에 대한 알림을 보내드릴게요", checked=false) -->
+    <!-- @@AlarmBox: props(title="자산성장 트래킹 알림 받기", desc="미션에 대한 알림을 보내드릴게요", checked=false) -->
     <div class="alarmBox">
         <span class="alarmIco" aria-hidden="true"></span>
         <div class="alarmTxtBox">
-            <strong class="alarmTit">자산성장 산악회 알림 받기</strong>
+            <strong class="alarmTit">자산성장 트래킹 알림 받기</strong>
             <p class="alarmDesc">미션에 대한 알림을 보내드릴게요</p>
         </div>
-        <!-- @@Switch: props(id="alarmAgree", label="자산성장 산악회 알림 받기") -->
+        <!-- @@Switch: props(id="alarmAgree", label="자산성장 트래킹 알림 받기") -->
         <span class="switch">
             <input type="checkbox" id="alarmAgree" class="blind">
-            <label for="alarmAgree" class="switchBtn"><span class="blind">자산성장 산악회 알림 받기</span></label>
+            <label for="alarmAgree" class="switchBtn"><span class="blind">자산성장 트래킹 알림 받기</span></label>
         </span>
-        <!-- //@@Switch: props(id="alarmAgree", label="자산성장 산악회 알림 받기") -->
+        <!-- //@@Switch: props(id="alarmAgree", label="자산성장 트래킹 알림 받기") -->
     </div>
-    <!-- //@@AlarmBox: props(title="자산성장 산악회 알림 받기", desc="미션에 대한 알림을 보내드릴게요", checked=false) -->
+    <!-- //@@AlarmBox: props(title="자산성장 트래킹 알림 받기", desc="미션에 대한 알림을 보내드릴게요", checked=false) -->
+
+    <!-- 재참여 안내 -->
+    <!-- @@InfoNote: props(text) -->
+    <div class="infoNote">
+        <span class="infoNoteIco" aria-hidden="true"></span>
+        <p class="infoNoteTxt">2026년 12월 10일부터<br>참여조건 충족 시 다시 참여할 수 있어요.</p>
+    </div>
+    <!-- //@@InfoNote: props(text) -->
 
 </main>
 

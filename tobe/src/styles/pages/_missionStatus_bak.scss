@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 // ======================================================================
-// 자산성장 산악회 미션 현황 페이지 (pages/missionStatus.html)
+// 자산성장 트래킹 미션 현황 페이지 (pages/missionStatus.html)
 // ----------------------------------------------------------------------
 // 아직 이 페이지에서만 쓰는 클래스라 pages/ 에 두었습니다.
 // 다른 화면에서 같은 모양이 또 나오면 그때 components/ 로 옮기세요.
@@ -21,8 +21,12 @@
 $mc-green-deep: #0c6b3f; // 3코스(진행중) 헤더 · 카드 테두리
 $mc-green-mid: #93d283; // 2코스 헤더
 $mc-green-lite: #cde9a5; // 1코스 헤더
-$mc-green-gauge: #22b14c; // 코스 진행 게이지
-$mc-green-dot: #8fd44a; // 지나온 코스 점
+$mc-green-gauge: #22b14c; // 알림 스위치 on
+
+// 진행 게이지는 구간마다 색이 달라집니다 (시작 → 3코스로 갈수록 진해집니다)
+$mc-gauge-1: #8fd44a; // 시작 ~ 1코스
+$mc-gauge-2: #00c04f; // 1코스 ~ 2코스
+$mc-gauge-3: #0c6b3f; // 2코스 ~ 3코스
 $mc-sand: #e8dcbc; // 게이지 빈 트랙
 $mc-cream: #faf3e2; // 페이지 배경 (히어로 지면과 이어집니다)
 $mc-card: #fdfaf2; // 신청계좌 바 · 알림 박스 배경
@@ -100,17 +104,51 @@ $mc-tip: #4e4e4e; // 툴팁 배경
 // MissionHero — 하늘/언덕 일러스트 + 문구 + 캐릭터
 //
 // 배경(하늘·구름·언덕·지면)은 디자인 asset 이 없어 data-URI SVG 로 임시 구현했습니다.
-// 실제 배경 이미지가 나오면 background 한 줄만 교체하세요.
+// 실제 배경 이미지가 나오면 .missionHeroBg 의 background-image 한 줄만 교체하세요.
 // 캐릭터(곰)는 별도 이미지라 .heroChar 가 자리만 잡아둡니다.
 // 파일이 없으면 아무것도 그려지지 않고 레이아웃은 그대로 유지됩니다.
+//
+// [배경 무한 흐름]
+// 배경은 우 → 좌 로 끝없이 흐릅니다. .missionHero 자신의 background 로는 움직일 수 없어
+// 뒤에 깔리는 레이어(.missionHeroBg)로 분리했습니다.
+//   · 레이어 폭 200% + background-size 50% → 같은 그림이 정확히 2장 깔립니다
+//   · 그 상태에서 -50%(= 정확히 1장) 만큼 밀고 처음으로 돌아가므로 이음매가 없습니다
+// 배경 이미지의 좌우 끝이 서로 이어지는 그림이어야 합니다 (안 그러면 1바퀴마다 선이 보입니다).
+// 속도는 $hero-bg-duration 하나만 고치세요.
 // ----------------------------------------------------------------------
+$hero-bg-duration: 40s; // 한 바퀴(그림 1장이 지나가는) 시간. 짧을수록 빨라집니다
+
 .missionHero {
 	position: relative;
 	min-height: figmaRem(410);
 	padding: figmaRem(34) figmaRem(20) figmaRem(200);
-	background: #d4f0f7 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='410' viewBox='0 0 360 410' preserveAspectRatio='xMidYMax slice'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='rgba(176, 226, 245, 1)'/%3E%3Cstop offset='0.5' stop-color='rgba(212, 240, 247, 1)'/%3E%3Cstop offset='1' stop-color='rgba(232, 247, 238, 1)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='360' height='410' fill='url(%23sky)'/%3E%3Cg fill='rgba(255, 255, 255, 0.9)'%3E%3Cellipse cx='300' cy='135' rx='38' ry='19'/%3E%3Cellipse cx='278' cy='128' rx='22' ry='15'/%3E%3Cellipse cx='322' cy='126' rx='18' ry='13'/%3E%3Cellipse cx='52' cy='232' rx='30' ry='15'/%3E%3Cellipse cx='38' cy='226' rx='18' ry='12'/%3E%3Cellipse cx='68' cy='225' rx='14' ry='10'/%3E%3C/g%3E%3Cpath d='M0 215C55 182 105 208 165 200C235 191 300 168 360 184L360 410L0 410Z' fill='rgba(169, 222, 124, 1)'/%3E%3Cpath d='M0 258C70 232 132 260 200 250C266 240 320 252 360 240L360 410L0 410Z' fill='rgba(127, 203, 87, 1)'/%3E%3Cg fill='rgba(111, 191, 82, 1)'%3E%3Ccircle cx='330' cy='300' r='26'/%3E%3Ccircle cx='352' cy='314' r='17'/%3E%3C/g%3E%3Cpath d='M0 366C100 356 152 373 250 363C305 357 336 365 360 361L360 410L0 410Z' fill='rgba(246, 236, 201, 1)'/%3E%3C/svg%3E") no-repeat center bottom / cover;
+	background-color: #d4f0f7; // 배경 이미지가 뜨기 전 하늘색
 	text-align: center;
 	box-sizing: border-box;
+	overflow: hidden; // 흘러나가는 배경을 히어로 안에서 잘라냅니다
+
+	// 흐르는 배경 레이어. 내용(문구·캐릭터)은 이 위에 그대로 멈춰 있습니다.
+	.missionHeroBg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 0;
+		width: 200%;
+		height: 100%;
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='410' viewBox='0 0 360 410' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='rgba(176, 226, 245, 1)'/%3E%3Cstop offset='0.5' stop-color='rgba(212, 240, 247, 1)'/%3E%3Cstop offset='1' stop-color='rgba(232, 247, 238, 1)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='360' height='410' fill='url(%23sky)'/%3E%3Cg fill='rgba(255, 255, 255, 0.9)'%3E%3Cellipse cx='280' cy='135' rx='38' ry='19'/%3E%3Cellipse cx='258' cy='128' rx='22' ry='15'/%3E%3Cellipse cx='302' cy='126' rx='18' ry='13'/%3E%3Cellipse cx='52' cy='232' rx='30' ry='15'/%3E%3Cellipse cx='38' cy='226' rx='18' ry='12'/%3E%3Cellipse cx='68' cy='225' rx='14' ry='10'/%3E%3C/g%3E%3Cpath d='M0 215C55 182 105 208 165 200C235 191 300 168 360 215L360 410L0 410Z' fill='rgba(169, 222, 124, 1)'/%3E%3Cpath d='M0 258C70 232 132 260 200 250C266 240 320 246 360 258L360 410L0 410Z' fill='rgba(127, 203, 87, 1)'/%3E%3Cg fill='rgba(111, 191, 82, 1)'%3E%3Ccircle cx='306' cy='300' r='26'/%3E%3Ccircle cx='328' cy='314' r='17'/%3E%3C/g%3E%3Cpath d='M0 366C100 356 152 373 250 363C305 357 336 370 360 366L360 410L0 410Z' fill='rgba(246, 236, 201, 1)'/%3E%3C/svg%3E") repeat-x left bottom;
+		background-size: 50% 100%; // 그림 1장 = 히어로 1화면
+		animation: heroBgFlow $hero-bg-duration linear infinite;
+		will-change: transform;
+		pointer-events: none;
+	}
+
+	// 배경 레이어가 position:absolute 라 그냥 두면 문구 위로 올라옵니다
+	.heroTit,
+	.heroDday,
+	.heroBubble {
+		position: relative;
+		z-index: 1;
+	}
 
 	.heroTit {
 		color: $txt-primary;
@@ -164,6 +202,26 @@ $mc-tip: #4e4e4e; // 툴팁 배경
 		width: figmaRem(160);
 		height: figmaRem(200);
 		background: url('#{$imgURL}/images/mission/img_mission_char.png') no-repeat center bottom / contain;
+		z-index: 1;
+	}
+}
+
+// 배경 무한 흐름 — 그림 2장 중 정확히 1장(-50%)만큼 밀고 되돌아옵니다.
+// translate 라서 레이아웃을 건드리지 않고 GPU 로만 움직입니다.
+@keyframes heroBgFlow {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+
+	to {
+		transform: translate3d(-50%, 0, 0);
+	}
+}
+
+// 기기에서 '동작 줄이기'를 켠 사용자에게는 멈춰 있는 배경을 보여줍니다
+@media (prefers-reduced-motion: reduce) {
+	.missionHero .missionHeroBg {
+		animation: none;
 	}
 }
 
@@ -178,6 +236,7 @@ $mc-tip: #4e4e4e; // 툴팁 배경
 	display: flex;
 	align-items: flex-start;
 	gap: figmaRem(14);
+	position: relative; // .stepBadge 의 기준
 	padding: figmaRem(26) figmaRem(20) 0;
 
 	.courseStepTrack {
@@ -193,20 +252,38 @@ $mc-tip: #4e4e4e; // 툴팁 배경
 			top: figmaRem(4);
 			left: 12.5%;
 			right: 12.5%;
-			height: figmaRem(8);
+			height: figmaRem(18);
 			background-color: $mc-sand;
 			border-radius: $radius-full;
 		}
 	}
 
-	.courseStepGauge {
+	// 진행 게이지 — 구간(시작~1코스 / 1코스~2코스 / 2코스~3코스)마다 색이 다릅니다.
+	// 한 덩어리로 늘이면 색을 나눌 수 없어서 구간별 바를 따로 깔고
+	// 루트의 .step1~.step3 이 "어디까지 보일지"만 정합니다.
+	.gaugeBar {
+		display: none;
 		position: absolute;
 		top: figmaRem(4);
+		width: 25%;
+		height: figmaRem(18);
+	}
+
+	.bar1 {
 		left: 12.5%;
-		width: 0;
-		height: figmaRem(8);
-		background-color: $mc-green-gauge;
-		border-radius: $radius-full;
+		background-color: $mc-gauge-1;
+		border-radius: $radius-full 0 0 $radius-full;
+	}
+
+	.bar2 {
+		left: 37.5%;
+		background-color: $mc-gauge-2;
+	}
+
+	.bar3 {
+		left: 62.5%;
+		background-color: $mc-gauge-3;
+		border-radius: 0 $radius-full $radius-full 0;
 	}
 
 	.courseStepList {
@@ -220,12 +297,16 @@ $mc-tip: #4e4e4e; // 툴팁 배경
 		}
 	}
 
+	// 점은 바 위에 얹히는 크림색 원 하나로 통일합니다 (바 두께 18 의 세로 중앙).
+	// 어디까지 왔는지는 점이 아니라 게이지 색이 말해줍니다.
 	.stepDot {
 		display: block;
-		width: figmaRem(10);
-		height: figmaRem(10);
-		margin: 0 auto;
-		background-color: $mc-sand;
+		position: relative;
+		z-index: 1;
+		width: figmaRem(14);
+		height: figmaRem(14);
+		margin: figmaRem(3) auto 0;
+		background-color: $mc-cream;
 		border-radius: 50%;
 	}
 
@@ -233,8 +314,7 @@ $mc-tip: #4e4e4e; // 툴팁 배경
 		display: block;
 		margin-top: figmaRem(10);
 		color: $txt-tertiary;
-		font-size: figmaRem(13);
-		line-height: 1.3;
+		font-size: figmaRem(18);
 	}
 
 	// 코스명은 각 코스 카드로 이동하는 링크입니다 (시안의 밑줄)
@@ -243,25 +323,25 @@ $mc-tip: #4e4e4e; // 툴팁 배경
 		text-underline-offset: figmaRem(3);
 	}
 
-	// 지나온 단계
-	.isDone {
-		.stepDot {
-			background-color: $mc-green-dot;
-		}
-
-		.stepName {
-			color: $txt-primary;
-		}
+	// 지나온 단계 / 현재 단계 — 점은 그대로 두고 코스명만 진해집니다
+	.isDone .stepName {
+		color: $txt-primary;
 	}
 
-	// 현재 단계 — 점이 커지는 만큼 음수 margin 으로 선 중심에 맞춥니다
-	.isOn {
+	.isOn .stepName {
+		color: $txt-primary;
+		font-weight: 500;
+	}
+
+	// 100% 달성 — 마지막 점만 흰 원 + 진초록 링으로 바뀝니다.
+	// 링 두께(5)까지 더해 20 이 되므로 다른 점(14)과 같은 중심에 놓이도록 margin 을 0 으로 둡니다.
+	.isGoal {
 		.stepDot {
-			width: figmaRem(18);
-			height: figmaRem(18);
-			margin-top: figmaRem(-4);
+			width: figmaRem(10);
+			height: figmaRem(10);
+			margin-top: 0;
 			background-color: rgb(var(--theme-bg));
-			border: figmaRem(4) solid $mc-green-gauge;
+			border: figmaRem(5) solid $mc-gauge-3;
 		}
 
 		.stepName {
@@ -270,26 +350,68 @@ $mc-tip: #4e4e4e; // 툴팁 배경
 		}
 	}
 
-	// 진행 단계 모디파이어 (트랙 폭 75% 를 3등분)
-	&.step1 .courseStepGauge {
-		width: 25%;
+	// 진행 단계 모디파이어 — 지나온 구간까지만 보여주고,
+	// 마지막으로 보이는 바의 끝을 둥글게 마감합니다.
+	&.step1 .bar1 {
+		display: block;
+		border-radius: $radius-full;
 	}
 
-	&.step2 .courseStepGauge {
-		width: 50%;
+	&.step2 {
+		.bar1,
+		.bar2 {
+			display: block;
+		}
+
+		.bar2 {
+			border-radius: 0 $radius-full $radius-full 0;
+		}
 	}
 
-	&.step3 .courseStepGauge {
-		width: 75%;
+	&.step3 {
+		.bar1,
+		.bar2,
+		.bar3 {
+			display: block;
+		}
 	}
 
-	// 게이지 끝 목표 뱃지
+	// 게이지 끝 목표 깃발 — 바(두께 18) 중심에 맞춥니다
 	.courseGoal {
 		flex: 0 0 auto;
 		width: figmaRem(28);
 		height: figmaRem(28);
-		margin-top: figmaRem(-6);
+		margin-top: figmaRem(-1);
 		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28' fill='none'%3E%3Crect width='28' height='28' rx='8' fill='rgba(12, 107, 63, 1)'/%3E%3Cpath d='M9.5 7V21' stroke='rgba(255, 255, 255, 1)' stroke-width='1.8' stroke-linecap='round'/%3E%3Cpath d='M10.8 8.2H19.2L17.3 11.4L19.2 14.6H10.8V8.2Z' fill='rgba(255, 255, 255, 1)'/%3E%3C/svg%3E") no-repeat center center / contain;
+	}
+
+	// 목표 달성/미달성 안내 뱃지 ('달성!' / '미달성')
+	//
+	// 게이지 오른쪽 위, 목표 깃발 바로 위에 뜹니다. 깃발은 flex 마지막 칸이라
+	// 트랙 안에서는 거기까지 닿지 못해서 .courseStep 기준으로 띄웠습니다.
+	//   right : 깃발 오른쪽 끝(= 좌우 여백 20)에 맞춥니다
+	//   top   : 음수입니다. 히어로 지면 위로 살짝 올라타는 시안 그대로입니다
+	// 문구 길이가 달라져도 위치가 흔들리지 않게 오른쪽 기준으로 잡았습니다.
+	.stepBadge {
+		position: absolute;
+		top: figmaRem(-20);
+		right: figmaRem(20);
+		z-index: 1;
+		padding: figmaRem(5) figmaRem(12);
+		background-color: $mc-tip;
+		border-radius: $radius-full;
+		color: rgb(var(--color-027));
+		font-size: figmaRem(13);
+		font-weight: 500;
+		line-height: 1.3;
+		white-space: nowrap;
+	}
+
+	// 미달성 뱃지는 시안에서 깃발이 아니라 마지막 코스 점 쪽을 가리키고 있어
+	// 오른쪽 기준을 깃발 폭(28) + 간격(14) + 여백(20) 만큼 당겨뒀습니다.
+	// 두 상태가 같은 자리면 이 블록만 지우면 됩니다.
+	.stepBadgeFail {
+		right: figmaRem(62);
 	}
 }
 
@@ -301,25 +423,23 @@ $mc-tip: #4e4e4e; // 툴팁 배경
 	align-items: center;
 	gap: figmaRem(12);
 	margin-top: figmaRem(26);
-	padding: figmaRem(14) figmaRem(16);
-	background-color: $mc-card;
-	border-radius: figmaRem(12);
+	padding: figmaRem(16) figmaRem(24);
+	background-color: rgba(255, 255, 255, 0.4);
+	border-radius: figmaRem(18);
 	box-sizing: border-box;
+	font-weight: 500;
 
 	.accountLabel {
 		flex: 0 0 auto;
-		color: $txt-secondary;
-		font-size: figmaRem(15);
-		line-height: 1.4;
+		color: $txt-secondary; //scandary3
+		font-size: figmaRem(20);
 	}
 
 	.accountNum {
 		flex: 1 1 auto;
 		min-width: 0;
 		color: $txt-primary;
-		font-size: figmaRem(16);
-		font-weight: 500;
-		line-height: 1.4;
+		font-size: figmaRem(20);
 		text-decoration: underline;
 		text-underline-offset: figmaRem(3);
 		overflow: hidden;
@@ -329,9 +449,9 @@ $mc-tip: #4e4e4e; // 툴팁 배경
 
 	.btnCopy {
 		flex: 0 0 auto;
-		width: figmaRem(24);
-		height: figmaRem(24);
-		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Crect x='9' y='9' width='11' height='12' rx='2.5' stroke='rgba(136, 136, 136, 1)' stroke-width='1.5'/%3E%3Cpath d='M15.5 6.2A2 2 0 0 0 13.7 5H6.5A2 2 0 0 0 4.5 7V16.5' stroke='rgba(136, 136, 136, 1)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center center / figmaRem(22);
+		width: figmaRem(32);
+		height: figmaRem(32);
+		background: url('') no-repeat center center / figmaRem(32);
 	}
 }
 
@@ -664,6 +784,43 @@ $mc-tip: #4e4e4e; // 툴팁 배경
 		color: $txt-tertiary;
 		font-size: figmaRem(13);
 		line-height: 1.4;
+	}
+}
+
+// ----------------------------------------------------------------------
+// InfoNote — 회색 안내 박스 (아이콘 + 문구)
+//
+// 페이지 맨 아래 재참여 안내처럼 "알고만 있으면 되는" 한 줄짜리 공지에 씁니다.
+// 배경은 이벤트 팔레트가 아니라 테마 토큰이라 다크모드에서도 같이 반전됩니다.
+// 아이콘과 문구는 세로 가운데 정렬입니다 (문구가 2줄이어도 아이콘이 가운데에 옵니다).
+//
+// 다른 화면에도 나오면 components/_infoNote.scss 로 옮기세요. 재사용 가능성이 높습니다.
+// ----------------------------------------------------------------------
+.infoNote {
+	display: flex;
+	align-items: center;
+	gap: figmaRem(10);
+	margin-top: figmaRem(16);
+	padding: figmaRem(16) figmaRem(18);
+	background-color: rgb(var(--color-405));
+	border-radius: figmaRem(12);
+	box-sizing: border-box;
+
+	.infoNoteIco {
+		flex: 0 0 auto;
+		width: figmaRem(20);
+		height: figmaRem(20);
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Ccircle cx='10' cy='10' r='9.1' stroke='rgba(153, 153, 153, 1)' stroke-width='1.2'/%3E%3Cpath d='M10 5.2V11' stroke='rgba(153, 153, 153, 1)' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='10' cy='14.1' r='0.9' fill='rgba(153, 153, 153, 1)'/%3E%3C/svg%3E") no-repeat center center / contain;
+	}
+
+	// 줄바꿈은 <br> 로 시안 그대로 끊었습니다.
+	// 문구가 바뀌어 길어지면 <br> 를 빼고 자연 줄바꿈에 맡기세요.
+	.infoNoteTxt {
+		flex: 1 1 auto;
+		min-width: 0;
+		color: $txt-primary;
+		font-size: figmaRem(14);
+		line-height: 1.5;
 	}
 }
 

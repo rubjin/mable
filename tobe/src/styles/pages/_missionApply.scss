@@ -376,6 +376,85 @@ $kv-sky: #cfe9fd; // 키비주얼 이미지 로딩 전 하늘색
 }
 
 // ----------------------------------------------------------------------
+// ApplyDone — 신청 완료 화면
+// 신청 이후에 보이는 별도 화면입니다. 위 신청 본문과 함께 보이지 않습니다.
+// 체크 아이콘은 이미지 파일이 아니라 배경(노란 원 + 체크 선)입니다.
+// ----------------------------------------------------------------------
+.applyDone {
+	padding: figmaRem(40) figmaRem(20) figmaRem(30);
+	text-align: center;
+	box-sizing: border-box;
+
+	.applyDoneIco {
+		display: block;
+		width: figmaRem(36);
+		height: figmaRem(36);
+		margin: 0 auto;
+		background: rgb(var(--color-220)) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 12.4L10.4 16.5L18 7.8' stroke='rgba(34, 34, 34, 1)' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / figmaRem(22);
+		border-radius: 50%;
+	}
+
+	.applyDoneTit {
+		margin-top: figmaRem(16);
+		color: $txt-primary;
+		font-size: figmaRem(24); // 완료 화면 전용 크기 — 대응 $fs 토큰이 없습니다
+		font-weight: 700;
+		line-height: 1.4;
+	}
+}
+
+// ----------------------------------------------------------------------
+// ResultList — 신청 결과 요약 (좌 라벨 / 우 값)
+// 값이 여러 줄인 항목(계좌번호)은 dd 안에서 줄을 나눕니다.
+// ----------------------------------------------------------------------
+.resultList {
+	margin-top: figmaRem(26);
+	padding: figmaRem(20) figmaRem(18);
+	border-radius: figmaRem(12);
+	background-color: rgb(var(--color-187));
+	text-align: left;
+	box-sizing: border-box;
+
+	.resultItem {
+		display: flex;
+		align-items: flex-start;
+		gap: figmaRem(12);
+
+		+ .resultItem {
+			margin-top: figmaRem(6);
+		}
+
+		> dt {
+			flex: 0 0 auto;
+			color: $txt-tertiary;
+			font-size: $fs-16;
+			font-weight: 300;
+			line-height: 1.4;
+		}
+
+		> dd {
+			flex: 1 1 auto;
+			min-width: 0;
+			color: $txt-primary;
+			font-size: $fs-16;
+			font-weight: 500;
+			line-height: 1.4;
+			text-align: right;
+		}
+	}
+
+	// 계좌 종류 / 계좌번호 — 값 칸 안에서 두 줄로 쌓입니다
+	.resultAccTit,
+	.resultAccNum {
+		display: block;
+	}
+
+	.resultAccTit {
+		font-weight: 700;
+	}
+}
+
+// ----------------------------------------------------------------------
 // 하단 CTA
 // 시안은 일반 흐름이라 그대로 두었습니다.
 // 화면 하단 고정이 필요하면 position:sticky; bottom:0 을 추가하세요.

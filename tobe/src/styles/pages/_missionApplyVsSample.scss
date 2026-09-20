@@ -2,7 +2,46 @@
 @use 'sass:math';
 @use 'sass:string';
 @use '../abstracts' as *;
-@use 'missionApply' as *; // .missionKv 기본 스타일과 $kv-sky 를 그대로 씁니다
+// @use 'missionApply' as *; // .missionKv 기본 스타일과 $kv-sky 를 그대로 씁니다
+
+$kv-badge-bg: #cceFde; // 키비주얼 뱃지 배경
+$kv-badge-txt: #007d40; // 키비주얼 뱃지 글자
+$intro-deco: #28aa74; // 소개 영역 상단 초록 장식
+// $kv-sky: #cfe9fd; // 키비주얼 이미지 로딩 전 하늘색
+
+// ----------------------------------------------------------------------
+// MissionKv — 상단 키비주얼
+// 뱃지와 타이틀이 이미지 위에 얹힙니다. 이미지 비율(320:426)은 시안 그대로라
+// 화면 폭이 달라져도 구도가 유지됩니다.
+// ----------------------------------------------------------------------
+.missionKv {
+	position: relative;
+	aspect-ratio: 320 / 426;
+	padding-top: figmaRem(26);
+	background: url('#{$imgURL}/images/mission/kv_mission.png') no-repeat center top / cover;
+	text-align: center;
+	box-sizing: border-box;
+
+	.kvBadge {
+		display: inline-block;
+		padding: figmaRem(5) figmaRem(14);
+		border-radius: $radius-full;
+		background-color: $kv-badge-bg;
+		color: $kv-badge-txt;
+		font-size: $fs-16;
+		font-weight: 500;
+		line-height: 1.4;
+	}
+
+	.kvTit {
+		margin-top: figmaRem(14);
+		color: $txt-primary;
+		font-size: figmaRem(28); // 키비주얼 전용 크기 — 대응 $fs 토큰이 없습니다
+		font-weight: 700;
+		line-height: 1.4;
+	}
+}
+
 
 // ======================================================================
 // 키비주얼 배경 무한루프 비교 샘플 (pages/missionApply_vsSample.html)
@@ -99,7 +138,7 @@ $kv-bg-positions: ();
 	min-width: $kv-min-w;
 	min-height: $kv-h;
 	overflow: hidden; // 흘러나가는 배경과 그림 아래 투명 여백을 KV 안에서 잘라냅니다
-	background: $kv-sky; // 흐르는 그림이 배경이라 고정 배경(kv_mission)은 지웁니다
+	// background: $kv-sky; // 흐르는 그림이 배경이라 고정 배경(kv_mission)은 지웁니다
 
 	// 흐르는 배경 레이어. 뱃지·타이틀은 이 위에 그대로 멈춰 있습니다
 	.kvBgFlow {
@@ -269,9 +308,9 @@ $kv-px-near-t: 16s;
 		pointer-events: none;
 	}
 
-	// 해 — 흐르는 레이어에서 도려내 제자리에 고정했습니다.
-	// 부드러운 빛번짐이라 이미지 대신 radial-gradient 로 그립니다(어느 크기에서도 안 깨집니다).
-	// 마크업에서 구름·산보다 앞(=아래층)에 둬서 구름이 해 앞을 지나갑니다.
+	// 해 — 제자리에 고정
+	// 이미지 대신 radial-gradient 
+	// 구름이 해 앞에 위치
 	.kvPxSun {
 		position: absolute;
 		top: figmaRem(8);
@@ -293,21 +332,21 @@ $kv-px-near-t: 16s;
 		@include kvPxLayer($kv-px-cloud, $kv-px-cloud-w, $kv-px-cloud-t, kvPxCloudFlow, top);
 	}
 
-	// 산·잔디는 아래 기준 — 땅 높이가 서로 어긋나면 안 됩니다
-	.kvPxFar {
-		@include kvPxLayer($kv-px-far, $kv-px-far-w, $kv-px-far-t, kvPxFarFlow);
-	}
+	// 산·잔디는 아래 기준 — 땅 높이가 서로 어긋나면 안 됨
+	// .kvPxFar {
+	// 	@include kvPxLayer($kv-px-far, $kv-px-far-w, $kv-px-far-t, kvPxFarFlow);
+	// }
 
-	.kvPxMid {
-		@include kvPxLayer($kv-px-mid, $kv-px-mid-w, $kv-px-mid-t, kvPxMidFlow);
-	}
+	// .kvPxMid {
+	// 	@include kvPxLayer($kv-px-mid, $kv-px-mid-w, $kv-px-mid-t, kvPxMidFlow);
+	// }
 
 	.kvPxNear {
 		@include kvPxLayer($kv-px-near, $kv-px-near-w, $kv-px-near-t, kvPxNearFlow);
 	}
 }
 
-// 레이어마다 이동거리가 달라 keyframes 도 각각 필요합니다 — 폭과 어긋나지 않게 자동으로 만듭니다
+// 레이어마다 이동거리가 달라 keyframes 도 각각 필요 — 폭과 어긋나지 않게 자동 생성
 @each $name, $w in ('kvPxCloudFlow': $kv-px-cloud-w, 'kvPxFarFlow': $kv-px-far-w, 'kvPxMidFlow': $kv-px-mid-w, 'kvPxNearFlow': $kv-px-near-w) {
 	@keyframes #{$name} {
 		from {
@@ -348,8 +387,8 @@ $kv-px-near-t: 16s;
 	.kvLoopTy1 .kvBgFlow,
 	.kvLoopTy2 .kvBgFlow,
 	.kvParallax .kvPxCloud,
-	.kvParallax .kvPxFar,
-	.kvParallax .kvPxMid,
+	// .kvParallax .kvPxFar,
+	// .kvParallax .kvPxMid,
 	.kvParallax .kvPxNear {
 		animation: none;
 	}

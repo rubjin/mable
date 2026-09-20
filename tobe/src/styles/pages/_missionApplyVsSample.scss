@@ -11,6 +11,7 @@
 //   CASE 0 (.kvStatic)   그림 1장(bg_step1)을 고정 — 안 움직이는 비교 기준
 //   CASE 1 (.kvLoopTy1)  그림 1장(bg_step1)을 이어붙여 4초에 한 바퀴
 //   CASE 2 (.kvLoopTy2)  그림 2장(bg_step1 + bg_step2)이 한 세트로 8초에 한 바퀴
+//   CASE 4 (.kvParallax) 하늘·구름·먼산·앞잔디를 나눠 서로 다른 속도로 (패럴랙스)
 // 두 案의 체감 속도는 같습니다 (그림 1장이 지나가는 시간이 4초로 동일).
 //
 // 어느 쪽으로 정하든 고른 케이스만 _missionApply.scss 의 .missionKv 로 옮기고
@@ -53,7 +54,7 @@ $kv-bg-width: figmaRem(1180);
 $kv-bg-height: figmaRem(550);
 
 // 그림 "1장"이 지나가는 시간. CASE 2 는 한 세트가 2장이라 이 값의 2배(8초)를 씁니다
-$kv-bg-duration: 4s;
+$kv-bg-duration: 8s;
 
 // CASE 2 전용 — 1프레임 = A + B. 이동거리가 정확히 이 값이어야 이음매가 없습니다
 $kv-bg-frame: $kv-bg-width * 2;
@@ -90,6 +91,7 @@ $kv-bg-positions: ();
 // 세 케이스 공통 — 박스 크기는 고정형도 흐르는 案과 똑같아야 비교가 됩니다
 // ----------------------------------------------------------------------
 .kvStatic,
+.kvParallax,
 .kvLoopTy1,
 .kvLoopTy2 {
 	aspect-ratio: auto; // 시안 비율(320:426) 대신 아래 고정 높이를 씁니다
@@ -203,6 +205,121 @@ $kv-bg-positions: ();
 	}
 }
 
+// ----------------------------------------------------------------------
+// CASE 4 — 패럴랙스. 한 장을 통째로 미는 대신 깊이별로 나눠 다른 속도로 흘립니다.
+// 가운데 캐릭터(곰)가 제자리걸음할 때 "그림이 통째로 미끄러지는" 느낌을 없애는 방법입니다.
+//
+//   하늘    .kvParallax 의 background — CSS 그라데이션, 안 움직임
+//   해      .kvPxSun    안 움직임 — 사실상 무한대 거리라 제자리가 자연스럽습니다
+//   구름    .kvPxCloud  60초 — 거의 멈춘 듯이
+//   먼산    .kvPxFar    48초 — 작게 그리고 하늘색을 섞어 흐리게(공기원근)
+//   중간산  .kvPxMid    24초
+//   앞잔디  .kvPxNear   10초 — 곰 발밑. 걸음 속도는 이 값으로 맞춥니다
+//
+// [폭을 일부러 다르게 둔 이유]
+// 네 레이어의 한 바퀴 폭이 서로 배수 관계가 아니라, 같은 배치로 다시 만나기까지
+// 아주 오래 걸립니다. "아까 그 산 또 왔네"가 사라지는 게 이 방식의 진짜 이득입니다.
+//
+// [걸음 속도 맞추기]
+// 땅 속도(px/s) = 보폭 x 초당 걸음수 → $kv-px-near-t = 앞잔디 폭 ÷ 그 값.
+// 곰 모션이 오면 한 루프에 몇 걸음인지 세서 이 값만 다시 잡으면 발이 안 미끄러집니다.
+//
+// [지금 들어 있는 그림은 임시본입니다]
+// bg_step1~3 에서 하늘을 걷어내고 좌우반전으로 이어붙여 만든 파일입니다.
+// 디자이너에게 하늘/먼산/앞잔디를 배경 투명 PNG 로 따로 받으면 경로만 갈아끼우면 됩니다.
+// ----------------------------------------------------------------------
+$kv-px-cloud: url('#{$imgURL}/images/common/bg_px_cloud.png');
+$kv-px-far: url('#{$imgURL}/images/common/bg_px_far.png');
+$kv-px-mid: url('#{$imgURL}/images/common/bg_px_mid.png');
+$kv-px-near: url('#{$imgURL}/images/common/bg_px_near.png');
+
+// 한 바퀴 폭 — 뒤로 갈수록 작게 그려야 멀어 보입니다 (앞잔디 = 그림 2장 폭)
+$kv-px-cloud-w: figmaRem(1180);
+$kv-px-far-w: figmaRem(1888);
+$kv-px-mid-w: figmaRem(2120);
+$kv-px-near-w: figmaRem(2360);
+
+$kv-px-cloud-t: 60s;
+$kv-px-far-t: 48s;
+$kv-px-mid-t: 24s;
+$kv-px-near-t: 16s;
+
+@mixin kvPxLayer($img, $w, $dur, $name, $anchor: bottom) {
+	left: -$w;
+	width: calc(100% + #{$w * 2});
+	background-image: $img;
+	background-repeat: repeat-x;
+	background-size: $w auto; // 폭이 배율을 정하고 세로는 따라옵니다
+	background-position: center $anchor;
+	animation: #{$name} $dur linear infinite;
+}
+
+.kvParallax {
+	// 하늘은 그림이 아니라 그라데이션이라 아무리 넓은 화면에서도 이음매가 없습니다
+	background: linear-gradient(180deg, #acd2ff 0%, #d1e8ff 20%, #d6eeff 40%, #cfecfe 100%);
+
+	.kvPxCloud,
+	.kvPxFar,
+	.kvPxMid,
+	.kvPxNear {
+		position: absolute;
+		top: 0;
+		z-index: 0;
+		height: $kv-bg-height;
+		pointer-events: none;
+	}
+
+	// 해 — 흐르는 레이어에서 도려내 제자리에 고정했습니다.
+	// 부드러운 빛번짐이라 이미지 대신 radial-gradient 로 그립니다(어느 크기에서도 안 깨집니다).
+	// 마크업에서 구름·산보다 앞(=아래층)에 둬서 구름이 해 앞을 지나갑니다.
+	.kvPxSun {
+		position: absolute;
+		top: figmaRem(8);
+		left: figmaRem(40);
+		z-index: 0;
+		width: figmaRem(160);
+		height: figmaRem(160);
+		background: radial-gradient(circle,
+			rgba(255, 255, 255, 1) 0%,
+			rgba(255, 255, 255, 0.9) 30%,
+			rgba(255, 255, 255, 0.46) 50%,
+			rgba(255, 255, 255, 0.22) 74%,
+			rgba(255, 255, 255, 0) 100%);
+		pointer-events: none;
+	}
+
+	// 구름만 위 기준 — 하늘에 떠 있어야 하니까
+	.kvPxCloud {
+		@include kvPxLayer($kv-px-cloud, $kv-px-cloud-w, $kv-px-cloud-t, kvPxCloudFlow, top);
+	}
+
+	// 산·잔디는 아래 기준 — 땅 높이가 서로 어긋나면 안 됩니다
+	.kvPxFar {
+		@include kvPxLayer($kv-px-far, $kv-px-far-w, $kv-px-far-t, kvPxFarFlow);
+	}
+
+	.kvPxMid {
+		@include kvPxLayer($kv-px-mid, $kv-px-mid-w, $kv-px-mid-t, kvPxMidFlow);
+	}
+
+	.kvPxNear {
+		@include kvPxLayer($kv-px-near, $kv-px-near-w, $kv-px-near-t, kvPxNearFlow);
+	}
+}
+
+// 레이어마다 이동거리가 달라 keyframes 도 각각 필요합니다 — 폭과 어긋나지 않게 자동으로 만듭니다
+@each $name, $w in ('kvPxCloudFlow': $kv-px-cloud-w, 'kvPxFarFlow': $kv-px-far-w, 'kvPxMidFlow': $kv-px-mid-w, 'kvPxNearFlow': $kv-px-near-w) {
+	@keyframes #{$name} {
+		from {
+			transform: translate3d(0, 0, 0);
+		}
+
+		to {
+			transform: translate3d(-$w, 0, 0);
+		}
+	}
+}
+
 // 이동거리를 %(-50% 등)로 쓰면 '요소 폭'에 묶여서, 폭을 한 번 잘못 건드리는 순간
 // 그림 주기와 어긋나 튑니다. 그래서 그림/프레임 폭을 직접 씁니다.
 // translate 라서 레이아웃을 건드리지 않고 GPU 로만 움직입니다.
@@ -229,7 +346,11 @@ $kv-bg-positions: ();
 // 기기에서 '동작 줄이기'를 켠 사용자에게는 멈춰 있는 배경을 보여줍니다
 @media (prefers-reduced-motion: reduce) {
 	.kvLoopTy1 .kvBgFlow,
-	.kvLoopTy2 .kvBgFlow {
+	.kvLoopTy2 .kvBgFlow,
+	.kvParallax .kvPxCloud,
+	.kvParallax .kvPxFar,
+	.kvParallax .kvPxMid,
+	.kvParallax .kvPxNear {
 		animation: none;
 	}
 }

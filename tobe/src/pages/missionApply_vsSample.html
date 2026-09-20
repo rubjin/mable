@@ -15,6 +15,7 @@
     CASE 0 (.kvStatic)   bg_step1 한 장을 고정 — 안 움직이는 비교 기준
     CASE 1 (.kvLoopTy1)  bg_step1 한 장을 이어붙여 4초에 한 바퀴
     CASE 2 (.kvLoopTy2)  bg_step1 + bg_step2 두 장이 한 세트로 8초에 한 바퀴
+    CASE 4 (.kvParallax) 하늘·구름·먼산·앞잔디를 나눠 서로 다른 속도로 (패럴랙스)
 
   두 케이스 모두 .missionKv 안에 배경 레이어 <span class="kvBgFlow"> 가 하나 더 들어가는
   것 말고는 마크업이 같습니다. .missionKv 자신의 background 는 움직일 수 없어서
@@ -90,6 +91,27 @@
         <h2 class="kvTit">자산 성장을 향한<br>30일 투자 등반</h2>
     </section>
     <!-- //@@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", loop="ty2") -->
+
+    <!-- ==================================================================
+         CASE 4 — 패럴랙스. 깊이별로 레이어를 나눠 다른 속도로 흘립니다.
+         가운데에 곰 모션이 들어갈 자리라, 배경이 통째로 미끄러지지 않게 하는 案입니다.
+         레이어 span 4개가 순서대로 뒤 → 앞입니다 (뒤에 오는 것이 위에 깔립니다).
+         ================================================================== -->
+    <h3 class="vsCaseTit">CASE 4 — 패럴랙스 (레이어 4장 + 하늘)
+        <span class="vsCaseDesc">구름 60초 · 먼산 48초 · 중간산 24초 · 앞잔디 10초 — 뒤로 갈수록 느리고 흐립니다<br>(하늘과 해는 제자리에 고정, 구름이 해 앞을 지나갑니다. 레이어 폭이 서로 배수가 아니라 같은 배치가 좀처럼 돌아오지 않습니다)</span>
+    </h3>
+
+    <!-- @@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", loop="parallax") -->
+    <section class="missionKv kvParallax">
+        <span class="kvPxSun" aria-hidden="true"></span>
+        <span class="kvPxCloud" aria-hidden="true"></span>
+        <!-- <span class="kvPxFar" aria-hidden="true"></span> -->
+        <!-- <span class="kvPxMid" aria-hidden="true"></span> -->
+        <span class="kvPxNear" aria-hidden="true"></span>
+        <span class="kvBadge">자산성장 트래킹 미션</span>
+        <h2 class="kvTit">자산 성장을 향한<br>30일 투자 등반</h2>
+    </section>
+    <!-- //@@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", loop="parallax") -->
 
     <!-- 미션 소개 -->
     <!-- @@IntroSec: props(title="자산성장 트래킹 미션이란?") -->

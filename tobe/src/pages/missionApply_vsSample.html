@@ -12,6 +12,7 @@
   ==========================================================================
   [키비주얼 배경 무한루프 비교]  .missionKv 의 배경이 우 → 좌 로 끝없이 흐릅니다.
 
+    CASE 0 (.kvStatic)   bg_step1 한 장을 고정 — 안 움직이는 비교 기준
     CASE 1 (.kvLoopTy1)  bg_step1 한 장을 이어붙여 4초에 한 바퀴
     CASE 2 (.kvLoopTy2)  bg_step1 + bg_step2 두 장이 한 세트로 8초에 한 바퀴
 
@@ -45,6 +46,20 @@
 <!-- //@@NavHeader: props(title="자산성장 트래킹 미션", onBack, onPoint, onInfo) -->
 
 <main>
+
+    <!-- ==================================================================
+         CASE 0 — 안 움직이는 고정형 (비교 기준)
+         ================================================================== -->
+    <h3 class="vsCaseTit">CASE 0 — 안 움직이는 고정형
+        <span class="vsCaseDesc">bg_step1 한 장을 좌우 가운데에 고정하고, 양옆에 남는 자리는 2px 그림(bg_step1_l / bg_step1_r)을 repeat-x 로 이어 채웁니다</span>
+    </h3>
+
+    <!-- @@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", loop="none") -->
+    <section class="missionKv kvStatic">
+        <span class="kvBadge">자산성장 트래킹 미션</span>
+        <h2 class="kvTit">자산 성장을 향한<br>30일 투자 등반</h2>
+    </section>
+    <!-- //@@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", loop="none") -->
 
     <!-- ==================================================================
          CASE 1 — 그림 1장(bg_step1) 무한루프

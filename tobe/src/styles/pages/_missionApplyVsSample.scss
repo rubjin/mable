@@ -7,7 +7,8 @@
 // ======================================================================
 // 키비주얼 배경 무한루프 비교 샘플 (pages/missionApply_vsSample.html)
 // ----------------------------------------------------------------------
-// .missionKv 배경을 우 → 좌 로 끝없이 흐르게 하는 두 가지 案 입니다.
+// .missionKv 배경을 우 → 좌 로 끝없이 흐르게 하는 두 가지 案 과 비교 기준인 고정형입니다.
+//   CASE 0 (.kvStatic)   그림 1장(bg_step1)을 고정 — 안 움직이는 비교 기준
 //   CASE 1 (.kvLoopTy1)  그림 1장(bg_step1)을 이어붙여 4초에 한 바퀴
 //   CASE 2 (.kvLoopTy2)  그림 2장(bg_step1 + bg_step2)이 한 세트로 8초에 한 바퀴
 // 두 案의 체감 속도는 같습니다 (그림 1장이 지나가는 시간이 4초로 동일).
@@ -29,6 +30,13 @@
 
 $kv-bg-1: url('#{$imgURL}/images/common/bg_step1.png');
 $kv-bg-2: url('#{$imgURL}/images/common/bg_step2.png');
+
+// CASE 0 좌우 채움 — 가운데 그림보다 화면이 넓을 때 남는 좌우를 메우는 2px 그림입니다.
+// 지금 들어 있는 파일은 bg_step1 의 좌우 끝 2px 을 잘라 만든 임시본이라,
+// 진짜 2px 그림이 오면 같은 이름으로 덮어쓰거나 아래 두 줄만 바꾸면 됩니다.
+$kv-edge-l: url('#{$imgURL}/images/common/bg_step1_l.png');
+$kv-edge-r: url('#{$imgURL}/images/common/bg_step1_r.png');
+$kv-edge-w: 2px; // 가로는 1:1(2px)로 깔고 세로만 가운데 그림 높이에 맞춥니다
 
 // KV 높이 = 화면에 보이는 그림 높이. 시안 540 을 figmaRem 으로 넣었습니다.
 // 아래 크기가 전부 figmaRem 이라 html font-size(14/16/18px)에 맞춰 통째로 같이 커집니다
@@ -79,8 +87,9 @@ $kv-bg-positions: ();
 }
 
 // ----------------------------------------------------------------------
-// 두 케이스 공통
+// 세 케이스 공통 — 박스 크기는 고정형도 흐르는 案과 똑같아야 비교가 됩니다
 // ----------------------------------------------------------------------
+.kvStatic,
 .kvLoopTy1,
 .kvLoopTy2 {
 	aspect-ratio: auto; // 시안 비율(320:426) 대신 아래 고정 높이를 씁니다
@@ -104,6 +113,54 @@ $kv-bg-positions: ();
 	.kvTit {
 		position: relative;
 		z-index: 1;
+	}
+}
+
+// ----------------------------------------------------------------------
+// CASE 0 — 안 움직이는 고정형 (비교 기준)
+// 흐르지 않으니 배경 레이어(.kvBgFlow) 없이 KV 자신의 background 로 충분합니다.
+// 위 공통 블록의 background 단축속성을 덮어써야 해서 순서상 이 자리에 있어야 합니다.
+//
+// 세로를 auto 로 두는 건 폭이 배율을 정하게 하려는 것입니다.
+// 원본(2360x1100)은 아래 20 이 투명 여백이라 폭을 1180 으로 주면 그림이 정확히 540 으로
+// 들어오고, 남는 10 은 KV 밖으로 밀려 잘립니다. 캔버스 세로가 다른 그림으로 바꿔도
+// 위치가 밀리지 않습니다.
+// ----------------------------------------------------------------------
+.kvStatic {
+	background-image: $kv-bg-1;
+	background-repeat: no-repeat;
+	background-position: center top; // 좌우 기준 가운데
+	background-size: $kv-bg-width auto;
+
+	// 가운데 그림 양옆에 남는 자리를 2px 그림으로 이어 채웁니다.
+	// repeat-x 라 화면이 아무리 넓어져도 계속 채워지고,
+	// 화면이 그림보다 좁으면 폭이 0 이하가 되어 저절로 사라집니다.
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		z-index: 0;
+		// 가운데 그림이 차지하고 남은 한쪽 폭. 1px 은 이음매가 비치지 않게 그림 위로 겹칩니다
+		width: calc((100% - #{$kv-bg-width}) / 2 + 1px);
+		height: $kv-bg-height; // 가운데 그림과 같은 높이로 늘립니다
+		background-repeat: repeat-x;
+		background-size: $kv-edge-w $kv-bg-height;
+		pointer-events: none;
+	}
+
+	// 그림과 맞닿는 쪽(::before 는 오른쪽, ::after 는 왼쪽)에 온전한 한 장이 오도록
+	// 기준을 그 끝에 둡니다. 남는 반 장은 바깥쪽 끝으로 밀려납니다
+	&::before {
+		left: 0;
+		background-image: $kv-edge-l;
+		background-position: right top;
+	}
+
+	&::after {
+		right: 0;
+		background-image: $kv-edge-r;
+		background-position: left top;
 	}
 }
 

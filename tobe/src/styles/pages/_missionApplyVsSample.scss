@@ -1,0 +1,197 @@
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:string';
+@use '../abstracts' as *;
+@use 'missionApply' as *; // .missionKv 기본 스타일과 $kv-sky 를 그대로 씁니다
+
+// ======================================================================
+// 키비주얼 배경 무한루프 비교 샘플 (pages/missionApply_vsSample.html)
+// ----------------------------------------------------------------------
+// .missionKv 배경을 우 → 좌 로 끝없이 흐르게 하는 두 가지 案 입니다.
+//   CASE 1 (.kvLoopTy1)  그림 1장(bg_step1)을 이어붙여 4초에 한 바퀴
+//   CASE 2 (.kvLoopTy2)  그림 2장(bg_step1 + bg_step2)이 한 세트로 8초에 한 바퀴
+// 두 案의 체감 속도는 같습니다 (그림 1장이 지나가는 시간이 4초로 동일).
+//
+// 어느 쪽으로 정하든 고른 케이스만 _missionApply.scss 의 .missionKv 로 옮기고
+// 이 파일과 globals.scss 의 @use 한 줄은 지우면 됩니다.
+//
+// [배경을 왜 따로 레이어로 두나]
+// .missionKv 자신의 background 를 움직일 수는 없습니다 (뱃지·타이틀까지 같이 움직입니다).
+// 그래서 뒤에 깔리는 레이어(.kvBgFlow)만 흐르게 하고 문구는 그 위에 멈춰 둡니다.
+//
+// [가운데 정렬]
+// 레이어는 KV 중심을 기준으로 좌우 대칭으로 깔립니다 (left 음수 + 그만큼 넓은 width).
+// 그래서 background-position 의 50% 가 곧 KV 의 한가운데이고, 멈춰 있는 첫 프레임에서
+// 그림이 좌우 기준 가운데에 옵니다.
+//
+// 크기는 $kv-h / $kv-bg-width, 속도는 $kv-bg-duration, 그림은 $kv-bg-1 / $kv-bg-2 만 고치세요.
+// ======================================================================
+
+$kv-bg-1: url('#{$imgURL}/images/common/bg_step1.png');
+$kv-bg-2: url('#{$imgURL}/images/common/bg_step2.png');
+
+// KV 높이 = 화면에 보이는 그림 높이. 시안 540 을 figmaRem 으로 넣었습니다.
+// 아래 크기가 전부 figmaRem 이라 html font-size(14/16/18px)에 맞춰 통째로 같이 커집니다
+// — 비율이 유지되므로 이동거리와 그림 주기도 어긋나지 않습니다.
+$kv-h: figmaRem(540);
+$kv-min-w: figmaRem(540);
+$kv-min-w: 0;
+
+// 그림 1장이 그려질 크기 — 원본 2360x1100 의 절반(=1배수) 크기입니다.
+// 원본 아래 20 은 투명 여백이라 550 으로 깔아야 실제로 보이는 그림이 정확히 540 이 되고,
+// 남는 10 은 KV 밖으로 밀려 overflow 에 잘립니다.
+// (그림을 여백 없이 다시 뽑으면 $kv-bg-height 를 $kv-h 와 같게 두세요)
+$kv-bg-width: figmaRem(1180);
+$kv-bg-height: figmaRem(550);
+
+// 그림 "1장"이 지나가는 시간. CASE 2 는 한 세트가 2장이라 이 값의 2배(8초)를 씁니다
+$kv-bg-duration: 4s;
+
+// CASE 2 전용 — 1프레임 = A + B. 이동거리가 정확히 이 값이어야 이음매가 없습니다
+$kv-bg-frame: $kv-bg-width * 2;
+
+// CASE 2 에서 가운데(A) 기준으로 좌우 몇 장씩 더 깔지.
+// 넓은 화면에서 오른쪽이 비면 이 값만 올리세요
+//   보장되는 화면폭 = (2 x $kv-bg-span - 3) x $kv-bg-width  (span:3 이면 시안 3540)
+$kv-bg-span: 3;
+
+// 가운데(50%)를 기준으로 A B A B ... 를 좌우로 까는 목록을 자동으로 만듭니다.
+// 손으로 적으면 장수와 위치가 어긋나기 쉬워서입니다. 짝수 칸이 A, 홀수 칸이 B 라
+// 2장(=1프레임)만큼 밀면 같은 그림이 그 자리에 와 있습니다.
+$kv-bg-images: ();
+$kv-bg-positions: ();
+
+@for $k from (-1 * $kv-bg-span) through $kv-bg-span {
+	$img: $kv-bg-1; // 짝수 칸 = A
+	$sign: '+';
+	$offset: math.abs($kv-bg-width * $k);
+
+	@if $k % 2 != 0 {
+		$img: $kv-bg-2; // 홀수 칸 = B
+	}
+
+	@if $k < 0 {
+		$sign: '-'; // calc(50% + -73.75rem) 은 브라우저에 따라 안 먹어서 부호를 직접 만듭니다
+	}
+
+	$kv-bg-images: list.append($kv-bg-images, $img, comma);
+	$kv-bg-positions: list.append($kv-bg-positions, string.unquote('calc(50% #{$sign} #{$offset}) top'), comma);
+}
+
+// ----------------------------------------------------------------------
+// 두 케이스 공통
+// ----------------------------------------------------------------------
+.kvLoopTy1,
+.kvLoopTy2 {
+	aspect-ratio: auto; // 시안 비율(320:426) 대신 아래 고정 높이를 씁니다
+	width: 100%;
+	min-width: $kv-min-w;
+	min-height: $kv-h;
+	overflow: hidden; // 흘러나가는 배경과 그림 아래 투명 여백을 KV 안에서 잘라냅니다
+	background: $kv-sky; // 흐르는 그림이 배경이라 고정 배경(kv_mission)은 지웁니다
+
+	// 흐르는 배경 레이어. 뱃지·타이틀은 이 위에 그대로 멈춰 있습니다
+	.kvBgFlow {
+		position: absolute;
+		top: 0;
+		height: $kv-bg-height;
+		background-size: $kv-bg-width $kv-bg-height;
+		pointer-events: none;
+	}
+
+	// 배경 레이어가 position:absolute 라 그냥 두면 문구가 가립니다
+	.kvBadge,
+	.kvTit {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+// ----------------------------------------------------------------------
+// CASE 1 — 그림 1장(bg_step1)만 무한루프
+// 한 장이라 repeat-x 로 이어붙이면 끝나고, 1장 폭만큼 밀면 제자리입니다.
+// 단, 그림의 왼쪽 끝과 오른쪽 끝이 맞아야 이음매가 보이지 않습니다.
+// 지금 bg_step1 은 하늘은 정확히 맞는데 왼쪽 끝 언덕선이 오른쪽 끝보다 높아서
+// 한 바퀴에 한 번 땅 높이가 툭 튑니다. 좌우 끝이 맞는 그림을 다시 받거나 CASE 2 를 쓰세요.
+// ----------------------------------------------------------------------
+.kvLoopTy1 {
+	.kvBgFlow {
+		// 1장을 밀어낸 뒤에도 오른쪽이 비지 않도록 좌우로 1장씩 더 깔아둡니다
+		left: -$kv-bg-width;
+		width: calc(100% + #{$kv-bg-width * 2});
+		background-image: $kv-bg-1;
+		background-repeat: repeat-x;
+		background-position: center top; // 레이어가 KV 중심 기준이라 곧 좌우 가운데입니다
+		animation: kvBgFlowTy1 $kv-bg-duration linear infinite;
+	}
+}
+
+// ----------------------------------------------------------------------
+// CASE 2 — 그림 2장(bg_step1 + bg_step2)이 한 세트로 무한루프
+// repeat-x 는 반복 주기가 background-size(= 1장) 로 고정이라 A·B 를 번갈아 낼 수 없습니다.
+// 그래서 no-repeat 로 A B A B ... 위치에 직접 깔고 한 세트(2장)만큼 밉니다.
+// 이어져야 하는 경계는 A→B, B→A 두 군데인데, bg_step1 · bg_step2 는 서로 끝이 맞게
+// 그려져 있어 두 경계 모두 이음매가 보이지 않습니다.
+// ----------------------------------------------------------------------
+.kvLoopTy2 {
+	.kvBgFlow {
+		// 1프레임(2장)을 밀어낸 뒤에도 비지 않도록 좌우로 1프레임씩 더 깔아둡니다
+		left: -$kv-bg-frame;
+		width: calc(100% + #{$kv-bg-frame * 2});
+		background-image: $kv-bg-images;
+		// repeat / size 는 값 하나만 적으면 이미지 개수만큼 자동 복제됩니다
+		background-repeat: no-repeat;
+		background-position: $kv-bg-positions;
+		animation: kvBgFlowTy2 ($kv-bg-duration * 2) linear infinite;
+	}
+}
+
+// 이동거리를 %(-50% 등)로 쓰면 '요소 폭'에 묶여서, 폭을 한 번 잘못 건드리는 순간
+// 그림 주기와 어긋나 튑니다. 그래서 그림/프레임 폭을 직접 씁니다.
+// translate 라서 레이아웃을 건드리지 않고 GPU 로만 움직입니다.
+@keyframes kvBgFlowTy1 {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+
+	to {
+		transform: translate3d(-$kv-bg-width, 0, 0);
+	}
+}
+
+@keyframes kvBgFlowTy2 {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+
+	to {
+		transform: translate3d(-$kv-bg-frame, 0, 0);
+	}
+}
+
+// 기기에서 '동작 줄이기'를 켠 사용자에게는 멈춰 있는 배경을 보여줍니다
+@media (prefers-reduced-motion: reduce) {
+	.kvLoopTy1 .kvBgFlow,
+	.kvLoopTy2 .kvBgFlow {
+		animation: none;
+	}
+}
+
+// ----------------------------------------------------------------------
+// 비교용 라벨 — 샘플 페이지에서만 쓰는 장식입니다 (옮길 때 가져가지 마세요)
+// ----------------------------------------------------------------------
+.vsCaseTit {
+	padding: figmaRem(20) figmaRem(20) figmaRem(10);
+	color: $txt-primary;
+	font-size: $fs-16;
+	font-weight: 700;
+	line-height: 1.4;
+
+	.vsCaseDesc {
+		display: block;
+		margin-top: figmaRem(4);
+		color: $txt-tertiary;
+		font-size: $fs-15;
+		font-weight: 300;
+	}
+}

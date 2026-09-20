@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자산성장 트래킹 미션</title>
+    <link rel="stylesheet" href="../styles/globals.scss">
+</head>
+<body>
+
+<!--
+  ==========================================================================
+  [키비주얼 배경 무한루프 비교]  .missionKv 의 배경이 우 → 좌 로 끝없이 흐릅니다.
+
+    CASE 1 (.kvLoopTy1)  bg_step1 한 장을 이어붙여 4초에 한 바퀴
+    CASE 2 (.kvLoopTy2)  bg_step1 + bg_step2 두 장이 한 세트로 8초에 한 바퀴
+
+  두 케이스 모두 .missionKv 안에 배경 레이어 <span class="kvBgFlow"> 가 하나 더 들어가는
+  것 말고는 마크업이 같습니다. .missionKv 자신의 background 는 움직일 수 없어서
+  (뱃지·타이틀까지 같이 움직입니다) 뒤에 깔리는 레이어만 따로 흐르게 한 구조입니다.
+
+  KV 는 높이(min-height) 540 · min-width 540 · width 100% 이고,
+  그림은 1180x550 으로 좌우 기준 가운데에서 시작해 우 → 좌 로 흐릅니다.
+  크기는 전부 figmaRem 이라 화면 폭에 따라 KV 와 그림이 같이 커집니다.
+
+  스타일은 styles/pages/_missionApplyVsSample.scss 한 파일에 모여 있습니다.
+  크기($kv-h) · 속도($kv-bg-duration) · 그림 경로만 그 파일에서 고치면 됩니다.
+
+  案이 정해지면 고른 케이스만 styles/pages/_missionApply.scss 의 .missionKv 로 옮기고
+  이 페이지와 _missionApplyVsSample.scss, globals.scss 의 @use 한 줄은 지우세요.
+
+  .vsCaseTit 은 두 案을 구분하려고 붙인 샘플 전용 라벨이라 옮길 때 가져가지 마세요.
+  ==========================================================================
+-->
+
+<!-- @@NavHeader: props(title="자산성장 트래킹 미션", onBack, onPoint, onInfo) -->
+<header class="navHead">
+    <button type="button" class="btnNavBack" aria-label="뒤로가기"></button>
+    <h1 class="navTit">자산성장 트래킹 미션</h1>
+    <div class="navUtil">
+        <button type="button" class="btnPoint" aria-label="포인트"></button>
+        <button type="button" class="btnInfo" aria-label="미션 안내"></button>
+    </div>
+</header>
+<!-- //@@NavHeader: props(title="자산성장 트래킹 미션", onBack, onPoint, onInfo) -->
+
+<main>
+
+    <!-- ==================================================================
+         CASE 1 — 그림 1장(bg_step1) 무한루프
+         ================================================================== -->
+    <h3 class="vsCaseTit">CASE 1 — 그림 1장 무한루프
+        <span class="vsCaseDesc">bg_step1 한 장을 repeat-x 로 이어붙여 4초에 한 바퀴 돕니다<br>(좌우 끝 언덕선이 달라 한 바퀴에 한 번 이음매가 보입니다)</span>
+    </h3>
+
+    <!-- @@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", loop="ty1") -->
+    <section class="missionKv kvLoopTy1">
+        <span class="kvBgFlow" aria-hidden="true"></span>
+        <span class="kvBadge">자산성장 트래킹 미션</span>
+        <h2 class="kvTit">자산 성장을 향한<br>30일 투자 등반</h2>
+    </section>
+    <!-- //@@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", loop="ty1") -->
+
+    <!-- ==================================================================
+         CASE 2 — 그림 2장(bg_step1 + bg_step2)이 한 세트로 무한루프
+         ================================================================== -->
+    <h3 class="vsCaseTit">CASE 2 — 그림 2장 세트 무한루프
+        <span class="vsCaseDesc">bg_step1 → bg_step2 가 번갈아 지나가고 8초에 한 바퀴 돕니다<br>(그림 1장당 4초라 CASE 1 과 체감 속도는 같고, 두 그림의 끝이 맞아 이음매가 없습니다)</span>
+    </h3>
+
+    <!-- @@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", loop="ty2") -->
+    <section class="missionKv kvLoopTy2">
+        <span class="kvBgFlow" aria-hidden="true"></span>
+        <span class="kvBadge">자산성장 트래킹 미션</span>
+        <h2 class="kvTit">자산 성장을 향한<br>30일 투자 등반</h2>
+    </section>
+    <!-- //@@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", loop="ty2") -->
+
+    <!-- 미션 소개 -->
+    <!-- @@IntroSec: props(title="자산성장 트래킹 미션이란?") -->
+    <section class="introSec">
+        <span class="introDeco" aria-hidden="true"></span>
+        <h2 class="introTit">자산성장 트래킹 미션이란?</h2>
+        <p class="introTxt">투자의 시작부터 자산 성장까지!<br>30일 동안 3개 코스에 도전하고 20,000P 받아요</p>
+        <span class="introVisual" aria-hidden="true"></span>
+    </section>
+    <!-- //@@IntroSec: props(title="자산성장 트래킹 미션이란?") -->
+
+</main>
+
+<script src="../assets/js/ui.js"></script>
+</body>
+</html>

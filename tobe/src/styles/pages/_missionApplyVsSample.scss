@@ -1,6 +1,3 @@
-@use 'sass:list';
-@use 'sass:math';
-@use 'sass:string';
 @use '../abstracts' as *;
 // @use 'missionApply' as *; // .missionKv 기본 스타일과 $kv-sky 를 그대로 씁니다
 
@@ -60,18 +57,21 @@ $intro-deco: #28aa74; // 소개 영역 상단 초록 장식
 // .missionKv 자신의 background 를 움직일 수는 없습니다 (뱃지·타이틀까지 같이 움직입니다).
 // 그래서 뒤에 깔리는 레이어(.kvBgFlow)만 흐르게 하고 문구는 그 위에 멈춰 둡니다.
 //
-// [가운데 정렬]
-// 레이어는 KV 중심을 기준으로 좌우 대칭으로 깔립니다 (left 음수 + 그만큼 넓은 width).
-// 그래서 background-position 의 50% 가 곧 KV 의 한가운데이고, 멈춰 있는 첫 프레임에서
-// 그림이 좌우 기준 가운데에 옵니다.
+// [그림은 CSS background 가 아니라 <img> 입니다]
+// 레이어는 같은 그림 <img> 를 가로로 이어 담은 띠(display:flex)이고, 띠를 통째로 움직입니다.
+// 그래서 여기서 정하는 건 "한 장을 얼마로 그릴지(width)"뿐이고, 몇 장을 깔지는 마크업이 정합니다.
+// 장수를 바꿀 일이 생기면 html 의 <img> 를 늘리고 줄이면 되고, 이 파일은 건드릴 게 없습니다.
 //
-// 크기는 $kv-h / $kv-bg-width, 속도는 $kv-bg-duration, 그림은 $kv-bg-1 / $kv-bg-2 만 고치세요.
+// [가운데 정렬]
+// 띠를 justify-content:center 로 두면 그 한가운데가 곧 KV 한가운데입니다 (예전 background-position
+// 의 50% 와 같은 자리). 화면보다 띠가 넓으면 넘치는 만큼 좌우로 똑같이 밀려나 overflow 에 잘립니다.
+//
+// 크기는 $kv-h / $kv-bg-width, 속도는 $kv-bg-duration 만 고치면 되고, 그림 경로는 html 에 있습니다.
 // ======================================================================
 
-$kv-bg-1: url('#{$imgURL}/images/common/bg_step1.png');
-$kv-bg-2: url('#{$imgURL}/images/common/bg_step2.png');
-
 // CASE 0 좌우 채움 — 가운데 그림보다 화면이 넓을 때 남는 좌우를 메우는 2px 그림입니다.
+// 여기만 background 로 남겨 뒀습니다. 화면 폭에 따라 몇 번을 반복해야 할지 정할 수 없는 자리라
+// <img> 로는 장수를 못 박을 수가 없고, repeat-x 는 그 걱정이 없습니다.
 // 지금 들어 있는 파일은 bg_step1 의 좌우 끝 2px 을 잘라 만든 임시본이라,
 // 진짜 2px 그림이 오면 같은 이름으로 덮어쓰거나 아래 두 줄만 바꾸면 됩니다.
 $kv-edge-l: url('#{$imgURL}/images/common/bg_step1_l.png');
@@ -98,34 +98,6 @@ $kv-bg-duration: 8s;
 // CASE 2 전용 — 1프레임 = A + B. 이동거리가 정확히 이 값이어야 이음매가 없습니다
 $kv-bg-frame: $kv-bg-width * 2;
 
-// CASE 2 에서 가운데(A) 기준으로 좌우 몇 장씩 더 깔지.
-// 넓은 화면에서 오른쪽이 비면 이 값만 올리세요
-//   보장되는 화면폭 = (2 x $kv-bg-span - 3) x $kv-bg-width  (span:3 이면 시안 3540)
-$kv-bg-span: 3;
-
-// 가운데(50%)를 기준으로 A B A B ... 를 좌우로 까는 목록을 자동으로 만듭니다.
-// 손으로 적으면 장수와 위치가 어긋나기 쉬워서입니다. 짝수 칸이 A, 홀수 칸이 B 라
-// 2장(=1프레임)만큼 밀면 같은 그림이 그 자리에 와 있습니다.
-$kv-bg-images: ();
-$kv-bg-positions: ();
-
-@for $k from (-1 * $kv-bg-span) through $kv-bg-span {
-	$img: $kv-bg-1; // 짝수 칸 = A
-	$sign: '+';
-	$offset: math.abs($kv-bg-width * $k);
-
-	@if $k % 2 != 0 {
-		$img: $kv-bg-2; // 홀수 칸 = B
-	}
-
-	@if $k < 0 {
-		$sign: '-'; // calc(50% + -73.75rem) 은 브라우저에 따라 안 먹어서 부호를 직접 만듭니다
-	}
-
-	$kv-bg-images: list.append($kv-bg-images, $img, comma);
-	$kv-bg-positions: list.append($kv-bg-positions, string.unquote('calc(50% #{$sign} #{$offset}) top'), comma);
-}
-
 // ----------------------------------------------------------------------
 // 세 케이스 공통 — 박스 크기는 고정형도 흐르는 案과 똑같아야 비교가 됩니다
 // ----------------------------------------------------------------------
@@ -138,15 +110,25 @@ $kv-bg-positions: ();
 	min-width: $kv-min-w;
 	min-height: $kv-h;
 	overflow: hidden; // 흘러나가는 배경과 그림 아래 투명 여백을 KV 안에서 잘라냅니다
-	// background: $kv-sky; // 흐르는 그림이 배경이라 고정 배경(kv_mission)은 지웁니다
+	background: none; // 그림이 <img> 로 들어오니 기본 배경(kv_mission)은 비웁니다
 
-	// 흐르는 배경 레이어. 뱃지·타이틀은 이 위에 그대로 멈춰 있습니다
+	// 흐르는 배경 레이어 — 같은 그림 <img> 를 가로로 이어 담은 띠입니다.
+	// 뱃지·타이틀은 이 위에 그대로 멈춰 있습니다
 	.kvBgFlow {
 		position: absolute;
 		top: 0;
+		left: 0;
+		display: flex;
+		justify-content: center; // 띠 한가운데 = KV 한가운데. 넘치는 만큼은 좌우로 똑같이 잘립니다
+		width: 100%;
 		height: $kv-bg-height;
-		background-size: $kv-bg-width $kv-bg-height;
 		pointer-events: none;
+
+		img {
+			flex: none; // 남는 자리에 맞춰 늘거나 줄면 폭이 달라져 이동거리와 어긋납니다
+			width: $kv-bg-width;
+			height: $kv-bg-height;
+		}
 	}
 
 	// 배경 레이어가 position:absolute 라 그냥 두면 문구가 가립니다
@@ -159,8 +141,7 @@ $kv-bg-positions: ();
 
 // ----------------------------------------------------------------------
 // CASE 0 — 안 움직이는 고정형 (비교 기준)
-// 흐르지 않으니 배경 레이어(.kvBgFlow) 없이 KV 자신의 background 로 충분합니다.
-// 위 공통 블록의 background 단축속성을 덮어써야 해서 순서상 이 자리에 있어야 합니다.
+// 흐르지 않으니 띠가 필요 없고 <img> 한 장을 가운데에 세워 두면 됩니다.
 //
 // 세로를 auto 로 두는 건 폭이 배율을 정하게 하려는 것입니다.
 // 원본(2360x1100)은 아래 20 이 투명 여백이라 폭을 1180 으로 주면 그림이 정확히 540 으로
@@ -168,10 +149,17 @@ $kv-bg-positions: ();
 // 위치가 밀리지 않습니다.
 // ----------------------------------------------------------------------
 .kvStatic {
-	background-image: $kv-bg-1;
-	background-repeat: no-repeat;
-	background-position: center top; // 좌우 기준 가운데
-	background-size: $kv-bg-width auto;
+	// 화면이 그림보다 좁아져도 가운데를 기준으로 좌우가 똑같이 잘리게 left:50% + -50% 이동
+	.kvBgStill {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		z-index: 0;
+		width: $kv-bg-width;
+		height: auto;
+		transform: translateX(-50%);
+		pointer-events: none;
+	}
 
 	// 가운데 그림 양옆에 남는 자리를 2px 그림으로 이어 채웁니다.
 	// repeat-x 라 화면이 아무리 넓어져도 계속 채워지고,
@@ -212,34 +200,24 @@ $kv-bg-positions: ();
 // 지금 bg_step1 은 하늘은 정확히 맞는데 왼쪽 끝 언덕선이 오른쪽 끝보다 높아서
 // 한 바퀴에 한 번 땅 높이가 툭 튑니다. 좌우 끝이 맞는 그림을 다시 받거나 CASE 2 를 쓰세요.
 // ----------------------------------------------------------------------
+// 띠에 몇 장을 담을지는 html 이 정합니다 (지금 5장 — 화면 폭 1180x3 까지)
 .kvLoopTy1 {
 	.kvBgFlow {
-		// 1장을 밀어낸 뒤에도 오른쪽이 비지 않도록 좌우로 1장씩 더 깔아둡니다
-		left: -$kv-bg-width;
-		width: calc(100% + #{$kv-bg-width * 2});
-		background-image: $kv-bg-1;
-		background-repeat: repeat-x;
-		background-position: center top; // 레이어가 KV 중심 기준이라 곧 좌우 가운데입니다
 		animation: kvBgFlowTy1 $kv-bg-duration linear infinite;
 	}
 }
 
 // ----------------------------------------------------------------------
 // CASE 2 — 그림 2장(bg_step1 + bg_step2)이 한 세트로 무한루프
-// repeat-x 는 반복 주기가 background-size(= 1장) 로 고정이라 A·B 를 번갈아 낼 수 없습니다.
-// 그래서 no-repeat 로 A B A B ... 위치에 직접 깔고 한 세트(2장)만큼 밉니다.
+// 띠에 A B 를 번갈아 담고 한 세트(2장)만큼 밉니다. 밀린 자리에는 늘 같은 그림이 와 있습니다.
 // 이어져야 하는 경계는 A→B, B→A 두 군데인데, bg_step1 · bg_step2 는 서로 끝이 맞게
 // 그려져 있어 두 경계 모두 이음매가 보이지 않습니다.
+// (배경이었을 땐 repeat-x 의 반복 주기가 1장으로 고정이라 A·B 를 번갈아 낼 수 없어서
+//  좌표를 하나하나 계산해 깔아야 했는데, <img> 는 순서대로 적기만 하면 됩니다)
+// 장수는 html 이 정합니다 (지금 7장 — 화면 폭 1180x3 까지)
 // ----------------------------------------------------------------------
 .kvLoopTy2 {
 	.kvBgFlow {
-		// 1프레임(2장)을 밀어낸 뒤에도 비지 않도록 좌우로 1프레임씩 더 깔아둡니다
-		left: -$kv-bg-frame;
-		width: calc(100% + #{$kv-bg-frame * 2});
-		background-image: $kv-bg-images;
-		// repeat / size 는 값 하나만 적으면 이미지 개수만큼 자동 복제됩니다
-		background-repeat: no-repeat;
-		background-position: $kv-bg-positions;
 		animation: kvBgFlowTy2 ($kv-bg-duration * 2) linear infinite;
 	}
 }
@@ -251,8 +229,6 @@ $kv-bg-positions: ();
 //   하늘    .kvParallax 의 background — CSS 그라데이션, 안 움직임
 //   해      .kvPxSun    안 움직임 — 사실상 무한대 거리라 제자리가 자연스럽습니다
 //   구름    .kvPxCloud  60초 — 거의 멈춘 듯이
-//   먼산    .kvPxFar    48초 — 작게 그리고 하늘색을 섞어 흐리게(공기원근)
-//   중간산  .kvPxMid    24초
 //   앞잔디  .kvPxNear   10초 — 곰 발밑. 걸음 속도는 이 값으로 맞춥니다
 //
 // [폭을 일부러 다르게 둔 이유]
@@ -267,30 +243,24 @@ $kv-bg-positions: ();
 // bg_step1~3 에서 하늘을 걷어내고 좌우반전으로 이어붙여 만든 파일입니다.
 // 디자이너에게 하늘/먼산/앞잔디를 배경 투명 PNG 로 따로 받으면 경로만 갈아끼우면 됩니다.
 // ----------------------------------------------------------------------
-$kv-px-cloud: url('#{$imgURL}/images/common/bg_px_cloud.png');
-$kv-px-far: url('#{$imgURL}/images/common/bg_px_far.png');
-$kv-px-mid: url('#{$imgURL}/images/common/bg_px_mid.png');
-$kv-px-near: url('#{$imgURL}/images/common/bg_px_near.png');
+// 그림 경로는 html 의 <img> 에 있습니다 (bg_px_cloud / far / mid / near)
 
 // 한 바퀴 폭 — 뒤로 갈수록 작게 그려야 멀어 보입니다 (앞잔디 = 그림 2장 폭)
 $kv-px-cloud-w: figmaRem(1180);
-$kv-px-far-w: figmaRem(1888);
-$kv-px-mid-w: figmaRem(2120);
-$kv-px-near-w: figmaRem(2360);
+$kv-px-near-w: figmaRem(1180);
 
 $kv-px-cloud-t: 60s;
-$kv-px-far-t: 48s;
-$kv-px-mid-t: 24s;
 $kv-px-near-t: 16s;
 
-@mixin kvPxLayer($img, $w, $dur, $name, $anchor: bottom) {
-	left: -$w;
-	width: calc(100% + #{$w * 2});
-	background-image: $img;
-	background-repeat: repeat-x;
-	background-size: $w auto; // 폭이 배율을 정하고 세로는 따라옵니다
-	background-position: center $anchor;
+// 레이어 하나 = <img> 를 이어 담은 띠. 폭($w)만 주면 세로는 그림 비율대로 따라옵니다.
+// $anchor 는 띠 안에서 그림을 위(flex-start)에 붙일지 아래(flex-end)에 붙일지입니다
+@mixin kvPxLayer($w, $dur, $name, $anchor: flex-end) {
+	align-items: $anchor;
 	animation: #{$name} $dur linear infinite;
+
+	img {
+		width: $w;
+	}
 }
 
 .kvParallax {
@@ -298,14 +268,21 @@ $kv-px-near-t: 16s;
 	background: linear-gradient(180deg, #acd2ff 0%, #d1e8ff 20%, #d6eeff 40%, #cfecfe 100%);
 
 	.kvPxCloud,
-	.kvPxFar,
-	.kvPxMid,
 	.kvPxNear {
 		position: absolute;
 		top: 0;
+		left: 0;
 		z-index: 0;
+		display: flex;
+		justify-content: center; // 띠 한가운데 = KV 한가운데
+		width: 100%;
 		height: $kv-bg-height;
 		pointer-events: none;
+
+		img {
+			flex: none; // 폭이 곧 이동거리라 늘거나 줄면 한 바퀴가 어긋납니다
+			height: auto; // 폭이 배율을 정하고 세로는 따라옵니다
+		}
 	}
 
 	// 해 — 제자리에 고정
@@ -329,25 +306,17 @@ $kv-px-near-t: 16s;
 
 	// 구름만 위 기준 — 하늘에 떠 있어야 하니까
 	.kvPxCloud {
-		@include kvPxLayer($kv-px-cloud, $kv-px-cloud-w, $kv-px-cloud-t, kvPxCloudFlow, top);
+		@include kvPxLayer($kv-px-cloud-w, $kv-px-cloud-t, kvPxCloudFlow, flex-start);
 	}
 
-	// 산·잔디는 아래 기준 — 땅 높이가 서로 어긋나면 안 됨
-	// .kvPxFar {
-	// 	@include kvPxLayer($kv-px-far, $kv-px-far-w, $kv-px-far-t, kvPxFarFlow);
-	// }
-
-	// .kvPxMid {
-	// 	@include kvPxLayer($kv-px-mid, $kv-px-mid-w, $kv-px-mid-t, kvPxMidFlow);
-	// }
 
 	.kvPxNear {
-		@include kvPxLayer($kv-px-near, $kv-px-near-w, $kv-px-near-t, kvPxNearFlow);
+		@include kvPxLayer($kv-px-near-w, $kv-px-near-t, kvPxNearFlow);
 	}
 }
 
 // 레이어마다 이동거리가 달라 keyframes 도 각각 필요 — 폭과 어긋나지 않게 자동 생성
-@each $name, $w in ('kvPxCloudFlow': $kv-px-cloud-w, 'kvPxFarFlow': $kv-px-far-w, 'kvPxMidFlow': $kv-px-mid-w, 'kvPxNearFlow': $kv-px-near-w) {
+@each $name, $w in ('kvPxCloudFlow': $kv-px-cloud-w, 'kvPxNearFlow': $kv-px-near-w) {
 	@keyframes #{$name} {
 		from {
 			transform: translate3d(0, 0, 0);
@@ -387,10 +356,115 @@ $kv-px-near-t: 16s;
 	.kvLoopTy1 .kvBgFlow,
 	.kvLoopTy2 .kvBgFlow,
 	.kvParallax .kvPxCloud,
-	// .kvParallax .kvPxFar,
-	// .kvParallax .kvPxMid,
 	.kvParallax .kvPxNear {
 		animation: none;
+	}
+}
+
+// ======================================================================
+// 좌우 반복 배경 — bg_step1 / bg_step2 / bg_success / bg_faild (2360x1240)
+// ----------------------------------------------------------------------
+// 그림 한 장을 좌우 가운데에 세우고, 화면이 그림보다 넓을 때 양옆에 남는 자리를
+// 그림의 맨 끝 세로줄(2px)로 repeat-x 해서 끝없이 채웁니다.
+// 화면이 아무리 넓어져도 빈 자리가 생기지 않고, 그림보다 좁으면 채움 폭이
+// 0 이하가 되어 저절로 사라집니다. (CASE 0 .kvStatic 과 같은 방식입니다)
+//
+// [왜 그림을 통째로 repeat-x 하지 않나]
+// 네 그림 모두 하늘과 아래 모래띠는 좌우 끝이 정확히 맞는데, 가운데 언덕선 높이는
+// 좌우가 다릅니다 (원본 기준 — step1·faild 왼쪽 940 / 오른쪽 982,
+// step2 왼쪽 982 / 오른쪽 941, success 왼쪽 984 / 오른쪽 902).
+// 그래서 한 장을 그대로 이어붙이면 이음매마다 언덕 높이가 툭 튑니다.
+// 끝 세로줄만 늘리면 그 줄이 곧 그림의 마지막 줄이라 이음매가 생길 수 없습니다.
+// (step1 오른쪽 982 = step2 왼쪽 982, step2 오른쪽 941 = step1 왼쪽 940 이라
+//  step1 + step2 두 장을 번갈아 이어붙이는 CASE 2 만 통짜로도 이음매가 없습니다)
+//
+// [끝 세로줄 그림은 어떻게 만들었나]
+// 각 jpg 의 x=0 / x=2359 한 줄을 그대로 뽑아 2px 폭으로 저장한 png 입니다
+// (bg_*_edge_l.png / bg_*_edge_r.png, 2x1240). 그림이 새로 오면 같은 이름으로
+// 덮어쓰기만 하면 되고 이 파일은 건드릴 게 없습니다.
+// ======================================================================
+
+// 그림 1장이 그려질 크기 — 원본 2360x1240 의 절반입니다.
+// jpg 라 아래 투명 여백이 없어서 620 이 그대로 보이는 높이가 됩니다
+$kv-fill-width: figmaRem(1180);
+$kv-fill-height: figmaRem(620);
+
+// 좌우 채움 그림은 가로 1:1(2px)로 깔고 세로만 가운데 그림 높이에 맞춥니다
+$kv-fill-edge-w: 2px;
+
+// 모디파이어 → 그림 파일 이름. 그림이 늘면 여기 한 줄만 추가하면 됩니다
+$kv-fill-set: (
+	'tyStep1': 'bg_step1',
+	'tyStep2': 'bg_step2',
+	'tySuccess': 'bg_success',
+	'tyFaild': 'bg_faild'
+);
+
+.kvBgFill {
+	aspect-ratio: auto; // 시안 비율(320:426) 대신 그림 비율에서 나온 아래 높이를 씁니다
+	width: 100%;
+	min-height: $kv-fill-height;
+	overflow: hidden; // 좌우로 흘러나가는 그림을 KV 안에서 잘라냅니다
+	background: none; // 그림이 <img> 로 들어오니 기본 배경(kv_mission)은 비웁니다
+
+	// 가운데 그림 — 화면이 그림보다 좁아져도 가운데를 기준으로 좌우가 똑같이 잘리게
+	// left:50% + -50% 이동을 씁니다
+	.kvBgStill {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		z-index: 0;
+		width: $kv-fill-width;
+		height: auto; // 폭이 배율을 정하고 세로는 그림 비율대로 따라옵니다
+		transform: translateX(-50%);
+		pointer-events: none;
+	}
+
+	// 가운데 그림 양옆에 남는 자리를 끝 세로줄로 이어 채웁니다
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		z-index: 0;
+		// 가운데 그림이 차지하고 남은 한쪽 폭. 1px 은 이음매가 비치지 않게 그림 위로 겹칩니다
+		width: calc((100% - #{$kv-fill-width}) / 2 + 1px);
+		height: $kv-fill-height; // 가운데 그림과 같은 높이로 늘립니다
+		background-repeat: repeat-x;
+		background-size: $kv-fill-edge-w $kv-fill-height;
+		pointer-events: none;
+	}
+
+	// 그림과 맞닿는 쪽(::before 는 오른쪽 끝, ::after 는 왼쪽 끝)에 온전한 한 장이
+	// 오도록 기준을 그 끝에 둡니다. 남는 반 장은 바깥쪽으로 밀려납니다
+	&::before {
+		left: 0;
+		background-position: right top;
+	}
+
+	&::after {
+		right: 0;
+		background-position: left top;
+	}
+
+	// 배경이 position:absolute 라 그냥 두면 문구가 가립니다
+	.kvBadge,
+	.kvTit {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+// 상태별로 달라지는 건 좌우 채움 그림 두 줄뿐입니다
+@each $mod, $file in $kv-fill-set {
+	.kvBgFill.#{$mod} {
+		&::before {
+			background-image: url('#{$imgURL}/images/common/#{$file}_edge_l.png');
+		}
+
+		&::after {
+			background-image: url('#{$imgURL}/images/common/#{$file}_edge_r.png');
+		}
 	}
 }
 

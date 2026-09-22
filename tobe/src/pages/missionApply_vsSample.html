@@ -21,6 +21,15 @@
   것 말고는 마크업이 같습니다. .missionKv 자신의 background 는 움직일 수 없어서
   (뱃지·타이틀까지 같이 움직입니다) 뒤에 깔리는 레이어만 따로 흐르게 한 구조입니다.
 
+  [그림은 CSS background 가 아니라 <img> 입니다]
+  레이어 안에 같은 그림 <img> 를 여러 장 가로로 이어 담아 "띠"를 만들고, 그 띠를 통째로
+  움직입니다. background-repeat 은 화면이 아무리 넓어도 알아서 채워주지만 <img> 는
+  장수만큼만 깔리므로, 한 바퀴를 밀어낸 뒤에도 좌우가 비지 않을 만큼 여유분을 넣어 둡니다.
+  각 케이스의 장수와 그 장수로 감당되는 화면 폭은 아래 케이스별 주석에 적어 뒀습니다.
+  장식이라 alt 는 빈 값이고, 레이어 span 에 aria-hidden 을 걸어 읽히지 않게 합니다.
+  (CASE 0 의 좌우 끝을 메우는 2px 그림만 CSS repeat-x 로 남겨 뒀습니다 — 무한히 반복해야
+  하는 자리라 <img> 로는 장수를 정할 수 없습니다)
+
   KV 는 높이(min-height) 540 · min-width 540 · width 100% 이고,
   그림은 1180x550 으로 좌우 기준 가운데에서 시작해 우 → 좌 로 흐릅니다.
   크기는 전부 figmaRem 이라 화면 폭에 따라 KV 와 그림이 같이 커집니다.
@@ -57,6 +66,8 @@
 
     <!-- @@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", loop="none") -->
     <section class="missionKv kvStatic">
+        <!-- 고정형이라 한 장이면 끝. 좌우에 남는 자리는 CSS(::before/::after)가 채웁니다 -->
+        <img class="kvBgStill" src="../assets/images/common/bg_step1.png" alt="" width="2360" height="1100" decoding="async">
         <span class="kvBadge">자산성장 트래킹 미션</span>
         <h2 class="kvTit">자산 성장을 향한<br>30일 투자 등반</h2>
     </section>
@@ -71,7 +82,16 @@
 
     <!-- @@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", loop="ty1") -->
     <section class="missionKv kvLoopTy1">
-        <span class="kvBgFlow" aria-hidden="true"></span>
+        <!-- 같은 그림 5장. 가운데(3번째)가 KV 한가운데에 오고, 1장 폭만큼 밀어도
+             좌우로 2장씩 여유가 있어 화면 폭 1180x3 까지는 빈 자리가 생기지 않습니다.
+             더 넓은 화면까지 받쳐야 하면 좌우에 2장씩(= 총 7장) 짝수로 늘리세요 -->
+        <span class="kvBgFlow" aria-hidden="true">
+            <img src="../assets/images/common/bg_step1.png" alt="" width="2360" height="1100" decoding="async">
+            <img src="../assets/images/common/bg_step1.png" alt="" width="2360" height="1100" decoding="async">
+            <img src="../assets/images/common/bg_step1.png" alt="" width="2360" height="1100" decoding="async">
+            <img src="../assets/images/common/bg_step1.png" alt="" width="2360" height="1100" decoding="async">
+            <img src="../assets/images/common/bg_step1.png" alt="" width="2360" height="1100" decoding="async">
+        </span>
         <span class="kvBadge">자산성장 트래킹 미션</span>
         <h2 class="kvTit">자산 성장을 향한<br>30일 투자 등반</h2>
     </section>
@@ -86,7 +106,18 @@
 
     <!-- @@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", loop="ty2") -->
     <section class="missionKv kvLoopTy2">
-        <span class="kvBgFlow" aria-hidden="true"></span>
+        <!-- step2 · step1 이 번갈아 7장. 가운데(4번째)가 step1 이고 한 세트(2장)씩 밀리므로
+             밀린 자리에는 늘 같은 그림이 와 있습니다. 좌우 3장씩 여유라 CASE 1 과 같이
+             화면 폭 1180x3 까지 받칩니다. 늘릴 때는 순서가 깨지지 않게 2장씩 짝으로 -->
+        <span class="kvBgFlow" aria-hidden="true">
+            <img src="../assets/images/common/bg_step2.png" alt="" width="2360" height="1098" decoding="async">
+            <img src="../assets/images/common/bg_step1.png" alt="" width="2360" height="1100" decoding="async">
+            <img src="../assets/images/common/bg_step2.png" alt="" width="2360" height="1098" decoding="async">
+            <img src="../assets/images/common/bg_step1.png" alt="" width="2360" height="1100" decoding="async">
+            <img src="../assets/images/common/bg_step2.png" alt="" width="2360" height="1098" decoding="async">
+            <img src="../assets/images/common/bg_step1.png" alt="" width="2360" height="1100" decoding="async">
+            <img src="../assets/images/common/bg_step2.png" alt="" width="2360" height="1098" decoding="async">
+        </span>
         <span class="kvBadge">자산성장 트래킹 미션</span>
         <h2 class="kvTit">자산 성장을 향한<br>30일 투자 등반</h2>
     </section>
@@ -103,15 +134,95 @@
 
     <!-- @@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", loop="parallax") -->
     <section class="missionKv kvParallax">
+        <!-- 해는 그림이 아니라 CSS radial-gradient 라 마크업이 없습니다 -->
         <span class="kvPxSun" aria-hidden="true"></span>
-        <span class="kvPxCloud" aria-hidden="true"></span>
-        <!-- <span class="kvPxFar" aria-hidden="true"></span> -->
-        <!-- <span class="kvPxMid" aria-hidden="true"></span> -->
-        <span class="kvPxNear" aria-hidden="true"></span>
+        <!-- 레이어마다 "되풀이되는 한 세트"를 n번 넣습니다. 띠가 왼쪽 끝에 붙어 한 바퀴만큼
+             왼쪽으로 밀리므로, (n-1) x 한바퀴 만큼의 화면 폭까지 오른쪽이 비지 않습니다.
+             아래는 전부 4720 까지 받치는 장수입니다.
+
+             그림을 2종(cloud1+cloud2 처럼)으로 바꿀 땐 두 장이 한 세트이므로
+             반드시 짝으로 넣으세요. 홀수로 끊으면 순서가 깨져 한 바퀴 도는 중에 그림이 튑니다.
+             폭은 _missionApplyVsSample.scss 의 $kv-px-tiles 에 적으면 이동거리까지 같이 따라갑니다. -->
+        <!-- 구름 — 한 세트 1180 x 5 -->
+        <span class="kvPxCloud" aria-hidden="true">
+            <img src="../assets/images/common/bg_px_cloud.png" alt="" width="2360" height="1100" decoding="async">
+            <img src="../assets/images/common/bg_px_cloud.png" alt="" width="2360" height="1100" decoding="async">
+            <img src="../assets/images/common/bg_px_cloud.png" alt="" width="2360" height="1100" decoding="async">
+            <img src="../assets/images/common/bg_px_cloud.png" alt="" width="2360" height="1100" decoding="async">
+            <img src="../assets/images/common/bg_px_cloud.png" alt="" width="2360" height="1100" decoding="async">
+        </span>
+        <!-- 먼산 — 한 세트 1888 x 4 -->
+        <!-- <span class="kvPxFar" aria-hidden="true">
+            <img src="../assets/images/common/bg_px_far.png" alt="" width="4720" height="1098" decoding="async">
+            <img src="../assets/images/common/bg_px_far.png" alt="" width="4720" height="1098" decoding="async">
+            <img src="../assets/images/common/bg_px_far.png" alt="" width="4720" height="1098" decoding="async">
+            <img src="../assets/images/common/bg_px_far.png" alt="" width="4720" height="1098" decoding="async">
+        </span> -->
+        <!-- 중간산 — 한 세트 2120 x 4 -->
+        <!-- <span class="kvPxMid" aria-hidden="true">
+            <img src="../assets/images/common/bg_px_mid.png" alt="" width="4720" height="1094" decoding="async">
+            <img src="../assets/images/common/bg_px_mid.png" alt="" width="4720" height="1094" decoding="async">
+            <img src="../assets/images/common/bg_px_mid.png" alt="" width="4720" height="1094" decoding="async">
+            <img src="../assets/images/common/bg_px_mid.png" alt="" width="4720" height="1094" decoding="async">
+        </span> -->
+        <!-- 앞잔디 — 한 세트 2360 x 3 -->
+        <span class="kvPxNear" aria-hidden="true">
+            <img src="../assets/images/common/mountain1.png" alt="" decoding="async">
+            <img src="../assets/images/common/mountain2.png" alt="" decoding="async">
+            <img src="../assets/images/common/mountain1.png" alt="" decoding="async">
+        </span>
         <span class="kvBadge">자산성장 트래킹 미션</span>
         <h2 class="kvTit">자산 성장을 향한<br>30일 투자 등반</h2>
     </section>
     <!-- //@@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", loop="parallax") -->
+
+    <!-- ==================================================================
+         좌우 반복 배경 — bg_step1 / bg_step2 / bg_success / bg_faild
+         그림(2360x1240)을 좌우 가운데에 세우고, 화면이 그림보다 넓을 때 양옆에
+         남는 자리는 그림의 맨 끝 세로줄 2px(bg_*_edge_l / bg_*_edge_r)을
+         repeat-x 로 이어 채웁니다. 화면을 늘렸다 줄였다 해 보세요.
+
+         끝 세로줄은 그림의 마지막 줄 그대로라 이음매가 생길 수 없습니다.
+         (그림을 통째로 repeat-x 하면 좌우 끝 언덕 높이가 서로 달라 이음매마다
+          땅이 툭 튑니다 — 자세한 값은 _missionApplyVsSample.scss 주석에)
+
+         상태만 바꾸려면 section 의 ty* 클래스와 <img> 의 src 를 같이 바꾸면 됩니다.
+         ================================================================== -->
+    <h3 class="vsCaseTit">좌우 반복 배경 — 4종
+        <span class="vsCaseDesc">그림 한 장을 가운데에 두고 양옆은 끝 세로줄(2px)을 repeat-x 로 끝없이 채웁니다<br>(넓은 화면에서도 빈 자리가 없고, 좁아지면 채움이 저절로 사라집니다)</span>
+    </h3>
+
+    <!-- @@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", bg="step1") -->
+    <section class="missionKv kvBgFill tyStep1">
+        <img class="kvBgStill" src="../assets/images/common/bg_step1.jpg" alt="" width="2360" height="1240" decoding="async">
+        <span class="kvBadge">자산성장 트래킹 미션</span>
+        <h2 class="kvTit">자산 성장을 향한<br>30일 투자 등반</h2>
+    </section>
+    <!-- //@@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", bg="step1") -->
+
+    <!-- @@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", bg="step2") -->
+    <section class="missionKv kvBgFill tyStep2">
+        <img class="kvBgStill" src="../assets/images/common/bg_step2.jpg" alt="" width="2360" height="1240" decoding="async">
+        <span class="kvBadge">자산성장 트래킹 미션</span>
+        <h2 class="kvTit">자산 성장을 향한<br>30일 투자 등반</h2>
+    </section>
+    <!-- //@@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", bg="step2") -->
+
+    <!-- @@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", bg="success") -->
+    <section class="missionKv kvBgFill tySuccess">
+        <img class="kvBgStill" src="../assets/images/common/bg_success.jpg" alt="" width="2360" height="1240" decoding="async">
+        <span class="kvBadge">자산성장 트래킹 미션</span>
+        <h2 class="kvTit">자산 성장을 향한<br>30일 투자 등반</h2>
+    </section>
+    <!-- //@@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", bg="success") -->
+
+    <!-- @@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", bg="faild") -->
+    <section class="missionKv kvBgFill tyFaild">
+        <img class="kvBgStill" src="../assets/images/common/bg_faild.jpg" alt="" width="2360" height="1240" decoding="async">
+        <span class="kvBadge">자산성장 트래킹 미션</span>
+        <h2 class="kvTit">자산 성장을 향한<br>30일 투자 등반</h2>
+    </section>
+    <!-- //@@MissionKv: props(badge="자산성장 트래킹 미션", title="자산 성장을 향한\n30일 투자 등반", bg="faild") -->
 
     <!-- 미션 소개 -->
     <!-- @@IntroSec: props(title="자산성장 트래킹 미션이란?") -->

@@ -1,18 +1,19 @@
 ﻿@use 'abstracts' as *;
+@use 'abstracts/theme'; // :root 의 --color-xxx 토큰 — 전체 빌드에서 여기 한 번만 출력됩니다
 @use 'base/fonts';
 @use 'base/base';
 @use 'base/layout';
 
-@use 'components/button';
-@use 'components/form';
-@use 'components/input';
-@use 'components/select';
-@use 'components/pageHead';
-@use 'components/note';
-@use 'components/checkList';
-@use 'components/dotList';
-@use 'components/linkMore';
-@use 'components/confirmBox';
+// @use 'components/button';
+// @use 'components/form';
+// @use 'components/input';
+// @use 'components/select';
+// @use 'components/pageHead';
+// @use 'components/note';
+// @use 'components/checkList';
+// @use 'components/dotList';
+// @use 'components/linkMore';
+// @use 'components/confirmBox';
 
 @use 'pages/mission';
 @use 'pages/missionApply';

@@ -4,18 +4,22 @@
 $kv-badge-bg: #cceFde; // 키비주얼 뱃지 배경
 $kv-badge-txt: #007d40; // 키비주얼 뱃지 글자
 $intro-deco: #28aa74; // 소개 영역 상단 초록 장식
-// $kv-sky: #cfe9fd; // 키비주얼 이미지 로딩 전 하늘색
+$kv-sky: #cfe9fd; // 키비주얼 이미지 로딩 전 하늘색
 
 // ----------------------------------------------------------------------
 // MissionKv — 상단 키비주얼
 // 뱃지와 타이틀이 이미지 위에 얹힙니다. 이미지 비율(320:426)은 시안 그대로라
 // 화면 폭이 달라져도 구도가 유지됩니다.
+//
+// _missionApply.scss 의 .missionKv 와 같은 내용입니다. 이 파일이 뒤에 로드돼
+// 그쪽을 덮어쓰므로, 한쪽만 고치면 신청 페이지의 키비주얼이 같이 틀어집니다.
+// 案 확정 후 이 파일을 지우면 _missionApply.scss 쪽만 남습니다.
 // ----------------------------------------------------------------------
 .missionKv {
 	position: relative;
 	aspect-ratio: 320 / 426;
 	padding-top: figmaRem(26);
-	background: url('#{$imgURL}/images/mission/kv_mission.png') no-repeat center top / cover;
+	background: $kv-sky url('#{$imgURL}/images/mission/kv_mission.png') no-repeat center top / cover;
 	text-align: center;
 	box-sizing: border-box;
 
@@ -484,5 +488,111 @@ $kv-fill-set: (
 		color: $txt-tertiary;
 		font-size: $fs-15;
 		font-weight: 300;
+	}
+}
+
+
+// ======================================================================
+// 알아두세요 — '확인해주세요!' 접힘/펼침 카드
+// ----------------------------------------------------------------------
+// 기존 .confirmAcc (pages/_missionApply.scss) 는 좌우 꽉 차는 전체폭에 위쪽
+// 굵은 구분선이 붙는 형태입니다. 이 案은 테두리 있는 흰 카드로 바꾸고
+// 섹션 라벨('알아두세요')을 카드 위에 따로 둡니다.
+//
+// [심사필 줄은 왜 접힘 영역 밖에 있나]
+// 준법감시인 심사필은 접어도 늘 보여야 하는 문구라 .noticeAccBody 바깥에
+// .noticeAccFix 로 따로 둡니다. 접으면 헤더 + 이 한 줄만 남습니다.
+//
+// [여는 동작]
+// .noticeAcc 에 .isOpen 을 토글하세요. 붙는 건 클래스 하나뿐이고 나머지는
+// 여기서 처리합니다 (화살표 회전 · 본문 노출 · 심사필 윗간격).
+// 버튼의 aria-expanded 도 같이 true/false 로 바꿔 주세요.
+//
+// 案이 정해지면 이 블록을 _missionApply.scss 의 .confirmAcc 자리로 옮기고
+// 클래스 이름만 confirmAcc* 로 되돌리면 됩니다. 이름을 따로 쓴 건 기존
+// .confirmAcc 와 겹치지 않게 하려는 것뿐입니다.
+// ======================================================================
+
+$notice-border: rgb(var(--color-182)); // 카드 테두리 — 연한 회색 (다크에서 자동으로 어두워집니다)
+$notice-gap: figmaRem(16); // 항목 사이 간격 — .dotList 의 li + li 간격과 같은 값입니다
+
+.noticeSec {
+	padding: figmaRem(24) figmaRem(20) 0;
+	box-sizing: border-box;
+
+	// 카드 위 회색 라벨 — 카드 바깥이라 테두리에 닿지 않습니다
+	.noticeSecTit {
+		margin-bottom: figmaRem(10);
+		color: $txt-tertiary;
+		font-size: $fs-16;
+		font-weight: 500;
+		line-height: 1.4;
+	}
+}
+
+.noticeAcc {
+	padding: 0 figmaRem(18);
+	border: 1px solid $notice-border;
+	border-radius: figmaRem(10);
+	background-color: rgb(var(--theme-bg));
+	box-sizing: border-box;
+
+	// 크기·굵기는 버튼이 정합니다. 문서 구조상 제목 단계(h2/h3)가 바뀌어도
+	// 모양이 따라 흔들리지 않게 브라우저 기본값을 지워 둡니다.
+	.noticeAccHead {
+		font-size: inherit;
+		font-weight: inherit;
+	}
+
+	.btnNoticeAcc {
+		position: relative;
+		display: block;
+		width: 100%;
+		padding: figmaRem(18) figmaRem(28) figmaRem(18) 0;
+		color: $txt-primary;
+		font-size: $fs-18;
+		font-weight: 700;
+		line-height: 1.4;
+		text-align: left;
+
+		// 화살표 — 기존 .btnConfirmAcc 와 같은 그림입니다.
+		// 선 색이 SVG 안에 박혀 있어 다크모드에서 어두운 채로 남습니다.
+		// 기존 컴포넌트도 같은 방식이라 맞춰 뒀고, 고칠 땐 둘을 같이 고쳐야 합니다.
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 0;
+			width: figmaRem(20);
+			height: figmaRem(20);
+			margin-top: figmaRem(-10);
+			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9.5L12 15.5L18 9.5' stroke='rgba(34, 34, 34, 1)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / contain;
+			transition: transform 0.2s;
+		}
+	}
+
+	.noticeAccBody {
+		display: none;
+	}
+
+	// 심사필 — 접힌 상태에서는 헤더 아래 여백(18)이 그대로 윗간격이 됩니다
+	.noticeAccFix {
+		padding-bottom: figmaRem(18);
+	}
+
+	// 펼친 상태
+	&.isOpen {
+		.btnNoticeAcc::after {
+			transform: rotate(180deg);
+		}
+
+		.noticeAccBody {
+			display: block;
+		}
+
+		// 본문 마지막 항목과 이어지므로 항목 사이 간격을 그대로 줍니다
+		.noticeAccFix {
+			margin-top: $notice-gap;
+		}
 	}
 }
